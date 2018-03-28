@@ -1,0 +1,1170 @@
+fileFormatVersion: 2
+guid: 656c0e5ebce9e9d4696a7d6f8b304253
+timeCreated: 1521123454
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: bricks1
+    21300002: lightwallend
+    21300004: bigwindow
+    21300006: smallwindow
+    21300008: purplewallend1
+    21300010: purplewallmid1
+    21300012: bigroof
+    21300014: shortroof
+    21300016: bricks2
+    21300018: weirdroof
+    21300020: noroofroof
+    21300022: wallANDbricks1
+    21300024: wallANDbricksOUTLINE
+    21300026: purplewallend2
+    21300028: purplewallmid2
+    21300030: lightwallmid
+    21300032: Pixel_art_house_40
+    21300034: Pixel_art_house_41
+    21300036: Pixel_art_house_42
+    21300038: Pixel_art_house_43
+    21300040: Pixel_art_house_44
+    21300042: Pixel_art_house_45
+    21300044: Pixel_art_house_46
+    21300046: Pixel_art_house_47
+    21300048: Pixel_art_house_48
+    21300050: greywallSMALL
+    21300052: planepillar
+    21300054: bigpillar
+    21300056: smallpillar
+    21300058: smallplanepillar
+    21300060: bigchimneytop
+    21300062: greywallBIG
+    21300064: purplewallend3
+    21300066: texturedplainwall
+    21300068: purplewallwithbricks
+    21300070: Pixel_art_house_59
+    21300072: Pixel_art_house_60
+    21300074: Pixel_art_house_61
+    21300076: Pixel_art_house_62
+    21300078: pillarwithgap
+    21300080: smallchimneytop
+    21300082: midchimneytop
+    21300084: Pixel_art_house_67
+    21300086: Pixel_art_house_68
+    21300088: Pixel_art_house_69
+    21300090: Pixel_art_house_70
+    21300092: Pixel_art_house_71
+    21300094: Pixel_art_house_72
+    21300096: Pixel_art_house_73
+    21300098: Pixel_art_house_74
+    21300100: Pixel_art_house_75
+    21300102: Pixel_art_house_76
+    21300104: Pixel_art_house_77
+    21300106: Pixel_art_house_78
+    21300108: Pixel_art_house_79
+    21300110: Pixel_art_house_80
+    21300112: Pixel_art_house_81
+    21300114: Pixel_art_house_82
+    21300116: Pixel_art_house_83
+    21300118: Pixel_art_house_84
+    21300120: Pixel_art_house_85
+    21300122: Pixel_art_house_86
+    21300124: Pixel_art_house_87
+    21300126: Pixel_art_house_88
+    21300128: Pixel_art_house_89
+    21300130: Pixel_art_house_90
+    21300132: Pixel_art_house_91
+    21300134: Pixel_art_house_92
+    21300136: Pixel_art_house_93
+    21300138: Pixel_art_house_94
+    21300140: Pixel_art_house_95
+    21300142: Pixel_art_house_96
+    21300144: Pixel_art_house_97
+    21300146: Pixel_art_house_98
+    21300148: Pixel_art_house_99
+    21300150: Pixel_art_house_100
+    21300152: Pixel_art_house_101
+    21300154: Pixel_art_house_102
+    21300156: Pixel_art_house_103
+    21300158: Pixel_art_house_104
+    21300160: Pixel_art_house_105
+    21300162: Pixel_art_house_106
+    21300164: Pixel_art_house_107
+    21300166: Pixel_art_house_108
+    21300168: Pixel_art_house_109
+    21300170: Pixel_art_house_110
+    21300172: Pixel_art_house_111
+    21300174: Pixel_art_house_112
+    21300176: Pixel_art_house_113
+    21300178: Pixel_art_house_114
+    21300180: Pixel_art_house_115
+    21300182: smallchimneybot
+    21300184: midchimneybot
+    21300186: bigchimneybot
+    21300188: brick1
+    21300190: brick2
+    21300192: brick3
+    21300194: brick4
+    21300196: palewallleft
+    21300198: bigwindow
+    21300200: smallwindow
+    21300202: brick5
+    21300204: brick6
+    21300206: brick7
+    21300208: brick8
+    21300210: purplewalltoptexture
+    21300212: toptexturedplainwall
+    21300214: rooftop
+    21300216: roofwithend
+    21300218: brick9
+    21300220: brick10
+    21300222: brick11
+    21300224: brick12
+    21300226: brick13
+    21300228: brick14
+    21300230: brick15
+    21300232: brick16
+    21300234: brick17
+    21300236: brick18
+    21300238: brick19
+    21300240: brick20
+    21300242: brick21
+    21300244: brick22
+    21300246: brick23
+    21300248: brick24
+    21300250: brick25
+    21300252: brick26
+    21300254: weirdroof
+    21300256: planeroof
+    21300258: purplebrickplain
+    21300260: purplebrickoutline
+    21300262: purplewallplain
+    21300264: smoothplainwall
+    21300266: palewallplain
+    21300268: palebricksmall
+    21300270: bigpillar
+    21300272: bigdoublepillar
+    21300274: smalldoublepillar
+    21300276: smallpillar
+    21300278: bigchimneytop
+    21300280: palebrickbig
+    21300282: purplewallbottomtexture
+    21300284: threepurplebricks
+    21300286: Pixel_art_house_63
+    21300288: pillargap
+    21300290: smllchimneytop
+    21300292: midchimneytop
+    21300294: roofbottom
+    21300296: weirdrooftop
+    21300298: bigchimneybottom
+    21300300: midchimneybottom
+    21300302: smallchimneybottom
+    21300304: weirdroofbottom
+    21300306: Pixel_art_house_0
+    21300308: roofstandard
+    21300310: roofhalf
+    21300312: roofINT
+    21300314: weirdrooftopmiddle
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: -1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: tvOS
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Tizen
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Samsung TV
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: brick1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 510
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 510
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick3
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 509
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick4
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 510
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: palewallleft
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 413
+        width: 99
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bigwindow
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 408
+        width: 75
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: smallwindow
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 423
+        width: 65
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick5
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 494
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick6
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 495
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick7
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 495
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick8
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 495
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: purplewalltoptexture
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 409
+        width: 98
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: toptexturedplainwall
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 411
+        width: 98
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: rooftop
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 492
+        width: 113
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roofwithend
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 448
+        width: 66
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick9
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 474
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick10
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 475
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick11
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 475
+        width: 30
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick12
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 476
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick13
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 444
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick14
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 444
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick15
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 443
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick16
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 444
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick17
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 444
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick18
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 429
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick19
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 429
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick20
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 429
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick21
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 429
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick22
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 428
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick23
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 410
+        width: 29
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick24
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 409
+        width: 30
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick25
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 409
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: brick26
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 408
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: weirdrooftop
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 415
+        width: 109
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: planeroof
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 385
+        width: 66
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: purplebrickplain
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 325
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: purplebrickoutline
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 323
+        width: 69
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: purplewallplain
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 280
+        width: 97
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: smoothplainwall
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 280
+        width: 97
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: palewallplain
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 282
+        width: 97
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: palebricksmall
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 264
+        width: 90
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bigpillar
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 87
+        width: 19
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bigdoublepillar
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 87
+        width: 23
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: smalldoublepillar
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 217
+        width: 23
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: smallpillar
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 235
+        width: 19
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bigchimneytop
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 196
+        width: 40
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: palebrickbig
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 207
+        width: 103
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: purplewallbottomtexture
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 152
+        width: 97
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: texturedplainwall
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 154
+        width: 97
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: threepurplebricks
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 93
+        width: 194
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pillargap
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 93
+        width: 19
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: smllchimneytop
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 136
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: midchimneytop
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 155
+        width: 21
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Pixel_art_house_103
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 39
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Pixel_art_house_111
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 39
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roofbottom
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 447
+        width: 105
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bigchimneybottom
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 109
+        width: 39
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: midchimneybottom
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 117
+        width: 14
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: smallchimneybottom
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 110
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: weirdroofbottom
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 384
+        width: 106
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: weirdrooftopmiddle
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 415
+        width: 68
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roofstandard
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 385
+        width: 66
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roofINT
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 492
+        width: 87
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
