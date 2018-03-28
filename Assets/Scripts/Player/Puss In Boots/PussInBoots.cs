@@ -243,7 +243,7 @@ public class PussInBoots : Cat {
 		isParrying = true;
 		enemyBeingParried = targetEnemy;
 
-//		Time.timeScale = 0.5f;
+		//Time.timeScale = 0.7f;
 
 		animator.SetBool("parrySuccess",true);
 

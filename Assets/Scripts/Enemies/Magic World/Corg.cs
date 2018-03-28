@@ -11,7 +11,6 @@ public class Corg : Enemy {
 
 	public bool movementIsHorizontal; //Defines if the corg moves on the horizontal or vertical axis
 
-	private bool lookingRight;
 
 	private float stunnedTimestamp;
 	// Use this for initialization

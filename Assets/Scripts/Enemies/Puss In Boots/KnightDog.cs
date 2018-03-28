@@ -12,8 +12,6 @@ public class KnightDog : Enemy {
 
 	public float stunTime;
 
-	private bool lookingRight;
-
 	private float stunnedTimestamp;
 
 	public bool isDefending;
@@ -43,8 +41,6 @@ public class KnightDog : Enemy {
 
 		distanceToPlayer = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
 
-        
-
         if (!dying){
 
 			if(!stunned && !prepareForParry && !attacking){ 
@@ -61,7 +57,7 @@ public class KnightDog : Enemy {
 				{
 					Defend();
 				}
-                else if (distanceToPlayer <= attackingRange && !attacking && !isWalking && isDefending == true)
+                else if (distanceToPlayer <= attackingRange && !attacking && !isWalking && isDefending)
                 {
 					StartAttacking();
 				}
@@ -214,6 +210,9 @@ public class KnightDog : Enemy {
 		stunned = true;
 		myAnimator.SetBool("parried",true);
 
+		rightAttackCollider.enabled = false;
+		leftAttackCollider.enabled = false;
+
 	}
 
 	public override void ReceiveParry ()
@@ -229,8 +228,6 @@ public class KnightDog : Enemy {
 		myAnimator.SetBool("prepareDefense",false);
 		myAnimator.SetBool("defending",false);
 
-		rightAttackCollider.enabled = false;
-		leftAttackCollider.enabled = false;
 		canReceiveDamage = true;
 		attacking = false;
 

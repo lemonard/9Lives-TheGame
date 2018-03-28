@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
 	public float speed;
 	public bool receivedDamage;
 	public bool invulnerable;
+	public bool lookingRight;
 
 	private int flashDelay = 2;
 	protected SpriteRenderer mySpriteRenderer;
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour {
 	protected float lifeWhileInvulnerable;
 
 	public float invulnerableSeconds = 1;
+
 
 	protected bool attacking;
 	protected bool dying;
@@ -94,4 +96,6 @@ public class Enemy : MonoBehaviour {
 		}
 
 	}
+
+
 }

@@ -12,9 +12,7 @@ public class WizardDog : Enemy {
     public float walkingRange;
     public float minimumRange;
     public float attackingRange;
-
-    public bool lookingRight;
-
+   
     private bool isWalking;
     private bool doneOnce = false;
 

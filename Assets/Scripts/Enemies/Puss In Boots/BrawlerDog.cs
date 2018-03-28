@@ -2,59 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GiantDog : Enemy
-{
+public class BrawlerDog : Enemy {
 
-    public float walkingRange;
-    public float attackingRange;
-
-    public Collider2D leftAttackCollider;
-    public Collider2D rightAttackCollider;
-
-    public float stunTime;
-
+	public float stunTime;
     private float stunnedTimestamp;
 
-    private bool isWalking;
+	public Collider2D leftAttackCollider;
+    public Collider2D rightAttackCollider;
 
-    public float distanceToPlayer;
+	public Cat player;
 
-    private Cat player;
+	public bool playerInWalkingRange;
+	public bool playerInAttackingRange;
 
+	private bool waiting;
 
-    // Use this for initialization
-    void Start()
-    {
-        player = FindObjectOfType<Cat>();
+	// Use this for initialization
+	void Start () {
+		player = FindObjectOfType<Cat>();
+		canReceiveDamage = true;
         stunnedTimestamp = 0;
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
-        lookingRight = true;
-        canReceiveDamage = false;
         freakoutManager = FindObjectOfType<FreakoutManager>();
-    }
+	}
+	
+	// Update is called once per frame
+	void Update () {
 
-    // Update is called once per frame
-    void Update()
-    {
-
-        distanceToPlayer = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
-
-        if (!dying)
+		if (!dying)
         {
 
-            if (!stunned && !prepareForParry && !attacking)
+            if (!stunned && !prepareForParry && !attacking && !waiting)
             {
 
                 DefineDirectionToLook();
 
-                if (attackingRange < distanceToPlayer && distanceToPlayer <= walkingRange)
+                if (playerInWalkingRange && !playerInAttackingRange)
                 {
-					
-                    myAnimator.SetBool("attacking", false);
                     Walk();
                 }
-                else if (distanceToPlayer <= attackingRange && !attacking && !isWalking)
+				else if (playerInWalkingRange && playerInAttackingRange)
                 {
                     StartAttacking();
                 }
@@ -63,7 +51,13 @@ public class GiantDog : Enemy
                     Idle();
                 }
 
+				if(waiting){
+					Idle();
+				}
+
             }
+
+			
 
         }
 
@@ -72,18 +66,14 @@ public class GiantDog : Enemy
             FinishStun();
         }
 
-        //Death
-        if (life <= 0 && !dying)
+		if (life <= 0 && !dying)
         {
-
             //			source.PlayOneShot (dieSound, 1.0f);
             myAnimator.SetBool("dead", true);
             myAnimator.SetBool("idle", false);
             myAnimator.SetBool("attacking", false);
             myAnimator.SetBool("walking", false);
-
-
-
+           
             dying = true;
             Destroy(GetComponent<Rigidbody2D>());
             Destroy(GetComponent<CircleCollider2D>());
@@ -101,7 +91,6 @@ public class GiantDog : Enemy
         if (invulnerable)
         {
             Flash();
-
         }
 
         //Take Damage
@@ -114,23 +103,16 @@ public class GiantDog : Enemy
         {
             PrepareForParry();
         }
-    }
+	}
 
-    void DefineDirectionToLook()
-    {
-        if (player.transform.position.x > transform.position.x)
-        {
-            lookingRight = true;
-            mySpriteRenderer.flipX = false;
-        }
-        else
-        {
-            lookingRight = false;
-            mySpriteRenderer.flipX = true;
-        }
-    }
+	void FixedUpdate(){
 
-    void Walk()
+		if(!stunned && !prepareForParry && attacking && !waiting){
+				MoveWhileAttacking();
+		}
+	}
+
+	void Walk()
     {
         
         if (lookingRight)
@@ -148,8 +130,49 @@ public class GiantDog : Enemy
 
     }
 
+	void DefineDirectionToLook()
+    {
+        if (player.transform.position.x > transform.position.x)
+        {
+            lookingRight = true;
+            mySpriteRenderer.flipX = false;
+        }
+        else
+        {
+            lookingRight = false;
+            mySpriteRenderer.flipX = true;
+        }
+    }
 
-    void Idle()
+	void PrepareForParry()
+    {
+
+        prepareForParry = false;
+        attacking = false;
+        stunned = true;
+		stunnedTimestamp = Time.time + stunTime;
+        myAnimator.SetBool("parried", true);
+
+		rightAttackCollider.enabled = false;
+        leftAttackCollider.enabled = false;
+
+    }
+
+    public override void ReceiveParry()
+    {
+        base.ReceiveParry();
+        stunnedTimestamp = Time.time + stunTime;
+		myAnimator.SetBool("stunned", true);
+        myAnimator.SetBool("parried", false);
+        myAnimator.SetBool("idle", false);
+        myAnimator.SetBool("attacking", false);
+        myAnimator.SetBool("walking", false);
+
+     
+
+    }
+
+	void Idle()
     {
         myAnimator.SetBool("idle", true);
         myAnimator.SetBool("attacking", false);
@@ -158,9 +181,6 @@ public class GiantDog : Enemy
 
     }
 
-
-    
-
     void StartAttacking()
     {
 
@@ -168,6 +188,23 @@ public class GiantDog : Enemy
         myAnimator.SetBool("attacking", true);
         myAnimator.SetBool("walking", false);
         myAnimator.SetBool("idle", false);
+
+
+    }
+
+    void MoveWhileAttacking(){
+
+    	print("Being called and attacking is: " + attacking);
+		print("And stunned is: " + stunned);
+
+		if (lookingRight)
+        {
+            GetComponent<Rigidbody2D>().transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+        else
+        { // Move left if is looking left
+            GetComponent<Rigidbody2D>().transform.position += Vector3.left * speed * Time.deltaTime;
+        }
     }
 
     public void ActivateAttackCollider()
@@ -191,42 +228,14 @@ public class GiantDog : Enemy
         leftAttackCollider.enabled = false;
         myAnimator.SetBool("attacking", false);
         Idle();
+		StartCoroutine(StartWaiting());
     }
 
-    void PrepareForParry()
-    {
-        prepareForParry = false;
-        attacking = false;
-        stunned = true;
-        myAnimator.SetBool("parried", true);
-
-		rightAttackCollider.enabled = false;
-		leftAttackCollider.enabled = false;
-
-    }
-
-    public override void ReceiveParry()
-    {
-        base.ReceiveParry();
-        stunnedTimestamp = Time.time + stunTime;
-		myAnimator.SetBool("stunned", true);
-        myAnimator.SetBool("parried", false);
-
-
-        myAnimator.SetBool("idle", false);
-        myAnimator.SetBool("attacking", false);
-        myAnimator.SetBool("walking", false);
-
-        canReceiveDamage = true;
-
-    }
-
-    void FinishStun()
+	void FinishStun()
     {
         stunned = false;
         myAnimator.SetBool("stunned", false);
         myAnimator.SetBool("idle", true);
-        canReceiveDamage = false;
 		attacking = false;
 
     }
@@ -240,4 +249,13 @@ public class GiantDog : Enemy
     {
         freakoutManager.RemoveEnemie(this.gameObject);
     }
+
+    IEnumerator StartWaiting(){
+
+    	waiting = true;
+    	yield return new WaitForSeconds(2f);
+    	waiting = false;
+
+    }
+
 }
