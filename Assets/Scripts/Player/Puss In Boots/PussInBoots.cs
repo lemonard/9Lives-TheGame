@@ -196,6 +196,7 @@ public class PussInBoots : Cat {
 		rightParryPoint.enabled = false;
 		leftParryPoint.enabled = false;
 
+		isParrying = false;
 		invulnerable = false;
 
 		animator.SetBool("parryStance",false);
@@ -217,7 +218,7 @@ public class PussInBoots : Cat {
 	public void ParryStance(){ //The player was not interrupted during preparation to the stance and the parry stance is active
 
 		invulnerable = true;
-		 invulnerableTimeStamp = Time.time + parryingTime; 
+		invulnerableTimeStamp = Time.time + parryingTime; 
 		startedParryStance = false;
 		parryStanceActivated = true;
 		 
@@ -239,13 +240,11 @@ public class PussInBoots : Cat {
 		
 		rightParryPoint.enabled = false;
 		leftParryPoint.enabled = false;
-		parryStanceActivated = false;
 		isParrying = true;
 		enemyBeingParried = targetEnemy;
 
 //		Time.timeScale = 0.5f;
 
-		animator.SetBool("parryStance",false);
 		animator.SetBool("parrySuccess",true);
 
 		myAudioSource.PlayOneShot (swordParry);
@@ -270,11 +269,15 @@ public class PussInBoots : Cat {
 	{
 		if (receivedDamage && life > 0) {
 
-			if(startedParryStance || parryStanceActivated){
+			if((startedParryStance || parryStanceActivated) && !isParrying){
 				CancelParryStance();
+			}else{
+				animator.SetBool("damage",true);
 			}
-			animator.SetBool("damage",true);
+		
 			ToggleInvinsibility ();
+			
+
 		}
 	}
 
@@ -289,10 +292,10 @@ public class PussInBoots : Cat {
 	}
 
 
-
 	IEnumerator StartParryTimer(){
 
-		yield return new WaitForSeconds(parryingTime);
+		yield return new WaitForSeconds(parryingTime + 0.1f);
+
 		if(parryStanceActivated){
 			CancelParryStance();
 		}
