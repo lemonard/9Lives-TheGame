@@ -36,6 +36,8 @@ public class Enemy : MonoBehaviour {
 
 	protected FreakoutManager freakoutManager;
 
+	protected float lastPositionX;
+
 	// Use this for initialization
 	void Start () {
 		

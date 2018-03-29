@@ -32,6 +32,7 @@ public class KnightDog : Enemy {
 		isDefending = false;
 		canReceiveDamage = false;
         freakoutManager = FindObjectOfType<FreakoutManager>();
+		lastPositionX = transform.position.x;
     }
 
  
@@ -39,6 +40,7 @@ public class KnightDog : Enemy {
     // Update is called once per frame
     void Update () {
 
+		transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
 		distanceToPlayer = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
 
         if (!dying){
@@ -117,6 +119,8 @@ public class KnightDog : Enemy {
 		if(prepareForParry){
 			PrepareForParry();
 		}
+
+		lastPositionX = transform.position.x;
 	}
 
 	void DefineDirectionToLook(){

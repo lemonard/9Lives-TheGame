@@ -21,6 +21,7 @@ public class GiantDog : Enemy
 
     private Cat player;
 
+   
 
     // Use this for initialization
     void Start()
@@ -32,11 +33,13 @@ public class GiantDog : Enemy
         lookingRight = true;
         canReceiveDamage = false;
         freakoutManager = FindObjectOfType<FreakoutManager>();
+		lastPositionX = transform.position.x;
     }
 
     // Update is called once per frame
     void Update()
     {
+		transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
 
         distanceToPlayer = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
 
@@ -114,6 +117,8 @@ public class GiantDog : Enemy
         {
             PrepareForParry();
         }
+
+		lastPositionX = transform.position.x;
     }
 
     void DefineDirectionToLook()

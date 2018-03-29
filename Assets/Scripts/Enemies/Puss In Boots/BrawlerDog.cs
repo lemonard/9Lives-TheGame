@@ -25,10 +25,13 @@ public class BrawlerDog : Enemy {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
         freakoutManager = FindObjectOfType<FreakoutManager>();
+		lastPositionX = transform.position.x;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
 
 		if (!dying)
         {
@@ -51,13 +54,15 @@ public class BrawlerDog : Enemy {
                     Idle();
                 }
 
-				if(waiting){
-					Idle();
-				}
-
             }
 
-			
+			if(!stunned && !prepareForParry && attacking && !waiting){
+					MoveWhileAttacking();
+			}
+
+			if(waiting){
+				Idle();
+			}
 
         }
 
@@ -103,14 +108,10 @@ public class BrawlerDog : Enemy {
         {
             PrepareForParry();
         }
+
+		lastPositionX = transform.position.x;
 	}
 
-	void FixedUpdate(){
-
-		if(!stunned && !prepareForParry && attacking && !waiting){
-				MoveWhileAttacking();
-		}
-	}
 
 	void Walk()
     {

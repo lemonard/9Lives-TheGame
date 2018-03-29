@@ -52,6 +52,7 @@ public class Cat : MonoBehaviour {
 	protected bool isWalking;
 	public bool isFalling;
 	protected bool isAttacking;
+	protected bool canWalk;
 
 //	public LayerMask groundLayer;
     public bool isOnGround;
@@ -71,6 +72,7 @@ public class Cat : MonoBehaviour {
 
     // Use this for initialization
     protected virtual void Start () {
+    	canWalk = true;
 		animator = GetComponent<Animator>();
 		mySpriteRenderer = GetComponent<SpriteRenderer>();
 		myRigidBody2D = GetComponent<Rigidbody2D>();
@@ -103,8 +105,9 @@ public class Cat : MonoBehaviour {
 		isWalking = true;
 		isLookingRight = false; 
 
+
 		myRigidBody2D.transform.position += Vector3.left * speed * Time.deltaTime;
-		mySpriteRenderer.flipX = true;
+		ChangeLookingDirection();
 
 	
 	}
@@ -170,9 +173,7 @@ public class Cat : MonoBehaviour {
 			isJumping = false;
 			isFalling = false;
 			myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
-//			animator.SetBool("flying", false);
 			animator.SetBool("jumping", false);
-//			animator.SetBool("falling",false);
 	}
 
 	public void ChangeLookingDirection(){
@@ -205,8 +206,21 @@ public class Cat : MonoBehaviour {
             health.heal = true;
         }
 
-		if(other.gameObject.tag == "Ground" || other.gameObject.tag == "InvisiblePlatform" || other.gameObject.tag == "Enemy"){
+		if(other.gameObject.tag == "Ground" || other.gameObject.tag == "InvisiblePlatform"){
 			CheckIfGrounded();
+		}
+
+		if(other.gameObject.tag == "Enemy"){
+			CheckIfGrounded();
+			canWalk = false;
+		}
+    }
+
+    void OnCollisionExit2D(Collision2D other){
+
+		if(other.gameObject.tag == "Enemy"){
+			CheckIfGrounded();
+			canWalk = true;
 		}
     }
 
@@ -227,15 +241,23 @@ public class Cat : MonoBehaviour {
 
 		Vector3 position = transform.position;
 		Vector2 direction = Vector2.down;
+		Vector2 direction2 = new Vector2(-0.2f,-1);
+		Vector2 direction3 = new Vector2(0.2f,-1);
 		float distance = 0.5f;
 		if (!FourLeggedCat) {
 			distance = 1f;
 		}
 
 		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Enemies","Ground"));
-		Debug.DrawRay(position, direction, Color.green);
 
-		if(hit.collider != null){
+
+		RaycastHit2D hit2 = Physics2D.Raycast(position,direction2,distance,LayerMask.GetMask("Enemies","Ground"));
+		Debug.DrawRay(position, direction2, Color.green);
+
+		RaycastHit2D hit3 = Physics2D.Raycast(position,direction3,distance,LayerMask.GetMask("Enemies","Ground"));
+
+
+		if(hit.collider != null || hit2.collider != null || hit3.collider != null){
 			IsGrounded();
 		}
 
