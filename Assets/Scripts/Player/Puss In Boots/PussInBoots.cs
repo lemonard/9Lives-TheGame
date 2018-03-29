@@ -32,6 +32,8 @@ public class PussInBoots : Cat {
 	public AudioClip swordParry;
 	public AudioClip swordHit;
 
+	private Coroutine parryCoroutine;
+
 	void Awake(){
 		rightAttackingPoint.enabled = false;
 		leftAttackingPoint.enabled = false;
@@ -85,7 +87,7 @@ public class PussInBoots : Cat {
 			animator.SetBool("freakout",true);
 		}
 
-		if(!isDying && !freakoutMode){
+		if(!isDying && !freakoutMode && !UIBeingShown){
 
 			if(!isAttacking && !parryStanceActivated  && !startedParryStance  && !isParrying){
 
@@ -151,12 +153,20 @@ public class PussInBoots : Cat {
 			if(myRigidBody2D.velocity.y < -1){
 				isFalling = true;
 			}
+
+
 		}
 
 		CheckInvulnerableTimeStamp ();
 
 		if (invulnerable && !isParrying && !parryStanceActivated) {
 			Flash ();
+		}
+
+		if(isParrying){
+			if(animator.GetCurrentAnimatorStateInfo(0).IsName("PussInBootsParrySuccess") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
+				FinishedParrySuccess();
+			}
 		}
 
 		CheckIfDamageReceived ();
@@ -205,7 +215,9 @@ public class PussInBoots : Cat {
 
 	void StartParryStance(){ //Starts the preparation to the parry stance
 
-		StopCoroutine(StartParryTimer()); //Kills the last parry stance timer
+		if(parryCoroutine != null){
+			StopCoroutine(parryCoroutine); //Kills the last parry stance timer
+		}
 		startedParryStance = true;
 
 		//Start animation to prepare for stance
@@ -223,7 +235,7 @@ public class PussInBoots : Cat {
 		parryStanceActivated = true;
 		 
 		ActivateParryCollider(); // Activate the collider
-		StartCoroutine(StartParryTimer()); //Starts the timer
+		parryCoroutine = StartCoroutine(StartParryTimer()); //Starts the timer
 	}
 
 	public void ActivateParryCollider(){
@@ -237,7 +249,7 @@ public class PussInBoots : Cat {
 
 	public void ParrySuccess(Enemy targetEnemy){ 
 
-		
+		StopCoroutine(parryCoroutine);
 		rightParryPoint.enabled = false;
 		leftParryPoint.enabled = false;
 		isParrying = true;

@@ -32,6 +32,7 @@ public class Cat : MonoBehaviour {
 	public bool invulnerable;
     public bool freakoutMode;
 	public bool FourLeggedCat;
+	public bool UIBeingShown;
 
 
 	public KeyCode moveRightKey;
@@ -51,7 +52,7 @@ public class Cat : MonoBehaviour {
 	public bool isJumping;
 	protected bool isWalking;
 	public bool isFalling;
-	protected bool isAttacking;
+	public bool isAttacking;
 	protected bool canWalk;
 
 //	public LayerMask groundLayer;

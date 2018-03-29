@@ -84,12 +84,14 @@ public class Health : MonoBehaviour
 				cat.life = m_maxHealth;
 			}
             heal = false;
+
             if (m_numHealth > m_maxHealth)
             {
                 m_numHealth = m_maxHealth;
             }
             else
             {
+				m_numHealth = cat.life - 1;
                 m_heart[m_numHealth].GetComponent<Image>().sprite = m_FullHeart;
             }
         }

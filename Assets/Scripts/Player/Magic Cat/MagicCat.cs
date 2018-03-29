@@ -32,6 +32,7 @@ public class MagicCat : Cat {
 	private float levitateCooldownTimeStamp = 0;
 	private Coroutine levitateCoroutine;
 	// Use this for initialization
+
 	protected override void Start ()
 	{
 		base.Start ();
@@ -64,7 +65,7 @@ public class MagicCat : Cat {
 			animator.SetBool("freakout",true);
 		}
 
-		if(!isDying && !freakoutMode){
+		if(!isDying && !freakoutMode && !UIBeingShown){
 
 			if(!isAttacking && !isPulsing){
 
@@ -109,22 +110,8 @@ public class MagicCat : Cat {
 					}
 				}
 
-//				if ((!isOnGround && doubleJump > 0 && isJumping && Input.GetKeyDown(jumpKey) && canLevitate) || (!isOnGround && doubleJump > 0 && isJumping && Input.GetButtonDown(jumpGamepadButton) && canLevitate))
-//                {
-//					Levitate ();
-//                }
-//
-////                if(isFalling)
-////                {
-////                    animator.SetBool("jumping", false);
-////                }
-//                
-//                if(isOnGround)
-//                {
-//                    doubleJump = 0;
-//                }
-
                 if (Input.GetKeyDown (shootKey) || Input.GetButtonDown(shootMagicGamepadButton)){
+					
 					StartProjectile();
 				}
 
@@ -151,6 +138,12 @@ public class MagicCat : Cat {
 		CheckIfDamageReceived ();
 
 		CheckDeath ();
+
+		if(isAttacking){
+			if(animator.GetCurrentAnimatorStateInfo(0).IsName("MagicCatAttaking") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
+				FinishProjectile();
+			}
+		}
 	}
 
 //    private void FixedUpdate()
@@ -207,12 +200,15 @@ public class MagicCat : Cat {
 
 	private void StartProjectile(){
 
+		
 		isAttacking = true;
 		animator.SetBool("projectile", true);
+
 	}
 
 	public void FireProjectile(){
 
+		animator.SetBool("idle", false);
 		if(isLookingRight){
 			Instantiate(projectile,rightFiringPoint.position,Quaternion.identity);
 		} else {
@@ -223,6 +219,7 @@ public class MagicCat : Cat {
 	public void FinishProjectile(){
 		
 		isAttacking = false;
+		animator.SetBool("idle", true);
 		animator.SetBool("projectile", false);
 	}
 
@@ -246,4 +243,6 @@ public class MagicCat : Cat {
 
 		isPulsing = false;
 	}
+
+
 }

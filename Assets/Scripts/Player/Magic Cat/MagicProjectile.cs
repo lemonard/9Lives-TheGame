@@ -6,7 +6,7 @@ public class MagicProjectile : MonoBehaviour {
 	[SerializeField]
 	float speed;
 	[SerializeField]
-	float timeToDestroy;
+	public float timeToDestroy;
 
 	private Cat player;
 	public bool goRight;

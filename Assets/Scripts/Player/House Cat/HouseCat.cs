@@ -17,7 +17,7 @@ public class HouseCat : Cat {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!isDying){
+		if(!isDying && !UIBeingShown){
 
 			if(!isAttacking){
 
