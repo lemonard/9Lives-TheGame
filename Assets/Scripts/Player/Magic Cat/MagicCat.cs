@@ -102,10 +102,10 @@ public class MagicCat : Cat {
 						if (!isJumping) {
                             
 							Jump ();
-						} else {
-							if (!levitate && canLevitate) {
+						}
+					}else{
+						if (!levitate && canLevitate && isJumping) {
 								Levitate ();
-							}
 						}
 					}
 				}
