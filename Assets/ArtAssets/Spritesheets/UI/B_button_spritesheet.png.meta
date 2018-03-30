@@ -1,13 +1,17 @@
 fileFormatVersion: 2
-guid: 2901252e1f59946328e4c8b61d5972a1
-timeCreated: 1522282588
+guid: 02fc25f01f4664b24b5c5d5808ddc7c3
+timeCreated: 1522387249
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: GiantDog_ParryStart_spritesheet_0
-    21300002: GiantDog_ParryStart_spritesheet_1
-    21300004: GiantDog_ParryStart_spritesheet_2
-    21300006: GiantDog_ParryStart_spritesheet_3
+    21300000: B_button_spritesheet_0
+    21300002: B_button_spritesheet_1
+    21300004: B_button_spritesheet_2
+    21300006: B_button_spritesheet_3
+    21300008: B_button_spritesheet_4
+    21300010: B_button_spritesheet_5
+    21300012: B_button_spritesheet_6
+    21300014: B_button_spritesheet_7
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -90,52 +94,104 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GiantDog_ParryStart_spritesheet_0
+      name: B_button_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 150
-        width: 220
-        height: 150
+        y: 80
+        width: 32
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: GiantDog_ParryStart_spritesheet_1
+      name: B_button_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 220
-        y: 150
-        width: 220
-        height: 150
+        x: 32
+        y: 80
+        width: 32
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: GiantDog_ParryStart_spritesheet_2
+      name: B_button_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: B_button_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: B_button_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 40
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: B_button_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 40
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: B_button_spritesheet_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 220
-        height: 150
+        width: 32
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: GiantDog_ParryStart_spritesheet_3
+      name: B_button_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 220
+        x: 32
         y: 0
-        width: 220
-        height: 150
+        width: 32
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

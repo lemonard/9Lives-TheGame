@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b5481222296774c68956c570394cfa13
-timeCreated: 1522124792
+timeCreated: 1522282603
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -98,9 +98,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 260
+        y: 300
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,9 +111,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 220
-        y: 260
+        y: 300
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,9 +124,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 440
-        y: 260
+        y: 300
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,9 +137,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 130
+        y: 150
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,9 +150,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 220
-        y: 130
+        y: 150
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,9 +163,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 440
-        y: 130
+        y: 150
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,7 +178,7 @@ TextureImporter:
         x: 0
         y: 0
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,7 +191,7 @@ TextureImporter:
         x: 220
         y: 0
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7471506b60f2742809c066577863f40d
-timeCreated: 1522124556
+timeCreated: 1522279975
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,6 +12,7 @@ TextureImporter:
     21300010: GiantDog_Attacking_spritesheet_5
     21300012: GiantDog_Attacking_spritesheet_6
     21300014: GiantDog_Attacking_spritesheet_7
+    21300016: GiantDog_Attacking_spritesheet_8
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -98,9 +99,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 260
+        y: 300
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,9 +112,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 220
-        y: 260
+        y: 300
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,9 +125,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 440
-        y: 260
+        y: 300
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,9 +138,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 130
+        y: 150
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,9 +151,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 220
-        y: 130
+        y: 150
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,9 +164,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 440
-        y: 130
+        y: 150
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,7 +179,7 @@ TextureImporter:
         x: 0
         y: 0
         width: 220
-        height: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,7 +192,20 @@ TextureImporter:
         x: 220
         y: 0
         width: 220
-        height: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GiantDog_Attacking_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 220
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
