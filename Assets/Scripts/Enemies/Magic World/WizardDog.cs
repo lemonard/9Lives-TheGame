@@ -55,7 +55,7 @@ public class WizardDog : Enemy {
                    
                     if (Random.value > 0.7 && !attacking)
                     {
-                        CreateShield();
+                        //CreateShield();
                     }
                     else
                     {
@@ -161,16 +161,16 @@ public class WizardDog : Enemy {
     void StartAttacking()
     {
         attacking = true;
-        //myAnimator.SetBool("attacking", true);
+        myAnimator.SetBool("attacking", true);
         myAnimator.SetBool("walking", false);
         myAnimator.SetBool("idle", false);
 
 
-        if (doneOnce == false)
+        /*if (doneOnce == false)
         {
             FireProjectile();// this will function differently when there is an animation to tie it to.
             doneOnce = true;
-        }
+        }*/
         Debug.Log("Happening");
         attacking = false;
         Walk();
