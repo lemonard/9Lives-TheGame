@@ -78,83 +78,86 @@ public class PussInBoots : Cat {
 	// Update is called once per frame
 	void Update () {
 
-		if(Input.GetButtonDown(returnToHubGamepadButton) || Input.GetKeyDown(returnToHubKey)){
-			ReturnToHub();
-		}
+		if(!controlersDisabled){
+			if(Input.GetButtonDown(returnToHubGamepadButton) || Input.GetKeyDown(returnToHubKey)){
+				ReturnToHub();
+			}
 
-		if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isJumping && !isAttacking && !isParrying && !startedParryStance && !parryStanceActivated && ready){
-			freakoutMode = true;
-			animator.SetBool("freakout",true);
-		}
+			if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isJumping && !isAttacking && !isParrying && !startedParryStance && !parryStanceActivated && ready){
+				freakoutMode = true;
+				animator.SetBool("freakout",true);
+			}
 
-		if(!isDying && !freakoutMode && !UIBeingShown){
+			if(!isDying && !freakoutMode){
 
-			if(!isAttacking && !parryStanceActivated  && !startedParryStance  && !isParrying){
+				if(!isAttacking && !parryStanceActivated  && !startedParryStance  && !isParrying){
 
-				if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
-					MoveRight ();
-				} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-					MoveLeft ();
-				} else {
-					Idle();
-				}
+					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
+						MoveRight ();
+					} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+						MoveLeft ();
+					} else {
+						Idle();
+					}
 
-				//Nick
-				if (isClimbing)
-				{
-                    if(Input.GetButton("Vertical") || Input.GetAxisRaw("Vertical") > 0.5f || (Input.GetAxis("Vertical") >= 0.5f ||
-                        Input.GetButton("Vertical") || Input.GetAxisRaw("Vertical") < -0.5f || (Input.GetAxis("Vertical") <= -0.5f ||
-                        Input.GetKey(moveRightKey) || (Input.GetAxis(moveHorizontalGamepadAxis) >= 0.5f || 
-                        Input.GetKey(moveLeftKey) || (Input.GetAxis(moveHorizontalGamepadAxis) <= -0.5f)))))
-                    {
-                        animator.speed = 1;
-                    }
-                    else
-                    {
-                        animator.speed = 0;
-                    }
-                    //This is conjested and ugly like crazy but it's all to get the climbing animation to stop while he's not moving
-                    
-
-					if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0 || (Input.GetAxis("Vertical") >= 0.5f))
+					//Nick
+					if (isClimbing)
 					{
-						myRigidBody2D.transform.position += Vector3.up * climbSpeed * Time.deltaTime;
-                    }
+	                    if(Input.GetButton("Vertical") || Input.GetAxisRaw("Vertical") > 0.5f || (Input.GetAxis("Vertical") >= 0.5f ||
+	                        Input.GetButton("Vertical") || Input.GetAxisRaw("Vertical") < -0.5f || (Input.GetAxis("Vertical") <= -0.5f ||
+	                        Input.GetKey(moveRightKey) || (Input.GetAxis(moveHorizontalGamepadAxis) >= 0.5f || 
+	                        Input.GetKey(moveLeftKey) || (Input.GetAxis(moveHorizontalGamepadAxis) <= -0.5f)))))
+	                    {
+	                        animator.speed = 1;
+	                    }
+	                    else
+	                    {
+	                        animator.speed = 0;
+	                    }
+	                    //This is conjested and ugly like crazy but it's all to get the climbing animation to stop while he's not moving
+	                    
 
-					if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") < 0 || (Input.GetAxis("Vertical") <= -0.5f))
-					{
-						myRigidBody2D.transform.position += -Vector3.up * climbSpeed * Time.deltaTime;
-                    }
-				}
+						if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0 || (Input.GetAxis("Vertical") >= 0.5f))
+						{
+							myRigidBody2D.transform.position += Vector3.up * climbSpeed * Time.deltaTime;
+	                    }
+
+						if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") < 0 || (Input.GetAxis("Vertical") <= -0.5f))
+						{
+							myRigidBody2D.transform.position += -Vector3.up * climbSpeed * Time.deltaTime;
+	                    }
+					}
 
 
 
-				if(Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)){
+					if(Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)){
 
-					if(!isFalling){
+						if(!isFalling){
 
-						if(!isJumping){
-							Jump();
-						} 
+							if(!isJumping){
+								Jump();
+							} 
+						}
+					}
+
+					if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isClimbing){
+						StartAttack();
+					}
+
+					if((Input.GetKeyDown(parryKey ) || Input.GetButtonDown(parryGamepadButton)) && !isJumping && !isFalling && !isClimbing)
+	                {
+						StartParryStance();
 					}
 				}
 
-				if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isClimbing){
-					StartAttack();
+
+
+				if(myRigidBody2D.velocity.y < -1){
+					isFalling = true;
 				}
 
-				if((Input.GetKeyDown(parryKey ) || Input.GetButtonDown(parryGamepadButton)) && !isJumping && !isFalling && !isClimbing)
-                {
-					StartParryStance();
-				}
+
 			}
-
-
-			if(myRigidBody2D.velocity.y < -1){
-				isFalling = true;
-			}
-
-
 		}
 
 		CheckInvulnerableTimeStamp ();

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4511087508029382}
   - component: {fileID: 212082803791063784}
   - component: {fileID: 95659443302849612}
-  - component: {fileID: 114195577276720874}
   - component: {fileID: 61859935281448976}
   - component: {fileID: 50951834199487840}
   - component: {fileID: 114475784322230424}
@@ -39,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1640920341208202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.508831, y: -1.9579854, z: 0}
+  m_LocalPosition: {x: -2.355245, y: -1.8173628, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,17 +106,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114195577276720874
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1640920341208202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d7ab2f967cec43a58d9aa220d3298bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114475784322230424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,6 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ed6736c2bab4a919a841b99606e779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectionParticleEffectPrefab: {fileID: 1953849350782592, guid: 0cce85a9f2ad2fa4992deb5325701de8,
+    type: 2}
+  collectSound: {fileID: 0}
   yarnValue: 1
 --- !u!212 &212082803791063784
 SpriteRenderer:
@@ -139,6 +130,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -154,6 +146,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -171,3 +164,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0

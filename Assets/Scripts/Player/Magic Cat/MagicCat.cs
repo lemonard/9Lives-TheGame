@@ -46,10 +46,12 @@ public class MagicCat : Cat {
 
 		yVelocity = myRigidBody2D.velocity.y;
 
-		if(!finishedLevel){
-			DefaultControl();
-		} else {
-			FinishLevel();
+		if(!controlersDisabled){
+			if(!finishedLevel ){
+				DefaultControl();
+			} else {
+				FinishLevel();
+			}
 		}
 
 	}
@@ -65,7 +67,7 @@ public class MagicCat : Cat {
 			animator.SetBool("freakout",true);
 		}
 
-		if(!isDying && !freakoutMode && !UIBeingShown){
+		if(!isDying && !freakoutMode){
 
 			if(!isAttacking && !isPulsing){
 

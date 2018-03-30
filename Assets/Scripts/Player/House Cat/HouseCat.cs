@@ -17,40 +17,42 @@ public class HouseCat : Cat {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!isDying && !UIBeingShown){
+		if(!controlersDisabled){
+			if(!isDying){
 
-			if(!isAttacking){
+				if(!isAttacking){
 
-				if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
-					MoveRight ();
-				} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-					MoveLeft ();
-				} else {
-					Idle();
-				}
-
-				if(Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)){
-					if(!isFalling){
-
-						if(!isJumping){
-							Jump();
-						} 
+					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
+						MoveRight ();
+					} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+						MoveLeft ();
+					} else {
+						Idle();
 					}
+
+					if(Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)){
+						if(!isFalling){
+
+							if(!isJumping){
+								Jump();
+							} 
+						}
+					}
+
+	//				if(isFalling)
+	//				{
+	//					animator.SetBool("jumping", false);
+	//				}
+
+					if((Input.GetKeyDown (enterPortalKey) || Input.GetButtonDown(enterPortalGamepadButton)) && isNearPortal ){
+						EnterPortal();
+					}
+
 				}
 
-//				if(isFalling)
-//				{
-//					animator.SetBool("jumping", false);
-//				}
-
-				if((Input.GetKeyDown (enterPortalKey) || Input.GetButtonDown(enterPortalGamepadButton)) && isNearPortal ){
-					EnterPortal();
+				if(myRigidBody2D.velocity.y < -1){
+					isFalling = true;
 				}
-
-			}
-
-			if(myRigidBody2D.velocity.y < -1){
-				isFalling = true;
 			}
 		}
 

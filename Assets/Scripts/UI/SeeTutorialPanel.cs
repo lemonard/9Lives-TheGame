@@ -26,7 +26,7 @@ public class SeeTutorialPanel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		FindObjectOfType<Cat>().UIBeingShown = true;
+		FindObjectOfType<Cat>().DisableControls();
 		playerAccepted = true;
 
 		acceptText.color = new Color(selectedColor.r,selectedColor.g,selectedColor.b);
@@ -79,7 +79,7 @@ public class SeeTutorialPanel : MonoBehaviour {
 
 	void SelectCurrentOption(){
 
-		FindObjectOfType<Cat>().UIBeingShown = false;
+		FindObjectOfType<Cat>().EnableControls();
 
 		if(!playerAccepted){
 			SceneManager.LoadScene(SceneToGoIfRefused);

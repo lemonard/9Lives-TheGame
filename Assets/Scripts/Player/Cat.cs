@@ -32,7 +32,7 @@ public class Cat : MonoBehaviour {
 	public bool invulnerable;
     public bool freakoutMode;
 	public bool FourLeggedCat;
-	public bool UIBeingShown;
+	public bool controlersDisabled;
 
 
 	public KeyCode moveRightKey;
@@ -170,7 +170,6 @@ public class Cat : MonoBehaviour {
 
 	public void IsGrounded(){
 
-
 			isJumping = false;
 			isFalling = false;
 			myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
@@ -192,33 +191,38 @@ public class Cat : MonoBehaviour {
 		}
 
         // Increases the fill for the freakout bar
-        if(other.gameObject.tag == "FOBPickUp")
-        {
-            // TODO:: if (other.name == "BigFill"){ freakoutManager.percentage *= 5;} // Add this when we want to make the pickup worth more percentage or less percentage.
-            Destroy(other.gameObject);
-            freakoutManager.IncreaseFBBar();
-        }
+//        if(other.gameObject.tag == "FOBPickUp")
+//        {
+//            // TODO:: if (other.name == "BigFill"){ freakoutManager.percentage *= 5;} // Add this when we want to make the pickup worth more percentage or less percentage.
+//            Destroy(other.gameObject);
+//            freakoutManager.IncreaseFBBar();
+//        }
 
         // Increases the fill for the freakout bar
-        if (other.gameObject.tag == "HealthPickUp")
-        {
-            Destroy(other.gameObject);
-            Health health = gameObject.GetComponent<Health>();
-            health.heal = true;
-        }
+//        if (other.gameObject.tag == "HealthPickUp")
+//        {
+//            Destroy(other.gameObject);
+//            Health health = gameObject.GetComponent<Health>();
+//            health.heal = true;
+//        }
 
-		if(other.gameObject.tag == "Ground" || other.gameObject.tag == "InvisiblePlatform"){
+		if(other.gameObject.tag == "Ground" || other.gameObject.tag == "InvisiblePlatform" || other.gameObject.tag == "Enemy"){
 			CheckIfGrounded();
 		}
 
-		if(other.gameObject.tag == "Enemy"){
-			CheckIfGrounded();
-		}
     }
 
 
 	protected void ReturnToHub(){
 		SceneManager.LoadScene(0);
+	}
+
+	public void EnableControls(){
+		controlersDisabled = false;
+	}
+
+	public void DisableControls(){
+		controlersDisabled = true;
 	}
 
 	protected void Freakout(){
