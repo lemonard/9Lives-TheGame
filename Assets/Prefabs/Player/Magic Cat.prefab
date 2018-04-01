@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013509495590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.209949, y: -2.8466744, z: 0}
+  m_LocalPosition: {x: -1.2301307, y: -5.0102916, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000012185433658}
@@ -267,6 +267,7 @@ MonoBehaviour:
   invulnerable: 0
   freakoutMode: 0
   FourLeggedCat: 1
+  controlersDisabled: 0
   moveRightKey: 100
   moveLeftKey: 97
   jumpKey: 119
@@ -280,21 +281,25 @@ MonoBehaviour:
   freakoutGamepadButton: Y
   isJumping: 0
   isFalling: 0
+  isAttacking: 0
+  isSliding: 0
   isOnGround: 0
   finishedLevel: 0
   isNearStatue: 0
   nearestStatue: {fileID: 0}
   freakoutManager: {fileID: 0}
+  startingPoint: {fileID: 0}
   ready: 0
   currencyAmount: 0
+  currentCheckpoint: {x: 0, y: 0, z: 0}
   rightFiringPoint: {fileID: 4000012185433658}
   leftFiringPoint: {fileID: 4000014056030826}
   projectile: {fileID: 1000011127756894, guid: f2da800d5b24ef9479c525d80830c598, type: 2}
   magicPulsePrefab: {fileID: 1000012325980664, guid: 24710f146458af741ad4e846a3942cd1,
     type: 2}
-  shootMagicGamepadButton: B
-  magicPulseGamepadButton: X
-  returnToHubGamepadButton: Start
+  shootMagicGamepadButton: X
+  magicPulseGamepadButton: B
+  returnToHubGamepadButton: Select
   tempPos: {x: 0, y: 0, z: 0}
   shootKey: 32
   magicPulseKey: 102

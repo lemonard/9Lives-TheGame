@@ -147,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011068365884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.76, y: -1.595, z: 0}
+  m_LocalPosition: {x: -3.41, y: -1.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000014010082980}
@@ -447,6 +447,7 @@ MonoBehaviour:
   invulnerable: 0
   freakoutMode: 0
   FourLeggedCat: 0
+  controlersDisabled: 0
   moveRightKey: 100
   moveLeftKey: 97
   jumpKey: 119
@@ -460,22 +461,26 @@ MonoBehaviour:
   freakoutGamepadButton: Y
   isJumping: 0
   isFalling: 0
+  isAttacking: 0
+  isSliding: 0
   isOnGround: 0
   finishedLevel: 0
   isNearStatue: 0
   nearestStatue: {fileID: 0}
   freakoutManager: {fileID: 0}
+  startingPoint: {fileID: 0}
   ready: 0
   currencyAmount: 0
+  currentCheckpoint: {x: 0, y: 0, z: 0}
   rightAttackingPoint: {fileID: 61000011350227940}
   leftAttackingPoint: {fileID: 61000013992905124}
   rightParryPoint: {fileID: 61000011034689126}
   leftParryPoint: {fileID: 61000012856621444}
   parryingTime: 0.2
   climbSpeed: 2
-  parryGamepadButton: X
-  attackGamepadButton: B
-  returnToHubGamepadButton: Start
+  parryGamepadButton: B
+  attackGamepadButton: X
+  returnToHubGamepadButton: Select
   returnToHubKey: 117
   attackKey: 32
   parryKey: 102
@@ -542,7 +547,7 @@ MonoBehaviour:
   m_HealthObj: {fileID: 1717954280401114, guid: 15638cf31861bf546aa7c8416cc75013,
     type: 2}
   m_HealthParent: {fileID: 0}
-  numOfLives: 6
+  numOfLives: 7
   damage: 0
   heal: 0
 --- !u!212 &212000010330715730

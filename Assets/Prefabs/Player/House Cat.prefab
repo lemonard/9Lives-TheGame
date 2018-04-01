@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011885954846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.273962, y: -2.1709805, z: 0}
+  m_LocalPosition: {x: 0, y: -0.021, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -208,6 +208,7 @@ MonoBehaviour:
   invulnerable: 0
   freakoutMode: 0
   FourLeggedCat: 1
+  controlersDisabled: 0
   moveRightKey: 100
   moveLeftKey: 97
   jumpKey: 119
@@ -221,17 +222,21 @@ MonoBehaviour:
   freakoutGamepadButton: 
   isJumping: 0
   isFalling: 0
+  isAttacking: 0
+  isSliding: 0
   isOnGround: 0
   finishedLevel: 0
   isNearStatue: 0
   nearestStatue: {fileID: 0}
   freakoutManager: {fileID: 0}
+  startingPoint: {fileID: 0}
   ready: 0
   currencyAmount: 0
+  currentCheckpoint: {x: 0, y: 0, z: 0}
   enterPortalKey: 119
   isNearPortal: 0
   nearestPortal: {fileID: 0}
-  enterPortalGamepadButton: B
+  enterPortalGamepadButton: A
 --- !u!212 &212000012154402724
 SpriteRenderer:
   m_ObjectHideFlags: 1

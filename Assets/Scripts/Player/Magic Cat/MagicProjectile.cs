@@ -13,6 +13,7 @@ public class MagicProjectile : MonoBehaviour {
 	private float timeStampToDestroy;
 
 	public GameObject magicShotParticlePrefab;
+	public GameObject magicShotVanishParticlePrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +43,7 @@ public class MagicProjectile : MonoBehaviour {
         }
 
 		if(Time.time > timeStampToDestroy){
+			Instantiate (magicShotVanishParticlePrefab, transform.position, Quaternion.identity);
 			Destroy(gameObject);
 		}
 	}

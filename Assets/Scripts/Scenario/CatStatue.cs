@@ -4,6 +4,15 @@ using System.Collections;
 public class CatStatue : MonoBehaviour {
 
 	public int catIndexToTransform;
+	public Sprite activeStatueSprite;
+
+	public CatType type;
+	public bool active;
+
+	public void Activate(){
+		active = true;
+		GetComponent<SpriteRenderer>().sprite = activeStatueSprite;
+	}
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag == "Player"){
@@ -22,4 +31,7 @@ public class CatStatue : MonoBehaviour {
 			player.nearestStatue = null;
 		}
 	}
+
 }
+
+

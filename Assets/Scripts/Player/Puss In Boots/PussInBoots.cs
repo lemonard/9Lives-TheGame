@@ -92,9 +92,9 @@ public class PussInBoots : Cat {
 
 				if(!isAttacking && !parryStanceActivated  && !startedParryStance  && !isParrying){
 
-					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
+					if ((Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) && !isSliding) {
 						MoveRight ();
-					} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+					} else if ((Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) && !isSliding) {
 						MoveLeft ();
 					} else {
 						Idle();
@@ -140,21 +140,21 @@ public class PussInBoots : Cat {
 						}
 					}
 
-					if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isClimbing){
+					if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isClimbing && !isJumping && !isSliding){
 						StartAttack();
 					}
 
-					if((Input.GetKeyDown(parryKey ) || Input.GetButtonDown(parryGamepadButton)) && !isJumping && !isFalling && !isClimbing)
+					if((Input.GetKeyDown(parryKey ) || Input.GetButtonDown(parryGamepadButton)) && !isJumping && !isFalling && !isClimbing && !isSliding)
 	                {
 						StartParryStance();
 					}
 				}
 
 
-
-				if(myRigidBody2D.velocity.y < -1){
+				if(myRigidBody2D.velocity.y < -1 && !isSliding){
 					isFalling = true;
 				}
+
 
 
 			}
@@ -177,6 +177,38 @@ public class PussInBoots : Cat {
 		CheckDeath ();
 
 	}
+
+	protected override void OnCollisionEnter2D (Collision2D other)
+	{
+		if(other.gameObject.tag == "Ground" || other.gameObject.tag == "InvisiblePlatform" || other.gameObject.tag == "Enemy"){
+			isSliding = false;
+			animator.SetBool("sliding",false);
+			CheckIfGrounded();
+		}
+
+		if(!isSliding && (isJumping || isFalling)){
+			if(other.gameObject.tag == "Slope"){
+				Slide(other.gameObject);
+			}
+		}
+	}
+
+	private void Slide(GameObject slope){
+
+		if(slope.GetComponent<RailSlider>().slideRight){
+			mySpriteRenderer.flipX = false;
+		}else{
+			mySpriteRenderer.flipX = true;
+		}
+
+		isSliding = true;
+		animator.SetBool("jumping",false);
+		animator.SetBool("idle",false);
+		animator.SetBool("sliding",true);
+		CheckIfGrounded();
+
+	}
+
 
 	private void StartAttack(){
 

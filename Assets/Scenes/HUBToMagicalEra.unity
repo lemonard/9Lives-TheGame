@@ -22195,7 +22195,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: Puurfect! Now everything is on your paws!
+  m_Text: Puurfect! Now everything is in your paws!
 --- !u!222 &1875077167
 CanvasRenderer:
   m_ObjectHideFlags: 0

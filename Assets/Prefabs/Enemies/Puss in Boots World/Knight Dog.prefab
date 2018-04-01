@@ -267,9 +267,11 @@ MonoBehaviour:
   droppedItems:
   - {fileID: 1614849787692516, guid: c2732246c0e50ce45a7a9a23797e49aa, type: 2}
   - {fileID: 1351659043273132, guid: 01347e0361368bc42bfdba9500d30b02, type: 2}
+  - {fileID: 1351659043273132, guid: 01347e0361368bc42bfdba9500d30b02, type: 2}
   itemDropRate:
-  - 1
-  - 0.3
+  - 0.7
+  - 0.6
+  - 0.4
   walkingRange: 4
   defenseRange: 2
   attackingRange: 0.7

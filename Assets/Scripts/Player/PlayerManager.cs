@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour {
 		if(!isChangingCat && activeCat.GetComponent<Cat>().isNearStatue){
 
 			if(Input.GetKeyDown(activeCat.GetComponent<Cat>().transformInHubKey) || Input.GetButtonDown(activeCat.GetComponent<Cat>().transformInHubGamepadButton)){
-				if(!activeCat.GetComponent<Cat>().isDying){
+				if(!activeCat.GetComponent<Cat>().isDying && activeCat.GetComponent<Cat>().nearestStatue.active){
 					ChangeCat(activeCat.GetComponent<Cat>().nearestStatue.catIndexToTransform);
 				}
 			}
@@ -61,6 +61,8 @@ public class PlayerManager : MonoBehaviour {
 		activeCat.transform.position = catPosition;
 
 		cameraController.UpdateActiveCat();
+
+		GameManager.instance.UpdateCat(activeCat.GetComponent<Cat>());
 
 		isChangingCat = false;
 	}

@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour {
 	public bool receivedDamage;
 	public bool invulnerable;
 	public bool lookingRight;
+	public EnemySpawner mySpawner;
 
 	private int flashDelay = 2;
 	protected SpriteRenderer mySpriteRenderer;
@@ -84,6 +85,7 @@ public class Enemy : MonoBehaviour {
 
 	virtual public void Disappear(){
 		DropItem ();
+		mySpawner.SetDeadEnemy(this.gameObject.GetInstanceID());
 		Destroy (gameObject);
 	}
 

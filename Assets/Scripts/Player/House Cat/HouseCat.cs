@@ -30,7 +30,7 @@ public class HouseCat : Cat {
 						Idle();
 					}
 
-					if(Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)){
+					if((Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)) && !isNearPortal){
 						if(!isFalling){
 
 							if(!isJumping){
@@ -78,7 +78,8 @@ public class HouseCat : Cat {
 
 	void EnterPortal(){
 		if(nearestPortal != null){
-			nearestPortal.Enter();
+			DisableControls();
+			StartCoroutine(nearestPortal.Enter());
 		}
 	}
 }

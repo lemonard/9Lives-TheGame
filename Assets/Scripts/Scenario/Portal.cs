@@ -4,8 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour {
 
+	public ScreenFade screenFade;
 	public int destinationSceneIndex;
 
+	void Awake(){
+		screenFade = FindObjectOfType<ScreenFade>();
+	}
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag == "Player"){
@@ -25,7 +29,9 @@ public class Portal : MonoBehaviour {
 		}
 	}
 
-	public void Enter(){
+	public IEnumerator Enter(){
+		screenFade.FadeOut();
+		yield return new WaitForSeconds(1f);
 		SceneManager.LoadScene(destinationSceneIndex);
 	}
 }

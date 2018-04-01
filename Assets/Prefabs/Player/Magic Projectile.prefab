@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011127756894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.4016705, y: -0.8340299, z: 0}
+  m_LocalPosition: {x: -12.7108, y: -5.5960217, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -111,6 +111,8 @@ MonoBehaviour:
   timeToDestroy: 1
   goRight: 0
   magicShotParticlePrefab: {fileID: 1098203691662646, guid: ed451f67cc865604687a5fc5babd09b2,
+    type: 2}
+  magicShotVanishParticlePrefab: {fileID: 1554264950948994, guid: d4c30bfc0b42acc448a665ae4d38bc0c,
     type: 2}
 --- !u!212 &212000013435825264
 SpriteRenderer:

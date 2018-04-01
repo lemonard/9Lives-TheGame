@@ -51,6 +51,7 @@ public class Item : MonoBehaviour {
 
 	protected virtual void CollectedEffect(Cat cat){
 		SpawnParticle();
+		AudioManager.instance.PlayItemCollectSound();
 		MakeSound();
 	}
 

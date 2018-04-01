@@ -11,23 +11,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1194496046402858}
   m_IsPrefabParent: 1
---- !u!1 &1142468926906470
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4359446799929024}
-  - component: {fileID: 114043638671781880}
-  - component: {fileID: 61560532951550312}
-  m_Layer: 0
-  m_Name: Portal Distance Checker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1194496046402858
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,7 +21,8 @@ GameObject:
   - component: {fileID: 4412044706665688}
   - component: {fileID: 212169696771739882}
   - component: {fileID: 61498493362543976}
-  - component: {fileID: 114925370701726732}
+  - component: {fileID: 95016650735325734}
+  - component: {fileID: 114231562841525810}
   m_Layer: 0
   m_Name: Fantasy Portal
   m_TagString: Untagged
@@ -46,19 +30,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4359446799929024
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1142468926906470}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4412044706665688}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4412044706665688
 Transform:
   m_ObjectHideFlags: 1
@@ -66,10 +37,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1194496046402858}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.249, y: -6.486, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4359446799929024}
+  m_LocalPosition: {x: 51.25, y: 6.09, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -98,43 +68,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5505802, y: 1.4525061}
   m_EdgeRadius: 0
---- !u!61 &61560532951550312
-BoxCollider2D:
+--- !u!95 &95016650735325734
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1142468926906470}
+  m_GameObject: {fileID: 1194496046402858}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.054382324, y: 0.19540358}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.6567726, y: 2.6774406}
-  m_EdgeRadius: 0
---- !u!114 &114043638671781880
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1142468926906470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beee096d63dbf464ab67f6b4e71000e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114925370701726732
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7938fe0fbde50445aad3e3d660c29f1b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114231562841525810
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -142,10 +93,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1194496046402858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83acfda6470e61f4592827bb48c7c41c, type: 3}
+  m_Script: {fileID: 11500000, guid: f114aee1391896f4cb58e6f2a82cca37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationSceneIndex: 2
+  destinationSceneIndex: 3
+  enterPortalKey: 119
+  enterPortalGamepadButton: B
 --- !u!212 &212169696771739882
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -155,6 +108,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -170,6 +124,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -187,3 +142,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0

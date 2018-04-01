@@ -96,4 +96,31 @@ public class Health : MonoBehaviour
             }
         }
 	}
+
+
+	public void FillHealth(){
+		cat.life = m_maxHealth;
+		m_numHealth = m_maxHealth;
+
+		if(m_heart[0].GetComponent<Image>() == null){
+			if (this.gameObject.name == "Magic Cat")
+	        {
+	            m_maxHealth = numOfLives + m_healthMultiplier;
+	            cat.life = m_maxHealth;
+	            m_totalNumHealth = m_maxHealth;
+	            m_numHealth = m_totalNumHealth;
+	        }
+	        if(this.gameObject.name == "Puss In Boots")
+	        {
+	            m_maxHealth = numOfLives + m_healthMultiplier;
+	            cat.life = m_maxHealth;
+	            m_totalNumHealth = m_maxHealth;
+	            m_numHealth = m_totalNumHealth;
+	        }
+		}	
+
+		for(int i = 0; i < m_heart.Length; i++){
+			m_heart[i].GetComponent<Image>().sprite = m_FullHeart;
+		}
+	}
 }

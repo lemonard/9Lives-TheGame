@@ -1,52 +1,77 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 
-public class FinishLevelTrigger : MonoBehaviour {
+public class FinishLevelTrigger : CutsceneTrigger {
 
-	private Cat player;
-	private CameraController mainCamera;
-	private ScreenFade screenFade;
+	protected CameraController mainCamera;
 
 	public GameObject finishLevelText;
     public int destinationSceneIndex;
+    public int hubSceneIndex;
+
+    public CatType type;
+    public bool lastLevel;
 
     // Use this for initialization
-    void Start () {
-		player = FindObjectOfType<Cat>();
+    protected override void Start () {
+
+    	base.Start();
+
 		mainCamera = FindObjectOfType<CameraController>();
-		screenFade = FindObjectOfType<ScreenFade>();
+	}
+
+	protected override void Update ()
+	{
+		if(alreadyPlayed){
+			if(timeline.time >= timeline.duration || timeline.state != PlayState.Playing){
+
+				player.EnableControls();
+				GameManager.instance.EndStage();
+
+				if(lastLevel){
+					GoToHUB();
+				} else{
+					GoToNextScene();
+				}
+			}
+		}
 	}
 	
-	void OnTriggerEnter2D(Collider2D other){
+	protected override void OnTriggerEnter2D(Collider2D other){
+
+		base.OnTriggerEnter2D(other);
 
 		if(other.gameObject.tag == "Player"){
-			player.finishedLevel = true;
 			mainCamera.follow = false;
-			StartCoroutine(FadeScreenOut());
+
 		}
 
 	}
 
-	IEnumerator FadeScreenOut(){
 
-		yield return new WaitForSeconds(1);
-		screenFade.FadeOut();
-		StartCoroutine(ShowFinishLevelText());
-	}
-
-	IEnumerator ShowFinishLevelText(){
-
-		yield return new WaitForSeconds(1.2f);
-		finishLevelText.SetActive(true);
-        StartCoroutine(ReturnToHUB());
-
+    void GoToNextScene()
+    {
+        SceneManager.LoadScene(destinationSceneIndex);
     }
 
-    IEnumerator ReturnToHUB()
-    {
-        yield return new WaitForSeconds(3.0f);
-        SceneManager.LoadScene(destinationSceneIndex);
+    void GoToHUB(){
+
+		switch(type){
+
+			case(CatType.MagicCat):
+				GameManager.instance.magicCatStageCleared = true;
+			break;
+
+			case(CatType.PussInBoots):
+				GameManager.instance.pussInBootsStageCleared = true;
+			break;
+
+
+		}
+
+    	SceneManager.LoadScene(hubSceneIndex);
     }
 
 }

@@ -53,6 +53,7 @@ public class Cat : MonoBehaviour {
 	protected bool isWalking;
 	public bool isFalling;
 	public bool isAttacking;
+	public bool isSliding;
 
 
 //	public LayerMask groundLayer;
@@ -64,12 +65,15 @@ public class Cat : MonoBehaviour {
 	public CatStatue nearestStatue;
 
 	public FreakoutManager freakoutManager;
+	public Transform startingPoint;
 
     public bool ready;                                          // Checks if the freak out bar is ready.
 
     private LayerMask mask = 1<<8;
 
 	public int currencyAmount = 0;
+
+	public Vector3 currentCheckpoint;
 
     // Use this for initialization
     protected virtual void Start () {
@@ -79,6 +83,7 @@ public class Cat : MonoBehaviour {
 		myRigidBody2D = GetComponent<Rigidbody2D>();
 		myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
 		myAudioSource = GetComponent<AudioSource> ();
+		currentCheckpoint = startingPoint.position;
 	}
 
     private void FixedUpdate()
@@ -134,6 +139,11 @@ public class Cat : MonoBehaviour {
 		myRigidBody2D.velocity = new Vector3(myRigidBody2D.velocity.x,0,0);
 		myRigidBody2D.AddForce(new Vector3(0, jumpForce,0), ForceMode2D.Impulse);
 		isJumping = true;
+		isSliding = false;
+
+		if(animator.GetBool("sliding")){
+			animator.SetBool("sliding",false);
+		}
 		
 	}
 
@@ -185,31 +195,20 @@ public class Cat : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D other){
-		if(other.gameObject.tag == "DeathPit"){
-			FellFromStageDeath ();
-		}
+	protected virtual void OnCollisionEnter2D(Collision2D other){
 
-        // Increases the fill for the freakout bar
-//        if(other.gameObject.tag == "FOBPickUp")
-//        {
-//            // TODO:: if (other.name == "BigFill"){ freakoutManager.percentage *= 5;} // Add this when we want to make the pickup worth more percentage or less percentage.
-//            Destroy(other.gameObject);
-//            freakoutManager.IncreaseFBBar();
-//        }
-
-        // Increases the fill for the freakout bar
-//        if (other.gameObject.tag == "HealthPickUp")
-//        {
-//            Destroy(other.gameObject);
-//            Health health = gameObject.GetComponent<Health>();
-//            health.heal = true;
-//        }
 
 		if(other.gameObject.tag == "Ground" || other.gameObject.tag == "InvisiblePlatform" || other.gameObject.tag == "Enemy"){
 			CheckIfGrounded();
 		}
 
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+		if(other.gameObject.tag == "DeathPit"){
+			FellFromStageDeath ();
+		}
     }
 
 
@@ -238,8 +237,8 @@ public class Cat : MonoBehaviour {
 
 		Vector3 position = transform.position;
 		Vector2 direction = Vector2.down;
-		Vector2 direction2 = new Vector2(-0.2f,-1);
-		Vector2 direction3 = new Vector2(0.2f,-1);
+		Vector2 direction2 = new Vector2(-0.4f,-1);
+		Vector2 direction3 = new Vector2(0.4f,-1);
 		float distance = 0.5f;
 		if (!FourLeggedCat) {
 			distance = 1f;
@@ -322,12 +321,36 @@ public class Cat : MonoBehaviour {
 
 	protected void DeathAnimationFinished()
 	{
-		SceneManager.LoadScene (1);
+		//SceneManager.LoadScene (1);
+		StartCoroutine(RestartLevel());
 	}
 
 	protected void FellFromStageDeath()
 	{
-		SceneManager.LoadScene (1);
+		//SceneManager.LoadScene (1);
+		StartCoroutine(RestartLevel());
+	}
+
+	IEnumerator RestartLevel(){
+		ScreenFade fade = (ScreenFade)FindObjectOfType<ScreenFade>();
+		fade.FadeOut();
+		yield return new WaitForSeconds(1);
+		if(GetComponent<Health>()){
+			GetComponent<Health>().FillHealth();
+		}
+		if(freakoutManager){
+			freakoutManager.ResetBar();
+		}
+		transform.position = currentCheckpoint;
+		animator.SetBool("dying",false);
+		Idle();
+		if(EnemyManager.instance){
+			EnemyManager.instance.RespawnEnemies();
+		}
+		yield return new WaitForSeconds(2);
+		fade.FadeIn();
+		yield return new WaitForSeconds(1);
+		isDying = false;
 	}
 
 }

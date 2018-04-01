@@ -23,6 +23,7 @@ public class SeeTutorialPanel : MonoBehaviour {
 	public string moveHorizontalGamepadAxis;
 	public string confirmGamepadButton;
 
+	public bool alreadyMoved;
 
 	// Use this for initialization
 	void Start () {
@@ -38,19 +39,24 @@ public class SeeTutorialPanel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
+		if (Input.GetKeyDown (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) && !alreadyMoved) {
 			MoveRight ();
-		} else if (Input.GetKeyDown (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+		} else if (Input.GetKeyDown (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f) && !alreadyMoved) {
 			MoveLeft ();
 		}
 
 		if(Input.GetKeyDown (confirmKey) || Input.GetButtonDown(confirmGamepadButton)){
 			SelectCurrentOption();
 		}
+
+		if((Input.GetAxis (moveHorizontalGamepadAxis) >= -0.05 && Input.GetAxis (moveHorizontalGamepadAxis) <= 0.05 )){
+			alreadyMoved = false;
+		}
 		
 	}
 
 	void MoveRight(){
+		alreadyMoved = true;
 		if(playerAccepted){
 
 			playerAccepted = false;
@@ -65,6 +71,7 @@ public class SeeTutorialPanel : MonoBehaviour {
 	}
 
 	void MoveLeft(){
+		alreadyMoved = true;
 		if(playerAccepted){
 			playerAccepted = false;
 			acceptText.color = new Color(notSelectedColor.r,notSelectedColor.g,notSelectedColor.b);

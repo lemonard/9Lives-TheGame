@@ -47,12 +47,8 @@ public class MagicCat : Cat {
 		yVelocity = myRigidBody2D.velocity.y;
 
 		if(!controlersDisabled){
-			if(!finishedLevel ){
-				DefaultControl();
-			} else {
-				FinishLevel();
-			}
-		}
+			DefaultControl();
+		} 
 
 	}
 
@@ -99,17 +95,19 @@ public class MagicCat : Cat {
 //                }
 
 				if(Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)){
+
+					if (!levitate && canLevitate && (isJumping || isFalling)) {
+						Levitate ();
+					}
+
 					if(!isFalling){
 
 						if (!isJumping) {
-                            
 							Jump ();
 						}
-					}else{
-						if (!levitate && canLevitate && isJumping) {
-								Levitate ();
-						}
 					}
+
+
 				}
 
                 if (Input.GetKeyDown (shootKey) || Input.GetButtonDown(shootMagicGamepadButton)){
@@ -144,6 +142,15 @@ public class MagicCat : Cat {
 		if(isAttacking){
 			if(animator.GetCurrentAnimatorStateInfo(0).IsName("MagicCatAttaking") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
 				FinishProjectile();
+			}
+		}
+	}
+
+	protected override void OnCollisionEnter2D (Collision2D other)
+	{
+		if(other.gameObject.tag == "Ground" || other.gameObject.tag == "InvisiblePlatform" || other.gameObject.tag == "Enemy"){
+			if(!levitate){
+				CheckIfGrounded();
 			}
 		}
 	}
@@ -187,6 +194,7 @@ public class MagicCat : Cat {
 		levitate = false;
 		animator.SetBool("levitate", false);
 		myRigidBody2D.gravityScale = 1;
+		CheckIfGrounded();
        
     }
 
@@ -196,9 +204,6 @@ public class MagicCat : Cat {
 //		transform.position = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),0);	
 //	}
 
-	void FinishLevel(){
-		MoveRight();
-	}
 
 	private void StartProjectile(){
 

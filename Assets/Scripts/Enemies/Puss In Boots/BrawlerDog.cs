@@ -195,8 +195,6 @@ public class BrawlerDog : Enemy {
 
     void MoveWhileAttacking(){
 
-    	print("Being called and attacking is: " + attacking);
-		print("And stunned is: " + stunned);
 
 		if (lookingRight)
         {

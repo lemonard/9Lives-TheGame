@@ -46,9 +46,7 @@ public class FreakoutManager : MonoBehaviour {
 		this.cat.invulnerable = true;
 
         // Resets the fill amount.
-        m_fillAmount = 0;
-        UpdateFillAmount();
-        cat.ready = false;
+        ResetBar();
     }
 
     public void IncreaseFBBar()
@@ -107,5 +105,11 @@ public class FreakoutManager : MonoBehaviour {
 				break;
 			}
 		}
+	}
+
+	public void ResetBar(){
+		m_fillAmount = 0;
+        UpdateFillAmount();
+        cat.ready = false;
 	}
 }
