@@ -15,6 +15,7 @@ public class WizardDog : Enemy {
    
     private bool isWalking;
     private bool doneOnce = false;
+    private bool shieldActive = false;
 
     public float distanceToPlayer;
 
@@ -53,20 +54,16 @@ public class WizardDog : Enemy {
                 else if (distanceToPlayer <= attackingRange && !attacking && !isWalking)
                 {
                    
-                    if (Random.value > 0.7 && !attacking)
+                    if (Random.value < 0.3 && !attacking && !shieldActive)
                     {
-                        //CreateShield();
+                        CreateShield();
+                        StartCoroutine(shieldCooldown());
                     }
                     else
                     {
                         StartAttacking();
                     }
                 }
-                /*else if (distanceToPlayer >= attackingRange)
-                {
-                    Debug.Log("This");
-                    FinishAttacking();
-                }*/
                 else
                 {
                     Idle();
@@ -87,7 +84,7 @@ public class WizardDog : Enemy {
             myAnimator.SetBool("idle", false);
             myAnimator.SetBool("attacking", false);
             myAnimator.SetBool("walking", false);
-
+            myAnimator.SetBool("shieldspell", false);
 
             dying = true;
             Destroy(GetComponent<Rigidbody2D>());
@@ -98,6 +95,7 @@ public class WizardDog : Enemy {
         //Toggle invulnerability off
         if (invulnerableTimeStamp < Time.time)
         {
+            myAnimator.SetBool("damaged", false);
             invulnerable = false;
             mySpriteRenderer.enabled = true;
         }
@@ -106,7 +104,7 @@ public class WizardDog : Enemy {
         if (invulnerable)
         {
             Flash();
-
+            myAnimator.SetBool("damaged", true);
         }
 
         //Take Damage
@@ -144,7 +142,8 @@ public class WizardDog : Enemy {
         }
         myAnimator.SetBool("idle", false);
         myAnimator.SetBool("walking", true);
-
+        myAnimator.SetBool("damaged", false);
+        //myAnimator.SetBool("shieldspell", false);
     }
 
 
@@ -155,6 +154,8 @@ public class WizardDog : Enemy {
 
         myAnimator.SetBool("attacking", false);
         myAnimator.SetBool("walking", false);
+        myAnimator.SetBool("damaged", false);
+        //myAnimator.SetBool("shieldspell", false);
     }
 
 
@@ -164,16 +165,14 @@ public class WizardDog : Enemy {
         myAnimator.SetBool("attacking", true);
         myAnimator.SetBool("walking", false);
         myAnimator.SetBool("idle", false);
-
+        myAnimator.SetBool("damaged", false);
 
         /*if (doneOnce == false)
         {
             FireProjectile();// this will function differently when there is an animation to tie it to.
             doneOnce = true;
         }*/
-        Debug.Log("Happening");
-        attacking = false;
-        Walk();
+
     }
 
     public void FireProjectile()
@@ -197,15 +196,25 @@ public class WizardDog : Enemy {
         attacking = false;
 
         doneOnce = false;
-        //myAnimator.SetBool("attacking", false);
+        myAnimator.SetBool("attacking", false);
         Walk();
     }
 
 
     void CreateShield()
     {
-       GameObject newShield = Instantiate(shield, transform.position, Quaternion.identity);
-       newShield.transform.SetParent(this.gameObject.GetComponent<Transform>());
+        myAnimator.SetBool("attacking", false);
+        myAnimator.SetBool("shieldspell", true);
+        shieldActive = true;
+        GameObject newShield = Instantiate(shield, transform.position, Quaternion.identity);
+        newShield.transform.SetParent(this.gameObject.GetComponent<Transform>());
+    }
+
+    //ends shield animation, attached in animation
+    void stopBarking()
+    {
+        myAnimator.SetBool("shieldspell", false);
+        Walk();
     }
 
     void OnBecameVisible()
@@ -217,4 +226,12 @@ public class WizardDog : Enemy {
     {
         freakoutManager.RemoveEnemie(this.gameObject);
     }
+
+
+    IEnumerator shieldCooldown()
+    {
+        yield return new WaitForSeconds(3);
+        shieldActive = false;
+    }
+
 }

@@ -3,7 +3,38 @@ guid: 66643a164b19a004daa585527e426712
 timeCreated: 1522372581
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: shieldAnim.particle_0
+    21300002: shieldAnim.particle_1
+    21300004: shieldAnim.particle_2
+    21300006: shieldAnim.particle_3
+    21300008: shieldAnim.particle_4
+    21300010: shieldAnim.particle_5
+    21300012: shieldAnim.particle_6
+    21300014: shieldAnim.particle_7
+    21300016: shieldAnim.particle_8
+    21300018: shieldAnim.particle_9
+    21300020: shieldAnim.particle_10
+    21300022: shieldAnim.particle_11
+    21300024: shieldAnim.particle_12
+    21300026: shieldAnim.particle_13
+    21300028: shieldAnim.particle_14
+    21300030: shieldAnim.particle_15
+    21300032: shieldAnim.particle_16
+    21300034: shieldAnim.particle_17
+    21300036: shieldAnim.particle_18
+    21300038: shieldAnim.particle_19
+    21300040: shieldAnim.particle_20
+    21300042: shieldAnim.particle_21
+    21300044: shieldAnim.particle_22
+    21300046: shieldAnim.particle_23
+    21300048: shieldAnim.particle_24
+    21300050: shieldAnim.particle_25
+    21300052: shieldAnim.particle_26
+    21300054: shieldAnim.particle_27
+    21300056: shieldAnim.particle_28
+    21300058: shieldAnim.particle_29
+    21300060: shieldAnim.particle_30
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -31,7 +62,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -40,7 +71,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -61,7 +92,37 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -69,7 +130,441 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: shieldAnim.particle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 510
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 510
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 510
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 510
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_4
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 510
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_5
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 510
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 408
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_7
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 408
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_8
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 408
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_9
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 408
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_10
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 408
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_11
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 408
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 306
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_13
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 306
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_14
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 306
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_15
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 306
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_16
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 306
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_17
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 306
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 204
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_19
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 204
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_20
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 204
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_21
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 204
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_22
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 204
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_23
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 204
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 102
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_25
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 102
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_26
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 102
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_27
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 102
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_28
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 102
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_29
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 102
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: shieldAnim.particle_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 150
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

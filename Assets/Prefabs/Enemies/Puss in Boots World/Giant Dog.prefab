@@ -72,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1703898050204380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 68.15, y: -1.9794056, z: -0.578125}
+  m_LocalPosition: {x: 12.54, y: 7.38, z: -0.578125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4522540812499322}
@@ -138,7 +138,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5328114, y: -0.03840983}
+  m_Offset: {x: 0.46859717, y: -0.14195567}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -149,7 +149,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5826092, y: 0.6787548}
+  m_Size: {x: 0.49857378, y: 0.8858465}
   m_EdgeRadius: 0
 --- !u!61 &61994110641138012
 BoxCollider2D:
@@ -167,7 +167,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.2, y: 1.3}
+    oldSize: {x: 2.2, y: 1.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -188,7 +188,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5106149, y: -0.03840983}
+  m_Offset: {x: -0.46859717, y: -0.14569598}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -199,7 +199,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5826092, y: 0.6787548}
+  m_Size: {x: 0.49857378, y: 0.8933271}
   m_EdgeRadius: 0
 --- !u!95 &95999497773541264
 Animator:
@@ -247,6 +247,7 @@ MonoBehaviour:
   receivedDamage: 0
   invulnerable: 0
   lookingRight: 0
+  mySpawner: {fileID: 0}
   invulnerableSeconds: 1
   prepareForParry: 0
   stunned: 0
@@ -291,6 +292,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -306,6 +308,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -323,3 +326,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0

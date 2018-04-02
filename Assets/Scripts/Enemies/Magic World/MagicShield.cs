@@ -11,19 +11,10 @@ public class MagicShield : MonoBehaviour {
         StartCoroutine(selfDestruct());
     }
 
-
-    // Use this for initialization
-   /* private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "PlayerProjectile")
-        {
-            //collision.gameObject.GetComponent<MagicProjectile>().goRight = !collision.gameObject.GetComponent<MagicProjectile>().goRight;
-        }
-    }*/
-
+    //shield duration, change the number to alter duration
     IEnumerator selfDestruct()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3.5f);
         Destroy(this.gameObject);
     }
 }

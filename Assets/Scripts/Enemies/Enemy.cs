@@ -85,7 +85,9 @@ public class Enemy : MonoBehaviour {
 
 	virtual public void Disappear(){
 		DropItem ();
-		mySpawner.SetDeadEnemy(this.gameObject.GetInstanceID());
+		if (mySpawner != null) {
+			mySpawner.SetDeadEnemy (this.gameObject.GetInstanceID ());
+		}
 		Destroy (gameObject);
 	}
 
