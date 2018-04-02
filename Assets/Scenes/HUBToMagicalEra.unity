@@ -1520,7 +1520,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 313975634}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: -0.67, z: 0}
+  m_LocalPosition: {x: 1, y: 2.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1248913382}
@@ -12553,7 +12553,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: 1
-  speedX: 15
+  moveTo: {x: 0, y: 0, z: 0}
+  speedX: 28
   speedY: 4
   yTolerance: 1.2
   xTolerance: 0
@@ -12563,7 +12564,10 @@ MonoBehaviour:
   leftTolerance: {fileID: 872006634}
   rightBorder: {fileID: 2014042901}
   rightTolerance: {fileID: 836728219}
-  cameraLimit: {fileID: 1703236416}
+  leftCameraLimit: {fileID: 0}
+  rightCameraLimit: {fileID: 0}
+  topCameraLimit: {fileID: 0}
+  downCameraLimit: {fileID: 0}
 --- !u!81 &1248913378
 AudioListener:
   m_ObjectHideFlags: 0

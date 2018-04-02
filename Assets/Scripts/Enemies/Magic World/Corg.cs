@@ -164,7 +164,9 @@ public class Corg : Enemy {
 	public override void Disappear ()
 	{
 		DropItem ();
-		mySpawner.SetDeadEnemy(this.transform.parent.gameObject.GetInstanceID());
+		if (mySpawner != null) {
+			mySpawner.SetDeadEnemy (this.transform.parent.gameObject.GetInstanceID ());
+		}
 		Destroy (this.transform.parent.gameObject);
 	}
 }
