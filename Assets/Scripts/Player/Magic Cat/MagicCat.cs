@@ -185,6 +185,7 @@ public class MagicCat : Cat {
 	}
     
 	void CancelLevitate(){
+
 		StopCoroutine (levitateCoroutine);
 		canLevitate = false;
 		levitateCooldownTimeStamp = Time.time + levitateCooldown;
@@ -192,6 +193,7 @@ public class MagicCat : Cat {
 		animator.SetBool("levitate", false);
 		myRigidBody2D.gravityScale = 1;
 		CheckIfGrounded();
+		BroomCooldownIndicator.instance.StartCooldown();
 	}
 
     IEnumerator LevitateOff()
@@ -205,6 +207,7 @@ public class MagicCat : Cat {
 		animator.SetBool("levitate", false);
 		myRigidBody2D.gravityScale = 1;
 		CheckIfGrounded();
+		BroomCooldownIndicator.instance.StartCooldown();
        
     }
 
