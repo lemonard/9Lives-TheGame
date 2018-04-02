@@ -52,6 +52,7 @@ public class EnemySpawner : MonoBehaviour {
 					enemiesInfo[i].enemieObject.GetComponent<Enemy>().mySpawner = this;
 				}
 
+				enemiesInfo[i].enemieID = enemie.GetInstanceID();
 				enemiesInfo[i].isDead = false;
 			}else{
 				enemiesInfo[i].enemieObject.transform.position = enemiesInfo[i].startingPosition;

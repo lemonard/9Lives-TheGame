@@ -16,16 +16,18 @@ public class PauseMenu : MonoBehaviour {
 
 	private bool playerAccepted;
 
-	public KeyCode moveRightKey;
-	public KeyCode moveLeftKey;
+	public KeyCode moveUpKey;
+	public KeyCode moveDownKey;
 	public KeyCode confirmKey;
 
-	public string moveHorizontalGamepadAxis;
+	public string moveVerticalGamepadAxis;
 	public string confirmGamepadButton;
 
 	public bool active;
 
 	public Cat player;
+
+	public bool alreadyMoved;
 
 	// Use this for initialization
 	void Start () {
@@ -40,20 +42,25 @@ public class PauseMenu : MonoBehaviour {
 	void Update () {
 
 		if(active){
-			if (Input.GetKeyDown (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
-				MoveRight ();
-			} else if (Input.GetKeyDown (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-				MoveLeft ();
+			if (Input.GetKeyDown (moveUpKey) || (Input.GetAxis (moveVerticalGamepadAxis) >= 0.5f ) && !alreadyMoved) {
+				MoveUp ();
+			} else if (Input.GetKeyDown (moveDownKey) || (Input.GetAxis (moveVerticalGamepadAxis) <= -0.5f) && !alreadyMoved) {
+				MoveDown ();
 			}
 
 			if(Input.GetKeyDown (confirmKey) || Input.GetButtonDown(confirmGamepadButton)){
 				SelectCurrentOption();
 			}
+
+			if((Input.GetAxis (moveVerticalGamepadAxis) >= -0.05 && Input.GetAxis (moveVerticalGamepadAxis) <= 0.05 )){
+				alreadyMoved = false;
+			}
 		}
 		
 	}
 
-	void MoveRight(){
+	void MoveUp(){
+		alreadyMoved = true;
 		if(playerAccepted){
 
 			playerAccepted = false;
@@ -67,7 +74,8 @@ public class PauseMenu : MonoBehaviour {
 
 	}
 
-	void MoveLeft(){
+	void MoveDown(){
+		alreadyMoved = true;
 		if(playerAccepted){
 			playerAccepted = false;
 			acceptText.color = new Color(notSelectedColor.r,notSelectedColor.g,notSelectedColor.b);

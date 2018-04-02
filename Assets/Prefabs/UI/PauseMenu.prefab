@@ -268,13 +268,14 @@ MonoBehaviour:
   acceptText: {fileID: 114245290081806616}
   declineText: {fileID: 114544436522083362}
   titleSceneIndex: 0
-  moveRightKey: 119
-  moveLeftKey: 115
+  moveUpKey: 119
+  moveDownKey: 115
   confirmKey: 13
-  moveHorizontalGamepadAxis: Left Analogic Vertical
+  moveVerticalGamepadAxis: Left Analogic Vertical
   confirmGamepadButton: A
   active: 0
   player: {fileID: 0}
+  alreadyMoved: 0
 --- !u!222 &222029065450797164
 CanvasRenderer:
   m_ObjectHideFlags: 1

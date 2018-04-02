@@ -153,6 +153,12 @@ public class MagicCat : Cat {
 				FinishProjectile();
 			}
 		}
+
+		if(isPulsing){
+			if(animator.GetCurrentAnimatorStateInfo(0).IsName("MagicCatPulse") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
+				FinishMagicPulse();
+			}
+		}
 	}
 
 	protected override void OnCollisionEnter2D (Collision2D other)

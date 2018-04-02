@@ -69,8 +69,8 @@ GameObject:
   - component: {fileID: 4283867598596356}
   - component: {fileID: 212406311164852282}
   - component: {fileID: 61164283944734772}
-  - component: {fileID: 95917601011961934}
-  m_Layer: 0
+  - component: {fileID: 95663210036131832}
+  m_Layer: 13
   m_Name: Chandelier
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1363303107812036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.520004, y: 6.38, z: 0.60546875}
+  m_LocalPosition: {x: -64.65415, y: -6.181935, z: 0.01171875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4014292133595116}
@@ -187,7 +187,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2904396, y: 0.60419893}
   m_EdgeRadius: 0
---- !u!95 &95917601011961934
+--- !u!95 &95663210036131832
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1

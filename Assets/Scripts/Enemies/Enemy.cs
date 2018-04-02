@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct DroppedItem{
+	public GameObject itemPrefab;
+	public float dropRate;
+}
+
 public class Enemy : MonoBehaviour {
 
 	public float life;
@@ -34,6 +40,8 @@ public class Enemy : MonoBehaviour {
 
 	public GameObject[] droppedItems;
 	public float[] itemDropRate;
+
+	public DroppedItem[] droppedItemms;
 
 	protected FreakoutManager freakoutManager;
 
@@ -93,9 +101,9 @@ public class Enemy : MonoBehaviour {
 
 	public void DropItem()  //Dropping items from enemies
 	{
-		for (int i = 0; i < droppedItems.Length; i++) {
-			if (Random.value < itemDropRate [i]) {
-				GameObject droppedItem = Instantiate (droppedItems [i], transform.position, Quaternion.identity);
+		for (int i = 0; i < droppedItemms.Length; i++) {
+			if (Random.value < droppedItemms[i].dropRate) {
+				GameObject droppedItem = Instantiate (droppedItemms[i].itemPrefab, transform.position, Quaternion.identity);
 
 				droppedItem.GetComponent<Item> ().MoveItem();
 			}
