@@ -13,6 +13,9 @@ public class EnemyProjectile : MonoBehaviour {
     private bool goRight;
     private float timeStampToDestroy;
 
+	public GameObject enemyShotParticlePrefab;
+	public GameObject enemyShotVanishParticlePrefab;
+
     // Use this for initialization
     void Start()
     {
@@ -30,32 +33,35 @@ public class EnemyProjectile : MonoBehaviour {
             GetComponent<SpriteRenderer>().flipX = true;
         }
 
+
+
         timeStampToDestroy = Time.time + timeToDestroy;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (goRight)
         {
             GetComponent<Rigidbody2D>().transform.position += Vector3.right * speed * Time.deltaTime;
+			GetComponent<SpriteRenderer>().flipX = false;
         }
         else
         {
             GetComponent<Rigidbody2D>().transform.position += Vector3.left * speed * Time.deltaTime;
+			GetComponent<SpriteRenderer>().flipX = true;
         }
 
         if (Time.time > timeStampToDestroy)
         {
-            Destroy(gameObject);
+			GetComponent<Animator> ().SetBool ("shotFade", true);
         }
     }
 
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
+		SpawnParticle();
         if (other.tag == "Scenario" || other.tag == "Ground")
         {
             Destroy(gameObject);
@@ -80,4 +86,17 @@ public class EnemyProjectile : MonoBehaviour {
         }
 
     }
+
+	void Disappear(){
+		Instantiate (enemyShotVanishParticlePrefab, transform.position, Quaternion.identity);
+		Destroy (gameObject);
+	}
+
+	void SpawnParticle(){
+		if (goRight) {
+			Instantiate (enemyShotParticlePrefab, transform.position, Quaternion.Euler(new Vector3(0,-90,0)));
+		} else {
+			Instantiate (enemyShotParticlePrefab, transform.position, Quaternion.Euler(new Vector3(0,90,0)));
+		}
+	}
 }

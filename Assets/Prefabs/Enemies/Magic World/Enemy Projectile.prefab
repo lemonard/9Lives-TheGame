@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50240753752805758}
   - component: {fileID: 114708377816991566}
   - component: {fileID: 58016840036535878}
-  - component: {fileID: 95346542290744978}
+  - component: {fileID: 95102308341789566}
   m_Layer: 12
   m_Name: Enemy Projectile
   m_TagString: PlayerProjectile
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1260533471466072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -116.01573, y: -15.779921, z: 0}
+  m_LocalPosition: {x: -124.76296, y: -20.28731, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,10 +76,10 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07, y: -0.01}
+  m_Offset: {x: -0.0013721883, y: -0.006106809}
   serializedVersion: 2
-  m_Radius: 0.08284187
---- !u!95 &95346542290744978
+  m_Radius: 0.15810724
+--- !u!95 &95102308341789566
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -88,7 +88,7 @@ Animator:
   m_GameObject: {fileID: 1260533471466072}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3c0dea87fd9964d2d95be5f1a812ae26, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6a354e658a50743fdb34018a928e60f2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -109,6 +109,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   timeToDestroy: 1
+  enemyShotParticlePrefab: {fileID: 1619929001605172, guid: e875f59685db087489da0fbd1faaddd8,
+    type: 2}
+  enemyShotVanishParticlePrefab: {fileID: 1322424090242458, guid: cc1a84acf678cb04195e0b52d28f0dbf,
+    type: 2}
 --- !u!212 &212260557406191350
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -143,7 +147,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c0e555bbeaee3a9469ead32bfcf8042f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4259fa8820a834af7b20b75d70b3f4ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
