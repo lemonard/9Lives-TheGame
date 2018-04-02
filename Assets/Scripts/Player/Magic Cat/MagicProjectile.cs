@@ -15,6 +15,11 @@ public class MagicProjectile : MonoBehaviour {
 	public GameObject magicShotParticlePrefab;
 	public GameObject magicShotVanishParticlePrefab;
 
+	public GameObject magicShotReflectedParticlePrefab;
+	public GameObject magicShotReflectedVanishParticlePrefab;
+
+	private bool reflected;
+
 	// Use this for initialization
 	void Start () {
 
@@ -43,17 +48,37 @@ public class MagicProjectile : MonoBehaviour {
         }
 
 		if(Time.time > timeStampToDestroy){
-			Instantiate (magicShotVanishParticlePrefab, transform.position, Quaternion.identity);
+			if(reflected){
+				Instantiate (magicShotReflectedVanishParticlePrefab, transform.position, Quaternion.identity);
+			}else{
+				Instantiate (magicShotVanishParticlePrefab, transform.position, Quaternion.identity);
+			}
 			Destroy(gameObject);
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if (goRight) {
-			Instantiate (magicShotParticlePrefab, transform.position, Quaternion.Euler(new Vector3(0,-90,0)));
-		} else {
-			Instantiate (magicShotParticlePrefab, transform.position, Quaternion.Euler(new Vector3(0,90,0)));
+
+		if(other.tag != "DeflectShield"){
+			if(reflected){
+				SpawnReflectedParticle();
+			}else{
+				SpawnParticle();
+			}
+
 		}
+
+		if(reflected && other.tag == "Player"){
+			Cat playerVariables = other.GetComponent<Cat>();
+			Health healthScript = other.gameObject.GetComponent<Health>();
+
+			if (!playerVariables.invulnerable) {
+				playerVariables.life -= 1;
+				healthScript.damage = true;
+				playerVariables.receivedDamage = true;
+            }
+		}
+
         if (other.tag == "Scenario" || other.tag == "Ground") {
             Destroy(gameObject);
         } else if (other.tag == "Enemy") {
@@ -68,10 +93,29 @@ public class MagicProjectile : MonoBehaviour {
         } else if(other.tag == "DeflectShield") 
         {
             goRight = !goRight;
+            reflected = true;
+            GetComponent<Animator>().SetBool("reflected",true);
+			timeStampToDestroy = Time.time + timeToDestroy;
         }
         else {
             Destroy(gameObject);
         }
 
+	}
+
+	void SpawnParticle(){
+		if (goRight) {
+			Instantiate (magicShotParticlePrefab, transform.position, Quaternion.Euler(new Vector3(0,-90,0)));
+		} else {
+			Instantiate (magicShotParticlePrefab, transform.position, Quaternion.Euler(new Vector3(0,90,0)));
+		}
+	}
+
+	void SpawnReflectedParticle(){
+		if (goRight) {
+			Instantiate (magicShotReflectedParticlePrefab, transform.position, Quaternion.Euler(new Vector3(0,-90,0)));
+		} else {
+			Instantiate (magicShotReflectedParticlePrefab, transform.position, Quaternion.Euler(new Vector3(0,90,0)));
+		}
 	}
 }

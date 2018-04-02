@@ -31,39 +31,43 @@ public class BrawlerDog : Enemy {
 	// Update is called once per frame
 	void Update () {
 
-		transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
+		if(!player.isDying){
+			transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
 
-		if (!dying)
-        {
+			if (!dying)
+	        {
 
-            if (!stunned && !prepareForParry && !attacking && !waiting)
-            {
+	            if (!stunned && !prepareForParry && !attacking && !waiting)
+	            {
 
-                DefineDirectionToLook();
+	                DefineDirectionToLook();
 
-                if (playerInWalkingRange && !playerInAttackingRange)
-                {
-                    Walk();
-                }
-				else if (playerInWalkingRange && playerInAttackingRange)
-                {
-                    StartAttacking();
-                }
-                else
-                {
-                    Idle();
-                }
+	                if (playerInWalkingRange && !playerInAttackingRange)
+	                {
+	                    Walk();
+	                }
+					else if (playerInWalkingRange && playerInAttackingRange)
+	                {
+	                    StartAttacking();
+	                }
+	                else
+	                {
+	                    Idle();
+	                }
 
-            }
+	            }
 
-			if(!stunned && !prepareForParry && attacking && !waiting){
-					MoveWhileAttacking();
-			}
+				if(!stunned && !prepareForParry && attacking && !waiting){
+						MoveWhileAttacking();
+				}
 
-			if(waiting){
-				Idle();
-			}
+				if(waiting){
+					Idle();
+				}
 
+	        }
+        }else{
+			Idle();
         }
 
         if (stunned && (Time.time > stunnedTimestamp))

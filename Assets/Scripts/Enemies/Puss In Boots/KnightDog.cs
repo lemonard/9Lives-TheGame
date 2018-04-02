@@ -40,40 +40,44 @@ public class KnightDog : Enemy {
     // Update is called once per frame
     void Update () {
 
-		transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
-		distanceToPlayer = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
+		if(!player.isDying){
+			transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
+			distanceToPlayer = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
 
-        if (!dying){
+	        if (!dying){
 
-			if(!stunned && !prepareForParry && !attacking){ 
+				if(!stunned && !prepareForParry && !attacking){ 
 
-				DefineDirectionToLook();
+					DefineDirectionToLook();
 
-                if (defenseRange < distanceToPlayer && distanceToPlayer <= walkingRange && !attacking)
-                {
-                    myAnimator.SetBool("attacking", false);
-					isDefending = false;
-                    Walk();
-                }
-				else if (attackingRange < distanceToPlayer && distanceToPlayer <= defenseRange)
-				{
-					Defend();
-				}
-                else if (distanceToPlayer <= attackingRange && !attacking && !isWalking && isDefending)
-                {
-					StartAttacking();
-				}
-                else if (distanceToPlayer >= attackingRange)
-                {
-                    FinishAttacking();
-                }
-                else
-                {
-					Idle();
+	                if (defenseRange < distanceToPlayer && distanceToPlayer <= walkingRange && !attacking)
+	                {
+	                    myAnimator.SetBool("attacking", false);
+						isDefending = false;
+	                    Walk();
+	                }
+					else if (attackingRange < distanceToPlayer && distanceToPlayer <= defenseRange)
+					{
+						Defend();
+					}
+	                else if (distanceToPlayer <= attackingRange && !attacking && !isWalking && isDefending)
+	                {
+						StartAttacking();
+					}
+	                else if (distanceToPlayer >= attackingRange)
+	                {
+	                    FinishAttacking();
+	                }
+	                else
+	                {
+						Idle();
+					}
+
 				}
 
 			}
-
+		}else{
+			Idle();
 		}
 
 		if(stunned && (Time.time > stunnedTimestamp)){

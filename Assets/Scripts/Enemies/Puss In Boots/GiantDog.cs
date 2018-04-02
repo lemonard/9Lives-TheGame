@@ -39,35 +39,39 @@ public class GiantDog : Enemy
     // Update is called once per frame
     void Update()
     {
-		transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
+		if(!player.isDying){
+			transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
 
-        distanceToPlayer = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
+	        distanceToPlayer = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
 
-        if (!dying)
-        {
+	        if (!dying)
+	        {
 
-            if (!stunned && !prepareForParry && !attacking)
-            {
+	            if (!stunned && !prepareForParry && !attacking)
+	            {
 
-                DefineDirectionToLook();
+	                DefineDirectionToLook();
 
-                if (attackingRange < distanceToPlayer && distanceToPlayer <= walkingRange)
-                {
-					
-                    myAnimator.SetBool("attacking", false);
-                    Walk();
-                }
-                else if (distanceToPlayer <= attackingRange && !attacking && !isWalking)
-                {
-                    StartAttacking();
-                }
-                else
-                {
-                    Idle();
-                }
+	                if (attackingRange < distanceToPlayer && distanceToPlayer <= walkingRange)
+	                {
+						
+	                    myAnimator.SetBool("attacking", false);
+	                    Walk();
+	                }
+	                else if (distanceToPlayer <= attackingRange && !attacking && !isWalking)
+	                {
+	                    StartAttacking();
+	                }
+	                else
+	                {
+	                    Idle();
+	                }
 
-            }
+	            }
 
+	        }
+        }else{
+			Idle();
         }
 
         if (stunned && (Time.time > stunnedTimestamp))

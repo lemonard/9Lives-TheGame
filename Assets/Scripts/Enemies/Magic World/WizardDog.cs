@@ -9,6 +9,9 @@ public class WizardDog : Enemy {
     public GameObject projectile;
     public GameObject shield;
 
+    public float projectileCooldown;
+    public float shieldCooldown;
+
     public float walkingRange;
     public float minimumRange;
     public float attackingRange;
@@ -20,6 +23,7 @@ public class WizardDog : Enemy {
     public float distanceToPlayer;
 
     private Cat player;
+	private bool waiting;
 
     // Use this for initialization
     void Start () {
@@ -29,49 +33,58 @@ public class WizardDog : Enemy {
         lookingRight = false;
         canReceiveDamage = false;
         freakoutManager = FindObjectOfType<FreakoutManager>();
+		lastPositionX = transform.position.x;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        distanceToPlayer = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
 
+		if(!player.isDying){
+	        distanceToPlayer = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
+			transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
 
+	        if (!dying)
+	        {
 
-        if (!dying)
-        {
+	            if (!attacking && !waiting)
+	            {
 
-            if (!attacking)
-            {
+	                DefineDirectionToLook();
 
-                DefineDirectionToLook();
+	                if (minimumRange < distanceToPlayer && distanceToPlayer <= walkingRange && !attacking)
+	                {
+	                    myAnimator.SetBool("attacking", false);
+	                    Walk();
+	                }
+	                else if (distanceToPlayer <= attackingRange && !attacking && !isWalking)
+	                {
+	                   
+	                    if (Random.value < 0.3 && !attacking && !shieldActive)
+	                    {
+	                        CreateShield();
+	                    }
+	                    else
+	                    {
+	                        StartAttacking();
+	                    }
+	                }
+	                else
+	                {
+	                    Idle();
+	                }
 
-                if (minimumRange < distanceToPlayer && distanceToPlayer <= walkingRange && !attacking)
-                {
-                    myAnimator.SetBool("attacking", false);
-                    doneOnce = false;
-                    Walk();
-                }
-                else if (distanceToPlayer <= attackingRange && !attacking && !isWalking)
-                {
-                   
-                    if (Random.value < 0.3 && !attacking && !shieldActive)
-                    {
-                        CreateShield();
-                        StartCoroutine(shieldCooldown());
-                    }
-                    else
-                    {
-                        StartAttacking();
-                    }
-                }
-                else
-                {
-                    Idle();
-                }
+	            }
 
-            }
+				if(waiting){
+					Idle();
+				}
 
-        }
+	       }
+       }
+       else
+       {
+		Idle();
+       }
 
 
         //Death
@@ -112,7 +125,8 @@ public class WizardDog : Enemy {
         {
             ToggleInvinsibility();
         }
-        
+
+		lastPositionX = transform.position.x;
     }
 
     void DefineDirectionToLook()
@@ -167,17 +181,12 @@ public class WizardDog : Enemy {
         myAnimator.SetBool("idle", false);
         myAnimator.SetBool("damaged", false);
 
-        /*if (doneOnce == false)
-        {
-            FireProjectile();// this will function differently when there is an animation to tie it to.
-            doneOnce = true;
-        }*/
 
     }
 
     public void FireProjectile()
     {
-        // this will function differently when there is an animation to tie it to.
+ 
         if (lookingRight)
         {
             Instantiate(projectile, rightFiringPoint.position, Quaternion.identity);
@@ -189,15 +198,13 @@ public class WizardDog : Enemy {
         
     }
 
-
     void FinishAttacking()
     {
 
         attacking = false;
-
-        doneOnce = false;
         myAnimator.SetBool("attacking", false);
-        Walk();
+        StartCoroutine(ProjectileCooldown());
+     
     }
 
 
@@ -208,13 +215,14 @@ public class WizardDog : Enemy {
         shieldActive = true;
         GameObject newShield = Instantiate(shield, transform.position, Quaternion.identity);
         newShield.transform.SetParent(this.gameObject.GetComponent<Transform>());
+        newShield.GetComponent<MagicShield>().shieldDuration = shieldCooldown;
+		StartCoroutine(ShieldCooldown());
     }
 
     //ends shield animation, attached in animation
     void stopBarking()
     {
         myAnimator.SetBool("shieldspell", false);
-        Walk();
     }
 
     void OnBecameVisible()
@@ -227,10 +235,19 @@ public class WizardDog : Enemy {
         freakoutManager.RemoveEnemie(this.gameObject);
     }
 
+	IEnumerator ProjectileCooldown(){
 
-    IEnumerator shieldCooldown()
+    	waiting = true;
+		yield return new WaitForSeconds(projectileCooldown);
+    	waiting = false;
+
+    }
+
+    IEnumerator ShieldCooldown()
     {
-        yield return new WaitForSeconds(3);
+		waiting = true;
+        yield return new WaitForSeconds(shieldCooldown);
+		waiting = false;
         shieldActive = false;
     }
 

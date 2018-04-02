@@ -80,8 +80,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1426640011772736}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -113.62848, y: -16.31169, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -132.03674, y: -7.675, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4928299514952158}
@@ -134,7 +134,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.015}
+  m_Offset: {x: 0.042812347, y: -0.02169609}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -145,7 +145,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.74, y: 0.73}
+  m_Size: {x: 0.53614044, y: 0.64845276}
   m_EdgeRadius: 0
 --- !u!95 &95280387581673666
 Animator:
@@ -180,6 +180,7 @@ MonoBehaviour:
   receivedDamage: 0
   invulnerable: 0
   lookingRight: 0
+  mySpawner: {fileID: 0}
   invulnerableSeconds: 1
   prepareForParry: 0
   stunned: 0
@@ -190,6 +191,8 @@ MonoBehaviour:
   leftFiringPoint: {fileID: 4928299514952158}
   projectile: {fileID: 1260533471466072, guid: e66e11a33352dda4db6516b3f37b903c, type: 2}
   shield: {fileID: 1882790230587792, guid: e330f6a14e8739b44861da554a728539, type: 2}
+  projectileCooldown: 1
+  shieldCooldown: 3.5
   walkingRange: 3
   minimumRange: 1.5
   attackingRange: 2
