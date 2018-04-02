@@ -56,6 +56,11 @@ public class Cat : MonoBehaviour {
 	public bool isSliding;
 
 
+//	public bool finishedJump;
+//
+//	public float jumpTime;
+//	public float jumpTimeCounter;
+
 //	public LayerMask groundLayer;
     public bool isOnGround;
 
@@ -77,7 +82,8 @@ public class Cat : MonoBehaviour {
 
     // Use this for initialization
     protected virtual void Start () {
-  
+
+    	//jumpTimeCounter = jumpTime;
 		animator = GetComponent<Animator>();
 		mySpriteRenderer = GetComponent<SpriteRenderer>();
 		myRigidBody2D = GetComponent<Rigidbody2D>();
@@ -137,15 +143,29 @@ public class Cat : MonoBehaviour {
 
 		animator.SetBool("jumping",true);
 		myRigidBody2D.velocity = new Vector3(myRigidBody2D.velocity.x,0,0);
+
 		myRigidBody2D.AddForce(new Vector3(0, jumpForce,0), ForceMode2D.Impulse);
+
 		isJumping = true;
 		isSliding = false;
+		//finishedJump = false;
 
 		if(animator.GetBool("sliding")){
 			animator.SetBool("sliding",false);
 		}
 		
 	}
+
+//	protected void ContinueJump(){
+//
+//		jumpTimeCounter -= Time.deltaTime;
+//
+//		if(jumpTimeCounter > 0){
+//			myRigidBody2D.AddForce(new Vector3(0, 5,0),ForceMode2D.Force);
+//		} else{
+//			finishedJump = true;
+//		}
+//	}
 
 
 
@@ -180,10 +200,12 @@ public class Cat : MonoBehaviour {
 
 	public void IsGrounded(){
 
-			isJumping = false;
-			isFalling = false;
-			myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
-			animator.SetBool("jumping", false);
+//		jumpTimeCounter = jumpTime;
+//		finishedJump = true;
+		isJumping = false;
+		isFalling = false;
+		myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
+		animator.SetBool("jumping", false);
 	}
 
 	public void ChangeLookingDirection(){

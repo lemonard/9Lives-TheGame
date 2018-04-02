@@ -110,6 +110,15 @@ public class MagicCat : Cat {
 
 				}
 
+//				if((Input.GetKey (jumpKey) || Input.GetButton(jumpGamepadButton)) && isJumping && !levitate && !finishedJump){
+//					ContinueJump();
+//				}
+//
+//				if((Input.GetKeyUp (jumpKey) || Input.GetButtonUp(jumpGamepadButton)) && isJumping){
+//					jumpTimeCounter = 0;
+//					finishedJump = true;
+//				}
+
                 if (Input.GetKeyDown (shootKey) || Input.GetButtonDown(shootMagicGamepadButton)){
 					
 					StartProjectile();
@@ -182,6 +191,7 @@ public class MagicCat : Cat {
 		levitate = false;
 		animator.SetBool("levitate", false);
 		myRigidBody2D.gravityScale = 1;
+		CheckIfGrounded();
 	}
 
     IEnumerator LevitateOff()
