@@ -3,7 +3,19 @@ guid: df9038b2c1706784d94a8d0ceeab0a98
 timeCreated: 1522612126
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: candelabraAnim_animation_spritesheet_0
+    21300002: candelabraAnim_animation_spritesheet_1
+    21300004: candelabraAnim_animation_spritesheet_2
+    21300006: candelabraAnim_animation_spritesheet_3
+    21300008: candelabraAnim_animation_spritesheet_4
+    21300010: candelabraAnim_animation_spritesheet_5
+    21300012: candelabraAnim_animation_spritesheet_6
+    21300014: candelabraAnim_animation_spritesheet_7
+    21300016: candelabraAnim_animation_spritesheet_8
+    21300018: candelabraAnim_animation_spritesheet_9
+    21300020: candelabraAnim_animation_spritesheet_10
+    21300022: candelabraAnim_animation_spritesheet_11
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -99,7 +111,175 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: candelabraAnim_animation_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 114
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: candelabraAnim_animation_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 114
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: candelabraAnim_animation_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 114
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: candelabraAnim_animation_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 114
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: candelabraAnim_animation_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 57
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: candelabraAnim_animation_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 57
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: candelabraAnim_animation_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 57
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: candelabraAnim_animation_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 57
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: candelabraAnim_animation_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: candelabraAnim_animation_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 0
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: candelabraAnim_animation_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 0
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: candelabraAnim_animation_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 0
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
