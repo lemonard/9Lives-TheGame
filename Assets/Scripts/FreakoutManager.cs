@@ -17,6 +17,8 @@ public class FreakoutManager : MonoBehaviour {
     public float m_percentage = 0.1f;                                   // The percentage of how much the bar will increase by.
     public float m_fillAmount = 0;                                          // 0 = empty, 1 = full.
 
+	public AudioClip catScream;
+
     void Start(){
 		mySpriteRenderer = GetComponent<SpriteRenderer>();
 		myAnimator = GetComponent<Animator>();
@@ -44,7 +46,6 @@ public class FreakoutManager : MonoBehaviour {
 		this.cat = cat;
 		this.cat.GetComponent<SpriteRenderer>().enabled = false;
 		this.cat.invulnerable = true;
-
         // Resets the fill amount.
         ResetBar();
     }
@@ -111,5 +112,9 @@ public class FreakoutManager : MonoBehaviour {
 		m_fillAmount = 0;
         UpdateFillAmount();
         cat.ready = false;
+	}
+
+	public void PlayFreakOutSound(){
+		AudioManager.instance.PlaySound (catScream);
 	}
 }

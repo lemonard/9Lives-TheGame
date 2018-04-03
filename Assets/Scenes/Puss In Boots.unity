@@ -24882,6 +24882,10 @@ PlayableDirector:
     value: {fileID: 2094380443}
   - key: {fileID: 0}
     value: {fileID: 1615743904}
+  - key: {fileID: 114722431766985024, guid: 786d1882fc17d3a438c41577c9565b06, type: 2}
+    value: {fileID: 1726543925}
+  - key: {fileID: 114918672456428664, guid: 786d1882fc17d3a438c41577c9565b06, type: 2}
+    value: {fileID: 1726543925}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &871408763
@@ -32043,6 +32047,12 @@ PlayableDirector:
     value: {fileID: 2094380443}
   - key: {fileID: 114727402269181656, guid: 2b4f330c6bd295042987ccbd4f8b5777, type: 2}
     value: {fileID: 2094380443}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 114955569967445864, guid: 2b4f330c6bd295042987ccbd4f8b5777, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114421233619436086, guid: 2b4f330c6bd295042987ccbd4f8b5777, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1129390568
@@ -41240,6 +41250,7 @@ MonoBehaviour:
   m_FBIcon: {fileID: 0}
   m_percentage: 0.1
   m_fillAmount: 0
+  catScream: {fileID: 8300000, guid: 49cbaba65f9ca4a7490fbc3044216661, type: 3}
 --- !u!1001 &1480608076
 Prefab:
   m_ObjectHideFlags: 0

@@ -86,6 +86,7 @@ public class PussInBoots : Cat {
 
 			if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isJumping && !isAttacking && !isParrying && !startedParryStance && !parryStanceActivated && ready){
 				freakoutMode = true;
+				freakoutManager.PlayFreakOutSound ();
 				animator.SetBool("freakout",true);
 			}
 
