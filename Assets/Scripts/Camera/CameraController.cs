@@ -7,6 +7,8 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour {
 
+	public static CameraController instance;
+
 	public bool follow = true; //Whether the camera should follow the player
 	public Vector3 moveTo; //Target vector
 	private Cat player;
@@ -34,6 +36,10 @@ public class CameraController : MonoBehaviour {
 
 	private float yOffset; //Offset of the camera
 	private float xOffset; //Offset of the camera
+
+	void Awake(){
+		instance = this;
+	}
 
 	// Use this for initialization
 	void Start () {

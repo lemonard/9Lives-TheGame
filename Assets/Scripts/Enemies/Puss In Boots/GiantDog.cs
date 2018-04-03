@@ -31,7 +31,7 @@ public class GiantDog : Enemy
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
         lookingRight = true;
-        canReceiveDamage = false;
+        canReceiveDamage = true;
         freakoutManager = FindObjectOfType<FreakoutManager>();
 		lastPositionX = transform.position.x;
     }
@@ -88,8 +88,6 @@ public class GiantDog : Enemy
             myAnimator.SetBool("idle", false);
             myAnimator.SetBool("attacking", false);
             myAnimator.SetBool("walking", false);
-
-
 
             dying = true;
             Destroy(GetComponent<Rigidbody2D>());
@@ -226,7 +224,6 @@ public class GiantDog : Enemy
         myAnimator.SetBool("attacking", false);
         myAnimator.SetBool("walking", false);
 
-        canReceiveDamage = true;
 
     }
 
@@ -235,7 +232,6 @@ public class GiantDog : Enemy
         stunned = false;
         myAnimator.SetBool("stunned", false);
         myAnimator.SetBool("idle", true);
-        canReceiveDamage = false;
 		attacking = false;
 
     }

@@ -34,9 +34,6 @@ public class RapierDamageCollider : MonoBehaviour {
 
         if (other.gameObject.tag == "Anchor")
         {
-                 
-
-
             //chandeliersCut++;
             //cuts += 1;
             Destroy(other.gameObject);

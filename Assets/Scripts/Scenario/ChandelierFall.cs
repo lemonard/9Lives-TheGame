@@ -13,7 +13,7 @@ public class ChandelierFall : MonoBehaviour {
     public GameObject fallenChandelier;
 
     private Rigidbody2D rb;
-
+    private bool lastAnchorWasRight;
 
 	// Use this for initialization
 	void Start () {
@@ -24,19 +24,27 @@ public class ChandelierFall : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        
-
+		if(anchor1 == null && anchor2 != null){
+			lastAnchorWasRight = true;
+		}else if(anchor1 != null && anchor2 == null){
+			lastAnchorWasRight = false;
+		}
 
         if (anchor1 == null && anchor2 == null)
         {
             rb.constraints = RigidbodyConstraints2D.None;
             anchorsCut++;
+            if(lastAnchorWasRight){
+            	ChandelierCutsceneManager.instance.StartTimeline(true, gameObject);
+            }else{
+				ChandelierCutsceneManager.instance.StartTimeline(false, gameObject);
+            }
 
             finalDoor.SetActive(true);
             fallenChandelier.SetActive(true);
-            Destroy(this.gameObject);
+
 
         }
 	}
+
 }
