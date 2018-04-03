@@ -23237,9 +23237,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: 1
   moveTo: {x: 0, y: 0, z: 0}
-  speedX: 15
+  speedX: 28
   speedY: 4
-  yTolerance: 2.4
+  yTolerance: 1.7
   xTolerance: 0
   topBorder: {fileID: 0}
   bottomBorder: {fileID: 206565649}
