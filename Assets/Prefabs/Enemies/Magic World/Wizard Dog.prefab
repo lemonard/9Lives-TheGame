@@ -207,8 +207,8 @@ MonoBehaviour:
   projectileCooldown: 1
   shieldCooldown: 3.5
   walkingRange: 4
-  minimumRange: 1.5
-  attackingRange: 3
+  minimumRange: 3.5
+  attackingRange: 3.5
   distanceToPlayer: 0
 --- !u!212 &212486671656838394
 SpriteRenderer:

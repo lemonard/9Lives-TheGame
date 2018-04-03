@@ -384,6 +384,7 @@ MonoBehaviour:
   m_FBIcon: {fileID: 0}
   m_percentage: 0.1
   m_fillAmount: 0
+  catScream: {fileID: 0}
 --- !u!4 &54115719 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4195144777746936, guid: 798688432e9324c96a8834a359a63b8a,
@@ -17106,6 +17107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1391805049}
   - component: {fileID: 1391805048}
+  - component: {fileID: 1391805050}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -17122,9 +17124,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a1b9266d058be4b17ba220f6a9a50300, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -17206,6 +17208,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1391805050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1391805047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20bcc2b99c70e4bdba55f5627465584d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMusicClips:
+  - BGMOriginal: {fileID: 8300000, guid: f64830c44882842e0be606a1b7cf406c, type: 3}
+    BGMLoop: {fileID: 0}
 --- !u!1001 &1395834081
 Prefab:
   m_ObjectHideFlags: 0
