@@ -38,9 +38,6 @@ public class Enemy : MonoBehaviour {
 
 	public bool canReceiveDamage;
 
-	public GameObject[] droppedItems;
-	public float[] itemDropRate;
-
 	public DroppedItem[] droppedItemms;
 
 	protected FreakoutManager freakoutManager;
