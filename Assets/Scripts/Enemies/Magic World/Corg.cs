@@ -154,6 +154,7 @@ public class Corg : Enemy {
 		if (life <= 0 && !dying) {
 			myAnimator.SetBool("dying",true);
 			//			source.PlayOneShot (dieSound, 1.0f);
+			PlayDeathSound();
 			dying = true;
 			Destroy (GetComponent<Rigidbody2D> ());
 			Destroy (GetComponent<CircleCollider2D> ());
@@ -167,6 +168,7 @@ public class Corg : Enemy {
 		if (mySpawner != null) {
 			mySpawner.SetDeadEnemy (this.transform.parent.gameObject.GetInstanceID ());
 		}
+
 		Destroy (this.transform.parent.gameObject);
 	}
 }

@@ -58455,11 +58455,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114201738403900438, guid: b580ad61c50270745bcb419162f85b39,
-        type: 2}
-      propertyPath: m_HealthParent
-      value: 
-      objectReference: {fileID: 1957887468}
     - target: {fileID: 114000010428772138, guid: b580ad61c50270745bcb419162f85b39,
         type: 2}
       propertyPath: freakoutManager
@@ -58470,11 +58465,11 @@ Prefab:
       propertyPath: startingPoint
       value: 
       objectReference: {fileID: 1307041492}
-    - target: {fileID: 212000010330715730, guid: b580ad61c50270745bcb419162f85b39,
+    - target: {fileID: 114201738403900438, guid: b580ad61c50270745bcb419162f85b39,
         type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: m_HealthParent
+      value: 
+      objectReference: {fileID: 1957887468}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b580ad61c50270745bcb419162f85b39, type: 2}
   m_IsPrefabParent: 0
@@ -60408,7 +60403,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour {
 	public bool invulnerable;
 	public bool lookingRight;
 	public EnemySpawner mySpawner;
+	public AudioClip deathSound;
 
 	private int flashDelay = 2;
 	protected SpriteRenderer mySpriteRenderer;
@@ -88,11 +89,18 @@ public class Enemy : MonoBehaviour {
 
 	}
 
+	public void PlayDeathSound(){
+		if(deathSound){
+			AudioManager.instance.PlayDeathSound(deathSound);
+		}
+	}
+
 	virtual public void Disappear(){
 		DropItem ();
 		if (mySpawner != null) {
 			mySpawner.SetDeadEnemy (this.gameObject.GetInstanceID ());
 		}
+
 		Destroy (gameObject);
 	}
 
@@ -101,7 +109,6 @@ public class Enemy : MonoBehaviour {
 		for (int i = 0; i < droppedItemms.Length; i++) {
 			if (Random.value < droppedItemms[i].dropRate) {
 				GameObject droppedItem = Instantiate (droppedItemms[i].itemPrefab, transform.position, Quaternion.identity);
-
 				droppedItem.GetComponent<Item> ().MoveItem();
 			}
 		}

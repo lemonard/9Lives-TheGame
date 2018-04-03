@@ -96,7 +96,7 @@ public class KnightDog : Enemy {
 			myAnimator.SetBool("prepareDefense",false);
 			myAnimator.SetBool("defending",false);
 			 
-
+			PlayDeathSound();
 			dying = true;
  			Destroy (GetComponent<Rigidbody2D> ());
  			Destroy (GetComponent<CircleCollider2D> ());

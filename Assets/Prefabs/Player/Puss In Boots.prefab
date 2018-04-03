@@ -147,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011068365884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.41, y: -1.89, z: 0}
+  m_LocalPosition: {x: -3.4, y: -1.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000014010082980}
@@ -476,6 +476,11 @@ MonoBehaviour:
   leftAttackingPoint: {fileID: 61000013992905124}
   rightParryPoint: {fileID: 61000011034689126}
   leftParryPoint: {fileID: 61000012856621444}
+  swordAttackSounds:
+  - {fileID: 8300000, guid: de781679c286fda46b09e911d785c6a5, type: 3}
+  - {fileID: 8300000, guid: 038410f9b70704d42af091a8fcf2bf54, type: 3}
+  - {fileID: 8300000, guid: 7fa461b596609324397eb7737e4c7fcf, type: 3}
+  - {fileID: 8300000, guid: 6fcfafb223ca5a74186d9a7cfb0afafa, type: 3}
   parryingTime: 0.2
   climbSpeed: 2
   parryGamepadButton: B

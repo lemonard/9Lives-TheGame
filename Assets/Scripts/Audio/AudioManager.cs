@@ -28,4 +28,14 @@ public class AudioManager : MonoBehaviour {
 	 myAudioSource.PlayOneShot(itemCollectSound);
 	 
 	}
+
+	public void PlayDeathSound(AudioClip deathClip){
+		myAudioSource.pitch = 1;
+		myAudioSource.PlayOneShot(deathClip);
+	}
+
+	public void PlaySound(AudioClip clip){
+		myAudioSource.pitch = 1;
+		myAudioSource.PlayOneShot(clip);
+	}
 }

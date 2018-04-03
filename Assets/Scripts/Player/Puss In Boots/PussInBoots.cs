@@ -8,7 +8,8 @@ public class PussInBoots : Cat {
 	public Collider2D leftAttackingPoint;
 	public Collider2D rightParryPoint;
 	public Collider2D leftParryPoint;
- 
+
+	public AudioClip[] swordAttackSounds;
 
 	public float parryingTime;
 
@@ -214,6 +215,9 @@ public class PussInBoots : Cat {
 
 		isAttacking = true;
 		animator.SetBool("attacking", true);
+		int randomIndex = Random.Range(0,swordAttackSounds.Length);
+		myAudioSource.PlayOneShot(swordAttackSounds[randomIndex]);
+
 	}
 
 	public void ActivateAttackCollider(){

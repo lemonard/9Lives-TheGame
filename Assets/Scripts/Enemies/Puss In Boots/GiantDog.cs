@@ -88,7 +88,7 @@ public class GiantDog : Enemy
             myAnimator.SetBool("idle", false);
             myAnimator.SetBool("attacking", false);
             myAnimator.SetBool("walking", false);
-
+			PlayDeathSound();
             dying = true;
             Destroy(GetComponent<Rigidbody2D>());
             Destroy(GetComponent<CircleCollider2D>());
