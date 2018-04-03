@@ -17,6 +17,10 @@ public class MagicPulse : MonoBehaviour {
 			InvisiblePlatform invisiblePlatform = other.gameObject.GetComponent<InvisiblePlatform>();
 			other.gameObject.GetComponent<SpriteRenderer>().enabled = true;
 
+			if (invisiblePlatform.isRevealed) {
+				invisiblePlatform.ResetTimer ();
+			}
+
 			invisiblePlatform.isRevealed = true;
 		}
 		else if(other.gameObject.tag == "InvisibleTextTrigger"){

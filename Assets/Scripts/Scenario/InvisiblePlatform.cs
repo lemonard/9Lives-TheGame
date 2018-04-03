@@ -6,6 +6,7 @@ public class InvisiblePlatform : MonoBehaviour {
 	public float timeToStayRevealed;
 
 	public bool isRevealed;
+	public bool isSolidForever;
 
 	private SpriteRenderer mySpriteRenderer;
 	private Animator myAnimator;
@@ -28,14 +29,24 @@ public class InvisiblePlatform : MonoBehaviour {
 			if(myAnimator){
 				myAnimator.SetBool("fadeIn",true);
 			}
+			if (!isSolidForever) {
+				GetComponent<BoxCollider2D> ().isTrigger = false;
+			}
 		}
 
 		if(Time.time > revealedTimestamp ){
 			isRevealed = false;
 			myAnimator.SetBool("fadeIn",false);
 			revealedTimestamp = 0;
+			if (!isSolidForever) {
+				GetComponent<BoxCollider2D> ().isTrigger = true;
+			}
 		}
 
+	}
+
+	public void ResetTimer(){
+		revealedTimestamp = Time.time + timeToStayRevealed;
 	}
 
 }

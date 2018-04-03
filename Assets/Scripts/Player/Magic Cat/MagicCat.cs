@@ -158,6 +158,9 @@ public class MagicCat : Cat {
 			if(animator.GetCurrentAnimatorStateInfo(0).IsName("MagicCatPulse") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
 				FinishMagicPulse();
 			}
+			if(animator.GetCurrentAnimatorStateInfo(0).IsName("MagicCatJump") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
+				FinishMagicPulse();
+			}
 		}
 	}
 

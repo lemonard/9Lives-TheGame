@@ -33,9 +33,9 @@ TagManager:
   - InvisibleText
   - Projectiles
   - Ground
-  - 
-  - 
-  - 
+  - MagicPulse
+  - InvisiblePlatform
+  - Player
   - 
   - 
   - 
