@@ -203,6 +203,7 @@ MonoBehaviour:
   leftFiringPoint: {fileID: 4928299514952158}
   projectile: {fileID: 1260533471466072, guid: e66e11a33352dda4db6516b3f37b903c, type: 2}
   shield: {fileID: 1882790230587792, guid: e330f6a14e8739b44861da554a728539, type: 2}
+  shieldSummonSound: {fileID: 8300000, guid: cfc356bafe4814142a4a6ec1ceb67e1e, type: 3}
   projectileCooldown: 1
   shieldCooldown: 3.5
   walkingRange: 4

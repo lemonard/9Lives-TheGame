@@ -8,6 +8,7 @@ public class WizardDog : Enemy {
     public Transform leftFiringPoint;
     public GameObject projectile;
     public GameObject shield;
+	public AudioClip shieldSummonSound;
 
     public float projectileCooldown;
     public float shieldCooldown;
@@ -186,10 +187,12 @@ public class WizardDog : Enemy {
 
     public void FireProjectile()
     {
+
  
         if (lookingRight)
         {
-            Instantiate(projectile, rightFiringPoint.position, Quaternion.identity);
+            GameObject shot = (GameObject)Instantiate(projectile, rightFiringPoint.position, Quaternion.identity);
+			shot.GetComponent<EnemyProjectile>().goRight = true;
         }
         else
         {
@@ -216,6 +219,7 @@ public class WizardDog : Enemy {
         GameObject newShield = Instantiate(shield, transform.position, Quaternion.identity);
         newShield.transform.SetParent(this.gameObject.GetComponent<Transform>());
         newShield.GetComponent<MagicShield>().shieldDuration = shieldCooldown;
+        AudioManager.instance.PlaySound(shieldSummonSound);
 		StartCoroutine(ShieldCooldown());
     }
 

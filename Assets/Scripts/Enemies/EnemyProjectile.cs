@@ -10,7 +10,7 @@ public class EnemyProjectile : MonoBehaviour {
     float timeToDestroy;
 
     private WizardDog enemy;
-    private bool goRight;
+    public bool goRight;
     private float timeStampToDestroy;
 
 	public GameObject enemyShotParticlePrefab;
@@ -20,20 +20,7 @@ public class EnemyProjectile : MonoBehaviour {
     void Start()
     {
 
-        enemy = FindObjectOfType<WizardDog>();
-
         //Defines the direction that the fireball will go
-        if (enemy.lookingRight)
-        {
-            goRight = true;
-        }
-        else
-        {
-            goRight = false;
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
-
-
 
         timeStampToDestroy = Time.time + timeToDestroy;
     }
@@ -62,6 +49,7 @@ public class EnemyProjectile : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
 		SpawnParticle();
+
         if (other.tag == "Scenario" || other.tag == "Ground")
         {
             Destroy(gameObject);
