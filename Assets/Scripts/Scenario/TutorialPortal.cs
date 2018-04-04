@@ -8,13 +8,14 @@ public class TutorialPortal : MonoBehaviour {
 	public int destinationSceneIndex;
 	public KeyCode enterPortalKey;
 	public string enterPortalGamepadButton;
+	public ScreenFade screenFade;
 
 	private bool catIsNear;
 
 	void Update(){
 		if(catIsNear){
 			if(Input.GetKeyDown (enterPortalKey) || Input.GetButtonDown(enterPortalGamepadButton)){
-				Enter();
+				StartCoroutine(Enter());
 			}
 		}
 	}
@@ -33,7 +34,9 @@ public class TutorialPortal : MonoBehaviour {
 
 	}
 
-	public void Enter(){
+	IEnumerator Enter(){
+		screenFade.FadeOut ();
+		yield return new WaitForSeconds (1.5f);
 		SceneManager.LoadScene(destinationSceneIndex);
 	}
 }

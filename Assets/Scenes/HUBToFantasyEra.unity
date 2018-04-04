@@ -22963,6 +22963,11 @@ Prefab:
       propertyPath: enterPortalGamepadButton
       value: A
       objectReference: {fileID: 0}
+    - target: {fileID: 114231562841525810, guid: 5487707eba5f148fcb940a2c55052250,
+        type: 2}
+      propertyPath: screenFade
+      value: 
+      objectReference: {fileID: 496399642}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5487707eba5f148fcb940a2c55052250, type: 2}
   m_IsPrefabParent: 0

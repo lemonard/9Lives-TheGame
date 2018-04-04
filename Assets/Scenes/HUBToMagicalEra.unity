@@ -7287,6 +7287,7 @@ MonoBehaviour:
   destinationSceneIndex: 2
   enterPortalKey: 119
   enterPortalGamepadButton: A
+  screenFade: {fileID: 398894327}
 --- !u!95 &780894369
 Animator:
   serializedVersion: 3
