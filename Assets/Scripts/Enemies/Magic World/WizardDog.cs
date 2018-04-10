@@ -130,19 +130,6 @@ public class WizardDog : Enemy {
 		lastPositionX = transform.position.x;
     }
 
-    void DefineDirectionToLook()
-    {
-        if (player.transform.position.x > transform.position.x)
-        {
-            lookingRight = true;
-            mySpriteRenderer.flipX = true;
-        }
-        else
-        {
-            lookingRight = false;
-            mySpriteRenderer.flipX = false;
-        }
-    }
 
     void Walk()
     {

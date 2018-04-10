@@ -10,11 +10,6 @@ public class BrawlerDog : Enemy {
 	public Collider2D leftAttackCollider;
     public Collider2D rightAttackCollider;
 
-	public Cat player;
-
-	public bool playerInWalkingRange;
-	public bool playerInAttackingRange;
-
 	private bool waiting;
 
 	// Use this for initialization
@@ -135,19 +130,7 @@ public class BrawlerDog : Enemy {
 
     }
 
-	void DefineDirectionToLook()
-    {
-        if (player.transform.position.x > transform.position.x)
-        {
-            lookingRight = true;
-            mySpriteRenderer.flipX = false;
-        }
-        else
-        {
-            lookingRight = false;
-            mySpriteRenderer.flipX = true;
-        }
-    }
+	
 
 	void PrepareForParry()
     {

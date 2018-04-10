@@ -6,15 +6,15 @@ public class EnemyAttackRadius : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Player"){
-			BrawlerDog brawlerDog = gameObject.GetComponentInParent<BrawlerDog>();
-			brawlerDog.playerInAttackingRange = true;
+			Enemy enemy = gameObject.GetComponentInParent<Enemy>();
+			enemy.playerInAttackingRange = true;
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other){
 		if(other.tag == "Player"){
-			BrawlerDog brawlerDog = gameObject.GetComponentInParent<BrawlerDog>();
-			brawlerDog.playerInAttackingRange = false;
+			Enemy enemy = gameObject.GetComponentInParent<Enemy>();
+			enemy.playerInAttackingRange = false;
 		}
 	}
 }

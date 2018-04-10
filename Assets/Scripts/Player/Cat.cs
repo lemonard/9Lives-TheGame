@@ -9,6 +9,10 @@ public class Cat : MonoBehaviour {
 	float speed;
 	[SerializeField]
 	float jumpForce;
+	[SerializeField]
+	protected float fallGravityMultiplier = 2.5f;
+	[SerializeField]
+	protected float lowJumpGravityMultiplier = 2f;
 
 	public int life = 3;
 	//Invulnerability variables
@@ -54,12 +58,6 @@ public class Cat : MonoBehaviour {
 	public bool isFalling;
 	public bool isAttacking;
 	public bool isSliding;
-
-
-//	public bool finishedJump;
-//
-//	public float jumpTime;
-//	public float jumpTimeCounter;
 
 //	public LayerMask groundLayer;
     public bool isOnGround;
@@ -142,31 +140,19 @@ public class Cat : MonoBehaviour {
 	protected void Jump(){
 
 		animator.SetBool("jumping",true);
+
 		myRigidBody2D.velocity = new Vector3(myRigidBody2D.velocity.x,0,0);
 
 		myRigidBody2D.AddForce(new Vector3(0, jumpForce,0), ForceMode2D.Impulse);
 
 		isJumping = true;
 		isSliding = false;
-		//finishedJump = false;
 
 		if(animator.GetBool("sliding")){
 			animator.SetBool("sliding",false);
 		}
 		
 	}
-
-//	protected void ContinueJump(){
-//
-//		jumpTimeCounter -= Time.deltaTime;
-//
-//		if(jumpTimeCounter > 0){
-//			myRigidBody2D.AddForce(new Vector3(0, 5,0),ForceMode2D.Force);
-//		} else{
-//			finishedJump = true;
-//		}
-//	}
-
 
 
 	public void Flash(){
@@ -372,6 +358,7 @@ public class Cat : MonoBehaviour {
 		yield return new WaitForSeconds(2);
 		fade.FadeIn();
 		yield return new WaitForSeconds(1);
+		myRigidBody2D.velocity = Vector2.zero;
 		isDying = false;
 	}
 

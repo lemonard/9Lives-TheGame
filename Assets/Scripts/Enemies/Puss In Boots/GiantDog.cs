@@ -17,8 +17,6 @@ public class GiantDog : Enemy
 
     private bool isWalking;
 
-    public float distanceToPlayer;
-
     private Cat player;
 
    
@@ -42,8 +40,6 @@ public class GiantDog : Enemy
 		if(!player.isDying){
 			transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
 
-	        distanceToPlayer = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
-
 	        if (!dying)
 	        {
 
@@ -52,13 +48,13 @@ public class GiantDog : Enemy
 
 	                DefineDirectionToLook();
 
-	                if (attackingRange < distanceToPlayer && distanceToPlayer <= walkingRange)
+					if (playerInWalkingRange && !playerInAttackingRange)
 	                {
 						
 	                    myAnimator.SetBool("attacking", false);
 	                    Walk();
 	                }
-	                else if (distanceToPlayer <= attackingRange && !attacking && !isWalking)
+					else if (playerInWalkingRange && playerInAttackingRange)
 	                {
 	                    StartAttacking();
 	                }
@@ -121,20 +117,6 @@ public class GiantDog : Enemy
         }
 
 		lastPositionX = transform.position.x;
-    }
-
-    void DefineDirectionToLook()
-    {
-        if (player.transform.position.x > transform.position.x)
-        {
-            lookingRight = true;
-            mySpriteRenderer.flipX = false;
-        }
-        else
-        {
-            lookingRight = false;
-            mySpriteRenderer.flipX = true;
-        }
     }
 
     void Walk()

@@ -43,6 +43,7 @@ public class Item : MonoBehaviour {
 			flying = false;
 			transform.rotation = Quaternion.identity;
 		} else if(other.gameObject.tag == "Player"){
+
 			Cat cat = other.gameObject.GetComponent<Cat>();
 			CollectedEffect(cat);
 		}

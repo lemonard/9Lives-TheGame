@@ -8,6 +8,7 @@ public class ChandelierCutsceneManager : MonoBehaviour {
 	public static ChandelierCutsceneManager instance;
 
 	public CameraController camera; 
+	public GameObject chandelierFocalPoint;
 
 	public PlayableDirector directorRight;
 	public PlayableDirector directorLeft;
@@ -32,8 +33,8 @@ public class ChandelierCutsceneManager : MonoBehaviour {
 			
 			if(activatedDirector.time >= activatedDirector.duration || activatedDirector.state != PlayState.Playing){
 				player.EnableControls();
-				CameraController.instance.follow = true;
 				alreadyPlayed = false;
+				camera.ReturnCameraToPlayerFollowing();
 				Destroy(chandelier);
 			}
 		}
@@ -41,7 +42,6 @@ public class ChandelierCutsceneManager : MonoBehaviour {
 
 	public void StartTimeline(bool activateRight, GameObject chandelier){
 		player.DisableControls();
-		CameraController.instance.follow = false;
 
 
 		StartCoroutine(WaitToStart(activateRight));
@@ -50,6 +50,7 @@ public class ChandelierCutsceneManager : MonoBehaviour {
 	IEnumerator WaitToStart(bool activateRight){
 
 		yield return new WaitForSeconds(0.5f);
+		camera.ChangeToTargetAndCenter(chandelierFocalPoint);
 
 		if(activateRight){
 			activatedDirector = directorRight;

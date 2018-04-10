@@ -440,6 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!114 &114000012527788314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -453,6 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!114 &114000012739351628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -466,6 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!114 &114000013190440654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -479,6 +482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!212 &212000010824385834
 SpriteRenderer:
   m_ObjectHideFlags: 1

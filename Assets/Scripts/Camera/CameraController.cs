@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour {
 
 	public bool follow = true; //Whether the camera should follow the player
 	public Vector3 moveTo; //Target vector
+	public GameObject target;
 	private Cat player;
     private PussInBoots sebby;
 	private Vector3 velocity = Vector3.zero;
@@ -34,6 +35,9 @@ public class CameraController : MonoBehaviour {
 	public Transform topCameraLimit;
 	public Transform downCameraLimit;
 
+	private float playerXOffset;
+	private float playerYOffset;
+
 	private float yOffset; //Offset of the camera
 	private float xOffset; //Offset of the camera
 
@@ -47,9 +51,13 @@ public class CameraController : MonoBehaviour {
 		player = FindObjectOfType<Cat>();
         sebby = FindObjectOfType<PussInBoots>();
         //Set the offsets
-        yOffset = - bottomBorder.transform.localPosition.y;
-		xOffset = leftBorder.transform.localPosition.x;
+		playerXOffset = leftBorder.transform.localPosition.x;
+		playerYOffset = - bottomBorder.transform.localPosition.y;
 
+		yOffset = playerYOffset;
+		xOffset = playerXOffset;
+
+		target = player.gameObject;
 		//Set camera to start position
 		moveTo = new Vector3(player.transform.position.x - xOffset, player.transform.position.y + yOffset, transform.position.z);
 		//moveTo = new Vector3(player.transform.position.x - xOffset, transform.position.y, transform.position.z);
@@ -57,7 +65,7 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 
 		if (follow) {
 
@@ -75,33 +83,33 @@ public class CameraController : MonoBehaviour {
 		transform.position = Vector3.Lerp (transform.position, new Vector3 (transform.position.x, moveTo.y, transform.position.z), speedY * Time.deltaTime);
 		
 		//If the player is bellow the bottom border move instantly to him in y direction 
-		if (player.transform.position.y < bottomBorder.transform.position.y) {
-			moveTo = new Vector3 (moveTo.x, player.transform.position.y + yOffset, moveTo.z);
+		if (target.transform.position.y < bottomBorder.transform.position.y) {
+			moveTo = new Vector3 (moveTo.x, target.transform.position.y + yOffset, moveTo.z);
 			transform.position = new Vector3 (transform.position.x, moveTo.y, transform.position.z);
 		}
 
         //If the player is above the top border move instantly to him in y direction 
         if(topBorder){
-	        if (player.transform.position.y > topBorder.transform.position.y)
+			if (target.transform.position.y > topBorder.transform.position.y)
 	        {
-				moveTo = new Vector3(moveTo.x, player.transform.position.y - yOffset, moveTo.z);
+				moveTo = new Vector3(moveTo.x, target.transform.position.y - yOffset, moveTo.z);
 	            transform.position = new Vector3(transform.position.x, moveTo.y, transform.position.z);
 	        }
         }
 
         //If the player is standing on ground, set the target vector
         if (!player.isJumping) {
-			if (player.transform.position.y - (moveTo.y - yOffset) > yTolerance) 
-				moveTo = new Vector3 (moveTo.x, player.transform.position.y + yOffset, moveTo.z);
+			if (target.transform.position.y - (moveTo.y - yOffset) > yTolerance) 
+				moveTo = new Vector3 (moveTo.x, target.transform.position.y + yOffset, moveTo.z);
 		}
 
         //If the player as Sebastian is climbing, set the target vector
         if(player.GetComponent<PussInBoots>()){
 			if (player.GetComponent<PussInBoots>().isClimbing)
 			{
-	            if (player.transform.position.y - (moveTo.y - yOffset) > yTolerance)
+				if (target.transform.position.y - (moveTo.y - yOffset) > yTolerance)
 	            {
-	                moveTo = new Vector3(moveTo.x, player.transform.position.y + yOffset, moveTo.z);
+					moveTo = new Vector3(moveTo.x, target.transform.position.y + yOffset, moveTo.z);
 	        	}
        		}
        	}
@@ -119,40 +127,38 @@ public class CameraController : MonoBehaviour {
 
 
 		transform.position = Vector3.SmoothDamp (transform.position, new Vector3 (moveTo.x, transform.position.y, transform.position.z),ref velocity,  speedX * Time.deltaTime);
-		
-
 
 
 		if (movingRight) {
 			//If player is far away from the left border (= If the direction changed shortly)
 			//move to the player in x direction
-			if (player.transform.position.x > leftBorder.transform.position.x + xTolerance) {
-				moveTo = new Vector3 (player.transform.position.x - xOffset, moveTo.y, moveTo.z);
+			if (target.transform.position.x > leftBorder.transform.position.x + xTolerance) {
+				moveTo = new Vector3 (target.transform.position.x - xOffset, moveTo.y, moveTo.z);
 
 				//If the player just crossed the left border, move instantly to the player in x direction
-			}else if (player.transform.position.x > leftBorder.transform.position.x) {
-				moveTo = new Vector3 (player.transform.position.x - xOffset, moveTo.y, moveTo.z);
+			}else if (target.transform.position.x > leftBorder.transform.position.x) {
+				moveTo = new Vector3 (target.transform.position.x - xOffset, moveTo.y, moveTo.z);
 			
 				//transform.position = new Vector3 (moveTo.x, transform.position.y, transform.position.z);
 			}
 			//If the player crossed the left tolerance border, change the direction
-			if (player.transform.position.x < leftTolerance.transform.position.x) {
+			if (target.transform.position.x < leftTolerance.transform.position.x) {
 				movingRight = false;
 			}
 		} else {
 			//If player is far away from the right border (= If the direction changed shortly)
 			//move to the player in x direction
-			if (player.transform.position.x < rightBorder.transform.position.x - xTolerance) {
-				moveTo = new Vector3 (player.transform.position.x + xOffset, moveTo.y, moveTo.z);
+			if (target.transform.position.x < rightBorder.transform.position.x - xTolerance) {
+				moveTo = new Vector3 (target.transform.position.x + xOffset, moveTo.y, moveTo.z);
 				//dampSpeedX = turnSpeedX;
 				//If the player just crossed the right border, move instantly to the player in x direction
-			} else if (player.transform.position.x < rightBorder.transform.position.x) {
-				moveTo = new Vector3 (player.transform.position.x + xOffset, moveTo.y, moveTo.z);
+			} else if (target.transform.position.x < rightBorder.transform.position.x) {
+				moveTo = new Vector3 (target.transform.position.x + xOffset, moveTo.y, moveTo.z);
 
 				//transform.position = new Vector3 (moveTo.x, transform.position.y, transform.position.z);
 			}
 			//If the player crossed the right tolerance border, change the direction
-			if (player.transform.position.x > rightTolerance.transform.position.x) {
+			if (target.transform.position.x > rightTolerance.transform.position.x) {
 				movingRight = true;
 			}
 		}
@@ -165,6 +171,18 @@ public class CameraController : MonoBehaviour {
 
 	public void JumpTo(Vector3 targetPos){
 		transform.position = targetPos + new Vector3 (xOffset, yOffset, transform.position.z);
+	}
+
+	public void ChangeToTargetAndCenter(GameObject target){
+		this.target = target;
+		yOffset = 0;
+		xOffset = 0;
+	}
+
+	public void ReturnCameraToPlayerFollowing(){
+		this.target = player.gameObject;
+		yOffset = playerYOffset;
+		xOffset = playerXOffset;
 	}
 
 	public void UpdateActiveCat(){

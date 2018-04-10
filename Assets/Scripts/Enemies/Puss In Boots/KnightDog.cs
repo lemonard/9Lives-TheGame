@@ -17,7 +17,8 @@ public class KnightDog : Enemy {
 	public bool isDefending;
 	private bool isWalking;
 
-	public float distanceToPlayer;
+
+	public bool playerInDefendingRange;
 
 	private Cat player;
 
@@ -42,7 +43,6 @@ public class KnightDog : Enemy {
 
 		if(!player.isDying){
 			transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
-			distanceToPlayer = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
 
 	        if (!dying){
 
@@ -50,24 +50,24 @@ public class KnightDog : Enemy {
 
 					DefineDirectionToLook();
 
-	                if (defenseRange < distanceToPlayer && distanceToPlayer <= walkingRange && !attacking)
+					if (playerInWalkingRange && !playerInAttackingRange && !playerInDefendingRange)
 	                {
 	                    myAnimator.SetBool("attacking", false);
 						isDefending = false;
 	                    Walk();
 	                }
-					else if (attackingRange < distanceToPlayer && distanceToPlayer <= defenseRange)
+					else if (playerInWalkingRange && !playerInAttackingRange && playerInDefendingRange)
 					{
 						Defend();
 					}
-	                else if (distanceToPlayer <= attackingRange && !attacking && !isWalking && isDefending)
+					else if (playerInWalkingRange && playerInAttackingRange && playerInDefendingRange && !isWalking && isDefending)
 	                {
 						StartAttacking();
 					}
-	                else if (distanceToPlayer >= attackingRange)
-	                {
-	                    FinishAttacking();
-	                }
+//	                else if (distanceToPlayer >= attackingRange)
+//	                {
+//	                    FinishAttacking();
+//	                }
 	                else
 	                {
 						Idle();
@@ -125,16 +125,6 @@ public class KnightDog : Enemy {
 		}
 
 		lastPositionX = transform.position.x;
-	}
-
-	void DefineDirectionToLook(){
-		if(player.transform.position.x > transform.position.x){
-			lookingRight = true;
-			mySpriteRenderer.flipX = false;
-		} else {
-			lookingRight = false;
-			mySpriteRenderer.flipX = true;
-		}
 	}
 
 	void Walk(){

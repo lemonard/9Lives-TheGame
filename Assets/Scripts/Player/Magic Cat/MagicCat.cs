@@ -130,7 +130,7 @@ public class MagicCat : Cat {
 				}
 			}
 
-			if(myRigidBody2D.velocity.y < -1){
+			if(myRigidBody2D.velocity.y < -0.2f){
 				isFalling = true;
 			}
 		}
@@ -174,16 +174,27 @@ public class MagicCat : Cat {
 		}
 	}
 
-//    private void FixedUpdate()
-//    {
-//        if (levitate)
-//        {
-//            animator.SetBool("levitate", true);
-//			myRigidBody2D.gravityScale = 0;
-//            myRigidBody2D.velocity = Vector2.zero;
-//            StartCoroutine(LevitateOff());
-//        }
-//    }
+    private void FixedUpdate()
+    {
+
+//		if(!levitate){
+//		    if(isFalling){
+//				myRigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallGravityMultiplier - 1) * Time.deltaTime; 
+//			}else if(myRigidBody2D.velocity.y > 0 && !(Input.GetKey (jumpKey) || Input.GetButton(jumpGamepadButton))){
+//				myRigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpGravityMultiplier - 1) * Time.deltaTime; 
+//		    }
+//	    }
+
+		if(!levitate){
+		    if(isFalling){
+				myRigidBody2D.gravityScale = fallGravityMultiplier;
+			}else if(myRigidBody2D.velocity.y > 0 && !(Input.GetKey (jumpKey) || Input.GetButton(jumpGamepadButton))){
+				myRigidBody2D.gravityScale = lowJumpGravityMultiplier;
+		    }else{
+		    	myRigidBody2D.gravityScale = 1;
+		    }
+	    }
+   	}
 
 	void Levitate(){
 		

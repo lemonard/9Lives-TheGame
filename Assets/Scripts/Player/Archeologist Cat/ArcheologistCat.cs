@@ -1,0 +1,252 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ArcheologistCat : Cat {
+
+	public int gunDamage = 2;
+	public float gunDistance = 2;
+
+	public float timeToChargeWhipAttack = 1.5f;
+	public float chargingElapsedTime = 0;
+
+	public KeyCode attackKey;
+	public KeyCode gunKey;
+	public string gunGamepadButton;
+	public string attackGamepadButton;
+
+	public GameObject chargingParticles;
+	public GameObject chargeCompleteParticles;
+	private GameObject currentChargingParticles;
+	private Coroutine spawnChargingParticlesCoroutine;
+
+	public WhipCollider rightAttackingPoint;
+	public WhipCollider leftAttackingPoint;
+
+	public bool isCharging;
+	public bool charged;
+
+	// Use this for initialization
+	protected override void Start ()
+	{
+		base.Start ();
+	}
+	// Update is called once per frame
+	void Update () {
+		if(!controlersDisabled){
+			if(!isDying  && !freakoutMode){
+
+				if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isJumping && !isAttacking && ready && !isCharging){
+					freakoutMode = true;
+					freakoutManager.PlayFreakOutSound ();
+					animator.SetBool("freakout",true);
+				}
+
+				if(!isAttacking){
+
+					if(!isCharging){
+						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
+							MoveRight ();
+						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+							MoveLeft ();
+						} else {
+							Idle();
+						}
+					}else{
+						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
+							isLookingRight = true;
+							ChangeLookingDirection();
+						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+							isLookingRight = false;
+							ChangeLookingDirection();
+						}
+					}
+
+					if((Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton))){
+						if(!isFalling){
+
+							if(!isJumping){
+								Jump();
+							} 
+						}
+					}
+
+					if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isJumping){
+						StartCharging();
+					}
+
+					if((Input.GetKey (attackKey) || Input.GetButton(attackGamepadButton)) && isCharging){
+						if(chargingElapsedTime < timeToChargeWhipAttack){
+							chargingElapsedTime += Time.deltaTime;
+						}else{
+							if(!charged){
+								CompleteCharging();
+							}
+						}
+					}
+
+					if((Input.GetKeyUp (attackKey) || Input.GetButtonUp(attackGamepadButton)) && !isJumping){
+						if(charged){
+							StartChargedAttack();
+						 }else{
+						  	StartAttack();
+						 }
+					}
+
+					if((Input.GetKeyDown(gunKey ) || Input.GetButtonDown(gunGamepadButton)) && !isJumping && !isFalling)
+	                {
+						StartShootingGun();
+					}
+
+
+				}
+
+				if(myRigidBody2D.velocity.y < -1){
+					isFalling = true;
+				}
+			}
+		}
+
+		if (invulnerableTimeStamp < Time.time) {
+			invulnerable = false;
+			mySpriteRenderer.enabled = true;
+		}
+
+		if (invulnerable) {
+			Flash ();
+		}
+
+		if (receivedDamage && life > 0) {
+			ToggleInvinsibility ();
+		}
+
+		if(life <= 0 ){
+			isDying = true;
+			Destroy(gameObject);
+			//animator.SetBool("dying",true);
+		}
+	}
+
+	void StartCharging(){
+		if(spawnChargingParticlesCoroutine != null){
+			StopCoroutine(spawnChargingParticlesCoroutine);
+		}
+		spawnChargingParticlesCoroutine = StartCoroutine(SpawnChargingParticle());
+		isCharging = true;
+		chargingElapsedTime = 0;
+		animator.SetBool("charging", true);
+	}
+
+	void CompleteCharging(){
+		RemoveChargingParticles();
+		SpawnCompleteChargeParticle();
+		print("ChargeComplete");
+		charged = true;
+	}
+
+	void StartChargedAttack(){
+		chargingElapsedTime = 0;
+		charged = false;
+		isCharging = false;
+		isAttacking = true;
+		animator.SetBool("chargeAttack", true);
+		animator.SetBool("charging", false);
+		rightAttackingPoint.charged = true;
+		leftAttackingPoint.charged = true;
+	}
+
+	public void FinishChargedAttack(){
+		
+		isAttacking = false;
+		animator.SetBool("chargeAttack", false);
+		animator.SetBool("idle", true);
+		rightAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
+		leftAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
+		rightAttackingPoint.charged = false;
+		leftAttackingPoint.charged = false;
+	}
+
+	void StartAttack(){
+		if(spawnChargingParticlesCoroutine != null){
+			StopCoroutine(spawnChargingParticlesCoroutine);
+		}
+		RemoveChargingParticles();
+		chargingElapsedTime = 0;
+		isCharging = false;
+		charged = false;
+		isAttacking = true;
+		animator.SetBool("attacking", true);
+		animator.SetBool("charging", false);
+	}
+
+	public void ActivateAttackCollider(){
+
+		if(isLookingRight){
+			rightAttackingPoint.GetComponent<BoxCollider2D>().enabled = true;
+		} else {
+			leftAttackingPoint.GetComponent<BoxCollider2D>().enabled = true;
+		}
+	}
+
+	public void FinishAttack(){
+		
+		isAttacking = false;
+		animator.SetBool("attacking", false);
+		rightAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
+		leftAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
+	}
+
+	void StartShootingGun(){
+
+		ShootGun();
+	}
+
+	void ShootGun(){
+		
+		Vector3 position = transform.position;
+		Vector2 direction = Vector2.left;
+		float distance = gunDistance;
+
+		if(isLookingRight){
+			direction = Vector2.right;
+		}
+
+		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Enemies","Ground","EnemyProtection"));
+		Debug.DrawRay(position, direction, Color.green);
+
+		if(hit.collider != null){
+			print("Acertei algo");
+			if(hit.collider.tag == "Enemy"){
+				print("Acertei inimigo");
+				Enemy enemyVariables = hit.collider.gameObject.GetComponent<Enemy>();
+
+	            if (enemyVariables.canReceiveDamage)
+	            {
+	                if (!enemyVariables.invulnerable)
+	                {
+
+	                    enemyVariables.life -= gunDamage;
+	                    enemyVariables.receivedDamage = true;
+
+	                }
+	            }
+			}else if(hit.collider.tag == "EnemyProtection"){
+				print("Acertei a protecão");
+			}	
+		}
+	}
+
+	IEnumerator SpawnChargingParticle(){
+	     yield return new WaitForSeconds(0.2f);
+		 currentChargingParticles = (GameObject)Instantiate(chargingParticles, transform.position, Quaternion.identity);
+	}
+
+	void RemoveChargingParticles(){
+		Destroy(currentChargingParticles);
+		currentChargingParticles = null;
+	}
+
+	void SpawnCompleteChargeParticle(){
+		Instantiate(chargeCompleteParticles, transform.position, Quaternion.identity);
+	}
+}

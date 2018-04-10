@@ -27,7 +27,6 @@ public class Enemy : MonoBehaviour {
 
 	public float invulnerableSeconds = 1;
 
-
 	protected bool attacking;
 	protected bool dying;
 
@@ -44,6 +43,10 @@ public class Enemy : MonoBehaviour {
 	protected FreakoutManager freakoutManager;
 
 	protected float lastPositionX;
+
+	public Cat player;
+	public bool playerInWalkingRange;
+	public bool playerInAttackingRange;
 
 	// Use this for initialization
 	void Start () {
@@ -114,6 +117,20 @@ public class Enemy : MonoBehaviour {
 		}
 
 	}
+
+	protected void DefineDirectionToLook()
+    {
+        if (player.transform.position.x > transform.position.x)
+        {
+            lookingRight = true;
+            mySpriteRenderer.flipX = false;
+        }
+        else
+        {
+            lookingRight = false;
+            mySpriteRenderer.flipX = true;
+        }
+    }
 
 
 }

@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!212 &212000013291926536
 SpriteRenderer:
   m_ObjectHideFlags: 1

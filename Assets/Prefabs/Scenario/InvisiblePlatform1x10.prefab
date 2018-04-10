@@ -1022,6 +1022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!114 &114493365679225962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1035,6 +1036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!114 &114522632632166362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1048,6 +1050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!114 &114541642070541620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1061,6 +1064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!114 &114691884803682332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1074,6 +1078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!114 &114696175675344654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1087,6 +1092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!114 &114716893966832000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1100,6 +1106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!114 &114739046382906520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1113,6 +1120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!114 &114822307521757028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1126,6 +1134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!114 &114877864049053180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1139,6 +1148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStayRevealed: 10
   isRevealed: 0
+  isSolidForever: 0
 --- !u!212 &212016478385297814
 SpriteRenderer:
   m_ObjectHideFlags: 1

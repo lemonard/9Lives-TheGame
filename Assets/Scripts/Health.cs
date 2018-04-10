@@ -37,6 +37,13 @@ public class Health : MonoBehaviour
             m_totalNumHealth = m_maxHealth;
             m_numHealth = m_totalNumHealth;
         }
+		if(this.gameObject.name == "Jonas")
+        {
+            m_maxHealth = numOfLives + m_healthMultiplier;
+            cat.life = m_maxHealth;
+            m_totalNumHealth = m_maxHealth;
+            m_numHealth = m_totalNumHealth;
+        }
         m_heart = new GameObject[m_totalNumHealth];
         for (int i = 0; i < m_totalNumHealth; i++)
         {
