@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour {
 	public bool prepareForParry;
 
 	public bool stunned;
+	public bool wasTurned;
 
 	public bool canReceiveDamage;
 

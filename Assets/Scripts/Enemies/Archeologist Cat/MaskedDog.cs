@@ -8,7 +8,6 @@ public class MaskedDog : Enemy {
 	public Collider2D leftMaskCollider;
 
 	public float stunTime;
-	public bool wasTurned;
 
     private float stunnedTimestamp;
 
@@ -113,17 +112,6 @@ public class MaskedDog : Enemy {
 
 
 		lastPositionX = transform.position.x;
-	}
-
-	void OnTriggerEnter2D(Collider2D other){
-
-		if(other.GetComponent<WhipCollider>()){
-			WhipCollider whip = other.GetComponent<WhipCollider>();
-			if(whip.charged){
-				wasTurned = true;
-			}		
-		}
-
 	}
 
 	void Walk()

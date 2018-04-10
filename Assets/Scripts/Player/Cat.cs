@@ -299,7 +299,7 @@ public class Cat : MonoBehaviour {
 	protected virtual void CheckIfDamageReceived()
 	{
 		if (receivedDamage && life > 0) {
-			animator.SetBool("damage",true);
+			//animator.SetBool("damage",true);
 			ToggleInvinsibility ();
 		}
 	}

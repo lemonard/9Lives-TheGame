@@ -62,7 +62,7 @@ public class ArcheologistCat : Cat {
 						}
 					}
 
-					if((Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton))){
+					if((Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)) && !isCharging){
 						if(!isFalling){
 
 							if(!isJumping){
@@ -107,24 +107,16 @@ public class ArcheologistCat : Cat {
 			}
 		}
 
-		if (invulnerableTimeStamp < Time.time) {
-			invulnerable = false;
-			mySpriteRenderer.enabled = true;
-		}
+		CheckInvulnerableTimeStamp ();
+
 
 		if (invulnerable) {
 			Flash ();
 		}
 
-		if (receivedDamage && life > 0) {
-			ToggleInvinsibility ();
-		}
-
-		if(life <= 0 ){
-			isDying = true;
-			Destroy(gameObject);
-			//animator.SetBool("dying",true);
-		}
+		CheckIfDamageReceived ();
+			
+		CheckDeath ();
 	}
 
 	void StartCharging(){
@@ -236,10 +228,7 @@ public class ArcheologistCat : Cat {
 		}
 	}
 
-	IEnumerator SpawnChargingParticle(){
-	     yield return new WaitForSeconds(0.2f);
-		 currentChargingParticles = (GameObject)Instantiate(chargingParticles, transform.position, Quaternion.identity);
-	}
+
 
 	void RemoveChargingParticles(){
 		Destroy(currentChargingParticles);
@@ -249,4 +238,11 @@ public class ArcheologistCat : Cat {
 	void SpawnCompleteChargeParticle(){
 		Instantiate(chargeCompleteParticles, transform.position, Quaternion.identity);
 	}
+
+	IEnumerator SpawnChargingParticle(){
+	     yield return new WaitForSeconds(0.2f);
+		 currentChargingParticles = (GameObject)Instantiate(chargingParticles, transform.position, Quaternion.identity);
+	}
+
+
 }

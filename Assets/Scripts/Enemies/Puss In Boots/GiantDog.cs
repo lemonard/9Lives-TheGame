@@ -17,8 +17,6 @@ public class GiantDog : Enemy
 
     private bool isWalking;
 
-    private Cat player;
-
    
 
     // Use this for initialization

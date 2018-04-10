@@ -23,7 +23,6 @@ public class WizardDog : Enemy {
 
     public float distanceToPlayer;
 
-    private Cat player;
 	private bool waiting;
 
     // Use this for initialization

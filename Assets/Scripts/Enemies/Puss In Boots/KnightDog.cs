@@ -20,7 +20,6 @@ public class KnightDog : Enemy {
 
 	public bool playerInDefendingRange;
 
-	private Cat player;
 
 
 	// Use this for initialization

@@ -15,4 +15,17 @@ public class WhipCollider : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.GetComponent<Enemy>()){
+			if(charged){
+				other.GetComponent<Enemy>().wasTurned = true;
+			}
+
+
+	
+		}
+
+	}
+
 }
