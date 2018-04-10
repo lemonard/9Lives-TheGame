@@ -2038,6 +2038,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 4991897722303682, guid: 9b316573146cf4ca7818e309eecafb82, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466461671614132, guid: 9b316573146cf4ca7818e309eecafb82, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650909996463956, guid: 9b316573146cf4ca7818e309eecafb82, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b316573146cf4ca7818e309eecafb82, type: 2}
   m_IsPrefabParent: 0
@@ -54540,6 +54552,18 @@ Prefab:
     - target: {fileID: 1857846152846254, guid: 9b316573146cf4ca7818e309eecafb82, type: 2}
       propertyPath: m_Name
       value: Chandelier-HugeChain (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991897722303682, guid: 9b316573146cf4ca7818e309eecafb82, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466461671614132, guid: 9b316573146cf4ca7818e309eecafb82, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650909996463956, guid: 9b316573146cf4ca7818e309eecafb82, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b316573146cf4ca7818e309eecafb82, type: 2}
