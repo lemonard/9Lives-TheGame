@@ -505,7 +505,7 @@ MonoBehaviour:
   laserCooldown: 1.5
   maximumLaserDuration: 1
   laserChargingTime: 1.5
-  laserDamage: 0
+  laserDamage: 1
   laserChargingParticle: {fileID: 1654568687820990, guid: 79512b5b96554114d9fe5b31809ccc46,
     type: 2}
   laserCollideParticle: {fileID: 1307485614262622, guid: 1eda88e4f7976c24f86afc0c7a31a27c,
