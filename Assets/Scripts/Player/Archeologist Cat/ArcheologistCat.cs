@@ -256,6 +256,8 @@ public class ArcheologistCat : Cat {
 	            }
 			}else if(hit.collider.tag == "EnemyProtection"){
 				
+			}else if(hit.collider.gameObject.GetComponent<StatueColorChangingSwitch>()){
+				hit.collider.gameObject.GetComponent<StatueColorChangingSwitch>().ToggleActivation();
 			}	
 		}
 	}
