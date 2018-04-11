@@ -193,9 +193,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: chargeAttack
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: idle
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102000012384522134}
   m_Solo: 0

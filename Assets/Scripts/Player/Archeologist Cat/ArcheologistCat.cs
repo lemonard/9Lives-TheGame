@@ -139,6 +139,7 @@ public class ArcheologistCat : Cat {
 			
 		CheckDeath ();
 
+
 	}
 
 	void FixedUpdate(){
@@ -180,7 +181,8 @@ public class ArcheologistCat : Cat {
 	}
 
 	public void FinishChargedAttack(){
-		
+
+		charged = false;
 		isAttacking = false;
 		animator.SetBool("chargeAttack", false);
 		animator.SetBool("idle", true);
@@ -188,6 +190,7 @@ public class ArcheologistCat : Cat {
 		leftAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
 		rightAttackingPoint.charged = false;
 		leftAttackingPoint.charged = false;
+
 	}
 
 	void StartAttack(){

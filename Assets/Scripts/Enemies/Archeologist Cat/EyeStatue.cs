@@ -7,6 +7,9 @@ public enum StatueColor{
 		Cyan,
 		Purple,
 		Blue,
+		Green,
+		Yellow,
+		White
 	}
 
 public class EyeStatue : MonoBehaviour {
@@ -161,6 +164,9 @@ public class EyeStatue : MonoBehaviour {
 			}else if(hit.collider.gameObject.GetComponent<EyeStatue>()){
 				EyeStatue statue = hit.collider.gameObject.GetComponent<EyeStatue>();
 				statue.SwitchColorTo(currentColor);
+			}else if(hit.collider.gameObject.GetComponent<ColorChangingJewelSwitch>()){
+				ColorChangingJewelSwitch jewel = hit.collider.gameObject.GetComponent<ColorChangingJewelSwitch>();
+				jewel.ChangeColorTo(currentColor);
 			}
 				
 		}
@@ -231,7 +237,7 @@ public class EyeStatue : MonoBehaviour {
 					currentSpriteColor = statueColors[0].color;
 				break;
 
-			case(StatueColor.Cyan):
+			case(StatueColor.Green):
 					currentAnimator = statueColors[1].animator;
 					currentLaserMaterial = statueColors[1].material;
 					laserChargingParticle = statueColors[1].chargingParticle;
@@ -239,20 +245,12 @@ public class EyeStatue : MonoBehaviour {
 					currentSpriteColor = statueColors[1].color;
 				break;
 
-			case(StatueColor.Purple):
+			case(StatueColor.Blue):
 					currentAnimator = statueColors[2].animator;
 					currentLaserMaterial = statueColors[2].material;
 					laserChargingParticle = statueColors[2].chargingParticle;
 					laserCollideParticle = statueColors[2].collideParticle;
 					currentSpriteColor = statueColors[2].color;
-				break;
-
-			case(StatueColor.Blue):
-					currentAnimator = statueColors[3].animator;
-					currentLaserMaterial = statueColors[3].material;
-					laserChargingParticle = statueColors[3].chargingParticle;
-					laserCollideParticle = statueColors[3].collideParticle;
-					currentSpriteColor = statueColors[3].color;
 				break;
 
 		}
@@ -268,19 +266,15 @@ public class EyeStatue : MonoBehaviour {
 		switch(currentColor){
 
 			case(StatueColor.Red):
-				currentColor = StatueColor.Cyan;
+				currentColor = StatueColor.Green;
 				DefineColor();
 			break;
 
-			case(StatueColor.Cyan):
-				currentColor = StatueColor.Purple;
-				DefineColor();
-			break;
-
-			case(StatueColor.Purple):
+			case(StatueColor.Green):
 				currentColor = StatueColor.Blue;
 				DefineColor();
 			break;
+
 
 			case(StatueColor.Blue):
 				currentColor = StatueColor.Red;
@@ -299,18 +293,14 @@ public class EyeStatue : MonoBehaviour {
 				DefineColor();
 			break;
 
-			case(StatueColor.Cyan):
+			case(StatueColor.Green):
 				currentColor = StatueColor.Red;
 				DefineColor();
 			break;
 
-			case(StatueColor.Purple):
-				currentColor = StatueColor.Cyan;
-				DefineColor();
-			break;
 
 			case(StatueColor.Blue):
-				currentColor = StatueColor.Purple;
+				currentColor = StatueColor.Green;
 				DefineColor();
 			break;
 			
