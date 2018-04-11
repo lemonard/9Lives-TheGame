@@ -19,6 +19,7 @@ TagManager:
   - DeflectShield
   - Slope
   - EnemyProtection
+  - ButtomPressingObjects
   layers:
   - Default
   - TransparentFX
@@ -38,7 +39,7 @@ TagManager:
   - InvisiblePlatform
   - Player
   - EnemyProtection
-  - BreakableScenario
+  - LaserInteractableScenario
   - 
   - 
   - 

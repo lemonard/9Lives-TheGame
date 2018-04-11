@@ -21,9 +21,11 @@ public class WhipCollider : MonoBehaviour {
 			if(charged){
 				other.GetComponent<Enemy>().wasTurned = true;
 			}
-
-
-	
+		}else if(other.GetComponent<PullableObject>()){
+			if(charged){
+				ArcheologistCat cat = GetComponentInParent<ArcheologistCat>();
+				cat.StartPulling(other);
+			}
 		}
 
 	}

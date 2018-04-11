@@ -23,13 +23,20 @@ public class ArcheologistCat : Cat {
 	public WhipCollider rightAttackingPoint;
 	public WhipCollider leftAttackingPoint;
 
+	public bool isPulling;
+	private GameObject currentObjectBeingPulled;
+
 	public bool isCharging;
 	public bool charged;
 
+	private bool movedRight;
+	private bool movedLeft;
+	private float initialSpeed;
 	// Use this for initialization
 	protected override void Start ()
 	{
 		base.Start ();
+		initialSpeed = speed;
 	}
 	// Update is called once per frame
 	void Update () {
@@ -46,9 +53,9 @@ public class ArcheologistCat : Cat {
 
 					if(!isCharging){
 						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
-							MoveRight ();
+							MoveRight();
 						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-							MoveLeft ();
+							MoveLeft();
 						} else {
 							Idle();
 						}
@@ -62,7 +69,7 @@ public class ArcheologistCat : Cat {
 						}
 					}
 
-					if((Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)) && !isCharging){
+					if((Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)) && !isCharging && !isPulling){
 						if(!isFalling){
 
 							if(!isJumping){
@@ -71,11 +78,15 @@ public class ArcheologistCat : Cat {
 						}
 					}
 
-					if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isJumping){
+					if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isJumping && !isPulling){
+						movedLeft = false;
+							movedRight = false;
 						StartCharging();
 					}
 
 					if((Input.GetKey (attackKey) || Input.GetButton(attackGamepadButton)) && isCharging){
+						movedLeft = false;
+							movedRight = false;
 						if(chargingElapsedTime < timeToChargeWhipAttack){
 							chargingElapsedTime += Time.deltaTime;
 						}else{
@@ -85,7 +96,9 @@ public class ArcheologistCat : Cat {
 						}
 					}
 
-					if((Input.GetKeyUp (attackKey) || Input.GetButtonUp(attackGamepadButton)) && !isJumping){
+					if((Input.GetKeyUp (attackKey) || Input.GetButtonUp(attackGamepadButton)) && !isJumping && !isPulling){
+						movedLeft = false;
+							movedRight = false;
 						if(charged){
 							StartChargedAttack();
 						 }else{
@@ -93,9 +106,17 @@ public class ArcheologistCat : Cat {
 						 }
 					}
 
-					if((Input.GetKeyDown(gunKey ) || Input.GetButtonDown(gunGamepadButton)) && !isJumping && !isFalling)
+					if((Input.GetKeyDown(gunKey ) || Input.GetButtonDown(gunGamepadButton)) && !isJumping && !isFalling && !isPulling)
 	                {
+						movedLeft = false;
+							movedRight = false;
 						StartShootingGun();
+					}
+
+					if(isPulling){
+						if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton))){
+							StopPulling();
+						}
 					}
 
 
@@ -117,6 +138,17 @@ public class ArcheologistCat : Cat {
 		CheckIfDamageReceived ();
 			
 		CheckDeath ();
+
+	}
+
+	void FixedUpdate(){
+
+		if(movedRight){
+			MoveRight();	
+		}else if(movedLeft){
+			MoveLeft();
+		}
+
 	}
 
 	void StartCharging(){
@@ -207,9 +239,9 @@ public class ArcheologistCat : Cat {
 		Debug.DrawRay(position, direction, Color.green);
 
 		if(hit.collider != null){
-			print("Acertei algo");
+	
 			if(hit.collider.tag == "Enemy"){
-				print("Acertei inimigo");
+
 				Enemy enemyVariables = hit.collider.gameObject.GetComponent<Enemy>();
 
 	            if (enemyVariables.canReceiveDamage)
@@ -223,12 +255,24 @@ public class ArcheologistCat : Cat {
 	                }
 	            }
 			}else if(hit.collider.tag == "EnemyProtection"){
-				print("Acertei a protecão");
+				
 			}	
 		}
 	}
 
+	public void StartPulling(Collider2D objectToPull){
+		isPulling = true;
+		speed = speed/2;
+		currentObjectBeingPulled = objectToPull.gameObject;
+		currentObjectBeingPulled.transform.parent = gameObject.transform;
+	}
 
+	void StopPulling(){
+		isPulling = false;
+		speed = initialSpeed;
+		currentObjectBeingPulled.transform.parent = null;
+		currentObjectBeingPulled = null;
+	}
 
 	void RemoveChargingParticles(){
 		Destroy(currentChargingParticles);

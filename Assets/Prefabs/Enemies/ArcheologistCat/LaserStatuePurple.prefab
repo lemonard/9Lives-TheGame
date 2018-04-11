@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 120650171277669368}
   - component: {fileID: 95392012854174330}
   - component: {fileID: 61772850458339434}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: LaserStatuePurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0008153692, y: -0.20629293}
+  m_Offset: {x: -0.0018144939, y: -0.3122052}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -443,7 +443,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15923063, y: 0.6125859}
+  m_Size: {x: 0.08129501, y: 0.40076137}
   m_EdgeRadius: 0
 --- !u!95 &95392012854174330
 Animator:
@@ -476,24 +476,28 @@ MonoBehaviour:
   statueColors:
   - animator: {fileID: 9100000, guid: 30e3cb0015539d941aeafc039c1120d1, type: 2}
     material: {fileID: 2100000, guid: f7d68cd3aaaadb64ab4def2c8de75b6e, type: 2}
+    color: {r: 0.7607844, g: 0.1254902, b: 0.14117648, a: 1}
     chargingParticle: {fileID: 1654568687820990, guid: 79512b5b96554114d9fe5b31809ccc46,
       type: 2}
     collideParticle: {fileID: 1307485614262622, guid: 1eda88e4f7976c24f86afc0c7a31a27c,
       type: 2}
   - animator: {fileID: 9100000, guid: 78fb61bd30f574d419dc62467009cfee, type: 2}
     material: {fileID: 2100000, guid: b71d1a09e2266e64fb90c183c5c33601, type: 2}
+    color: {r: 0, g: 0.86274517, b: 0.9607844, a: 1}
     chargingParticle: {fileID: 1282500151701882, guid: f794f2234506b74409f8249e5a2d8271,
       type: 2}
     collideParticle: {fileID: 1032885469836370, guid: 336eba2e91401b24985d19cdf04f9b1c,
       type: 2}
   - animator: {fileID: 9100000, guid: e9478c2f0174f4e48bcd485bf9cb07d3, type: 2}
     material: {fileID: 2100000, guid: adc9cbf4f156ce54498f63d26fa597dc, type: 2}
+    color: {r: 0.5372549, g: 0, b: 0.854902, a: 1}
     chargingParticle: {fileID: 1315716505674108, guid: a02eb46fe6ab0ba4db50875895bfa21c,
       type: 2}
     collideParticle: {fileID: 1683658063393556, guid: c46255d9889ee6a4785bff1e34f2fe6a,
       type: 2}
   - animator: {fileID: 9100000, guid: 370cecf852100f94e93a484414682205, type: 2}
     material: {fileID: 2100000, guid: 0498f02db83aabf4fac678483b662434, type: 2}
+    color: {r: 0, g: 0.41176474, b: 0.9607844, a: 1}
     chargingParticle: {fileID: 1914932990919504, guid: f26e87576ee942243ba09105febdfc46,
       type: 2}
     collideParticle: {fileID: 1253160721645850, guid: 87f996655ab34254c8459d42010d397f,
@@ -501,11 +505,12 @@ MonoBehaviour:
   currentAnimator: {fileID: 0}
   currentLaserMaterial: {fileID: 0}
   laserDistance: 15
-  laserSpeed: 5
+  laserSpeed: 3
   laserCooldown: 1.5
-  maximumLaserDuration: 1
+  maximumLaserDuration: 0.7
   laserChargingTime: 1.5
   laserDamage: 1
+  laserAccelerationFactor: 0.5
   laserChargingParticle: {fileID: 1654568687820990, guid: 79512b5b96554114d9fe5b31809ccc46,
     type: 2}
   laserCollideParticle: {fileID: 1307485614262622, guid: 1eda88e4f7976c24f86afc0c7a31a27c,

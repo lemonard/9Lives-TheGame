@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserBreakableWall : MonoBehaviour {
+public class PullableObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

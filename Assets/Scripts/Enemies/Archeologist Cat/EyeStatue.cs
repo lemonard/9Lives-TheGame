@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StatueColor{
+		Red,
+		Cyan,
+		Purple,
+		Blue,
+	}
+
 public class EyeStatue : MonoBehaviour {
 
 	[System.Serializable]
 	public struct StatueType{
 		public RuntimeAnimatorController animator;
 		public Material material;
+		public Color color;
 		public GameObject chargingParticle;
 		public GameObject collideParticle;
 	};
@@ -25,6 +33,8 @@ public class EyeStatue : MonoBehaviour {
 	public float maximumLaserDuration = 3f;
 	public float laserChargingTime = 1f;
 	public int laserDamage;
+	public float laserAccelerationFactor = 0.05f;
+	private float initialSpeed;
 	public GameObject laserChargingParticle;
 	public GameObject laserCollideParticle;
 
@@ -47,23 +57,17 @@ public class EyeStatue : MonoBehaviour {
 	public bool playerInRange;
 	public bool turned;
 
-	public enum StatueColor{
-		Red,
-		Cyan,
-		Purple,
-		Blue,
-
-	}
-
 	public StatueColor currentColor;
-
+	private Color currentSpriteColor;
+	private SpriteRenderer mySpriteRenderer;
 	// Use this for initialization
 	void Start () {
 
+		mySpriteRenderer = GetComponent<SpriteRenderer>();
 		laserLine = GetComponent<LineRenderer>();
 		laserLine.enabled = false;
 		laserDirection = new Vector2(-1,-3);
-
+		initialSpeed = laserSpeed;
 		myAnimator = GetComponent<Animator>();
 
 		DefineColor();
@@ -95,6 +99,7 @@ public class EyeStatue : MonoBehaviour {
 				}else{
 					laserDirection += Vector2.left * laserSpeed * Time.deltaTime; 
 				}
+				laserSpeed += laserAccelerationFactor;
 			}
 
 			if(shooting && laserElapsedTime > maximumLaserDuration){
@@ -129,12 +134,13 @@ public class EyeStatue : MonoBehaviour {
 		Vector2 direction = laserDirection; 
 		float distance = laserDistance;
 
-		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Player","Ground","BreakableScenario"));
+		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Player","Ground","LaserInteractableScenario"));
 		Debug.DrawRay(position, direction, Color.green);
 
 		if(hit.collider != null){
+			
 			laserLine.enabled = true;
-			laserLine.SetPosition(0,transform.position);	
+			laserLine.SetPosition(0,transform.position);
 			laserLine.SetPosition(1,hit.point);
 			Instantiate(laserCollideParticle,hit.point,Quaternion.identity);
 
@@ -148,7 +154,13 @@ public class EyeStatue : MonoBehaviour {
 					cat.receivedDamage = true;
 				} 
 			}else if(hit.collider.gameObject.GetComponent<LaserBreakableWall>()){
-				Destroy(hit.collider.gameObject);
+				StatueColor wallColor = hit.collider.gameObject.GetComponent<LaserBreakableWall>().currentColor;
+				if(wallColor == currentColor){
+					Destroy(hit.collider.gameObject);
+				}
+			}else if(hit.collider.gameObject.GetComponent<EyeStatue>()){
+				EyeStatue statue = hit.collider.gameObject.GetComponent<EyeStatue>();
+				statue.SwitchColorTo(currentColor);
 			}
 				
 		}
@@ -163,6 +175,7 @@ public class EyeStatue : MonoBehaviour {
 		}else{
 			laserDirection = new Vector2(-1,-3);
 		}
+		laserSpeed = initialSpeed;
 		StartCoroutine(StartWaiting());
 	}
 
@@ -215,6 +228,7 @@ public class EyeStatue : MonoBehaviour {
 					currentLaserMaterial = statueColors[0].material;
 					laserChargingParticle = statueColors[0].chargingParticle;
 					laserCollideParticle = statueColors[0].collideParticle;
+					currentSpriteColor = statueColors[0].color;
 				break;
 
 			case(StatueColor.Cyan):
@@ -222,6 +236,7 @@ public class EyeStatue : MonoBehaviour {
 					currentLaserMaterial = statueColors[1].material;
 					laserChargingParticle = statueColors[1].chargingParticle;
 					laserCollideParticle = statueColors[1].collideParticle;
+					currentSpriteColor = statueColors[1].color;
 				break;
 
 			case(StatueColor.Purple):
@@ -229,6 +244,7 @@ public class EyeStatue : MonoBehaviour {
 					currentLaserMaterial = statueColors[2].material;
 					laserChargingParticle = statueColors[2].chargingParticle;
 					laserCollideParticle = statueColors[2].collideParticle;
+					currentSpriteColor = statueColors[2].color;
 				break;
 
 			case(StatueColor.Blue):
@@ -236,15 +252,18 @@ public class EyeStatue : MonoBehaviour {
 					currentLaserMaterial = statueColors[3].material;
 					laserChargingParticle = statueColors[3].chargingParticle;
 					laserCollideParticle = statueColors[3].collideParticle;
+					currentSpriteColor = statueColors[3].color;
 				break;
 
 		}
 
 		myAnimator.runtimeAnimatorController = currentAnimator;
 		laserLine.material = currentLaserMaterial;
+		mySpriteRenderer.color = currentSpriteColor;
 	}
 
-	public void SwitchColors(){
+
+	public void SwitchColorsForward(){
 
 		switch(currentColor){
 
@@ -269,6 +288,38 @@ public class EyeStatue : MonoBehaviour {
 			break;
 			
 		}
+	}
+
+	public void SwitchColorsBackwards(){
+
+		switch(currentColor){
+
+			case(StatueColor.Red):
+				currentColor = StatueColor.Blue;
+				DefineColor();
+			break;
+
+			case(StatueColor.Cyan):
+				currentColor = StatueColor.Red;
+				DefineColor();
+			break;
+
+			case(StatueColor.Purple):
+				currentColor = StatueColor.Cyan;
+				DefineColor();
+			break;
+
+			case(StatueColor.Blue):
+				currentColor = StatueColor.Purple;
+				DefineColor();
+			break;
+			
+		}
+	}
+
+	public void SwitchColorTo(StatueColor color){
+		currentColor = color;
+		DefineColor();
 	}
 
 

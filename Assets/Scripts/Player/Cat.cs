@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Cat : MonoBehaviour {
 
-	[SerializeField]
-	float speed;
+
+	public float speed;
 	[SerializeField]
 	float jumpForce;
 	[SerializeField]
