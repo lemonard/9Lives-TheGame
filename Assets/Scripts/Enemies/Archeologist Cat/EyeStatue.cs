@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class EyeStatue : MonoBehaviour {
 
+	[System.Serializable]
+	public struct StatueType{
+		public RuntimeAnimatorController animator;
+		public Material material;
+		public GameObject chargingParticle;
+		public GameObject collideParticle;
+	};
+
+	public StatueType[] statueColors;
+
+	public RuntimeAnimatorController currentAnimator;
+
+	public Material currentLaserMaterial;
+
+
 	public float laserDistance;
 	public float laserSpeed;
 	public float laserCooldown = 3f;
@@ -16,6 +31,7 @@ public class EyeStatue : MonoBehaviour {
 	private Vector2 laserDirection;
 	private Vector2 laserEndPoint;
 	private LineRenderer laserLine;
+	private Animator myAnimator;
 
 	private GameObject currentChargingParticle;
 	public float laserElapsedTime = 0;
@@ -31,18 +47,31 @@ public class EyeStatue : MonoBehaviour {
 	public bool playerInRange;
 	public bool turned;
 
+	public enum StatueColor{
+		Red,
+		Cyan,
+		Purple,
+		Blue,
+
+	}
+
+	public StatueColor currentColor;
+
 	// Use this for initialization
 	void Start () {
 
 		laserLine = GetComponent<LineRenderer>();
 		laserLine.enabled = false;
 		laserDirection = new Vector2(-1,-3);
-		
+
+		myAnimator = GetComponent<Animator>();
+
+		DefineColor();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
 
 		if(!waiting){
 
@@ -175,6 +204,71 @@ public class EyeStatue : MonoBehaviour {
 			}
 		}
 		GetComponent<Animator>().SetBool("turning",false);
+	}
+
+	void DefineColor(){
+
+		switch(currentColor){
+
+			case(StatueColor.Red):
+					currentAnimator = statueColors[0].animator;
+					currentLaserMaterial = statueColors[0].material;
+					laserChargingParticle = statueColors[0].chargingParticle;
+					laserCollideParticle = statueColors[0].collideParticle;
+				break;
+
+			case(StatueColor.Cyan):
+					currentAnimator = statueColors[1].animator;
+					currentLaserMaterial = statueColors[1].material;
+					laserChargingParticle = statueColors[1].chargingParticle;
+					laserCollideParticle = statueColors[1].collideParticle;
+				break;
+
+			case(StatueColor.Purple):
+					currentAnimator = statueColors[2].animator;
+					currentLaserMaterial = statueColors[2].material;
+					laserChargingParticle = statueColors[2].chargingParticle;
+					laserCollideParticle = statueColors[2].collideParticle;
+				break;
+
+			case(StatueColor.Blue):
+					currentAnimator = statueColors[3].animator;
+					currentLaserMaterial = statueColors[3].material;
+					laserChargingParticle = statueColors[3].chargingParticle;
+					laserCollideParticle = statueColors[3].collideParticle;
+				break;
+
+		}
+
+		myAnimator.runtimeAnimatorController = currentAnimator;
+		laserLine.material = currentLaserMaterial;
+	}
+
+	public void SwitchColors(){
+
+		switch(currentColor){
+
+			case(StatueColor.Red):
+				currentColor = StatueColor.Cyan;
+				DefineColor();
+			break;
+
+			case(StatueColor.Cyan):
+				currentColor = StatueColor.Purple;
+				DefineColor();
+			break;
+
+			case(StatueColor.Purple):
+				currentColor = StatueColor.Blue;
+				DefineColor();
+			break;
+
+			case(StatueColor.Blue):
+				currentColor = StatueColor.Red;
+				DefineColor();
+			break;
+			
+		}
 	}
 
 
