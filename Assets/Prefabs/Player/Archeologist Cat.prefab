@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1364155504002560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7823396, y: -1.7738237, z: 0}
+  m_LocalPosition: {x: -2.63, y: -1.842, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4229034646725018}
@@ -312,6 +312,9 @@ MonoBehaviour:
     type: 2}
   rightAttackingPoint: {fileID: 114199290694681734}
   leftAttackingPoint: {fileID: 114940031178594498}
+  isShooting: 0
+  bulletFeedbackPrefab: {fileID: 1732528175952836, guid: 04c7467b6f1352244a070518fe6a54ac,
+    type: 2}
   isPulling: 0
   isCharging: 0
   charged: 0

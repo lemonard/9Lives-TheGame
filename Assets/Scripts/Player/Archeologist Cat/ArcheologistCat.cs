@@ -23,6 +23,9 @@ public class ArcheologistCat : Cat {
 	public WhipCollider rightAttackingPoint;
 	public WhipCollider leftAttackingPoint;
 
+	public bool isShooting;
+	public GameObject bulletFeedbackPrefab;
+
 	public bool isPulling;
 	private GameObject currentObjectBeingPulled;
 
@@ -49,7 +52,7 @@ public class ArcheologistCat : Cat {
 					animator.SetBool("freakout",true);
 				}
 
-				if(!isAttacking){
+				if(!isAttacking && !isShooting){
 
 					if(!isCharging){
 						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
@@ -224,7 +227,8 @@ public class ArcheologistCat : Cat {
 	}
 
 	void StartShootingGun(){
-
+		animator.SetBool("shooting",true);
+		isShooting = true;
 		ShootGun();
 	}
 
@@ -238,11 +242,18 @@ public class ArcheologistCat : Cat {
 			direction = Vector2.right;
 		}
 
-		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Enemies","Ground","EnemyProtection"));
+
+
+		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Enemies","Ground","EnemyProtection","LaserInteractableScenario","Scenario"));
 		Debug.DrawRay(position, direction, Color.green);
 
 		if(hit.collider != null){
-	
+			if(hit.collider.transform.position.x < transform.position.x){
+				Instantiate(bulletFeedbackPrefab,new Vector3(hit.point.x,hit.point.y,0),Quaternion.Euler(new Vector3(0,-180,0)));
+			}else{
+				Instantiate(bulletFeedbackPrefab,new Vector3(hit.point.x,hit.point.y,0),Quaternion.identity);
+			}
+
 			if(hit.collider.tag == "Enemy"){
 
 				Enemy enemyVariables = hit.collider.gameObject.GetComponent<Enemy>();
@@ -263,6 +274,11 @@ public class ArcheologistCat : Cat {
 				hit.collider.gameObject.GetComponent<StatueColorChangingSwitch>().ToggleActivation();
 			}	
 		}
+	}
+
+	void StopShooting(){
+		animator.SetBool("shooting",false);
+		isShooting = false;
 	}
 
 	public void StartPulling(Collider2D objectToPull){

@@ -37,7 +37,7 @@ public class Health : MonoBehaviour
             m_totalNumHealth = m_maxHealth;
             m_numHealth = m_totalNumHealth;
         }
-		if(this.gameObject.name == "Jonas")
+		if(this.gameObject.name == "Archeologist Cat")
         {
             m_maxHealth = numOfLives + m_healthMultiplier;
             cat.life = m_maxHealth;
