@@ -23996,10 +23996,6 @@ Prefab:
       propertyPath: m_Name
       value: Chair-Back (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 1730167955611824, guid: 31a498267ef0d4a4a8cf86ba1da34696, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31a498267ef0d4a4a8cf86ba1da34696, type: 2}
   m_IsPrefabParent: 0
