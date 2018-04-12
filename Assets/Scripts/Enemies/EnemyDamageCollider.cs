@@ -15,6 +15,7 @@ public class EnemyDamageCollider : MonoBehaviour {
 			if(!cat.invulnerable){
                 healthScript.damage = true;
 				cat.life -= damage;
+				cat.sourceOfDamagePosition = gameObject.transform.position;
 				cat.receivedDamage = true;
 			} 
 		 

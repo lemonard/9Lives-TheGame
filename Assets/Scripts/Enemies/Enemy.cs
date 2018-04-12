@@ -119,7 +119,7 @@ public class Enemy : MonoBehaviour {
 
 	}
 
-	protected void DefineDirectionToLook()
+	protected virtual void DefineDirectionToLook()
     {
         if (player.transform.position.x > transform.position.x)
         {

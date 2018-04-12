@@ -114,6 +114,7 @@ public class Corg : Enemy {
 
 			if(!playerVariables.invulnerable){
 				playerVariables.life -= 1;
+				playerVariables.sourceOfDamagePosition = gameObject.transform.position;
                 healthScript.damage = true;
 				playerVariables.receivedDamage = true;
 			} 

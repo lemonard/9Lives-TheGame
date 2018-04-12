@@ -153,6 +153,7 @@ public class EyeStatue : MonoBehaviour {
 
 				if(!cat.invulnerable){
 	                healthScript.damage = true;
+	                cat.sourceOfDamagePosition = new Vector3(hit.point.x,hit.point.y,0);
 					cat.life -= laserDamage;
 					cat.receivedDamage = true;
 				} 

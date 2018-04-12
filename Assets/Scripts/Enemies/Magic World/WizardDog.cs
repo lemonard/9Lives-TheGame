@@ -225,6 +225,22 @@ public class WizardDog : Enemy {
         freakoutManager.RemoveEnemie(this.gameObject);
     }
 
+    protected override void DefineDirectionToLook ()
+	{
+    
+        if (player.transform.position.x > transform.position.x)
+        {
+            lookingRight = true;
+            mySpriteRenderer.flipX = true;
+        }
+        else
+        {
+            lookingRight = false;
+            mySpriteRenderer.flipX = false;
+        }
+    
+	}
+
 	IEnumerator ProjectileCooldown(){
 
     	waiting = true;

@@ -54,7 +54,7 @@ public class ArcheologistCat : Cat {
 
 				if(!isAttacking && !isShooting){
 
-					if(!isCharging){
+					if(!isCharging && !isPulling){
 						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
 							MoveRight();
 						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
@@ -62,13 +62,19 @@ public class ArcheologistCat : Cat {
 						} else {
 							Idle();
 						}
-					}else{
+					}else if(isCharging && !isPulling){
 						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
 							isLookingRight = true;
 							ChangeLookingDirection();
 						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
 							isLookingRight = false;
 							ChangeLookingDirection();
+						}
+					}else if(!isCharging && isPulling){
+						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
+							MoveRightWhilePulling();
+						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+							MoveLeftWhilePulling();
 						}
 					}
 
@@ -152,6 +158,18 @@ public class ArcheologistCat : Cat {
 		}else if(movedLeft){
 			MoveLeft();
 		}
+
+	}
+
+	protected void MoveRightWhilePulling(){
+
+		myRigidBody2D.transform.position += Vector3.right * speed * Time.deltaTime;
+
+	}
+
+	protected void MoveLeftWhilePulling(){
+
+		myRigidBody2D.transform.position += Vector3.left * speed * Time.deltaTime;
 
 	}
 
@@ -242,8 +260,6 @@ public class ArcheologistCat : Cat {
 			direction = Vector2.right;
 		}
 
-
-
 		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Enemies","Ground","EnemyProtection","LaserInteractableScenario","Scenario"));
 		Debug.DrawRay(position, direction, Color.green);
 
@@ -283,13 +299,22 @@ public class ArcheologistCat : Cat {
 
 	public void StartPulling(Collider2D objectToPull){
 		isPulling = true;
+		isAttacking = false;
+		animator.SetBool("pulling",true);
 		speed = speed/2;
 		currentObjectBeingPulled = objectToPull.gameObject;
 		currentObjectBeingPulled.transform.parent = gameObject.transform;
+
+		rightAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
+		leftAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
+		rightAttackingPoint.charged = false;
+		leftAttackingPoint.charged = false;
 	}
 
 	void StopPulling(){
 		isPulling = false;
+		FinishChargedAttack();
+		animator.SetBool("pulling",false);
 		speed = initialSpeed;
 		currentObjectBeingPulled.transform.parent = null;
 		currentObjectBeingPulled = null;

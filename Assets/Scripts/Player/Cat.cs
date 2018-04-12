@@ -78,6 +78,9 @@ public class Cat : MonoBehaviour {
 
 	public Vector3 currentCheckpoint;
 
+	public Vector3 sourceOfDamagePosition;
+
+
     // Use this for initialization
     protected virtual void Start () {
 
@@ -181,7 +184,7 @@ public class Cat : MonoBehaviour {
 		receivedDamage = false;
 		invulnerable = true;
 		invulnerableTimeStamp = Time.time + invulnerableSeconds;
-
+		StartCoroutine(BounceBackAfterDamage());
 	}
 
 	public void IsGrounded(){
@@ -298,8 +301,10 @@ public class Cat : MonoBehaviour {
 
 	protected virtual void CheckIfDamageReceived()
 	{
+
 		if (receivedDamage && life > 0) {
 			//animator.SetBool("damage",true);
+
 			ToggleInvinsibility ();
 		}
 	}
@@ -360,6 +365,36 @@ public class Cat : MonoBehaviour {
 		yield return new WaitForSeconds(1);
 		myRigidBody2D.velocity = Vector2.zero;
 		isDying = false;
+	}
+
+	IEnumerator BounceBackAfterDamage(){
+
+			DisableControls();
+
+			if(isJumping){
+				myRigidBody2D.drag = 3f;
+			}
+
+			if(sourceOfDamagePosition.x > transform.position.x){ //Enemy is on the right
+				if(isWalking && GetComponent<PussInBoots>()){
+					myRigidBody2D.velocity = new Vector2( -4f , myRigidBody2D.velocity.y + 3);
+				}else{
+					myRigidBody2D.velocity = new Vector2( -2f , myRigidBody2D.velocity.y + 2);
+				}
+	
+			}else{
+				if(isWalking){
+					myRigidBody2D.velocity = new Vector2( 4f , myRigidBody2D.velocity.y + 3);
+				}else{
+					myRigidBody2D.velocity = new Vector2( 2f , myRigidBody2D.velocity.y + 2);
+				}
+	
+			}
+
+
+		yield return new WaitForSeconds(0.5f);
+		myRigidBody2D.drag = 0;
+		EnableControls();
 	}
 
 }

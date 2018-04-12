@@ -185,6 +185,7 @@ MonoBehaviour:
   invulnerableSeconds: 1
   prepareForParry: 0
   stunned: 0
+  wasTurned: 0
   canReceiveDamage: 1
   droppedItemms:
   - itemPrefab: {fileID: 1614849787692516, guid: c2732246c0e50ce45a7a9a23797e49aa,
@@ -199,6 +200,7 @@ MonoBehaviour:
   - itemPrefab: {fileID: 1640920341208202, guid: a518e0ad3bcf54b0cbdfe4858491d5c5,
       type: 2}
     dropRate: 0.4
+  player: {fileID: 0}
   playerInWalkingRange: 0
   playerInAttackingRange: 0
   rightFiringPoint: {fileID: 4110007123758882}

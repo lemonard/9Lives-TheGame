@@ -25,8 +25,6 @@ public class MagicCat : Cat {
     public bool levitate = false;
     public float doubleJump = 0;
 
-	public float yVelocity;
-
 	public bool isPulsing;
 
 	private float levitateCooldownTimeStamp = 0;
@@ -44,110 +42,98 @@ public class MagicCat : Cat {
 	// Update is called once per frame
 	void Update () {
 
-		yVelocity = myRigidBody2D.velocity.y;
-
 		if(!controlersDisabled){
-			DefaultControl();
+			if(Input.GetButtonDown(returnToHubGamepadButton) || Input.GetKeyDown(returnToHubKey)){
+				ReturnToHub();
+			}
+
+			if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isAttacking && !isJumping && !isPulsing && ready){
+				freakoutMode = true;
+				freakoutManager.PlayFreakOutSound ();
+				animator.SetBool("freakout",true);
+			}
+
+			if(!isDying && !freakoutMode){
+
+				if(!isAttacking && !isPulsing){
+
+	                if (Input.GetKey(moveRightKey) || (Input.GetAxis(moveHorizontalGamepadAxis) >= 0.5f))
+	                {
+	                    MoveRight();
+	                }
+	                else if (Input.GetKey(moveLeftKey) || (Input.GetAxis(moveHorizontalGamepadAxis) <= -0.5f))
+	                {
+	                    MoveLeft();
+	                }
+	                else
+	                {
+	                    Idle();
+	                }
+
+					if ((Input.GetKeyDown (downKey) && levitate) || Input.GetAxis (moveVerticalGamepadAxis) <= -0.5f && levitate) {
+						CancelLevitate ();
+					}
+
+	//                if (Input.GetKey(jumpKey) && levitate || Input.GetAxis(moveVerticalGamepadAxis) >= 0.5f && levitate)
+	//                {
+	//                    MoveUp();
+	//                }
+	//
+	//                if (Input.GetKey(downKey) && levitate || Input.GetAxis(moveVerticalGamepadAxis) <= -0.5f && levitate)
+	//                {
+	//                    MoveDown();
+	//                }
+
+					if(Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)){
+
+						if (!levitate && canLevitate && (isJumping || isFalling)) {
+							Levitate ();
+						}
+
+						if(!isFalling){
+
+							if (!isJumping) {
+								Jump ();
+							}
+						}
+
+
+					}
+
+	//				if((Input.GetKey (jumpKey) || Input.GetButton(jumpGamepadButton)) && isJumping && !levitate && !finishedJump){
+	//					ContinueJump();
+	//				}
+	//
+	//				if((Input.GetKeyUp (jumpKey) || Input.GetButtonUp(jumpGamepadButton)) && isJumping){
+	//					jumpTimeCounter = 0;
+	//					finishedJump = true;
+	//				}
+
+	                if (Input.GetKeyDown (shootKey) || Input.GetButtonDown(shootMagicGamepadButton)){
+						
+						StartProjectile();
+					}
+
+					if((Input.GetKeyDown (magicPulseKey) || Input.GetButtonDown(magicPulseGamepadButton)) && !isJumping && !isFalling){ 
+						StartMagicPulse();
+					}
+				}
+
+				if(myRigidBody2D.velocity.y < -0.2f){
+					isFalling = true;
+				}
+			}
 		} 
 
-	}
-
-	void DefaultControl(){
-
-		if(Input.GetButtonDown(returnToHubGamepadButton) || Input.GetKeyDown(returnToHubKey)){
-			ReturnToHub();
-		}
-
-		if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isAttacking && !isJumping && !isPulsing && ready){
-			freakoutMode = true;
-			freakoutManager.PlayFreakOutSound ();
-			animator.SetBool("freakout",true);
-		}
-
-		if(!isDying && !freakoutMode){
-
-			if(!isAttacking && !isPulsing){
-
-                if (Input.GetKey(moveRightKey) || (Input.GetAxis(moveHorizontalGamepadAxis) >= 0.5f))
-                {
-                    MoveRight();
-                }
-                else if (Input.GetKey(moveLeftKey) || (Input.GetAxis(moveHorizontalGamepadAxis) <= -0.5f))
-                {
-                    MoveLeft();
-                }
-                else
-                {
-                    Idle();
-                }
-
-				if ((Input.GetKeyDown (downKey) && levitate) || Input.GetAxis (moveVerticalGamepadAxis) <= -0.5f && levitate) {
-					CancelLevitate ();
-				}
-
-//                if (Input.GetKey(jumpKey) && levitate || Input.GetAxis(moveVerticalGamepadAxis) >= 0.5f && levitate)
-//                {
-//                    MoveUp();
-//                }
-//
-//                if (Input.GetKey(downKey) && levitate || Input.GetAxis(moveVerticalGamepadAxis) <= -0.5f && levitate)
-//                {
-//                    MoveDown();
-//                }
-
-				if(Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)){
-
-					if (!levitate && canLevitate && (isJumping || isFalling)) {
-						Levitate ();
-					}
-
-					if(!isFalling){
-
-						if (!isJumping) {
-							Jump ();
-						}
-					}
-
-
-				}
-
-//				if((Input.GetKey (jumpKey) || Input.GetButton(jumpGamepadButton)) && isJumping && !levitate && !finishedJump){
-//					ContinueJump();
-//				}
-//
-//				if((Input.GetKeyUp (jumpKey) || Input.GetButtonUp(jumpGamepadButton)) && isJumping){
-//					jumpTimeCounter = 0;
-//					finishedJump = true;
-//				}
-
-                if (Input.GetKeyDown (shootKey) || Input.GetButtonDown(shootMagicGamepadButton)){
-					
-					StartProjectile();
-				}
-
-				if((Input.GetKeyDown (magicPulseKey) || Input.GetButtonDown(magicPulseGamepadButton)) && !isJumping && !isFalling){ 
-					StartMagicPulse();
-				}
-			}
-
-			if(myRigidBody2D.velocity.y < -0.2f){
-				isFalling = true;
-			}
-		}
-
 		CheckInvulnerableTimeStamp ();
-
-		if (levitateCooldownTimeStamp < Time.time) {
-			canLevitate = true;
-		}
 
 		if (invulnerable) {
 			Flash ();
 		}
 
-		CheckIfDamageReceived ();
-
-		CheckDeath ();
+		if (levitateCooldownTimeStamp < Time.time) {
+			canLevitate = true;
+		}
 
 		if(isAttacking){
 			if(animator.GetCurrentAnimatorStateInfo(0).IsName("MagicCatAttaking") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
@@ -163,7 +149,12 @@ public class MagicCat : Cat {
 				FinishMagicPulse();
 			}
 		}
+
+		CheckIfDamageReceived ();
+
+		CheckDeath ();
 	}
+
 
 	protected override void OnCollisionEnter2D (Collision2D other)
 	{
@@ -214,7 +205,7 @@ public class MagicCat : Cat {
 		animator.SetBool("levitate", false);
 		myRigidBody2D.gravityScale = 1;
 		CheckIfGrounded();
-		BroomCooldownIndicator.instance.StartCooldown();
+		SkillCooldownIndicator.instance.StartCooldown();
 	}
 
     IEnumerator LevitateOff()
@@ -228,7 +219,7 @@ public class MagicCat : Cat {
 		animator.SetBool("levitate", false);
 		myRigidBody2D.gravityScale = 1;
 		CheckIfGrounded();
-		BroomCooldownIndicator.instance.StartCooldown();
+		SkillCooldownIndicator.instance.StartCooldown();
        
     }
 
