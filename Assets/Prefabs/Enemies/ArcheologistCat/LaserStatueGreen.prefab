@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 95622094061889706}
   - component: {fileID: 61606542948014424}
   m_Layer: 18
-  m_Name: LaserStatueCyan
+  m_Name: LaserStatueGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

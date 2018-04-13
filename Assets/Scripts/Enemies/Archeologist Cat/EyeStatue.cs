@@ -78,7 +78,7 @@ public class EyeStatue : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () {   //Verifying statue's shooting cycle
 
 		if(!waiting){
 
@@ -147,27 +147,27 @@ public class EyeStatue : MonoBehaviour {
 			laserLine.SetPosition(1,hit.point);
 			Instantiate(laserCollideParticle,hit.point,Quaternion.identity);
 
-			if(hit.collider.GetComponent<Cat>()){
-				Cat cat = hit.collider.gameObject.GetComponent<Cat>();
-				Health healthScript = hit.collider.gameObject.GetComponent<Health>();
+			if (hit.collider.GetComponent<Cat> ()) {
+				Cat cat = hit.collider.gameObject.GetComponent<Cat> ();			//When laser hits the cat, calculate damage
+				Health healthScript = hit.collider.gameObject.GetComponent<Health> ();
 
-				if(!cat.invulnerable){
-	                healthScript.damage = true;
-	                cat.sourceOfDamagePosition = new Vector3(hit.point.x,hit.point.y,0);
+				if (!cat.invulnerable) {    //Check if the player can be hit
+					healthScript.damage = true;
+					cat.sourceOfDamagePosition = new Vector3 (hit.point.x, hit.point.y, 0);
 					cat.life -= laserDamage;
 					cat.receivedDamage = true;
 				} 
-			}else if(hit.collider.gameObject.GetComponent<LaserBreakableWall>()){
-				StatueColor wallColor = hit.collider.gameObject.GetComponent<LaserBreakableWall>().currentColor;
-				if(wallColor == currentColor){
-					Destroy(hit.collider.gameObject);
+			} else if (hit.collider.gameObject.GetComponent<LaserBreakableWall> ()) {   //When laser hits a breakable wall with the same color, destroy the target
+				StatueColor wallColor = hit.collider.gameObject.GetComponent<LaserBreakableWall> ().currentColor;
+				if (wallColor == currentColor) {
+					Destroy (hit.collider.gameObject);
 				}
-			}else if(hit.collider.gameObject.GetComponent<EyeStatue>()){
-				EyeStatue statue = hit.collider.gameObject.GetComponent<EyeStatue>();
-				statue.SwitchColorTo(currentColor);
-			}else if(hit.collider.gameObject.GetComponent<ColorChangingJewelSwitch>()){
+			} else if (hit.collider.gameObject.GetComponent<EyeStatue> ()) {    //When hitting another statue, change the target's color to this statue's color
+				EyeStatue statue = hit.collider.gameObject.GetComponent<EyeStatue> ();
+				statue.SwitchColorTo (currentColor);
+			} else if (hit.collider.gameObject.GetComponent<ColorChangingJewelSwitch> ()) {    //When hitting a jewel, change the target's color to this statue's color
 				ColorChangingJewelSwitch jewel = hit.collider.gameObject.GetComponent<ColorChangingJewelSwitch>();
-				jewel.ChangeColorTo(currentColor);
+				jewel.ChangeColorTo	(currentColor);
 			}
 				
 		}
@@ -308,7 +308,7 @@ public class EyeStatue : MonoBehaviour {
 		}
 	}
 
-	public void SwitchColorTo(StatueColor color){
+	public void SwitchColorTo(StatueColor color){ 
 		currentColor = color;
 		DefineColor();
 	}

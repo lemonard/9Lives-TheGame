@@ -16,10 +16,17 @@ public class WhipCollider : MonoBehaviour {
 		
 	}
 
+	// Checking enemies and objects collisions
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.GetComponent<Enemy>()){
+		if(other.GetComponent<Enemy>() || other.GetComponentInParent<Enemy>()){  //Some enemies components are built in different ways  
+																				//The Masked Dog for example, has its colliders as Children of the main GameObject
+			              													   //So it is needed to check that to get the enemy script correctly
 			if(charged){
-				other.GetComponent<Enemy>().wasTurned = true;
+				if (other.GetComponent<Enemy> ()) {
+					other.GetComponent<Enemy> ().wasTurned = true;
+				} else if (other.GetComponentInParent<Enemy> ()) {
+					other.GetComponentInParent<Enemy> ().wasTurned = true;
+				}
 			}
 		}else if(other.GetComponent<PullableObject>()){
 			if(charged){

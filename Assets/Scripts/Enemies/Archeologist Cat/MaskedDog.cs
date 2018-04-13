@@ -6,6 +6,8 @@ public class MaskedDog : Enemy {
 
 	public Collider2D rightMaskCollider;
 	public Collider2D leftMaskCollider;
+	public Collider2D rightCollider;
+	public Collider2D leftCollider;
 
 	public float stunTime;
 
@@ -35,7 +37,7 @@ public class MaskedDog : Enemy {
 	            {
 
 	                DefineDirectionToLook();
-	                DefineMaskCollider();
+	                DefineCollider();
 
 	                if (playerInWalkingRange && !playerInAttackingRange)
 	                {
@@ -75,9 +77,9 @@ public class MaskedDog : Enemy {
         {
         	if(stunned){
         		if(lookingRight){
-        			mySpriteRenderer.flipX = true;
+        			mySpriteRenderer.flipX = false;
         		}else{
-					mySpriteRenderer.flipX = false;
+					mySpriteRenderer.flipX = true;
         		}
         	}
             myAnimator.SetBool("dead", true);
@@ -141,15 +143,35 @@ public class MaskedDog : Enemy {
 
     }
 
-    void DefineMaskCollider(){
+    void DefineCollider(){
     	if(lookingRight){
     		rightMaskCollider.enabled = true;
     		leftMaskCollider.enabled = false;
+			rightCollider.enabled = true;
+			leftCollider.enabled = false;
     	}else{
 			rightMaskCollider.enabled = false;
     		leftMaskCollider.enabled = true;
+			rightCollider.enabled = false;
+			leftCollider.enabled = true;
     	}
     }
+
+	protected override void DefineDirectionToLook ()
+	{
+
+		if (player.transform.position.x > transform.position.x)
+		{
+			lookingRight = true;
+			mySpriteRenderer.flipX = true;
+		}
+		else
+		{
+			lookingRight = false;
+			mySpriteRenderer.flipX = false;
+		}
+
+	}
 
     void StartStun(){
 		stunnedTimestamp = Time.time + stunTime;

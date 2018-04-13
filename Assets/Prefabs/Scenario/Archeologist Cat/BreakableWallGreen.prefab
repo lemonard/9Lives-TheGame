@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 61662407783285388}
   - component: {fileID: 114549493215822880}
   m_Layer: 18
-  m_Name: BreakableWallCyan
+  m_Name: BreakableWallGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

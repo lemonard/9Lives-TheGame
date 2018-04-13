@@ -272,7 +272,13 @@ public class ArcheologistCat : Cat {
 
 			if(hit.collider.tag == "Enemy"){
 
-				Enemy enemyVariables = hit.collider.gameObject.GetComponent<Enemy>();
+				Enemy enemyVariables;
+
+				if (hit.collider.gameObject.GetComponentInParent<Enemy> ()) {
+					enemyVariables = hit.collider.gameObject.GetComponentInParent<Enemy> ();
+				} else {
+					enemyVariables = hit.collider.gameObject.GetComponent<Enemy> ();
+				}
 
 	            if (enemyVariables.canReceiveDamage)
 	            {

@@ -67,8 +67,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4087716688465450}
-  - component: {fileID: 61435417763200252}
   - component: {fileID: 114153886358085384}
+  - component: {fileID: 61768378141764310}
   m_Layer: 18
   m_Name: BreakableWallRed
   m_TagString: Untagged
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1101298608809450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2681146, y: -0.575, z: 0}
+  m_LocalPosition: {x: 0, y: -0.575, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 4801125097617090}
@@ -145,7 +145,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1232202435265466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8861145, y: -0.9545382, z: 0.25}
+  m_LocalPosition: {x: -3.8320856, y: 9.462949, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4663203423154162}
@@ -174,7 +174,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1137469532635230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2681146, y: -0.167, z: 0}
+  m_LocalPosition: {x: 0, y: -0.167, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 4198324419429072}
@@ -188,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1187400225668662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2681146, y: -0.97846174, z: 0}
+  m_LocalPosition: {x: 0, y: -0.97846174, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 4710075141471092}
@@ -221,7 +221,7 @@ Transform:
   m_Father: {fileID: 4071213541547738}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61435417763200252
+--- !u!61 &61768378141764310
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -233,7 +233,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.2635643, y: -0.5710657}
+  m_Offset: {x: -0.0021425486, y: -0.5696449}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -244,7 +244,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4289341, y: 1.2231747}
+  m_Size: {x: 0.40834975, y: 1.2278576}
   m_EdgeRadius: 0
 --- !u!114 &114153886358085384
 MonoBehaviour:

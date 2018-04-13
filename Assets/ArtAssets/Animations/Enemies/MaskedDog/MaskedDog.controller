@@ -483,7 +483,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BrawlerDogDeath
+  m_Name: MaskedDogWoodenDeath
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -496,7 +496,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e6f7e76a07c08944f853a93bdc4bd061, type: 2}
+  m_Motion: {fileID: 7400000, guid: 39cbceac09ffd428cb6d0d971cbd5db6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -592,7 +592,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BrawlerDogIdle
+  m_Name: MaskedDogWoodenIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -610,7 +610,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 38914c03fdb747e4880732f80dfe7011, type: 2}
+  m_Motion: {fileID: 7400000, guid: bd002c970b65d4d2a9d842701361ee84, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
