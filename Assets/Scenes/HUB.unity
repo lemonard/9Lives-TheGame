@@ -7534,28 +7534,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.6497984, y: 2.4669375}
   m_EdgeRadius: 0
---- !u!1 &735501535 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1299146307830688, guid: 70a53fc87110442e0a1aca152190653f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1619964190}
---- !u!95 &735501536
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 735501535}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1df75ea3c7ac54c81b92c57f617a2827, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &740797050
 Prefab:
   m_ObjectHideFlags: 0
@@ -22739,6 +22717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c8f83e9995909419895fd6187202e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixelsPerUnit: 100
 --- !u!114 &1926426121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22752,6 +22731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: 1
   moveTo: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
   speedX: 28
   speedY: 4
   yTolerance: 1.7
