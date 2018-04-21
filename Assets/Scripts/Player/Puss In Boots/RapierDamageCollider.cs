@@ -3,16 +3,12 @@ using System.Collections;
 
 public class RapierDamageCollider : MonoBehaviour {
 
-    public int cuts = 0;
-    public int flashes = 10;
-    bool isflashing = true;
-
     void OnTriggerEnter2D(Collider2D other)
     {
-
+		
         if (other.gameObject.tag == "Enemy")
         {
-
+        	
             Enemy enemyVariables = other.GetComponent<Enemy>();
 
             if (enemyVariables.canReceiveDamage)
@@ -27,16 +23,16 @@ public class RapierDamageCollider : MonoBehaviour {
             }
             else
             {
-                PussInBoots player = FindObjectOfType<PussInBoots>();
+                 PussInBoots player = FindObjectOfType<PussInBoots>();
 
             }
-        }
+        } else if (other.gameObject.tag == "Anchor"){
 
-        if (other.gameObject.tag == "Anchor")
-        {
-            //chandeliersCut++;
-            //cuts += 1;
             Destroy(other.gameObject);
+
+        } else if(other.gameObject.tag == "VulnerablePoint"){
+        	other.GetComponent<VulnerablePoint>().TryToDoDamageToEnemy(1);
+
         }
     }
 }

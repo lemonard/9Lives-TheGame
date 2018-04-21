@@ -20,6 +20,7 @@ TagManager:
   - Slope
   - EnemyProtection
   - ButtomPressingObjects
+  - VulnerablePoint
   layers:
   - Default
   - TransparentFX

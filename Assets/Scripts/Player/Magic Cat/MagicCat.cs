@@ -26,10 +26,16 @@ public class MagicCat : Cat {
     public float doubleJump = 0;
 
 	public bool isPulsing;
+	private bool returningAfterFalling;
 
 	private float levitateCooldownTimeStamp = 0;
 	private Coroutine levitateCoroutine;
 	// Use this for initialization
+
+	public GameObject lastFallingCheckpoint;
+	public GameObject returningParticlePrefab;
+
+	private GameObject currentReturningParticle;
 
 	protected override void Start ()
 	{
@@ -100,14 +106,6 @@ public class MagicCat : Cat {
 
 					}
 
-	//				if((Input.GetKey (jumpKey) || Input.GetButton(jumpGamepadButton)) && isJumping && !levitate && !finishedJump){
-	//					ContinueJump();
-	//				}
-	//
-	//				if((Input.GetKeyUp (jumpKey) || Input.GetButtonUp(jumpGamepadButton)) && isJumping){
-	//					jumpTimeCounter = 0;
-	//					finishedJump = true;
-	//				}
 
 	                if (Input.GetKeyDown (shootKey) || Input.GetButtonDown(shootMagicGamepadButton)){
 						
@@ -123,6 +121,11 @@ public class MagicCat : Cat {
 					isFalling = true;
 				}
 			}
+		}
+
+		if(returningAfterFalling){
+			ReturnToFallingCheckpoint();
+
 		} 
 
 		CheckInvulnerableTimeStamp ();
@@ -176,7 +179,7 @@ public class MagicCat : Cat {
 //		    }
 //	    }
 
-		if(!levitate){
+		if(!levitate && !returningAfterFalling){
 		    if(isFalling){
 				myRigidBody2D.gravityScale = fallGravityMultiplier;
 			}else if(myRigidBody2D.velocity.y > 0 && !(Input.GetKey (jumpKey) || Input.GetButton(jumpGamepadButton))){
@@ -229,6 +232,31 @@ public class MagicCat : Cat {
 //		transform.position = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),0);	
 //	}
 
+	protected override void FellFromStageDeath ()
+	{
+		DisableControls();
+		myRigidBody2D.gravityScale = 0;
+		myRigidBody2D.velocity = Vector3.zero;
+		returningAfterFalling = true;
+		GetComponent<BoxCollider2D>().enabled = false;
+		GetComponent<SpriteRenderer>().enabled = false;
+		currentReturningParticle = (GameObject)Instantiate(returningParticlePrefab,transform.position,Quaternion.identity,transform);
+	}
+
+	void ReturnToFallingCheckpoint(){
+
+		if(transform.position.x == lastFallingCheckpoint.transform.position.x && transform.position.y == lastFallingCheckpoint.transform.position.y){
+			EnableControls();
+			returningAfterFalling = false;
+			myRigidBody2D.gravityScale = 1;
+			GetComponent<BoxCollider2D>().enabled = true;
+			GetComponent<SpriteRenderer>().enabled = true;
+			Destroy(currentReturningParticle);
+			currentReturningParticle = null;
+		}else{
+			transform.position = Vector3.MoveTowards(transform.position, lastFallingCheckpoint.transform.position, speed * 2 * Time.deltaTime);
+		}
+	}
 
 	private void StartProjectile(){
 

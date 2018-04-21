@@ -53,6 +53,14 @@ public class HouseCat : Cat {
 				if(myRigidBody2D.velocity.y < -1){
 					isFalling = true;
 				}
+
+				if(isFalling){
+					myRigidBody2D.gravityScale = fallGravityMultiplier;
+				}else if(myRigidBody2D.velocity.y > 0 && !(Input.GetKey (jumpKey) || Input.GetButton(jumpGamepadButton))){
+					myRigidBody2D.gravityScale = lowJumpGravityMultiplier;
+			    }else{
+			    	myRigidBody2D.gravityScale = 1;
+			    }
 			}
 		}
 

@@ -317,7 +317,7 @@ public class Cat : MonoBehaviour {
 	protected virtual void CheckInvulnerableTimeStamp()
 	{
 		if (invulnerableTimeStamp < Time.time) {
-			if(!freakoutMode){
+			if(!freakoutMode && !controlersDisabled){
 				invulnerable = false;
 				mySpriteRenderer.enabled = true;
 			}
@@ -338,7 +338,7 @@ public class Cat : MonoBehaviour {
 		StartCoroutine(RestartLevel());
 	}
 
-	protected void FellFromStageDeath()
+	protected virtual void FellFromStageDeath()
 	{
 		//SceneManager.LoadScene (1);
 		StartCoroutine(RestartLevel());
