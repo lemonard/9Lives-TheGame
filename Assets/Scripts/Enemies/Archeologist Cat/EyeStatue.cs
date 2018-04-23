@@ -18,7 +18,7 @@ public class EyeStatue : MonoBehaviour {
 	public struct StatueType{
 		public RuntimeAnimatorController animator;
 		public Material material;
-		public Color color;
+		public Sprite sprite;
 		public GameObject chargingParticle;
 		public GameObject collideParticle;
 	};
@@ -40,6 +40,7 @@ public class EyeStatue : MonoBehaviour {
 	private float initialSpeed;
 	public GameObject laserChargingParticle;
 	public GameObject laserCollideParticle;
+	public GameObject laserFiringPoint;
 
 	private Vector2 laserDirection;
 	private Vector2 laserEndPoint;
@@ -61,7 +62,7 @@ public class EyeStatue : MonoBehaviour {
 	public bool turned;
 
 	public StatueColor currentColor;
-	private Color currentSpriteColor;
+	private Sprite currentSprite;
 	private SpriteRenderer mySpriteRenderer;
 	// Use this for initialization
 	void Start () {
@@ -115,7 +116,7 @@ public class EyeStatue : MonoBehaviour {
 	}
 
 	void StartLaserCharge(){
-		currentChargingParticle = (GameObject)Instantiate(laserChargingParticle,transform.position,Quaternion.identity);
+		currentChargingParticle = (GameObject)Instantiate(laserChargingParticle,laserFiringPoint.transform.position,Quaternion.identity);
 		charging = true;
 	}
 
@@ -133,7 +134,7 @@ public class EyeStatue : MonoBehaviour {
 
 	void ShootLaser(){
 		
-		Vector3 position = transform.position;
+		Vector3 position = laserFiringPoint.transform.position;
 		Vector2 direction = laserDirection; 
 		float distance = laserDistance;
 
@@ -143,7 +144,7 @@ public class EyeStatue : MonoBehaviour {
 		if(hit.collider != null){
 			
 			laserLine.enabled = true;
-			laserLine.SetPosition(0,transform.position);
+			laserLine.SetPosition(0,laserFiringPoint.transform.position);
 			laserLine.SetPosition(1,hit.point);
 			Instantiate(laserCollideParticle,hit.point,Quaternion.identity);
 
@@ -212,18 +213,19 @@ public class EyeStatue : MonoBehaviour {
 	void StopTurning(){
 		turning = false;
 		turned = !turned;
+		GetComponent<Animator>().SetBool("turning",false);
 		if(turned){
-			transform.rotation = Quaternion.Euler(new Vector3(0,900,0));
+			mySpriteRenderer.flipX = true;
 			if(!shooting){
 				laserDirection = new Vector2(1,-3);
 			}
 		}else{
-			transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
+			mySpriteRenderer.flipX = false;
 			if(!shooting){
 				laserDirection = new Vector2(-1,-3);
 			}
 		}
-		GetComponent<Animator>().SetBool("turning",false);
+
 	}
 
 	void DefineColor(){
@@ -235,7 +237,7 @@ public class EyeStatue : MonoBehaviour {
 					currentLaserMaterial = statueColors[0].material;
 					laserChargingParticle = statueColors[0].chargingParticle;
 					laserCollideParticle = statueColors[0].collideParticle;
-					currentSpriteColor = statueColors[0].color;
+					currentSprite = statueColors[0].sprite;
 				break;
 
 			case(StatueColor.Green):
@@ -243,7 +245,7 @@ public class EyeStatue : MonoBehaviour {
 					currentLaserMaterial = statueColors[1].material;
 					laserChargingParticle = statueColors[1].chargingParticle;
 					laserCollideParticle = statueColors[1].collideParticle;
-					currentSpriteColor = statueColors[1].color;
+					currentSprite = statueColors[1].sprite;
 				break;
 
 			case(StatueColor.Blue):
@@ -251,14 +253,14 @@ public class EyeStatue : MonoBehaviour {
 					currentLaserMaterial = statueColors[2].material;
 					laserChargingParticle = statueColors[2].chargingParticle;
 					laserCollideParticle = statueColors[2].collideParticle;
-					currentSpriteColor = statueColors[2].color;
+					currentSprite = statueColors[2].sprite;
 				break;
 
 		}
 
 		myAnimator.runtimeAnimatorController = currentAnimator;
 		laserLine.material = currentLaserMaterial;
-		mySpriteRenderer.color = currentSpriteColor;
+		mySpriteRenderer.sprite = currentSprite;
 	}
 
 

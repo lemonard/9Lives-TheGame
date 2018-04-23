@@ -5975,6 +5975,11 @@ Prefab:
       propertyPath: m_Name
       value: LaserStatueGreen (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114174786702702308, guid: 53117e8396757db47bfa942774e6ce9b,
+        type: 2}
+      propertyPath: turned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53117e8396757db47bfa942774e6ce9b, type: 2}
   m_IsPrefabParent: 0
@@ -20076,11 +20081,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 41
       objectReference: {fileID: 0}
-    - target: {fileID: 114236045327967684, guid: 620813d2acd76f64985c1f0971e07003,
-        type: 2}
-      propertyPath: turned
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 620813d2acd76f64985c1f0971e07003, type: 2}
   m_IsPrefabParent: 0
@@ -32942,6 +32942,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114174786702702308, guid: 53117e8396757db47bfa942774e6ce9b,
+        type: 2}
+      propertyPath: turned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53117e8396757db47bfa942774e6ce9b, type: 2}
   m_IsPrefabParent: 0
@@ -42311,6 +42316,11 @@ Prefab:
     - target: {fileID: 4772536728659866, guid: 9d1d37f617fef8d45859dcd0b915c9dc, type: 2}
       propertyPath: m_RootOrder
       value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 114563536277929606, guid: 9d1d37f617fef8d45859dcd0b915c9dc,
+        type: 2}
+      propertyPath: turned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d1d37f617fef8d45859dcd0b915c9dc, type: 2}
