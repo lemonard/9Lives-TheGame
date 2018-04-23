@@ -28690,7 +28690,7 @@ MonoBehaviour:
   activatedColor: {r: 1, g: 0.76551723, b: 0, a: 1}
   deactivatedColor: {r: 1, g: 1, b: 1, a: 1}
   statuesToChangeColor:
-  - {fileID: 0}
+  - {fileID: 1058144224}
   changeStatuesColorOnce: 0
   activated: 0
 --- !u!212 &836638205
@@ -30110,7 +30110,7 @@ MonoBehaviour:
   activatedColor: {r: 1, g: 0.76551723, b: 0, a: 1}
   deactivatedColor: {r: 1, g: 1, b: 1, a: 1}
   statuesToChangeColor:
-  - {fileID: 0}
+  - {fileID: 1102839364}
   changeStatuesColorOnce: 1
   activated: 0
 --- !u!212 &886947164
@@ -35231,6 +35231,12 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1058144224 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114563536277929606, guid: 9d1d37f617fef8d45859dcd0b915c9dc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1339393960}
+  m_Script: {fileID: 11500000, guid: 5d497f4c47fbef84790287ecaaddf4c7, type: 3}
 --- !u!1 &1058269850
 GameObject:
   m_ObjectHideFlags: 0
@@ -36304,6 +36310,12 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1102839364 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114174786702702308, guid: 53117e8396757db47bfa942774e6ce9b,
+    type: 2}
+  m_PrefabInternal: {fileID: 184938124}
+  m_Script: {fileID: 11500000, guid: 5d497f4c47fbef84790287ecaaddf4c7, type: 3}
 --- !u!1 &1107214292
 GameObject:
   m_ObjectHideFlags: 0
@@ -40495,7 +40507,7 @@ MonoBehaviour:
   activatedColor: {r: 1, g: 0.76551723, b: 0, a: 1}
   deactivatedColor: {r: 1, g: 1, b: 1, a: 1}
   statuesToChangeColor:
-  - {fileID: 0}
+  - {fileID: 1102839364}
   - {fileID: 1396051409}
   changeStatuesColorOnce: 0
   activated: 0
