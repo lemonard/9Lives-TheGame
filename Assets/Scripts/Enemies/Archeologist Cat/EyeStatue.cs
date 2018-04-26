@@ -116,7 +116,7 @@ public class EyeStatue : MonoBehaviour {
 	}
 
 	void StartLaserCharge(){
-		currentChargingParticle = (GameObject)Instantiate(laserChargingParticle,laserFiringPoint.transform.position,Quaternion.identity);
+		currentChargingParticle = (GameObject)Instantiate(laserChargingParticle,laserFiringPoint.transform.position,Quaternion.identity,gameObject.transform);
 		charging = true;
 	}
 

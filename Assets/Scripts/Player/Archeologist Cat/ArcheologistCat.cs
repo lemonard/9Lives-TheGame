@@ -156,7 +156,6 @@ public class ArcheologistCat : Cat {
 			
 		CheckDeath ();
 
-
 	}
 
 	void FixedUpdate(){
@@ -167,6 +166,20 @@ public class ArcheologistCat : Cat {
 			MoveLeft();
 		}
 
+	}
+
+	protected override void CheckIfDamageReceived ()
+	{
+		if (receivedDamage && life > 0) {
+			//animator.SetBool("damage",true);
+			ToggleInvinsibility ();
+			if(isCharging){
+				CancelCharging();
+			}
+			if(charged){
+				charged = false;
+			}
+		}
 	}
 
 	protected void MoveRightWhilePulling(){
@@ -191,10 +204,18 @@ public class ArcheologistCat : Cat {
 		animator.SetBool("charging", true);
 	}
 
+	void CancelCharging(){
+		if(spawnChargingParticlesCoroutine != null){
+			StopCoroutine(spawnChargingParticlesCoroutine);
+		}
+		animator.SetBool("charging", false);
+		isCharging = false;
+		RemoveChargingParticles();
+	}
+
 	void CompleteCharging(){
 		RemoveChargingParticles();
 		SpawnCompleteChargeParticle();
-		print("ChargeComplete");
 		charged = true;
 	}
 
@@ -345,7 +366,7 @@ public class ArcheologistCat : Cat {
 
 	IEnumerator SpawnChargingParticle(){
 	     yield return new WaitForSeconds(0.2f);
-		 currentChargingParticles = (GameObject)Instantiate(chargingParticles, transform.position, Quaternion.identity);
+		 currentChargingParticles = (GameObject)Instantiate(chargingParticles, transform.position, Quaternion.identity,gameObject.transform);
 	}
 
 
