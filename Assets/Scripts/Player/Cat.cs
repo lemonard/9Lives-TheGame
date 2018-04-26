@@ -229,6 +229,7 @@ public class Cat : MonoBehaviour {
 
 	public void EnableControls(){
 		controlersDisabled = false;
+		invulnerable = true;
 	}
 
 	public void DisableControls(){

@@ -143,9 +143,11 @@ public class ArcheologistCat : Cat {
 			    	myRigidBody2D.gravityScale = 1;
 			    }
 			}
+
+			CheckInvulnerableTimeStamp ();
 		}
 
-		CheckInvulnerableTimeStamp ();
+
 
 
 		if (invulnerable) {
@@ -323,7 +325,9 @@ public class ArcheologistCat : Cat {
 				
 			}else if(hit.collider.gameObject.GetComponent<StatueColorChangingSwitch>()){
 				hit.collider.gameObject.GetComponent<StatueColorChangingSwitch>().ToggleActivation();
-			}	
+			}else if(hit.collider.gameObject.GetComponent<Torch>()){
+				hit.collider.gameObject.GetComponent<Torch>().Activate();
+			}		
 		}
 	}
 

@@ -40,6 +40,7 @@ public class CameraController : MonoBehaviour {
 
 	private float yOffset; //Offset of the camera
 	private float xOffset; //Offset of the camera
+	private bool animationMode;
 
 	void Awake(){
 		instance = this;
@@ -68,11 +69,14 @@ public class CameraController : MonoBehaviour {
 	void LateUpdate () {
 
 		if (follow) {
-
-			//Update x and y position
-			UpdateXDirection();
-			UpdateYDirection();
-
+			if(!animationMode){
+				//Update x and y position
+				UpdateXDirection();
+				UpdateYDirection();
+			}else{
+				UpdateXDirectionAnimation();
+				UpdateYDirectionAnimation();
+			}
 		}
 	}
 
@@ -169,11 +173,36 @@ public class CameraController : MonoBehaviour {
 //		}
 	}
 
+	private void UpdateXDirectionAnimation(){
+
+		transform.position = Vector3.SmoothDamp (transform.position, new Vector3 (moveTo.x, transform.position.y, transform.position.z),ref velocity,  speedX * Time.deltaTime);
+
+		moveTo = new Vector3 (target.transform.position.x, moveTo.y, moveTo.z);
+	}
+
+	private void UpdateYDirectionAnimation(){
+		transform.position = Vector3.Lerp (transform.position, new Vector3 (transform.position.x, moveTo.y, transform.position.z), speedY * Time.deltaTime);
+
+		moveTo = new Vector3 (moveTo.x, target.transform.position.y, moveTo.z);
+
+	}
+
+
+
 	public void JumpTo(Vector3 targetPos){
 		transform.position = targetPos + new Vector3 (xOffset, yOffset, transform.position.z);
 	}
 
+	public void ActivateAnimationMode(){
+		animationMode = true;
+	}
+
+	public void DeactivateAnimationMode(){
+		animationMode = false;
+	}
+
 	public void ChangeToTargetAndCenter(GameObject target){
+		ActivateAnimationMode();
 		this.target = target;
 		yOffset = 0;
 		xOffset = 0;
@@ -187,5 +216,6 @@ public class CameraController : MonoBehaviour {
 
 	public void UpdateActiveCat(){
 		player = FindObjectOfType<Cat>();
+		target = player.gameObject;
 	}
 }

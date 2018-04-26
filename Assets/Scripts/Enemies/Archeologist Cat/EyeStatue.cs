@@ -19,6 +19,7 @@ public class EyeStatue : MonoBehaviour {
 		public RuntimeAnimatorController animator;
 		public Material material;
 		public Sprite sprite;
+		public Sprite disabledSprite;
 		public GameObject chargingParticle;
 		public GameObject collideParticle;
 	};
@@ -56,13 +57,14 @@ public class EyeStatue : MonoBehaviour {
 	public bool charging;
 	public bool waiting;
 	public bool turning;
-
+	public bool disabled;
 
 	public bool playerInRange;
 	public bool turned;
 
 	public StatueColor currentColor;
 	private Sprite currentSprite;
+	private Sprite currentDisabledSprite;
 	private SpriteRenderer mySpriteRenderer;
 	// Use this for initialization
 	void Start () {
@@ -81,36 +83,38 @@ public class EyeStatue : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {   //Verifying statue's shooting cycle
 
-		if(!waiting){
+		if(!disabled){
+			if(!waiting){
 
-			if(!charging && !shooting && playerInRange){
-				StartLaserCharge();
-			}
-
-			if(charging && (elapsedChargingTime < laserChargingTime)){
-				ChargeLaser();
-			}
-
-			if(elapsedChargingTime > laserChargingTime){
-				StartLaserShooting();
-			}
-
-			if(shooting){
-				ShootLaser();
-				laserElapsedTime += Time.deltaTime;
-				if(turned){
-					laserDirection += Vector2.right * laserSpeed * Time.deltaTime;
-				}else{
-					laserDirection += Vector2.left * laserSpeed * Time.deltaTime; 
+				if(!charging && !shooting && playerInRange){
+					StartLaserCharge();
 				}
-				laserSpeed += laserAccelerationFactor;
+
+				if(charging && (elapsedChargingTime < laserChargingTime)){
+					ChargeLaser();
+				}
+
+				if(elapsedChargingTime > laserChargingTime){
+					StartLaserShooting();
+				}
+
+				if(shooting){
+					ShootLaser();
+					laserElapsedTime += Time.deltaTime;
+					if(turned){
+						laserDirection += Vector2.right * laserSpeed * Time.deltaTime;
+					}else{
+						laserDirection += Vector2.left * laserSpeed * Time.deltaTime; 
+					}
+					laserSpeed += laserAccelerationFactor;
+				}
+
+				if(shooting && laserElapsedTime > maximumLaserDuration){
+					CancelLaser();
+				}
+
+
 			}
-
-			if(shooting && laserElapsedTime > maximumLaserDuration){
-				CancelLaser();
-			}
-
-
 		}
 
 	}
@@ -238,6 +242,7 @@ public class EyeStatue : MonoBehaviour {
 					laserChargingParticle = statueColors[0].chargingParticle;
 					laserCollideParticle = statueColors[0].collideParticle;
 					currentSprite = statueColors[0].sprite;
+					currentDisabledSprite = statueColors[0].disabledSprite;
 				break;
 
 			case(StatueColor.Green):
@@ -246,6 +251,7 @@ public class EyeStatue : MonoBehaviour {
 					laserChargingParticle = statueColors[1].chargingParticle;
 					laserCollideParticle = statueColors[1].collideParticle;
 					currentSprite = statueColors[1].sprite;
+					currentDisabledSprite = statueColors[0].disabledSprite;
 				break;
 
 			case(StatueColor.Blue):
@@ -254,13 +260,19 @@ public class EyeStatue : MonoBehaviour {
 					laserChargingParticle = statueColors[2].chargingParticle;
 					laserCollideParticle = statueColors[2].collideParticle;
 					currentSprite = statueColors[2].sprite;
+					currentDisabledSprite = statueColors[0].disabledSprite;
 				break;
 
 		}
 
 		myAnimator.runtimeAnimatorController = currentAnimator;
 		laserLine.material = currentLaserMaterial;
-		mySpriteRenderer.sprite = currentSprite;
+
+		if(disabled){
+			mySpriteRenderer.sprite = currentDisabledSprite;
+		}else{
+			mySpriteRenderer.sprite = currentSprite;
+		}
 	}
 
 
@@ -315,6 +327,15 @@ public class EyeStatue : MonoBehaviour {
 		DefineColor();
 	}
 
+	public void Enable(){
+		disabled = false;
+		mySpriteRenderer.sprite = currentSprite;
+	}
+
+	public void Disable(){
+		disabled = true;
+		mySpriteRenderer.sprite = currentDisabledSprite;
+	}
 
 	IEnumerator StartWaiting(){
 
