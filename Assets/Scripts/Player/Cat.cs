@@ -400,5 +400,16 @@ public class Cat : MonoBehaviour {
 
 }
 
+/*
+	Jump that changes height for longer the player keeps the jump button pressed - Saving for maybe using in the future
+	if(isFalling){
+		myRigidBody2D.gravityScale = fallGravityMultiplier;
+	}else if(myRigidBody2D.velocity.y > 0 && !(Input.GetKey (jumpKey) || Input.GetButton(jumpGamepadButton))){
+		myRigidBody2D.gravityScale = lowJumpGravityMultiplier;
+	}else{
+		myRigidBody2D.gravityScale = 1;
+	}
+			    */
+
 
 

@@ -179,15 +179,6 @@ public class MagicCat : Cat {
 //		    }
 //	    }
 
-		if(!levitate && !returningAfterFalling){
-		    if(isFalling){
-				myRigidBody2D.gravityScale = fallGravityMultiplier;
-			}else if(myRigidBody2D.velocity.y > 0 && !(Input.GetKey (jumpKey) || Input.GetButton(jumpGamepadButton))){
-				myRigidBody2D.gravityScale = lowJumpGravityMultiplier;
-		    }else{
-		    	myRigidBody2D.gravityScale = 1;
-		    }
-	    }
    	}
 
 	void Levitate(){
