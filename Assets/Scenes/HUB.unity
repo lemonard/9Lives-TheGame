@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenFade: {fileID: 308887885}
-  destinationSceneIndex: 3
+  destinationSceneIndex: 6
 --- !u!1001 &71308629
 Prefab:
   m_ObjectHideFlags: 0
@@ -6421,7 +6421,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4300323194128114, guid: 377d5e213fc0d4f00abbf6892b2fb628, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.45
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4300323194128114, guid: 377d5e213fc0d4f00abbf6892b2fb628, type: 2}
       propertyPath: m_LocalPosition.z

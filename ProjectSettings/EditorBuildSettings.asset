@@ -23,3 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HUBToFantasyEra.unity
     guid: 8f37a1127f5290c428e31073516a9dfe
+  - enabled: 1
+    path: Assets/Scenes/Archeologist Cat.unity
+    guid: 7ecaa88de2c5b4540a74ab7ff0677220
+  - enabled: 1
+    path: Assets/Scenes/HUB - Year End Show.unity
+    guid: 6a48845b19c484994ab9e0492a640818

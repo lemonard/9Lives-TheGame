@@ -24,6 +24,6 @@ public class StartingScreen : MonoBehaviour {
 		pressStartAnimator.SetBool("startPressed",true);
 		GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
 		yield return new WaitForSeconds(0.4f);
-		SceneManager.LoadScene (1);
+		SceneManager.LoadScene (7);
 	}
 }
