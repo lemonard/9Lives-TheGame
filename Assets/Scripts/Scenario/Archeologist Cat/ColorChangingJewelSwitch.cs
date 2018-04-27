@@ -25,6 +25,7 @@ public class ColorChangingJewelSwitch : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(currentColor == desiredColor){
+
 			ActivateObjects();
 		}
 	}
@@ -119,7 +120,11 @@ public class ColorChangingJewelSwitch : MonoBehaviour {
 
 	void ActivateObjects(){
 		for(int i = 0; i < objectsToInteract.Length; i++){
-			objectsToInteract[i].SetActive(false);
+			if (objectsToInteract [i].GetComponent<Animator> ()) {
+				objectsToInteract [i].GetComponent<Animator> ().SetBool("activatedJewel", true);
+			} else {
+				objectsToInteract [i].SetActive (false);
+			}
 		}
 
 	}

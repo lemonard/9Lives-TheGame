@@ -40,6 +40,7 @@ TextureImporter:
     21300066: temple_wallbottom_33
     21300068: temple_wallbottom_34
     21300070: temple_wallbottom_35
+    21300072: temple_wallbottom_36
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -631,6 +632,20 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_wallbottom_36
+      rect:
+        serializedVersion: 2
+        x: 512
         y: 64
         width: 64
         height: 64

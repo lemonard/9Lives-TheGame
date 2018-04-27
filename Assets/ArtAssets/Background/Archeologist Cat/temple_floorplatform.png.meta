@@ -36,6 +36,18 @@ TextureImporter:
     21300058: temple_floorplatform_29
     21300060: temple_floorplatform_30
     21300062: temple_floorplatform_31
+    21300064: temple_floorplatform_32
+    21300066: temple_floorplatform_33
+    21300068: temple_floorplatform_34
+    21300070: temple_floorplatform_35
+    21300072: temple_floorplatform_36
+    21300074: temple_floorplatform_37
+    21300076: temple_floorplatform_38
+    21300078: temple_floorplatform_39
+    21300080: temple_floorplatform_40
+    21300082: temple_floorplatform_41
+    21300084: temple_floorplatform_42
+    21300086: temple_floorplatform_43
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -137,7 +149,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 576
         width: 64
         height: 64
       alignment: 0
@@ -151,7 +163,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
+        y: 576
         width: 64
         height: 64
       alignment: 0
@@ -165,7 +177,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 192
+        y: 576
         width: 64
         height: 64
       alignment: 0
@@ -179,7 +191,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 192
+        y: 576
         width: 64
         height: 64
       alignment: 0
@@ -193,7 +205,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 192
+        y: 576
         width: 64
         height: 64
       alignment: 0
@@ -207,7 +219,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 192
+        y: 576
         width: 64
         height: 64
       alignment: 0
@@ -221,7 +233,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 192
+        y: 576
         width: 64
         height: 64
       alignment: 0
@@ -235,7 +247,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 192
+        y: 576
         width: 64
         height: 64
       alignment: 0
@@ -249,7 +261,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 192
+        y: 576
         width: 64
         height: 64
       alignment: 0
@@ -263,7 +275,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 576
-        y: 192
+        y: 576
         width: 64
         height: 64
       alignment: 0
@@ -277,7 +289,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 512
         width: 64
         height: 64
       alignment: 0
@@ -291,7 +303,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 128
+        y: 512
         width: 64
         height: 64
       alignment: 0
@@ -305,7 +317,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
+        y: 512
         width: 64
         height: 64
       alignment: 0
@@ -319,7 +331,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 128
+        y: 512
         width: 64
         height: 64
       alignment: 0
@@ -333,7 +345,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 128
+        y: 512
         width: 64
         height: 64
       alignment: 0
@@ -347,7 +359,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 128
+        y: 512
         width: 64
         height: 64
       alignment: 0
@@ -361,7 +373,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 128
+        y: 512
         width: 64
         height: 64
       alignment: 0
@@ -375,7 +387,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 128
+        y: 512
         width: 64
         height: 64
       alignment: 0
@@ -389,7 +401,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 128
+        y: 512
         width: 64
         height: 64
       alignment: 0
@@ -403,7 +415,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 576
-        y: 128
+        y: 512
         width: 64
         height: 64
       alignment: 0
@@ -417,7 +429,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -431,7 +443,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -445,7 +457,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 64
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -459,7 +471,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 64
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -473,7 +485,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 64
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -487,7 +499,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 64
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -501,7 +513,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -515,7 +527,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -529,7 +541,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -543,7 +555,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 0
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -557,7 +569,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 0
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -571,7 +583,175 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_floorplatform_32
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_floorplatform_33
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_floorplatform_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_floorplatform_35
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_floorplatform_36
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_floorplatform_37
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_floorplatform_38
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_floorplatform_39
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_floorplatform_40
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_floorplatform_41
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_floorplatform_42
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temple_floorplatform_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
         width: 64
         height: 64
       alignment: 0
