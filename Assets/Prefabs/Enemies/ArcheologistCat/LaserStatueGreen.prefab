@@ -177,6 +177,7 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: f7d68cd3aaaadb64ab4def2c8de75b6e, type: 2}
     sprite: {fileID: 21300000, guid: 9630f7b75af62448e9573f997021d43e, type: 3}
     disabledSprite: {fileID: 21300000, guid: b009e94b1f4723649acc44c2a0fcaa9c, type: 3}
+    statueColor: {r: 1, g: 0.28627452, b: 0.28627452, a: 0}
     chargingParticle: {fileID: 1654568687820990, guid: 79512b5b96554114d9fe5b31809ccc46,
       type: 2}
     collideParticle: {fileID: 1307485614262622, guid: 1eda88e4f7976c24f86afc0c7a31a27c,
@@ -185,6 +186,7 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: b71d1a09e2266e64fb90c183c5c33601, type: 2}
     sprite: {fileID: 21300000, guid: 3ca7097169cb94763a68a5ea9f8b2a53, type: 3}
     disabledSprite: {fileID: 21300000, guid: b73137ad6842fd749a3a91f1371b810e, type: 3}
+    statueColor: {r: 0.28627452, g: 0.73333335, b: 0.15294118, a: 0}
     chargingParticle: {fileID: 1282500151701882, guid: f794f2234506b74409f8249e5a2d8271,
       type: 2}
     collideParticle: {fileID: 1032885469836370, guid: 336eba2e91401b24985d19cdf04f9b1c,
@@ -193,6 +195,7 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: 0498f02db83aabf4fac678483b662434, type: 2}
     sprite: {fileID: 21300000, guid: 8f3c89ad878c044ecb9af29f2480af5e, type: 3}
     disabledSprite: {fileID: 21300000, guid: b2553440d3e4f364d8e1d78da9c3c13b, type: 3}
+    statueColor: {r: 0.15294118, g: 0.39607847, b: 0.73333335, a: 0}
     chargingParticle: {fileID: 1914932990919504, guid: f26e87576ee942243ba09105febdfc46,
       type: 2}
     collideParticle: {fileID: 1253160721645850, guid: 87f996655ab34254c8459d42010d397f,
@@ -222,6 +225,7 @@ MonoBehaviour:
   playerInRange: 0
   turned: 0
   currentColor: 4
+  currentStatueColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114446734314612968
 MonoBehaviour:
   m_ObjectHideFlags: 1

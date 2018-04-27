@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class StatueColorChangingSwitch : MonoBehaviour {
+
+	[System.Serializable]
+	public struct StatueToInteract{
+		public EyeStatue statue;
+		public SpriteRenderer statueColorIndicator;
+	};
 
 	public Color activatedColor;
 	public Color deactivatedColor;
 
-	public EyeStatue[] statuesToChangeColor;
+	public StatueToInteract[] statues;
 
 	private SpriteRenderer mySpriteRenderer;
 
@@ -21,11 +29,13 @@ public class StatueColorChangingSwitch : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mySpriteRenderer.color = deactivatedColor;
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		DefineIndicatorsColor();
 	}
 
 	public void ToggleActivation(){
@@ -44,9 +54,11 @@ public class StatueColorChangingSwitch : MonoBehaviour {
 		mySpriteRenderer.color = activatedColor;
 		activated = true;
 
-		for(int i = 0; i < statuesToChangeColor.Length; i++){
-			statuesToChangeColor[i].SwitchColorsForward();
+		for(int i = 0; i < statues.Length; i++){
+			statues[i].statue.SwitchColorsForward();
 		}
+
+		DefineIndicatorsColor();
 
 		if(!changeStatuesColorOnce){
 			StartCoroutine(DeactivateAfterSeconds());
@@ -56,10 +68,21 @@ public class StatueColorChangingSwitch : MonoBehaviour {
 	public void Deactivate(){
 		mySpriteRenderer.color = deactivatedColor;
 		activated = false;
-		for(int i = 0; i < statuesToChangeColor.Length; i++){
-			
-			statuesToChangeColor[i].SwitchColorsBackwards();
+
+		for(int i = 0; i < statues.Length; i++){
+			statues[i].statue.SwitchColorsForward();
 		}
+
+		DefineIndicatorsColor();
+	}
+
+	public void DefineIndicatorsColor(){
+
+		for(int i = 0; i < statues.Length; i++){
+			
+			statues[i].statueColorIndicator.color = new Color(statues[i].statue.currentStatueColor.r,statues[i].statue.currentStatueColor.g,statues[i].statue.currentStatueColor.b,statues[i].statue.currentStatueColor.a);
+		}
+
 	}
 
 	IEnumerator DeactivateAfterSeconds(){

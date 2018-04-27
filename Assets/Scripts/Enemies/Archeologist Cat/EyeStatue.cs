@@ -20,6 +20,7 @@ public class EyeStatue : MonoBehaviour {
 		public Material material;
 		public Sprite sprite;
 		public Sprite disabledSprite;
+		public Color statueColor;
 		public GameObject chargingParticle;
 		public GameObject collideParticle;
 	};
@@ -63,6 +64,7 @@ public class EyeStatue : MonoBehaviour {
 	public bool turned;
 
 	public StatueColor currentColor;
+	public Color currentStatueColor;
 	private Sprite currentSprite;
 	private Sprite currentDisabledSprite;
 	private SpriteRenderer mySpriteRenderer;
@@ -243,6 +245,7 @@ public class EyeStatue : MonoBehaviour {
 					laserCollideParticle = statueColors[0].collideParticle;
 					currentSprite = statueColors[0].sprite;
 					currentDisabledSprite = statueColors[0].disabledSprite;
+					currentStatueColor = statueColors[0].statueColor;
 				break;
 
 			case(StatueColor.Green):
@@ -252,6 +255,7 @@ public class EyeStatue : MonoBehaviour {
 					laserCollideParticle = statueColors[1].collideParticle;
 					currentSprite = statueColors[1].sprite;
 					currentDisabledSprite = statueColors[0].disabledSprite;
+					currentStatueColor = statueColors[1].statueColor;
 				break;
 
 			case(StatueColor.Blue):
@@ -261,6 +265,7 @@ public class EyeStatue : MonoBehaviour {
 					laserCollideParticle = statueColors[2].collideParticle;
 					currentSprite = statueColors[2].sprite;
 					currentDisabledSprite = statueColors[0].disabledSprite;
+					currentStatueColor = statueColors[2].statueColor;
 				break;
 
 		}
