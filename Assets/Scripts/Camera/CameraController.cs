@@ -42,6 +42,7 @@ public class CameraController : MonoBehaviour {
 	private float xOffset; //Offset of the camera
 	private bool animationMode;
 
+	public bool startLookingLeft;
 	void Awake(){
 		instance = this;
 	}
@@ -60,7 +61,12 @@ public class CameraController : MonoBehaviour {
 
 		target = player.gameObject;
 		//Set camera to start position
-		moveTo = new Vector3(player.transform.position.x - xOffset, player.transform.position.y + yOffset, transform.position.z);
+		if(startLookingLeft){
+			moveTo = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset, transform.position.z);
+			movingRight = false;
+		}else{
+			moveTo = new Vector3(player.transform.position.x - xOffset, player.transform.position.y + yOffset, transform.position.z);
+		}
 		//moveTo = new Vector3(player.transform.position.x - xOffset, transform.position.y, transform.position.z);
 		transform.position = moveTo;
 	}

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 
 	public bool magicCatStageCleared;
 	public bool pussInBootsStageCleared;
+	public bool archeologistStageCleared;
 
 	public Cat player;
 	public int playerCurrency = 0;
@@ -74,7 +75,6 @@ public class GameManager : MonoBehaviour {
 			SetPlayerCurrency();
 		}
 
-		print("Mudei de cena");
 	}
 }
 

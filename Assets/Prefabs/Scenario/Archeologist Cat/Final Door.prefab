@@ -232,7 +232,7 @@ MonoBehaviour:
   finishLevelText: {fileID: 0}
   destinationSceneIndex: 1
   hubSceneIndex: 7
-  type: 0
+  type: 3
   lastLevel: 1
 --- !u!114 &114093088083724570
 MonoBehaviour:

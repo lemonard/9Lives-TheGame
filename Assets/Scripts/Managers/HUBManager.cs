@@ -33,6 +33,11 @@ public class HUBManager : MonoBehaviour {
 						catStatues[i].Activate();
 					}
 					break;
+				case(CatType.ArcheologistCat):
+					if(GameManager.instance.archeologistStageCleared){
+						catStatues[i].Activate();
+					}
+					break;
 
 
 			}

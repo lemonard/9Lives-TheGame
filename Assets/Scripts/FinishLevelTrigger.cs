@@ -68,6 +68,9 @@ public class FinishLevelTrigger : CutsceneTrigger {
 				GameManager.instance.pussInBootsStageCleared = true;
 			break;
 
+			case(CatType.ArcheologistCat):
+				GameManager.instance.archeologistStageCleared = true;
+			break;
 
 		}
 
