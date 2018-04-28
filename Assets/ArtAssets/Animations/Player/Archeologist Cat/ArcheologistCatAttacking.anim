@@ -20,19 +20,19 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.3
         value: 0.00000047683716
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.1
+        time: 0.4
         value: 1.1693103
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.2
+        time: 0.5
         value: 0.0077064037
         inSlope: 0
         outSlope: 0
@@ -48,19 +48,19 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.3
         value: 0.038309097
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.1
+        time: 0.4
         value: 2.3769288
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.2
+        time: 0.5
         value: 0.05372095
         inSlope: 0
         outSlope: 0
@@ -76,19 +76,19 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.3
         value: 0.005004883
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.1
+        time: 0.4
         value: -1.1745565
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.2
+        time: 0.5
         value: 0.005004883
         inSlope: 0
         outSlope: 0
@@ -104,19 +104,19 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.3
         value: 0.040629387
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.1
+        time: 0.4
         value: 2.3874211
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.2
+        time: 0.5
         value: 0.040629387
         inSlope: 0
         outSlope: 0
@@ -131,8 +131,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 5c6118199e4a2cd479eccb5a1ac74e7f, type: 3}
+      value: {fileID: 21300000, guid: 6afb04d5c7a4744bdbc95f29d4f00436, type: 3}
     - time: 0.1
+      value: {fileID: 21300002, guid: 6afb04d5c7a4744bdbc95f29d4f00436, type: 3}
+    - time: 0.2
+      value: {fileID: 21300004, guid: 6afb04d5c7a4744bdbc95f29d4f00436, type: 3}
+    - time: 0.3
+      value: {fileID: 21300000, guid: 5c6118199e4a2cd479eccb5a1ac74e7f, type: 3}
+    - time: 0.4
       value: {fileID: 21300000, guid: 5c6118199e4a2cd479eccb5a1ac74e7f, type: 3}
     attribute: m_Sprite
     path: 
@@ -181,6 +187,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
+    - {fileID: 21300000, guid: 6afb04d5c7a4744bdbc95f29d4f00436, type: 3}
+    - {fileID: 21300002, guid: 6afb04d5c7a4744bdbc95f29d4f00436, type: 3}
+    - {fileID: 21300004, guid: 6afb04d5c7a4744bdbc95f29d4f00436, type: 3}
     - {fileID: 21300000, guid: 5c6118199e4a2cd479eccb5a1ac74e7f, type: 3}
     - {fileID: 21300000, guid: 5c6118199e4a2cd479eccb5a1ac74e7f, type: 3}
   m_AnimationClipSettings:
@@ -188,7 +197,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.2
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -208,19 +217,19 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.3
         value: 0.00000047683716
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.1
+        time: 0.4
         value: 1.1693103
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.2
+        time: 0.5
         value: 0.0077064037
         inSlope: 0
         outSlope: 0
@@ -236,19 +245,19 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.3
         value: 0.038309097
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.1
+        time: 0.4
         value: 2.3769288
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.2
+        time: 0.5
         value: 0.05372095
         inSlope: 0
         outSlope: 0
@@ -264,19 +273,19 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.3
         value: 0.005004883
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.1
+        time: 0.4
         value: -1.1745565
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.2
+        time: 0.5
         value: 0.005004883
         inSlope: 0
         outSlope: 0
@@ -292,19 +301,19 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.3
         value: 0.040629387
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.1
+        time: 0.4
         value: 2.3874211
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.2
+        time: 0.5
         value: 0.040629387
         inSlope: 0
         outSlope: 0
@@ -321,14 +330,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 0
+  - time: 0.3
     functionName: ActivateAttackCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.2
+  - time: 0.5
     functionName: FinishAttack
     data: 
     objectReferenceParameter: {fileID: 0}
