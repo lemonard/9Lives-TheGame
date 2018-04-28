@@ -269,7 +269,6 @@ public class ArcheologistCat : Cat {
 	void StartShootingGun(){
 		animator.SetBool("shooting",true);
 		isShooting = true;
-		ShootGun();
 	}
 
 	void ShootGun(){
