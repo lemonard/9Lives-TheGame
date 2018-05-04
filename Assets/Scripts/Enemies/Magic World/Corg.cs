@@ -11,7 +11,6 @@ public class Corg : Enemy {
 
 	public bool movementIsHorizontal; //Defines if the corg moves on the horizontal or vertical axis
 
-
 	private float stunnedTimestamp;
 	// Use this for initialization
 	void Start () {
@@ -110,12 +109,10 @@ public class Corg : Enemy {
 		if(other.gameObject.tag == "Player"){
 
 			Cat playerVariables = other.gameObject.GetComponent<Cat>();
-            Health healthScript = other.gameObject.GetComponent<Health>();
 
 			if(!playerVariables.invulnerable){
-				playerVariables.life -= 1;
+				playerVariables.life -= damage;
 				playerVariables.sourceOfDamagePosition = gameObject.transform.position;
-                healthScript.damage = true;
 				playerVariables.receivedDamage = true;
 			} 
 		}

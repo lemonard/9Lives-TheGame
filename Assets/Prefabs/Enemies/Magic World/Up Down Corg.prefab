@@ -219,9 +219,11 @@ MonoBehaviour:
   lookingRight: 0
   mySpawner: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 53cdfade0f6c785428009aec910c4f4d, type: 3}
+  damage: 3
   invulnerableSeconds: 0.4
   prepareForParry: 0
   stunned: 0
+  wasTurned: 0
   canReceiveDamage: 1
   droppedItemms:
   - itemPrefab: {fileID: 1614849787692516, guid: c2732246c0e50ce45a7a9a23797e49aa,
@@ -230,6 +232,7 @@ MonoBehaviour:
   - itemPrefab: {fileID: 1351659043273132, guid: 01347e0361368bc42bfdba9500d30b02,
       type: 2}
     dropRate: 0.05
+  player: {fileID: 0}
   playerInWalkingRange: 0
   playerInAttackingRange: 0
   startThreshold: {fileID: 4000013591900702}

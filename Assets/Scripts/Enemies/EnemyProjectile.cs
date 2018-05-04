@@ -12,6 +12,7 @@ public class EnemyProjectile : MonoBehaviour {
     private WizardDog enemy;
     public bool goRight;
     private float timeStampToDestroy;
+	public int damage;
 
 	public GameObject enemyShotParticlePrefab;
 	public GameObject enemyShotVanishParticlePrefab;
@@ -57,13 +58,11 @@ public class EnemyProjectile : MonoBehaviour {
         else if (other.tag == "Player")
         {
             Cat playerVariables = other.GetComponent<Cat>();
-			Health healthScript = other.gameObject.GetComponent<Health>();
 
             if (!playerVariables.invulnerable)
             {
 				playerVariables.sourceOfDamagePosition = gameObject.transform.position;
-                playerVariables.life -= 1;
-				healthScript.damage = true;
+                playerVariables.life -= damage;
                 playerVariables.receivedDamage = true;
             }
 

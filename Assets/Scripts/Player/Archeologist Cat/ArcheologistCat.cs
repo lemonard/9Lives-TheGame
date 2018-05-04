@@ -194,7 +194,6 @@ public class ArcheologistCat : Cat {
 		spawnChargingParticlesCoroutine = StartCoroutine(SpawnChargingParticle());
 		isCharging = true;
 		chargingElapsedTime = 0;
-		animator.SetBool("charging", true);
 	}
 
 	void CancelCharging(){
@@ -360,6 +359,7 @@ public class ArcheologistCat : Cat {
 
 	IEnumerator SpawnChargingParticle(){
 	     yield return new WaitForSeconds(0.2f);
+		animator.SetBool("charging", true);
 		 currentChargingParticles = (GameObject)Instantiate(chargingParticles, transform.position, Quaternion.identity,gameObject.transform);
 	}
 

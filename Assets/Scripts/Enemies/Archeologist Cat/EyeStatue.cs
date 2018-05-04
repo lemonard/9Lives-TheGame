@@ -156,10 +156,9 @@ public class EyeStatue : MonoBehaviour {
 
 			if (hit.collider.GetComponent<Cat> ()) {
 				Cat cat = hit.collider.gameObject.GetComponent<Cat> ();			//When laser hits the cat, calculate damage
-				Health healthScript = hit.collider.gameObject.GetComponent<Health> ();
 
 				if (!cat.invulnerable) {    //Check if the player can be hit
-					healthScript.damage = true;
+					
 					cat.sourceOfDamagePosition = new Vector3 (hit.point.x, hit.point.y, 0);
 					cat.life -= laserDamage;
 					cat.receivedDamage = true;

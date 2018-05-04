@@ -375,6 +375,7 @@ MonoBehaviour:
   lookingRight: 0
   mySpawner: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 50cdcc0cdb7453c4d80ed9fea23a5b6b, type: 3}
+  damage: 15
   invulnerableSeconds: 1
   prepareForParry: 0
   stunned: 0

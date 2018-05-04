@@ -13,6 +13,9 @@ public class ColorChangingJewelSwitch : MonoBehaviour {
 	public StatueColor desiredColor;
 
 	private SpriteRenderer mySpriteRenderer;
+
+	public GameObject puzzleCircuit;
+
 	// Use this for initialization
 	void Awake(){
 		mySpriteRenderer = GetComponent<SpriteRenderer>();
@@ -26,7 +29,7 @@ public class ColorChangingJewelSwitch : MonoBehaviour {
 	void Update () {
 		if(currentColor == desiredColor){
 
-			ActivateObjects();
+			StartCoroutine(ActivateObjects());
 		}
 	}
 
@@ -118,7 +121,9 @@ public class ColorChangingJewelSwitch : MonoBehaviour {
 
 	}
 
-	void ActivateObjects(){
+	IEnumerator ActivateObjects(){
+		puzzleCircuit.GetComponent<Animator> ().SetBool ("activated", true);
+		yield return new WaitForSeconds (1.1f);
 		for(int i = 0; i < objectsToInteract.Length; i++){
 			if (objectsToInteract [i].GetComponent<Animator> ()) {
 				objectsToInteract [i].GetComponent<Animator> ().SetBool("activatedJewel", true);
@@ -126,6 +131,5 @@ public class ColorChangingJewelSwitch : MonoBehaviour {
 				objectsToInteract [i].SetActive (false);
 			}
 		}
-
 	}
 }

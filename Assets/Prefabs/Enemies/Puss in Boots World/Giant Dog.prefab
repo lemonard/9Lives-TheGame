@@ -321,8 +321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3b536e2a4782e45afbad818bc2af28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
-  healthScript: {fileID: 0}
 --- !u!114 &114564873644080078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -352,9 +350,11 @@ MonoBehaviour:
   lookingRight: 0
   mySpawner: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 50cdcc0cdb7453c4d80ed9fea23a5b6b, type: 3}
+  damage: 20
   invulnerableSeconds: 1
   prepareForParry: 0
   stunned: 0
+  wasTurned: 0
   canReceiveDamage: 0
   droppedItemms:
   - itemPrefab: {fileID: 1614849787692516, guid: c2732246c0e50ce45a7a9a23797e49aa,
@@ -372,6 +372,7 @@ MonoBehaviour:
   - itemPrefab: {fileID: 1640920341208202, guid: a518e0ad3bcf54b0cbdfe4858491d5c5,
       type: 2}
     dropRate: 0.5
+  player: {fileID: 0}
   playerInWalkingRange: 0
   playerInAttackingRange: 0
   walkingRange: 4
@@ -379,7 +380,6 @@ MonoBehaviour:
   leftAttackCollider: {fileID: 61995584607648354}
   rightAttackCollider: {fileID: 61552880515248330}
   stunTime: 2
-  distanceToPlayer: 0
 --- !u!114 &114852076576702002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -391,8 +391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3b536e2a4782e45afbad818bc2af28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
-  healthScript: {fileID: 0}
 --- !u!114 &114994058435586410
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -70,11 +70,9 @@ public class MagicProjectile : MonoBehaviour {
 
 		if(reflected && other.tag == "Player"){
 			Cat playerVariables = other.GetComponent<Cat>();
-			Health healthScript = other.gameObject.GetComponent<Health>();
 
 			if (!playerVariables.invulnerable) {
 				playerVariables.life -= 1;
-				healthScript.damage = true;
 				playerVariables.receivedDamage = true;
             }
 		}

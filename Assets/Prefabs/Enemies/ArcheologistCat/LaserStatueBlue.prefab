@@ -218,7 +218,7 @@ MonoBehaviour:
   laserCooldown: 1.5
   maximumLaserDuration: 0.6
   laserChargingTime: 1.5
-  laserDamage: 1
+  laserDamage: 5
   laserAccelerationFactor: 0.5
   laserChargingParticle: {fileID: 1654568687820990, guid: 79512b5b96554114d9fe5b31809ccc46,
     type: 2}
@@ -358,7 +358,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 8f3c89ad878c044ecb9af29f2480af5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -119,6 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectionParticleEffectPrefab: {fileID: 1042487215122164, guid: 7904ca2c6828cc744bd107c3e789b755,
     type: 2}
+  collectSound: {fileID: 0}
+  healAmount: 1
 --- !u!212 &212531738661989630
 SpriteRenderer:
   m_ObjectHideFlags: 1

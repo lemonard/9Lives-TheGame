@@ -46,7 +46,7 @@ public class CompleteLevelDoor : MonoBehaviour {
 		camera.ChangeToTargetAndCenter(doorFocalPoint);
 		yield return new WaitForSeconds(5f);
 		camera.ReturnCameraToPlayerFollowing();
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(6f);
 		camera.DeactivateAnimationMode();
 		player.EnableControls();
 	}

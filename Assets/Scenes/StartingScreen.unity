@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 140735987}
   - component: {fileID: 140735986}
   m_Layer: 0
-  m_Name: frame_setsuna
+  m_Name: frame_susano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2000aad9abf5144048de632ff4f3ad53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7823c5a9cf8734ad2ab3f1ee06399551, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1044,7 +1044,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7823c5a9cf8734ad2ab3f1ee06399551, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2000aad9abf5144048de632ff4f3ad53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1158,6 +1158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicCatStageCleared: 0
   pussInBootsStageCleared: 0
+  archeologistStageCleared: 0
   player: {fileID: 0}
   playerCurrency: 0
   changingScene: 0

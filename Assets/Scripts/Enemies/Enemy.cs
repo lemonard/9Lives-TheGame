@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour {
 	public bool lookingRight;
 	public EnemySpawner mySpawner;
 	public AudioClip deathSound;
+	public int damage;
 
 	private int flashDelay = 2;
 	protected SpriteRenderer mySpriteRenderer;

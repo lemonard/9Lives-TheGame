@@ -109,6 +109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   timeToDestroy: 1
+  goRight: 0
+  damage: 10
   enemyShotParticlePrefab: {fileID: 1619929001605172, guid: e875f59685db087489da0fbd1faaddd8,
     type: 2}
   enemyShotVanishParticlePrefab: {fileID: 1322424090242458, guid: cc1a84acf678cb04195e0b52d28f0dbf,

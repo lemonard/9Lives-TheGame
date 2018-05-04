@@ -16,7 +16,7 @@ EditorBuildSettings:
     guid: 4f6528dd16c547d4987b7df5e9b92c53
   - enabled: 1
     path: Assets/Scenes/Puss In Boots.unity
-    guid: 5468db2a85e4c459786d6b27eb214278
+    guid: 158979b82d801a14dbf463a4ab3d60b6
   - enabled: 1
     path: Assets/Scenes/HUBToMagicalEra.unity
     guid: 22d414cfa1253054082490a554131e72
