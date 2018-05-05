@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1364155504002560}
   m_IsPrefabParent: 1
+--- !u!1 &1340595657804844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4754819310991954}
+  m_Layer: 16
+  m_Name: WhipStartingPointRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1364155504002560
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,9 +40,25 @@ GameObject:
   - component: {fileID: 61937488504363892}
   - component: {fileID: 114199637096954940}
   - component: {fileID: 95125237380837394}
+  - component: {fileID: 114767159647210642}
   m_Layer: 16
   m_Name: Archeologist Cat
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1430064293034054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4729759841379012}
+  m_Layer: 16
+  m_Name: WhipStartingPointLeft
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,13 +117,41 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1364155504002560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.28, y: 9.31, z: 0}
+  m_LocalPosition: {x: -20.33, y: 8.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4229034646725018}
   - {fileID: 4897542592242212}
+  - {fileID: 4754819310991954}
+  - {fileID: 4729759841379012}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4729759841379012
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1430064293034054}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.535, y: -0.09500027, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4392279699079276}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4754819310991954
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340595657804844}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.548, y: -0.095, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4392279699079276}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4897542592242212
 Transform:
@@ -312,8 +371,28 @@ MonoBehaviour:
   bulletFeedbackPrefab: {fileID: 1732528175952836, guid: 04c7467b6f1352244a070518fe6a54ac,
     type: 2}
   isPulling: 0
+  isPushing: 0
+  isObjectBeingPushedOnTheRight: 0
   isCharging: 0
   charged: 0
+--- !u!114 &114767159647210642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1364155504002560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a7238950738418e91b9304f07286cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whipStartingPointRight: {fileID: 1340595657804844}
+  whipStartingPointLeft: {fileID: 1430064293034054}
+  lineWidth: 0.03
+  isActive: 0
+  toTheRight: 0
+  points: []
+  whipMaterial: {fileID: 2100000, guid: 983c79480e5fa42d8a885532c189eec8, type: 2}
 --- !u!114 &114940031178594498
 MonoBehaviour:
   m_ObjectHideFlags: 1

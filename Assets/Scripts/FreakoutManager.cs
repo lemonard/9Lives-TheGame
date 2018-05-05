@@ -18,6 +18,9 @@ public class FreakoutManager : MonoBehaviour {
     public float m_fillAmount = 0;                                          // 0 = empty, 1 = full.
 
 	public AudioClip catScream;
+	public AudioClip filledBar;
+
+	public ParticleSystem fullBarParticles;
 
     void Start(){
 		mySpriteRenderer = GetComponent<SpriteRenderer>();
@@ -33,7 +36,11 @@ public class FreakoutManager : MonoBehaviour {
         UpdateFillAmount();
         if (m_fillAmount >= 1)
         {
-            cat.ready = true;
+			if (!cat.ready) {
+				SpawnFOBParticles ();
+				PlayFOBFillingSound ();
+			}
+			cat.ready = true;
         }
         else if(m_fillAmount != 1)
         {
@@ -116,5 +123,14 @@ public class FreakoutManager : MonoBehaviour {
 
 	public void PlayFreakOutSound(){
 		AudioManager.instance.PlaySound (catScream);
+	}
+
+	private void SpawnFOBParticles(){
+		
+		fullBarParticles.Play ();
+	}
+
+	public void PlayFOBFillingSound(){
+		AudioManager.instance.PlaySound (filledBar);
 	}
 }

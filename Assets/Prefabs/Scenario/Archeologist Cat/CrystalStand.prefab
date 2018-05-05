@@ -232,6 +232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632c6c185265968468432afe9e1ebc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBeingPulled: 0
+  regularSprite: {fileID: 21300000, guid: 7167f264892b548588732b5cf303eefa, type: 3}
+  wrappedSprite: {fileID: 21300000, guid: 83ace7bd3ccb9478fa2486728eaa6c86, type: 3}
 --- !u!114 &114238149042205476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,6 +258,7 @@ MonoBehaviour:
   objectsToInteract:
   - {fileID: 0}
   desiredColor: 5
+  puzzleCircuit: {fileID: 0}
 --- !u!212 &212742100301431610
 SpriteRenderer:
   m_ObjectHideFlags: 1

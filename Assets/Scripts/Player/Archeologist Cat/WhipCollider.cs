@@ -31,6 +31,7 @@ public class WhipCollider : MonoBehaviour {
 		}else if(other.GetComponent<PullableObject>()){
 			if(charged){
 				ArcheologistCat cat = GetComponentInParent<ArcheologistCat>();
+				other.GetComponent<PullableObject> ().WrapObject ();
 				cat.StartPulling(other);
 			}
 		}

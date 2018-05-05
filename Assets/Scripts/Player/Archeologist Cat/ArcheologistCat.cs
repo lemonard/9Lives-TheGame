@@ -28,6 +28,8 @@ public class ArcheologistCat : Cat {
 
 	public bool isPulling;
 	private GameObject currentObjectBeingPulled;
+	public bool isPushing;
+	public bool isObjectBeingPushedOnTheRight;
 
 	public bool isCharging;
 	public bool charged;
@@ -54,7 +56,7 @@ public class ArcheologistCat : Cat {
 
 				if(!isAttacking && !isShooting){
 
-					if(!isCharging && !isPulling){
+					if(!isCharging && !isPulling && !isPushing){
 						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
 							MoveRight();
 						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
@@ -62,7 +64,7 @@ public class ArcheologistCat : Cat {
 						} else {
 							Idle();
 						}
-					}else if(isCharging && !isPulling){
+					}else if(isCharging && !isPulling && !isPushing){
 						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
 							isLookingRight = true;
 							ChangeLookingDirection();
@@ -70,11 +72,21 @@ public class ArcheologistCat : Cat {
 							isLookingRight = false;
 							ChangeLookingDirection();
 						}
-					}else if(!isCharging && isPulling){
-						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
-							MoveRightWhilePulling();
+					}else if(!isCharging && isPulling && !isPushing){
+						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
+							MoveRightWhilePulling ();
 						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-							MoveLeftWhilePulling();
+							MoveLeftWhilePulling ();
+						} else if (!Input.GetKey (moveRightKey) && !Input.GetKey (moveLeftKey) && !(Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) && !(Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+							isWalking = false;
+						}
+					}else if(!isCharging && !isPulling && isPushing){
+						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
+							MoveRightWhilePushing ();
+						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+							MoveLeftWhilePushing ();
+						} else if (!Input.GetKey (moveRightKey) && !Input.GetKey (moveLeftKey) && !(Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) && !(Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+							isWalking = false;
 						}
 					}
 
@@ -82,12 +94,15 @@ public class ArcheologistCat : Cat {
 						if(!isFalling){
 
 							if(!isJumping){
+								if (isPushing) {
+									StopPushing ();
+								}
 								Jump();
 							} 
 						}
 					}
 
-					if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isJumping && !isPulling){
+					if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isJumping && !isPulling && !isPushing){
 						movedLeft = false;
 							movedRight = false;
 						StartCharging();
@@ -123,11 +138,20 @@ public class ArcheologistCat : Cat {
 					}
 
 					if(isPulling){
-						if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton))){
+						if (!isWalking) {
+							animator.speed = 0;
+						}
+
+						if((Input.GetKeyUp (attackKey) || Input.GetButtonUp(attackGamepadButton))){
 							StopPulling();
 						}
 					}
 
+					if (isPushing) {
+						if (!isWalking) {
+							animator.speed = 0;
+						}
+					}
 
 				}
 
@@ -161,6 +185,20 @@ public class ArcheologistCat : Cat {
 
 	}
 
+	protected override void OnCollisionEnter2D(Collision2D other){
+		base.OnCollisionEnter2D (other);
+
+		if (other.gameObject.tag == "ButtomPressingObjects" && !isPulling && !isJumping && !isFalling && !isAttacking && !isCharging && !isShooting && !isPushing) {
+			if (other.gameObject.transform.position.x >= transform.position.x) {
+				isObjectBeingPushedOnTheRight = true;
+			} else if (other.gameObject.transform.position.x < transform.position.x) {
+				isObjectBeingPushedOnTheRight = false;
+			}
+
+			StartPushing ();
+		}
+	}
+
 	protected override void CheckIfDamageReceived ()
 	{
 		if (receivedDamage && life > 0) {
@@ -176,15 +214,45 @@ public class ArcheologistCat : Cat {
 	}
 
 	protected void MoveRightWhilePulling(){
-
-		myRigidBody2D.transform.position += Vector3.right * speed * Time.deltaTime;
+		if (currentObjectBeingPulled.transform.position.x > transform.position.x) {
+			StopPulling ();
+		} else {
+			myRigidBody2D.transform.position += Vector3.right * speed * Time.deltaTime;
+			isWalking = true;
+			animator.speed = 1;
+		}
 
 	}
 
 	protected void MoveLeftWhilePulling(){
+		if (currentObjectBeingPulled.transform.position.x < transform.position.x) {
+			StopPulling ();
+		} else {
+			myRigidBody2D.transform.position += Vector3.left * speed * Time.deltaTime;
+			isWalking = true;
+			animator.speed = 1;
+		}
 
-		myRigidBody2D.transform.position += Vector3.left * speed * Time.deltaTime;
+	}
 
+	protected void MoveRightWhilePushing(){
+		if (!isObjectBeingPushedOnTheRight) {
+			StopPushing ();
+		} else {
+			myRigidBody2D.transform.position += Vector3.right * speed * Time.deltaTime;
+			isWalking = true;
+			animator.speed = 1;
+		}
+	}
+
+	protected void MoveLeftWhilePushing(){
+		if (isObjectBeingPushedOnTheRight) {
+			StopPushing ();
+		} else {
+			myRigidBody2D.transform.position += Vector3.left * speed * Time.deltaTime;
+			isWalking = true;
+			animator.speed = 1;
+		}
 	}
 
 	void StartCharging(){
@@ -333,6 +401,8 @@ public class ArcheologistCat : Cat {
 		currentObjectBeingPulled = objectToPull.gameObject;
 		currentObjectBeingPulled.transform.parent = gameObject.transform;
 
+		GetComponent<PullingWhipRenderer> ().RenderWhip (isLookingRight, objectToPull.gameObject);
+
 		rightAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
 		leftAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
 		rightAttackingPoint.charged = false;
@@ -340,10 +410,15 @@ public class ArcheologistCat : Cat {
 	}
 
 	void StopPulling(){
+		animator.speed = 1;
 		isPulling = false;
 		FinishChargedAttack();
+
+		GetComponent<PullingWhipRenderer> ().DestroyWhip();
+
 		animator.SetBool("pulling",false);
 		speed = initialSpeed;
+		currentObjectBeingPulled.GetComponent<PullableObject> ().UnwrapObject ();
 		currentObjectBeingPulled.transform.parent = null;
 		currentObjectBeingPulled = null;
 	}
@@ -351,6 +426,23 @@ public class ArcheologistCat : Cat {
 	void RemoveChargingParticles(){
 		Destroy(currentChargingParticles);
 		currentChargingParticles = null;
+	}
+
+	public void StartPushing(){
+		isPushing = true;
+		animator.SetBool ("pushing", true);
+
+		rightAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
+		leftAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
+		rightAttackingPoint.charged = false;
+		leftAttackingPoint.charged = false;
+	}
+
+	public void StopPushing(){
+		animator.speed = 1;
+		isPushing = false;
+		animator.SetBool ("pushing", false);
+		speed = initialSpeed;
 	}
 
 	void SpawnCompleteChargeParticle(){
