@@ -29,6 +29,13 @@ public class ScenarioButtom : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerStay2D(Collider2D other){
+		if(other.tag == "Player" || other.tag == "ButtomPressingObjects"){
+			Activate();
+		}
+	}
+
+
 	void OnTriggerExit2D(Collider2D other){
 		if(other.tag == "Player" || other.tag == "ButtomPressingObjects"){
 			Deactivate();
