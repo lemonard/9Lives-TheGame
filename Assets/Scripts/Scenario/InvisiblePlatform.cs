@@ -18,6 +18,11 @@ public class InvisiblePlatform : MonoBehaviour {
 		isRevealed = false;
 		revealedTimestamp = 0;
 		myAnimator = GetComponent<Animator>();
+
+		if(!isSolidForever){
+			GetComponent<BoxCollider2D> ().isTrigger = true;
+		}
+
 	}
 
 
@@ -34,15 +39,20 @@ public class InvisiblePlatform : MonoBehaviour {
 			}
 		}
 
+
 		if(Time.time > revealedTimestamp ){
 			isRevealed = false;
 			myAnimator.SetBool("fadeIn",false);
 			revealedTimestamp = 0;
-			if (!isSolidForever) {
-				GetComponent<BoxCollider2D> ().isTrigger = true;
-			}
 		}
 
+	}
+
+	public void BecomeInvisible(){
+		revealedTimestamp = 0;
+		if (!isSolidForever) {
+			GetComponent<BoxCollider2D> ().isTrigger = true;
+		}
 	}
 
 	public void ResetTimer(){

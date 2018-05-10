@@ -8,6 +8,8 @@ public class MagicCat : Cat {
 	public Transform leftFiringPoint;
 	public GameObject projectile;
 	public GameObject magicPulsePrefab;
+	public ParticleSystem broomParticleRight;
+	public ParticleSystem broomParticleLeft;
 
 	public string shootMagicGamepadButton;
 	public string magicPulseGamepadButton;
@@ -37,10 +39,32 @@ public class MagicCat : Cat {
 
 	private GameObject currentReturningParticle;
 
+	private ParticleSystem.EmissionModule broomParticleRightEmissionModule;
+	private ParticleSystem.MainModule broomParticleRightMainModule;
+	private ParticleSystem.EmissionModule broomParticleLeftEmissionModule;
+	private ParticleSystem.MainModule broomParticleLeftMainModule;
+
+	private float initialBroomParticleRate;
+	private ParticleSystem.MinMaxCurve initialBroomParticleSpeed;
+
+	private bool lastLookingDirection;
+
+
 	protected override void Start ()
 	{
 		base.Start ();
 		canLevitate = true;
+
+		broomParticleRightEmissionModule = broomParticleRight.emission;
+		broomParticleRightMainModule = broomParticleRight.main;
+
+		broomParticleLeftEmissionModule = broomParticleLeft.emission;
+		broomParticleLeftMainModule = broomParticleLeft.main;
+
+		initialBroomParticleRate = broomParticleRightEmissionModule.rateOverTime.constant;
+		initialBroomParticleSpeed = broomParticleRightMainModule.startSpeed;
+
+		lastLookingDirection = isLookingRight;
 	}
 
 
@@ -92,6 +116,11 @@ public class MagicCat : Cat {
 
 					if(Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)){
 
+						if(levitate){
+							CancelLevitate();
+							Jump ();
+						}
+
 						if (!levitate && canLevitate && (isJumping || isFalling)) {
 							Levitate ();
 						}
@@ -120,6 +149,20 @@ public class MagicCat : Cat {
 				if(myRigidBody2D.velocity.y < -0.2f){
 					isFalling = true;
 				}
+
+				if(levitate){
+					if(lastLookingDirection != isLookingRight){
+						if(isLookingRight){
+							broomParticleRight.Stop();
+							broomParticleLeft.Play();
+						}else{
+							broomParticleRight.Play();
+							broomParticleLeft.Stop();
+						}
+					}
+				}
+
+				lastLookingDirection = isLookingRight;
 			}
 		}
 
@@ -182,7 +225,13 @@ public class MagicCat : Cat {
    	}
 
 	void Levitate(){
-		
+
+		if(isLookingRight){
+			broomParticleLeft.Play();
+
+		}else{
+			broomParticleRight.Play();
+		}
 		levitate = true;
 		animator.SetBool("levitate", true);
 		myRigidBody2D.gravityScale = 0;
@@ -191,6 +240,15 @@ public class MagicCat : Cat {
 	}
     
 	void CancelLevitate(){
+
+		broomParticleRightMainModule.startSpeed = initialBroomParticleSpeed;
+		broomParticleRightEmissionModule.rateOverTime = new ParticleSystem.MinMaxCurve(initialBroomParticleRate);
+
+		broomParticleLeftMainModule.startSpeed = initialBroomParticleSpeed;
+		broomParticleLeftEmissionModule.rateOverTime = new ParticleSystem.MinMaxCurve(initialBroomParticleRate);
+
+		broomParticleLeft.Stop();
+		broomParticleRight.Stop();
 
 		StopCoroutine (levitateCoroutine);
 		canLevitate = false;
@@ -204,8 +262,32 @@ public class MagicCat : Cat {
 
     IEnumerator LevitateOff()
     {
-		
-        yield return new WaitForSeconds(levitateDelay);
+
+		yield return new WaitForSeconds(levitateDelay / 3f);
+		broomParticleRightMainModule.startSpeed = new ParticleSystem.MinMaxCurve(2f,5f);
+		broomParticleRightEmissionModule.rateOverTime = new ParticleSystem.MinMaxCurve(initialBroomParticleRate / 2);
+
+		broomParticleLeftMainModule.startSpeed = new ParticleSystem.MinMaxCurve(2f,5f);
+		broomParticleLeftEmissionModule.rateOverTime = new ParticleSystem.MinMaxCurve(initialBroomParticleRate / 2);
+
+		yield return new WaitForSeconds(levitateDelay / 3f);
+		broomParticleRightMainModule.startSpeed = new ParticleSystem.MinMaxCurve(1f,2f);
+		broomParticleRightEmissionModule.rateOverTime = new ParticleSystem.MinMaxCurve(initialBroomParticleRate / 4);
+
+		broomParticleLeftMainModule.startSpeed = new ParticleSystem.MinMaxCurve(1f,2f);
+		broomParticleLeftEmissionModule.rateOverTime = new ParticleSystem.MinMaxCurve(initialBroomParticleRate / 4);
+
+		yield return new WaitForSeconds(levitateDelay / 3f);
+
+		broomParticleRight.Stop();
+		broomParticleLeft.Stop();
+
+		broomParticleRightMainModule.startSpeed = initialBroomParticleSpeed;
+		broomParticleRightEmissionModule.rateOverTime = new ParticleSystem.MinMaxCurve(initialBroomParticleRate);
+
+		broomParticleLeftMainModule.startSpeed = initialBroomParticleSpeed;
+		broomParticleLeftEmissionModule.rateOverTime = new ParticleSystem.MinMaxCurve(initialBroomParticleRate);
+
 		print ("Leviate off called");
 		canLevitate = false;
 		levitateCooldownTimeStamp = Time.time + levitateCooldown;
