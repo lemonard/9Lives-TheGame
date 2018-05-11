@@ -8,6 +8,8 @@ public class MagicCat : Cat {
 	public Transform leftFiringPoint;
 	public GameObject projectile;
 	public GameObject magicPulsePrefab;
+	public Transform pulseOrigin;
+
 	public ParticleSystem broomParticleRight;
 	public ParticleSystem broomParticleLeft;
 
@@ -365,7 +367,7 @@ public class MagicCat : Cat {
 	}
 
 	public void CreateMagicPulse(){
-		Instantiate(magicPulsePrefab,transform.position,Quaternion.identity);
+		Instantiate(magicPulsePrefab,pulseOrigin.position,Quaternion.identity);
 	}
 
 	public void FinishMagicPulse(){

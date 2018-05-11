@@ -23,6 +23,8 @@ public class ArcheologistCat : Cat {
 	public WhipCollider rightAttackingPoint;
 	public WhipCollider leftAttackingPoint;
 
+	public Transform particleOrigin;
+
 	public bool isShooting;
 	public GameObject bulletFeedbackPrefab;
 
@@ -446,13 +448,13 @@ public class ArcheologistCat : Cat {
 	}
 
 	void SpawnCompleteChargeParticle(){
-		Instantiate(chargeCompleteParticles, transform.position, Quaternion.identity);
+		Instantiate(chargeCompleteParticles, particleOrigin.position, Quaternion.identity);
 	}
 
 	IEnumerator SpawnChargingParticle(){
 	     yield return new WaitForSeconds(0.2f);
 		animator.SetBool("charging", true);
-		 currentChargingParticles = (GameObject)Instantiate(chargingParticles, transform.position, Quaternion.identity,gameObject.transform);
+		currentChargingParticles = (GameObject)Instantiate(chargingParticles, particleOrigin.position, Quaternion.identity,gameObject.transform);
 	}
 
 

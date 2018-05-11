@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011885954846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.021, z: 0}
+  m_LocalPosition: {x: -25.24963, y: -3.3523183, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,10 +77,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.059606552, y: -0.096414566}
+  m_Offset: {x: -0.059606552, y: 0.23470342}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
@@ -88,7 +88,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.26131058, y: 0.4080099}
+  m_Size: {x: 0.26131058, y: 0.41696}
   m_EdgeRadius: 0
 --- !u!82 &82481399256055608
 AudioSource:
@@ -200,6 +200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   jumpForce: 5
+  fallGravityMultiplier: 2.5
+  lowJumpGravityMultiplier: 2
   life: 3
   invulnerableSeconds: 1
   isLookingRight: 0
@@ -233,6 +235,7 @@ MonoBehaviour:
   ready: 0
   currencyAmount: 0
   currentCheckpoint: {x: 0, y: 0, z: 0}
+  sourceOfDamagePosition: {x: 0, y: 0, z: 0}
   enterPortalKey: 119
   isNearPortal: 0
   nearestPortal: {fileID: 0}
@@ -271,7 +274,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6cc8ed7644b453a428f9707d120a0b04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cee0f0b451c1147bebee1b2123b080a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
