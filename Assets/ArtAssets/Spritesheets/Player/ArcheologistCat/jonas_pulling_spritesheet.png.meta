@@ -12,6 +12,14 @@ TextureImporter:
     21300010: jonas_pulling_5
     21300012: jonas_pulling_6
     21300014: jonas_pulling_7
+    21300016: jonas_pulling_spritesheet_0
+    21300018: jonas_pulling_spritesheet_1
+    21300020: jonas_pulling_spritesheet_2
+    21300022: jonas_pulling_spritesheet_3
+    21300024: jonas_pulling_spritesheet_4
+    21300026: jonas_pulling_spritesheet_5
+    21300028: jonas_pulling_spritesheet_6
+    21300030: jonas_pulling_spritesheet_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -109,113 +117,113 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jonas_pulling_0
+      name: jonas_pulling_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 240
         width: 120
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: jonas_pulling_1
+      name: jonas_pulling_spritesheet_1
       rect:
         serializedVersion: 2
         x: 120
         y: 240
         width: 120
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: jonas_pulling_2
+      name: jonas_pulling_spritesheet_2
       rect:
         serializedVersion: 2
         x: 0
         y: 160
         width: 120
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: jonas_pulling_3
+      name: jonas_pulling_spritesheet_3
       rect:
         serializedVersion: 2
         x: 120
         y: 160
         width: 120
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: jonas_pulling_4
+      name: jonas_pulling_spritesheet_4
       rect:
         serializedVersion: 2
         x: 0
         y: 80
         width: 120
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: jonas_pulling_5
+      name: jonas_pulling_spritesheet_5
       rect:
         serializedVersion: 2
         x: 120
         y: 80
         width: 120
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: jonas_pulling_6
+      name: jonas_pulling_spritesheet_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 120
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: jonas_pulling_7
+      name: jonas_pulling_spritesheet_7
       rect:
         serializedVersion: 2
         x: 120
         y: 0
         width: 120
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
