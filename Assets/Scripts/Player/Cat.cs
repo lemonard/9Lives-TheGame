@@ -133,7 +133,7 @@ public class Cat : MonoBehaviour {
         myRigidBody2D.transform.position += Vector3.down * speed * Time.deltaTime;
     }
 
-    protected void Idle(){
+    protected virtual void Idle(){
 
 		animator.SetBool("walking",false);
 		animator.SetBool("idle",true);

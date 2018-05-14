@@ -5255,7 +5255,7 @@ MonoBehaviour:
   jumpForce: 5
   fallGravityMultiplier: 2.5
   lowJumpGravityMultiplier: 2
-  life: 3
+  life: 100
   invulnerableSeconds: 1
   isLookingRight: 0
   isDying: 0

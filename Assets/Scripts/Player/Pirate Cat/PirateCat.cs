@@ -23,13 +23,14 @@ public class PirateCat : Cat {
 	public bool isShooting;
 	public GameObject bulletFeedbackPrefab;
 
-	public int comboCounter = 0;
+
 	public bool canCombo = false;
+
+	public int comboCounter = 0;
 	public bool comboActivated = false;
 
-	private int gunComboCounter = 0;
-	private bool canGunCombo = false;
-	private bool gunComboActivated = false;
+	public int gunComboCounter = 0;
+	public bool gunComboActivated = false;
 
 	// Use this for initialization
 	protected override void Start ()
@@ -82,17 +83,70 @@ public class PirateCat : Cat {
 				}
 
 				if(isAttacking){
-
+					
 					if(canCombo){
 
 						if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isJumping){
 							comboActivated = true;
+							gunComboActivated = false;
 							canCombo = false;
 							comboCounter++;
+						}
+
+						if((Input.GetKeyDown (gunKey) || Input.GetButtonDown(gunGamepadButton)) && !isJumping){
+
+							comboCounter++;
+							gunComboActivated = true;
+							comboActivated = false;
+							canCombo = false;
+
+							isAttacking = false;
+
+							if(gunComboCounter == 0){
+								gunComboCounter++;
+								isShooting = true;
+							}else{
+								isShooting = true;
+							}
+						}
+
+					}
+
+				}
+
+				if(isShooting){
+
+					if(canCombo){
+
+						if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isJumping){
+
+							gunComboCounter++;
+							comboActivated = true;
+							gunComboActivated = false;
+							canCombo = false;
+
+							isShooting = false;
+
+							if(comboCounter == 0){
+								comboCounter++;
+								isAttacking = true;
+							}else{
+								isAttacking = true;
+							}
+
+						}
+
+						if((Input.GetKeyDown (gunKey) || Input.GetButtonDown(gunGamepadButton)) && !isJumping){
+							gunComboActivated = true;
+							comboActivated = false;
+							canCombo = false;
+							gunComboCounter++;
 						}
 					}
 
 				}
+
+
 
 				if(myRigidBody2D.velocity.y < -1){
 					isFalling = true;
@@ -116,6 +170,14 @@ public class PirateCat : Cat {
 
 	void FixedUpdate(){
 
+
+	}
+
+	protected override void Idle ()
+	{
+		base.Idle ();
+		FinishAttack();
+		StopShooting();
 
 	}
 
@@ -206,8 +268,11 @@ public class PirateCat : Cat {
 	}
 
 	void StartShootingGun(){
-		animator.SetBool("shooting",true);
+
+		
+		gunComboCounter++;
 		isShooting = true;
+		animator.SetBool("shooting",true);
 	}
 
 	void ShootGun(){
@@ -252,15 +317,18 @@ public class PirateCat : Cat {
 	            }
 			}else if(hit.collider.tag == "EnemyProtection"){
 				
-			}else if(hit.collider.gameObject.GetComponent<StatueColorChangingSwitch>()){
-				hit.collider.gameObject.GetComponent<StatueColorChangingSwitch>().ToggleActivation();
-			}else if(hit.collider.gameObject.GetComponent<Torch>()){
-				hit.collider.gameObject.GetComponent<Torch>().Activate();
-			}		
+			}	
 		}
 	}
 
 	void StopShooting(){
+
+		gunComboActivated = false;
+
+		gunComboCounter = 0;
+
+		animator.SetInteger("gunComboCounter", 1);
+
 		animator.SetBool("shooting",false);
 		isShooting = false;
 	}
@@ -275,19 +343,51 @@ public class PirateCat : Cat {
 
 		if(comboActivated){
 
+			animator.SetBool("attack", true);
+			animator.SetBool("shooting", false);
+			animator.SetInteger("gunComboCounter", gunComboCounter);
+
+			gunComboActivated = false;
+			comboActivated = false;
+			
 			DisableColliders();
 
-			if(comboCounter == 2){
+			if(comboCounter == 1){
 
-				comboActivated = false;
+				animator.SetInteger("comboCounter", 1);
+
+			}else if(comboCounter == 2){
+
 				animator.SetInteger("comboCounter", 2);
 
 			}else if(comboCounter == 3){
 
-				comboActivated = false;
 				animator.SetInteger("comboCounter", 3);
 			}
 
+		}else if(gunComboActivated){
+
+			animator.SetBool("shooting", true);
+			animator.SetBool("attack", false);
+			animator.SetInteger("comboCounter", comboCounter);
+
+			gunComboActivated = false;
+			comboActivated = false;
+
+			if(gunComboCounter == 1){
+
+				
+				animator.SetInteger("gunComboCounter", 1);
+
+			}else if(gunComboCounter == 2){
+
+
+				animator.SetInteger("gunComboCounter", 2);
+
+			}else if(gunComboCounter == 3){
+
+				animator.SetInteger("gunComboCounter", 3);
+			}
 		}
 	}
 
