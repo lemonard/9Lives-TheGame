@@ -20,9 +20,19 @@ public class PirateCat : Cat {
 	public CutlassCollider rightAttackingPoint3;
 	public CutlassCollider leftAttackingPoint3;
 
+	public GameObject handCannonBallPrefab;
+	public GameObject handCannonFiringPointRight;
+	public GameObject handCannonFiringPointLeft;
+
+	public GameObject giantCannonBallPrefab;
+	public GameObject giantCannonFiringPointRight;
+	public GameObject giantCannonFiringPointLeft;
+
 	public bool isShooting;
+	public bool wasThrown;
 	public GameObject bulletFeedbackPrefab;
 
+	public int amountOfHitsTaken;
 
 	public bool canCombo = false;
 
@@ -43,7 +53,7 @@ public class PirateCat : Cat {
 		if(!controlersDisabled){
 			if(!isDying  && !freakoutMode){
 
-				if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isJumping && !isAttacking && ready){
+				if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isJumping && !isAttacking && !isShooting && ready){
 					freakoutMode = true;
 					freakoutManager.PlayFreakOutSound ();
 					animator.SetBool("freakout",true);
@@ -321,6 +331,36 @@ public class PirateCat : Cat {
 		}
 	}
 
+	void ShootHandCannon(){
+
+		GameObject cannonBall;
+
+		if(isLookingRight){
+			cannonBall = Instantiate(handCannonBallPrefab,handCannonFiringPointRight.transform.position, Quaternion.identity);
+			cannonBall.GetComponent<HandCannonBall>().goRight = true;
+		}else{
+			cannonBall = Instantiate(handCannonBallPrefab,handCannonFiringPointLeft.transform.position, Quaternion.identity);
+			cannonBall.GetComponent<HandCannonBall>().goRight = false;
+		}
+
+
+	}
+
+	void ShootGiantCannon(){
+
+		GameObject cannonBall;
+
+		if(isLookingRight){
+			cannonBall = Instantiate(giantCannonBallPrefab,giantCannonFiringPointRight.transform.position, Quaternion.identity);
+			cannonBall.GetComponent<GiantCannonShot>().goRight = true;
+		}else{
+			cannonBall = Instantiate(giantCannonBallPrefab,giantCannonFiringPointLeft.transform.position, Quaternion.identity);
+			cannonBall.GetComponent<GiantCannonShot>().goRight = false;
+		}
+
+
+	}
+
 	void StopShooting(){
 
 		gunComboActivated = false;
@@ -352,9 +392,19 @@ public class PirateCat : Cat {
 			
 			DisableColliders();
 
+
+			if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
+				isLookingRight = true;
+				ChangeLookingDirection();
+			} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+				isLookingRight = false;
+				ChangeLookingDirection();	
+			}
+
 			if(comboCounter == 1){
 
 				animator.SetInteger("comboCounter", 1);
+
 
 			}else if(comboCounter == 2){
 
@@ -365,6 +415,9 @@ public class PirateCat : Cat {
 				animator.SetInteger("comboCounter", 3);
 			}
 
+
+
+
 		}else if(gunComboActivated){
 
 			animator.SetBool("shooting", true);
@@ -373,6 +426,14 @@ public class PirateCat : Cat {
 
 			gunComboActivated = false;
 			comboActivated = false;
+
+			if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
+				isLookingRight = true;
+				ChangeLookingDirection();
+			} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+				isLookingRight = false;
+				ChangeLookingDirection();	
+			}
 
 			if(gunComboCounter == 1){
 
@@ -388,6 +449,8 @@ public class PirateCat : Cat {
 
 				animator.SetInteger("gunComboCounter", 3);
 			}
+
+		
 		}
 	}
 

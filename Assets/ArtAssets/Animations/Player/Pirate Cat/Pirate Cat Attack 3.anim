@@ -794,14 +794,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5555556
+  - time: 0.6666667
     functionName: TryToChainAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
+  - time: 0.7777778
     functionName: FinishAttack
     data: 
     objectReferenceParameter: {fileID: 0}
