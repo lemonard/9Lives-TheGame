@@ -62,6 +62,7 @@ public class EnemyProjectile : MonoBehaviour {
             if (!playerVariables.invulnerable)
             {
 				playerVariables.sourceOfDamagePosition = gameObject.transform.position;
+				playerVariables.bounceBackAfterReceivingDamage = true;
                 playerVariables.life -= damage;
                 playerVariables.receivedDamage = true;
             }

@@ -112,6 +112,7 @@ public class Corg : Enemy {
 
 			if(!playerVariables.invulnerable){
 				playerVariables.life -= damage;
+				playerVariables.bounceBackAfterReceivingDamage = true;
 				playerVariables.sourceOfDamagePosition = gameObject.transform.position;
 				playerVariables.receivedDamage = true;
 			} 

@@ -33,10 +33,12 @@ public class Cat : MonoBehaviour {
 	public bool isLookingRight;
 	public bool isDying;
 	public bool receivedDamage;
+	public bool bounceBackAfterReceivingDamage;
 	public bool invulnerable;
     public bool freakoutMode;
 	public bool FourLeggedCat;
 	public bool controlersDisabled;
+
 
 
 	public KeyCode moveRightKey;
@@ -184,7 +186,10 @@ public class Cat : MonoBehaviour {
 		receivedDamage = false;
 		invulnerable = true;
 		invulnerableTimeStamp = Time.time + invulnerableSeconds;
-		StartCoroutine(BounceBackAfterDamage());
+		if(bounceBackAfterReceivingDamage){
+			StartCoroutine(BounceBackAfterDamage());
+		}
+		bounceBackAfterReceivingDamage = false;
 	}
 
 	public void IsGrounded(){

@@ -144,6 +144,10 @@ public class ArcheologistCat : Cat {
 							animator.speed = 0;
 						}
 
+						if(currentObjectBeingPulled.GetComponent<Rigidbody2D>().velocity.y < -0.1f){
+							StopPulling();
+						}
+
 						if((Input.GetKeyUp (attackKey) || Input.GetButtonUp(attackGamepadButton))){
 							StopPulling();
 						}

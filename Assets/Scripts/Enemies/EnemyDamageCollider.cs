@@ -12,6 +12,7 @@ public class EnemyDamageCollider : MonoBehaviour {
 
 			if(!cat.invulnerable){
 				cat.life -= GetComponentInParent<Enemy>().damage;
+				cat.bounceBackAfterReceivingDamage = true;
 				cat.sourceOfDamagePosition = gameObject.transform.position;
 				cat.receivedDamage = true;
 			} 
