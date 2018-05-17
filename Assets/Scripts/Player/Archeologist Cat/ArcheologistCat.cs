@@ -24,6 +24,7 @@ public class ArcheologistCat : Cat {
 	public WhipCollider leftAttackingPoint;
 
 	public Transform particleOrigin;
+	public Transform shotOrigin;
 
 	public bool isShooting;
 	public GameObject bulletFeedbackPrefab;
@@ -346,14 +347,14 @@ public class ArcheologistCat : Cat {
 
 	void ShootGun(){
 		
-		Vector3 position = transform.position;
+		Vector3 position = shotOrigin.position;
 		Vector2 direction = Vector2.left;
 		float distance = gunDistance;
 
 		if(isLookingRight){
 			direction = Vector2.right;
 		}
-
+	
 		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Enemies","Ground","EnemyProtection","LaserInteractableScenario","Scenario"));
 		Debug.DrawRay(position, direction, Color.green);
 

@@ -28,6 +28,8 @@ public class PirateCat : Cat {
 	public GameObject giantCannonFiringPointRight;
 	public GameObject giantCannonFiringPointLeft;
 
+	public Transform shotOrigin;
+
 	public bool isShooting;
 	public bool wasThrown;
 	public GameObject bulletFeedbackPrefab;
@@ -287,7 +289,7 @@ public class PirateCat : Cat {
 
 	void ShootGun(){
 		
-		Vector3 position = transform.position;
+		Vector3 position = shotOrigin.position;
 		Vector2 direction = Vector2.left;
 		float distance = gunDistance;
 
