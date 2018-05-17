@@ -274,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 66681999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.129, y: 3.407, z: 10}
+  m_LocalPosition: {x: -11.598997, y: 3.407, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 905456096}
@@ -4628,7 +4628,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 149432554}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.499002, y: 3.397, z: 10}
+  m_LocalPosition: {x: -7.969, y: 3.397, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 129932880}
@@ -5013,7 +5013,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 224072250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.859001, y: 3.407, z: 10}
+  m_LocalPosition: {x: -7.3289986, y: 3.407, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 257955630}
@@ -8100,6 +8100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicCatStageCleared: 0
   pussInBootsStageCleared: 0
+  archeologistStageCleared: 0
   player: {fileID: 0}
   playerCurrency: 0
   changingScene: 0
@@ -16483,7 +16484,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1472715692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.769, y: 3.397, z: 10}
+  m_LocalPosition: {x: -12.2389965, y: 3.397, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 190299148}
@@ -22409,7 +22410,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1851760069}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.2, y: 3.415, z: 10}
+  m_LocalPosition: {x: -9.669998, y: 3.415, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 438167945}
@@ -22439,7 +22440,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1870128701}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.93, y: 3.415, z: 10}
+  m_LocalPosition: {x: -5.4, y: 3.415, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 441654615}
@@ -24190,6 +24191,7 @@ MonoBehaviour:
   rightCameraLimit: {fileID: 0}
   topCameraLimit: {fileID: 0}
   downCameraLimit: {fileID: 0}
+  startLookingLeft: 0
 --- !u!1001 &2123571861
 Prefab:
   m_ObjectHideFlags: 0
