@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class HandCannonBall : MonoBehaviour {
 
-	public GameObject explosionEffectPrefabAir;
-	public GameObject explosionEffectPrefabGround;
+	public GameObject explosionEffectPrefab;
 
 	public float speed; 
 	public float launchForce; 
@@ -28,11 +27,11 @@ public class HandCannonBall : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.tag == "Enemy"){
-			print("Bati no inimigo");
-			Destroy(gameObject);
-		}else if(other.tag == "Ground"){
+		if(other.tag == "Ground"){
 			print("Bati no chão");
+
+			Instantiate(explosionEffectPrefab,transform.position,Quaternion.identity);
+
 			Destroy(gameObject);
 		}
 	}
