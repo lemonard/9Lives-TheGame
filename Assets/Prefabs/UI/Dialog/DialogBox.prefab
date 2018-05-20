@@ -153,19 +153,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2fffefeb141cf6f48b3dda8b6133a777, type: 3}
-    m_FontSize: 25
+    m_Font: {fileID: 12800000, guid: cb892b33071f74aabbb40f5374719413, type: 3}
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Eu sou linda porra
 --- !u!114 &114899221749600946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,11 +186,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2fffefeb141cf6f48b3dda8b6133a777, type: 3}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: cb892b33071f74aabbb40f5374719413, type: 3}
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Fiona
 --- !u!222 &222352176232948082
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -238,8 +238,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: 40}
-  m_SizeDelta: {x: 856, y: 37}
+  m_AnchoredPosition: {x: -78.00299, y: 40}
+  m_SizeDelta: {x: 1024, y: 37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224085704129403654
 RectTransform:
@@ -259,8 +259,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 581.6, y: 70}
-  m_SizeDelta: {x: 884.9, y: 144}
+  m_AnchoredPosition: {x: 749.58, y: 70}
+  m_SizeDelta: {x: 1220.9, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224707235362749764
 RectTransform:
@@ -277,8 +277,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 448.17, y: 54.49997}
-  m_SizeDelta: {x: 855.45, y: 78}
+  m_AnchoredPosition: {x: 595.8, y: 54.49997}
+  m_SizeDelta: {x: 1150.6, y: 78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224943724088806136
 RectTransform:

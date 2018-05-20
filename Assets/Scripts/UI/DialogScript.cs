@@ -3,93 +3,111 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public struct DialogData{
+	public string dialogText;
+	public string characterName;
+	public int imageIndex;
+}
+
 public class DialogScript : MonoBehaviour
 {
-    public string dialogText;
     public Image charImg;
     public Text charName;
     public Text dialogTextBox;
     public GameObject dialogBox;
-    public float dialogDelay = 0.1f;
-    private string currentText = "";
-    public Sprite[] spriteTest = new Sprite[2];
+
+    public float dialogDelay = 0.02f;
+
+    public Sprite[] characterImages;
+
     static public bool pause = true;
-    private MonoBehaviour[] scripts;
-    private Sprite character;
-    private bool test = false;
+
+  	private Cat currentCat;
+
+	private bool isTyping;
+	private bool cancelTyping;
+
+	public List<DialogData> dialogLines;
+	private int currentLineNumber;
 
     // Used for Initialization
     public void Start()
     {
-        scripts = GameObject.FindObjectsOfType<MonoBehaviour>();
-        StartCoroutine(testDelay());      // Use this to test the dialog box
+    	currentCat = FindObjectOfType<Cat>();
+    	currentLineNumber = 0;
+        //scripts = GameObject.FindObjectsOfType<MonoBehaviour>();
+        //StartCoroutine(testDelay());      // Use this to test the dialog box
     }
 
     IEnumerator testDelay()
     {
         yield return new WaitForSeconds(3);
         StartDialogPauseGame();
-        DialogText("My name is Fiona!", "Fiona");
     }
 
     public void StartDialogPauseGame()
     {
         pause = true;
-        foreach (MonoBehaviour script in scripts)
-        {
-            script.enabled = false;
-        }
+
+		//Disable character controll and reset variables
+		currentLineNumber = 0;
+		currentCat.DisableControls();
         this.enabled = true;
+
+        //Setup dialog box before starting
+        charImg.sprite =  characterImages[dialogLines[0].imageIndex];
+        charName.text = dialogLines[0].characterName;
+
+        //Start Dialog
         dialogBox.SetActive(true);
+		StartCoroutine(WriteText(this.dialogLines[0].dialogText));
     }
 
     public void StopDialogResumeGame()
     {
         pause = false;
-        foreach (MonoBehaviour script in scripts)
-        {
-            script.enabled = true;
-        }
+
         dialogBox.SetActive(false);
+
+		StartCoroutine(EnableCharacterControls());
     }
 
-    public void DialogText(string dialog, string characterName)
-    {
-        if(characterName == "Sebastian")
-        {
-            character = spriteTest[1];
-        }
-        else if (characterName == "Fiona")
-        {
-            character = spriteTest[0];
-        }
 
-        dialogText = dialog;
-        charImg.sprite = character;
-        charName.text = characterName;
-        StartCoroutine(DisplayText());
-    }
+	public void NextDialogLine(){
 
-    // Displays the text
-    IEnumerator DisplayText()
-    {
-        // Creates a Typewriting Effect
-        for (int i = 0; i < dialogText.Length; i++)
-        {
-            currentText = dialogText.Substring(0, i);
-            
-            // Cancels the typewriting effect
-            if(Input.anyKeyDown)
-            {
-                i = dialogText.Length;      // Makes sure the for statement doesnt continue to iterate.
-                currentText = dialogText;   // Sets the current text to the full dialog
-            }
+		if(!isTyping){
+			if(currentLineNumber < dialogLines.Count - 1){
+				currentLineNumber++;
 
-            dialogTextBox.text = currentText;
-            yield return new WaitForSeconds(dialogDelay);
-        }
+				charImg.sprite =  characterImages[dialogLines[currentLineNumber].imageIndex];
+				charName.text = dialogLines[currentLineNumber].characterName;		
 
-    }
+				StartCoroutine(WriteText(this.dialogLines[currentLineNumber].dialogText));
+
+			}else{
+				StopDialogResumeGame();
+			}
+		}else{
+			cancelTyping = true;
+		}
+	}
+
+	IEnumerator WriteText(string currentLine){
+
+		int letter = 0;
+		dialogTextBox.text = "";
+		isTyping = true;
+		cancelTyping = false;
+		while(isTyping && !cancelTyping && (letter < currentLine.Length - 1)){
+			dialogTextBox.text += currentLine[letter];
+			letter += 1;
+			yield return new WaitForSeconds(dialogDelay);
+		}
+		dialogTextBox.text = currentLine;
+		isTyping = false;
+		cancelTyping = false;
+	}
 
     
     // Use this to test the dialog changing
@@ -97,20 +115,15 @@ public class DialogScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            test = true;
+            NextDialogLine();
         }
 
-        if (test)
-        {
-            test = false;
-            StartCoroutine(TestDialog());       
-        }
     }
 
-    IEnumerator TestDialog()
-    {
-        yield return new WaitForSeconds(1);
-        DialogText("My name is Sebastian!", "Sebastian");
+    IEnumerator EnableCharacterControls(){
+    	yield return new WaitForSeconds(0.5f);
+    	currentCat.EnableControls();
     }
+
     
 }

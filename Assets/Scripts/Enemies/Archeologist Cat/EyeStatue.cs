@@ -164,10 +164,9 @@ public class EyeStatue : MonoBehaviour {
 					cat.receivedDamage = true;
 				} 
 			} else if (hit.collider.gameObject.GetComponent<LaserBreakableWall> ()) {   //When laser hits a breakable wall with the same color, destroy the target
-				StatueColor wallColor = hit.collider.gameObject.GetComponent<LaserBreakableWall> ().currentColor;
-				if (wallColor == currentColor) {
-					Destroy (hit.collider.gameObject);
-				}
+
+				BreakWall(hit);
+
 			} else if (hit.collider.gameObject.GetComponent<EyeStatue> ()) {    //When hitting another statue, change the target's color to this statue's color
 				EyeStatue statue = hit.collider.gameObject.GetComponent<EyeStatue> ();
 				statue.SwitchColorTo (currentColor);
@@ -339,6 +338,23 @@ public class EyeStatue : MonoBehaviour {
 	public void Disable(){
 		disabled = true;
 		mySpriteRenderer.sprite = currentDisabledSprite;
+	}
+
+	void BreakWall(RaycastHit2D hit){
+
+		LaserBreakableWall breakableWall = hit.collider.gameObject.GetComponent<LaserBreakableWall> ();
+
+		if (breakableWall.currentColor == currentColor) {
+
+			if(breakableWall.transform.position.x >= hit.point.x){
+				breakableWall.explodeRight = true;
+			}else{
+				breakableWall.explodeRight = false;
+			}
+
+			breakableWall.Break();
+		}
+
 	}
 
 	IEnumerator StartWaiting(){

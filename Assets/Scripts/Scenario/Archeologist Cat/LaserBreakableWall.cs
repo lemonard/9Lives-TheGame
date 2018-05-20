@@ -5,14 +5,23 @@ using UnityEngine;
 public class LaserBreakableWall : MonoBehaviour {
 
 	public StatueColor currentColor;
+	public bool explodeRight;
 
-	// Use this for initialization
-	void Start () {
-		
+	public void Break(){
+		Animator animator = GetComponent<Animator>();
+
+		if(explodeRight){
+			animator.SetBool("right", true);
+		}else{
+			animator.SetBool("right", false);
+		}
+
+		animator.SetBool("break", true);
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	void Disappear(){
+		Destroy(gameObject);
 	}
+
 }

@@ -33,6 +33,7 @@ public class ArcheologistCat : Cat {
 	private GameObject currentObjectBeingPulled;
 	public bool isPushing;
 	public bool isObjectBeingPushedOnTheRight;
+	private GameObject currentObjectBeingPushed;
 
 	public bool isCharging;
 	public bool charged;
@@ -158,6 +159,14 @@ public class ArcheologistCat : Cat {
 						if (!isWalking) {
 							animator.speed = 0;
 						}
+
+						if(currentObjectBeingPushed.GetComponent<Rigidbody2D>().velocity.y < -0.1f){
+							StopPushing();
+						}
+
+						if((Input.GetKeyUp (attackKey) || Input.GetButtonUp(attackGamepadButton))){
+							StopPushing();
+						}
 					}
 
 				}
@@ -201,6 +210,8 @@ public class ArcheologistCat : Cat {
 			} else if (other.gameObject.transform.position.x < transform.position.x) {
 				isObjectBeingPushedOnTheRight = false;
 			}
+
+			currentObjectBeingPushed = other.gameObject;
 
 			StartPushing ();
 		}
@@ -438,17 +449,20 @@ public class ArcheologistCat : Cat {
 	public void StartPushing(){
 		isPushing = true;
 		animator.SetBool ("pushing", true);
-
+		currentObjectBeingPushed.GetComponent<PushableObject>().StartPushingObject(this);
 		rightAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
 		leftAttackingPoint.GetComponent<BoxCollider2D>().enabled = false;
 		rightAttackingPoint.charged = false;
 		leftAttackingPoint.charged = false;
+		speed = speed / 2;
 	}
 
 	public void StopPushing(){
 		animator.speed = 1;
 		isPushing = false;
 		animator.SetBool ("pushing", false);
+		currentObjectBeingPushed.GetComponent<PushableObject>().StopPushingObject();
+		currentObjectBeingPushed = null;
 		speed = initialSpeed;
 	}
 
