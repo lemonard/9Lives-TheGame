@@ -166,6 +166,11 @@ public class MagicCat : Cat {
 
 				lastLookingDirection = isLookingRight;
 			}
+		}else{
+			if(levitate){
+				CancelLevitate();
+			}
+			Idle();
 		}
 
 		if(returningAfterFalling){

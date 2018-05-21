@@ -1,0 +1,32 @@
+[
+  {
+    "dialogText": "I'm Fiona!",
+    "characterName": "Fiona",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "I'm Savannah!",
+    "characterName": "Savannah",
+	"imageIndex": 1,
+	"appearRight": true
+  },
+  {
+    "dialogText": "I love to talk!",
+    "characterName": "Fiona",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Bla bla bla!",
+    "characterName": "Fiona",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "You talk to much!",
+    "characterName": "Savannah",
+	"imageIndex": 1,
+	"appearRight": true
+  }
+]

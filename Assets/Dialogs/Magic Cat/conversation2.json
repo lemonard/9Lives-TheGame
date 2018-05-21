@@ -1,0 +1,32 @@
+[
+  {
+    "dialogText": "Second dialogue!",
+    "characterName": "Fiona",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Not again!",
+    "characterName": "Savannah",
+	"imageIndex": 1,
+	"appearRight": true
+  },
+  {
+    "dialogText": "I love to talk!",
+    "characterName": "Fiona",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Bla bla bla!",
+    "characterName": "Fiona",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "AAAAAAAAAAARGH!",
+    "characterName": "Savannah",
+	"imageIndex": 1,
+	"appearRight": true
+  }
+]
