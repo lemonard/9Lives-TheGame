@@ -8,23 +8,30 @@ public class Torch : MonoBehaviour {
 	public RoomDarkness roomDarkness;
 
 	public bool isActive;
+	public bool isSceneryTorch;
 	// Use this for initialization
 
 	void Start(){
-		flame.SetActive(false);
+		if (!isSceneryTorch) {
+			flame.SetActive (false);
+		}
 	}
 
 	public void Activate(){
-		if(!isActive){
-			isActive = true;
-			roomDarkness.IncreaseAmountOfTorches();
-			flame.SetActive(true);
+		if (!isSceneryTorch) {
+			if (!isActive) {
+				isActive = true;
+				roomDarkness.IncreaseAmountOfTorches ();
+				flame.SetActive (true);
+			}
 		}
 	}
 
 	public void Deactivate(){
-		isActive = false;
-		roomDarkness.DecreaseAmountOfTorches();
-		flame.SetActive(false);
+		if (!isSceneryTorch) {
+			isActive = false;
+			roomDarkness.DecreaseAmountOfTorches ();
+			flame.SetActive (false);
+		}
 	}
 }

@@ -738,6 +738,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198771288761553578, guid: c975daa1d2a15464292e9b2f365e7baa,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198771288761553578, guid: c975daa1d2a15464292e9b2f365e7baa,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 198771288761553578, guid: c975daa1d2a15464292e9b2f365e7baa,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198771288761553578, guid: c975daa1d2a15464292e9b2f365e7baa,
+        type: 2}
+      propertyPath: randomSeed
+      value: 656491693
+      objectReference: {fileID: 0}
+    - target: {fileID: 198771288761553578, guid: c975daa1d2a15464292e9b2f365e7baa,
+        type: 2}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0.48235297
+      objectReference: {fileID: 0}
+    - target: {fileID: 198771288761553578, guid: c975daa1d2a15464292e9b2f365e7baa,
+        type: 2}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.6431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 198771288761553578, guid: c975daa1d2a15464292e9b2f365e7baa,
+        type: 2}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c975daa1d2a15464292e9b2f365e7baa, type: 2}
   m_IsPrefabParent: 0
@@ -8027,7 +8062,7 @@ Animator:
   m_GameObject: {fileID: 1481674599}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7bbf09efb0501404183197c0857ef482, type: 2}
+  m_Controller: {fileID: 9100000, guid: 409192e0d047a47acbadc2c3ff9e7923, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
