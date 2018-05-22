@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
 	public Image healthBar;    // The main Health Object.
-    public Text healthText; // The empty game object holding all the lives.
+    public TextMeshProUGUI healthText; // The empty game object holding all the lives.
     public int numOfLives;            // The number of lives can be changed in the inspector.
     public static int healthMultiplier = 0;           // Used to increase the number of health based on the increase from the merchant.
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using LitJson;
+using TMPro;
 using System.IO;
 
 [System.Serializable]
@@ -16,11 +17,11 @@ public class DialogScript : MonoBehaviour
     public Image charImgRight;
     public Image charImgLeft;
 
-	public Text charNameLeft;
-    public Text charNameRight;
+	public TextMeshProUGUI charNameLeft;
+	public TextMeshProUGUI charNameRight;
 
-    public Text dialogTextBoxRight;
-	public Text dialogTextBoxLeft;
+    public TextMeshProUGUI dialogTextBoxRight;
+	public TextMeshProUGUI dialogTextBoxLeft;
 
     public GameObject dialogBox;
 
@@ -40,7 +41,7 @@ public class DialogScript : MonoBehaviour
 
 	private JsonData lines;
 	public List<DialogData> dialogLines = new List<DialogData>();
-	private int currentDialogFileIndex = 0;
+	public int currentDialogFileIndex = 0;
 	private int currentLineNumber;
 
 	private string currentJsonFile;
@@ -141,30 +142,48 @@ public class DialogScript : MonoBehaviour
 
 	IEnumerator WriteText(string currentLine, bool showRight){
 
-		int letter = 0;
+		int totalVisibleCharacters = 0;
+		int counter = 0;
 
-		dialogTextBoxLeft.text = "";
 		dialogTextBoxRight.text = "";
-
-		isTyping = true;
-		cancelTyping = false;
-
-		while(isTyping && !cancelTyping && (letter < currentLine.Length - 1)){
-
-			if(showRight){
-				dialogTextBoxRight.text += currentLine[letter];
-			}else{
-				dialogTextBoxLeft.text += currentLine[letter];
-			}
-
-			letter += 1;
-			yield return new WaitForSeconds(dialogDelay);
-		}
+		dialogTextBoxLeft.text = "";
 
 		if(showRight){
 			dialogTextBoxRight.text = currentLine;
 		}else{
 			dialogTextBoxLeft.text = currentLine;
+		}
+
+		totalVisibleCharacters = currentLine.Length;
+
+		isTyping = true;
+
+		int visibleCount = counter % (totalVisibleCharacters + 1);
+
+		while(isTyping && !cancelTyping && (visibleCount < totalVisibleCharacters)){
+
+
+			visibleCount = counter % (totalVisibleCharacters + 1);
+
+			if(showRight){
+
+				dialogTextBoxRight.maxVisibleCharacters = visibleCount;
+
+			}else{
+
+				dialogTextBoxLeft.maxVisibleCharacters = visibleCount;
+			}
+
+			counter += 1;
+			
+			yield return new WaitForSeconds(dialogDelay);
+		}
+
+
+		if(showRight){
+			dialogTextBoxRight.maxVisibleCharacters = totalVisibleCharacters;
+		}else{
+			dialogTextBoxLeft.maxVisibleCharacters = totalVisibleCharacters;
 		}
 
 		isTyping = false;
@@ -181,7 +200,7 @@ public class DialogScript : MonoBehaviour
     // Use this to test the dialog changing
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !movingDialog)
+        if(Input.GetKeyUp(KeyCode.Space) && !movingDialog)
         {
             NextDialogLine();
         }

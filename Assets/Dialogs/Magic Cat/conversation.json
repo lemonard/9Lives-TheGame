@@ -1,6 +1,6 @@
 [
   {
-    "dialogText": "I'm Fiona!",
+    "dialogText": "I'm Fiona! Press <sprite=2> to continue!",
     "characterName": "Fiona",
 	"imageIndex": 0,
 	"appearRight": false
