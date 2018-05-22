@@ -724,7 +724,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Oierrrrrrr! <sprite=2>
+  m_text: Oierrrrrrr!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d59eb6a8adcce2b49847c1616b9ce1cb, type: 2}
   m_sharedMaterial: {fileID: 21352123174781130, guid: d59eb6a8adcce2b49847c1616b9ce1cb,
@@ -1080,10 +1080,10 @@ RectTransform:
   m_Father: {fileID: 224085704129403654}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 614, y: 73}
-  m_SizeDelta: {x: 1150.6, y: 78}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -746, y: 73}
+  m_SizeDelta: {x: 1150.6001, y: 78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224889816976124914
 RectTransform:
