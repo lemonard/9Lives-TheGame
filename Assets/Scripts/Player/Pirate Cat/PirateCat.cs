@@ -31,6 +31,8 @@ public class PirateCat : Cat {
 	public Transform shotOrigin;
 
 	public bool isShooting;
+	public bool beingLaunched;
+	public bool isNearCannon;
 	public bool wasThrown;
 	public GameObject bulletFeedbackPrefab;
 
@@ -53,7 +55,7 @@ public class PirateCat : Cat {
 	// Update is called once per frame
 	void Update () {
 		if(!controlersDisabled){
-			if(!isDying  && !freakoutMode){
+			if(!isDying  && !freakoutMode && !beingLaunched){
 
 				if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isJumping && !isAttacking && !isShooting && ready){
 					freakoutMode = true;
@@ -61,7 +63,7 @@ public class PirateCat : Cat {
 					animator.SetBool("freakout",true);
 				}
 
-				if(!isAttacking && !isShooting){
+				if(!isAttacking && !isShooting && !beingLaunched){
 
 	
 					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
@@ -82,7 +84,9 @@ public class PirateCat : Cat {
 					}
 
 					if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isJumping){
-						StartAttack();
+						if(!isNearCannon){
+							StartAttack();
+						}
 					}
 
 
@@ -214,6 +218,24 @@ public class PirateCat : Cat {
 			animator.SetBool("dying",true);
 			animator.SetInteger("comboCounter", 1);
 		}
+	}
+
+	public override void IsGrounded ()
+	{
+
+		isJumping = false;
+		isFalling = false;
+		if(beingLaunched){
+
+			myRigidBody2D.gravityScale = 1;
+			myRigidBody2D.velocity = new Vector2(0,0);
+			beingLaunched = false;
+
+		}else{
+			myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
+		}
+
+		animator.SetBool("jumping", false);
 	}
 
 
@@ -448,7 +470,7 @@ public class PirateCat : Cat {
 				animator.SetInteger("gunComboCounter", 2);
 
 			}else if(gunComboCounter == 3){
-
+	
 				animator.SetInteger("gunComboCounter", 3);
 			}
 
@@ -456,6 +478,19 @@ public class PirateCat : Cat {
 		}
 	}
 
+	public void PrepareToBeLaunched(bool launchRight){
+		if(launchRight){
+			isLookingRight = true;
+		}else{
+			isLookingRight = false;
+		}
+
+		ChangeLookingDirection();
+
+		beingLaunched = true;
+		myRigidBody2D.velocity = new Vector2(0,0);
+//		myRigidBody2D.isKinematic = true;
+	}
 
 }
 

@@ -192,7 +192,7 @@ public class Cat : MonoBehaviour {
 		bounceBackAfterReceivingDamage = false;
 	}
 
-	public void IsGrounded(){
+	public virtual void IsGrounded(){
 
 //		jumpTimeCounter = jumpTime;
 //		finishedJump = true;
