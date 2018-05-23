@@ -49,34 +49,34 @@ public class ArcheologistCat : Cat {
 	}
 	// Update is called once per frame
 	void Update () {
-		if(!controlersDisabled){
-			if(!isDying  && !freakoutMode){
+		if (!controlersDisabled) {
+			if (!isDying && !freakoutMode) {
 
-				if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isJumping && !isAttacking && ready && !isCharging){
+				if ((Input.GetButtonDown (freakoutGamepadButton) || Input.GetKeyDown (freakoutKey)) && !isDying && !isJumping && !isAttacking && ready && !isCharging) {
 					freakoutMode = true;
 					freakoutManager.PlayFreakOutSound ();
-					animator.SetBool("freakout",true);
+					animator.SetBool ("freakout", true);
 				}
 
-				if(!isAttacking && !isShooting){
+				if (!isAttacking && !isShooting) {
 
-					if(!isCharging && !isPulling && !isPushing){
-						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
-							MoveRight();
+					if (!isCharging && !isPulling && !isPushing) {
+						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
+							MoveRight ();
 						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-							MoveLeft();
+							MoveLeft ();
 						} else {
-							Idle();
+							Idle ();
 						}
-					}else if(isCharging && !isPulling && !isPushing){
-						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
+					} else if (isCharging && !isPulling && !isPushing) {
+						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
 							isLookingRight = true;
-							ChangeLookingDirection();
+							ChangeLookingDirection ();
 						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
 							isLookingRight = false;
-							ChangeLookingDirection();
+							ChangeLookingDirection ();
 						}
-					}else if(!isCharging && isPulling && !isPushing){
+					} else if (!isCharging && isPulling && !isPushing) {
 						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
 							MoveRightWhilePulling ();
 						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
@@ -84,7 +84,7 @@ public class ArcheologistCat : Cat {
 						} else if (!Input.GetKey (moveRightKey) && !Input.GetKey (moveLeftKey) && !(Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) && !(Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
 							isWalking = false;
 						}
-					}else if(!isCharging && !isPulling && isPushing){
+					} else if (!isCharging && !isPulling && isPushing) {
 						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
 							MoveRightWhilePushing ();
 						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
@@ -94,64 +94,63 @@ public class ArcheologistCat : Cat {
 						}
 					}
 
-					if((Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)) && !isCharging && !isPulling){
-						if(!isFalling){
+					if ((Input.GetKeyDown (jumpKey) || Input.GetButtonDown (jumpGamepadButton)) && !isCharging && !isPulling) {
+						if (!isFalling) {
 
-							if(!isJumping){
+							if (!isJumping) {
 								if (isPushing) {
 									StopPushing ();
 								}
-								Jump();
+								Jump ();
 							} 
 						}
 					}
 
-					if((Input.GetKeyDown (attackKey) || Input.GetButtonDown(attackGamepadButton)) && !isJumping && !isPulling && !isPushing){
+					if ((Input.GetKeyDown (attackKey) || Input.GetButtonDown (attackGamepadButton)) && !isJumping && !isPulling && !isPushing) {
 						movedLeft = false;
-							movedRight = false;
-						StartCharging();
+						movedRight = false;
+						StartCharging ();
 					}
 
-					if((Input.GetKey (attackKey) || Input.GetButton(attackGamepadButton)) && isCharging){
+					if ((Input.GetKey (attackKey) || Input.GetButton (attackGamepadButton)) && isCharging) {
 						movedLeft = false;
-							movedRight = false;
-						if(chargingElapsedTime < timeToChargeWhipAttack){
+						movedRight = false;
+						if (chargingElapsedTime < timeToChargeWhipAttack) {
 							chargingElapsedTime += Time.deltaTime;
-						}else{
-							if(!charged){
-								CompleteCharging();
+						} else {
+							if (!charged) {
+								CompleteCharging ();
 							}
 						}
 					}
 
-					if((Input.GetKeyUp (attackKey) || Input.GetButtonUp(attackGamepadButton)) && !isJumping && !isPulling){
+					if ((Input.GetKeyUp (attackKey) || Input.GetButtonUp (attackGamepadButton)) && !isJumping && !isPulling) {
 						movedLeft = false;
-							movedRight = false;
-						if(charged){
-							StartChargedAttack();
-						 }else{
-						  	StartAttack();
-						 }
+						movedRight = false;
+						if (charged) {
+							StartChargedAttack ();
+						} else {
+							StartAttack ();
+						}
 					}
 
-					if((Input.GetKeyDown(gunKey ) || Input.GetButtonDown(gunGamepadButton)) && !isJumping && !isFalling && !isPulling)
-	                {
+					if ((Input.GetKeyDown (gunKey) || Input.GetButtonDown (gunGamepadButton)) && !isJumping && !isFalling && !isPulling) {
 						movedLeft = false;
-							movedRight = false;
-						StartShootingGun();
+						movedRight = false;
+						StartShootingGun ();
 					}
 
-					if(isPulling){
+					if (isPulling) {
 						if (!isWalking) {
 							animator.speed = 0;
 						}
 
-						if(currentObjectBeingPulled.GetComponent<Rigidbody2D>().velocity.y < -0.1f){
-							StopPulling();
+						if (currentObjectBeingPulled.GetComponent<Rigidbody2D> ().velocity.y < -0.1f) {
+							StopPulling ();
 						}
 
-						if((Input.GetKeyUp (attackKey) || Input.GetButtonUp(attackGamepadButton))){
-							StopPulling();
+						if ((Input.GetKeyUp (attackKey) || Input.GetButtonUp (attackGamepadButton))) {
+							StopPulling ();
 						}
 					}
 
@@ -160,24 +159,26 @@ public class ArcheologistCat : Cat {
 							animator.speed = 0;
 						}
 
-						if(currentObjectBeingPushed.GetComponent<Rigidbody2D>().velocity.y < -0.1f){
-							StopPushing();
+						if (currentObjectBeingPushed.GetComponent<Rigidbody2D> ().velocity.y < -0.1f) {
+							StopPushing ();
 						}
 
-						if((Input.GetKeyUp (attackKey) || Input.GetButtonUp(attackGamepadButton))){
-							StopPushing();
+						if ((Input.GetKeyUp (attackKey) || Input.GetButtonUp (attackGamepadButton))) {
+							StopPushing ();
 						}
 					}
 
 				}
 
-				if(myRigidBody2D.velocity.y < -1){
+				if (myRigidBody2D.velocity.y < -1) {
 					isFalling = true;
 				}
 
 			}
 
 			CheckInvulnerableTimeStamp ();
+		} else {
+			Idle ();
 		}
 
 

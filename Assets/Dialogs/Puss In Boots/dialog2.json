@@ -1,0 +1,20 @@
+[
+  {
+    "dialogText": "Well, Sebastian. Since this was lives ago, you might be out of purractice. I might be able to give you a paw.",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Do not forget you were a skilled Meowsketeer. When an opponent tries to attack you, respond quickly and you can parry their attacks (press <sprite=1>). Use that oppurrtunity to strike!!!",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Thank you for the reminder, Theodore! I will strike them down!! (press <sprite=3> to attack)",
+    "characterName": "Sebastian",
+	"imageIndex": 0,
+	"appearRight": false
+  }
+]

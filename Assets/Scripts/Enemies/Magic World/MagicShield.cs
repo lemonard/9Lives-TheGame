@@ -6,12 +6,21 @@ public class MagicShield : MonoBehaviour {
 
 
 	public float shieldDuration;
+	public bool canReflect;
+
+	public WizardDog myMagicDog;
 
     void Start()
     {
-    	
+		myMagicDog = GetComponentInParent<WizardDog> ();
         StartCoroutine(selfDestruct());
     }
+
+	void Update(){
+		if(myMagicDog.life <= 0){
+			Disappear ();
+		}
+	}
 
     //shield duration, change the number to alter duration
     IEnumerator selfDestruct()
@@ -23,4 +32,8 @@ public class MagicShield : MonoBehaviour {
     void Disappear(){
 		Destroy(this.gameObject);
     }
+
+	void ActivateReflect(){
+		canReflect = true;
+	}
 }

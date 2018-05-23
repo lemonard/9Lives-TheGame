@@ -90,10 +90,12 @@ public class MagicProjectile : MonoBehaviour {
             Destroy(gameObject);
         } else if(other.tag == "DeflectShield") 
         {
-            goRight = !goRight;
-            reflected = true;
-            GetComponent<Animator>().SetBool("reflected",true);
-			timeStampToDestroy = Time.time + timeToDestroy;
+			if (other.GetComponent<MagicShield> ().canReflect) {
+				goRight = !goRight;
+				reflected = true;
+				GetComponent<Animator> ().SetBool ("reflected", true);
+				timeStampToDestroy = Time.time + timeToDestroy;
+			}
         }
         else {
             Destroy(gameObject);

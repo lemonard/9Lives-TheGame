@@ -28,7 +28,7 @@ public class DialogScript : MonoBehaviour
 	public DialogJsonInfo[] dialogJsonFiles;
 
     public float dialogDelay = 0.02f;
-	public float automaticDialogDelay = 2f;
+	public float automaticDialogDelay = 20f;
 
     public Sprite[] characterImages;
 
@@ -47,13 +47,16 @@ public class DialogScript : MonoBehaviour
 	private string currentJsonFile;
 	private bool movingDialog;
 
+	private bool dialogActive;
+	private int amountOfUpcomingDialogs;
+
     // Used for Initialization
     public void Start()
     {
     	currentCat = FindObjectOfType<Cat>();
 		currentDialogFileIndex = 0;
     	currentLineNumber = 0;
-
+		amountOfUpcomingDialogs = 0;
 
         //scripts = GameObject.FindObjectsOfType<MonoBehaviour>();
         //StartCoroutine(testDelay());      // Use this to test the dialog box
@@ -67,39 +70,46 @@ public class DialogScript : MonoBehaviour
 
     public void StartDialog(bool movingDialog)
     {
-		currentJsonFile = File.ReadAllText(Application.dataPath + dialogJsonFiles[currentDialogFileIndex].dialogFolderPath + dialogJsonFiles[currentDialogFileIndex].dialogFileName + ".json");
-		dialogLines = JsonMapper.ToObject<List<DialogData>>(currentJsonFile);
+		if (dialogActive) {
+			amountOfUpcomingDialogs++;
+		} else {
+			currentJsonFile = File.ReadAllText (Application.dataPath + dialogJsonFiles [currentDialogFileIndex].dialogFolderPath + dialogJsonFiles [currentDialogFileIndex].dialogFileName + ".json");
+			dialogLines = JsonMapper.ToObject<List<DialogData>> (currentJsonFile);
 
-		this.movingDialog = movingDialog;
+			this.movingDialog = movingDialog;
 
-		//Disable character controll and reset variables
-		currentLineNumber = 0;
+			//Disable character controll and reset variables
+			currentLineNumber = 0;
 
-		if(!this.movingDialog){
-			currentCat.DisableControls();
-			pause = true;
-		}
+			if (!this.movingDialog) {
+				currentCat.DisableControls ();
+				pause = true;
+			}
 
-        this.enabled = true;
+			this.enabled = true;
 
-		SetupDialogBoxOrientation();
+			SetupDialogBoxOrientation ();
 
-        //Setup dialog box before starting
-        if(dialogLines[0].appearRight){
-			charImgRight.sprite =  characterImages[dialogLines[0].imageIndex];
-			charNameRight.text = dialogLines[0].characterName;
-        }else{
-			charImgLeft.sprite =  characterImages[dialogLines[0].imageIndex];
-			charNameLeft.text = dialogLines[0].characterName;
-        }
+			//Setup dialog box before starting
+			if (dialogLines [0].appearRight) {
+				charImgRight.sprite = characterImages [dialogLines [0].imageIndex];
+				charNameRight.text = dialogLines [0].characterName;
+			} else {
+				charImgLeft.sprite = characterImages [dialogLines [0].imageIndex];
+				charNameLeft.text = dialogLines [0].characterName;
+			}
 		
-        //Start Dialog
-        dialogBox.SetActive(true);
-		StartCoroutine(WriteText(this.dialogLines[0].dialogText, dialogLines[0].appearRight));
+			//Start Dialog
+			dialogBox.SetActive (true);
+			StartCoroutine (WriteText (this.dialogLines [0].dialogText, dialogLines [0].appearRight));
+
+			dialogActive = true;
+		}
     }
 
     public void StopDialog()
     {
+		dialogActive = false;
 
     	if(!movingDialog){
 			pause = false;
@@ -108,8 +118,12 @@ public class DialogScript : MonoBehaviour
 
     	currentDialogFileIndex++;
 
-		dialogBox.SetActive(false);
-
+		if (amountOfUpcomingDialogs > 0) {
+			amountOfUpcomingDialogs--;
+			StartDialog (true);
+		} else {
+			dialogBox.SetActive (false);
+		}
     }
 
 	public void NextDialogLine(){
@@ -200,7 +214,7 @@ public class DialogScript : MonoBehaviour
     // Use this to test the dialog changing
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Space) && !movingDialog)
+		if(Input.GetKeyUp(KeyCode.Space) && !movingDialog && dialogActive)
         {
             NextDialogLine();
         }

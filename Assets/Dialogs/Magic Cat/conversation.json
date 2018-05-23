@@ -1,32 +1,56 @@
 [
   {
-    "dialogText": "I'm Fiona! Press <sprite=2> to continue!",
-    "characterName": "Fiona",
-	"imageIndex": 0,
-	"appearRight": false
-  },
-  {
-    "dialogText": "I'm Savannah!",
-    "characterName": "Savannah",
+    "dialogText": "Lord Louis IV! Can you hear me?",
+    "characterName": "Theodore",
 	"imageIndex": 1,
-	"appearRight": true
+	"appearRight": false
   },
   {
-    "dialogText": "I love to talk!",
-    "characterName": "Fiona",
+    "dialogText": "Yes, I can hear you, Theodore... But would you mind addressing me properly?",
+    "characterName": "??????",
 	"imageIndex": 0,
 	"appearRight": false
   },
   {
-    "dialogText": "Bla bla bla!",
-    "characterName": "Fiona",
-	"imageIndex": 0,
-	"appearRight": false
-  },
-  {
-    "dialogText": "You talk to much!",
-    "characterName": "Savannah",
+    "dialogText": "Oh, my bad, Great Witch Fiona.",
+    "characterName": "Theodore",
 	"imageIndex": 1,
-	"appearRight": true
+	"appearRight": false
+  },
+  {
+    "dialogText": "That is more appropriate. I appreciate.",
+    "characterName": "Fiona",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "The communication between the dimension and the timelines seems to be stable.",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "That is good to know. Thank you for accompanying me, even though it is from afar.",
+    "characterName": "Fiona",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "It is my job, Fiona. No need for thanking me on that point.",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Anyway... We were able to scan the location and the dog's signal is not far from your position, although it is faint. According to our calculations, he seems to be deep into the city.",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Purrfect! Leave it to me. I will teach that bastard not to mess around with the wrong cat!",
+    "characterName": "Fiona",
+	"imageIndex": 0,
+	"appearRight": false
   }
 ]

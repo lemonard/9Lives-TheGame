@@ -1,0 +1,14 @@
+[
+  {
+    "dialogText": "Hmmm... Those jewels on stands... They look weird...",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "You might be on to something, Theodore! Maybe shooting 'em up (press <sprite=1>) will do something in the area!!",
+    "characterName": "Jonas",
+	"imageIndex": 0,
+	"appearRight": false
+  }
+]

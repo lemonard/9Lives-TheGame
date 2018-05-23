@@ -7,7 +7,9 @@ public class DialogTrigger : MonoBehaviour {
 	public DialogScript dialog;
 	public bool startMovingDialog;
 
-
+	void Awake(){
+		dialog = FindObjectOfType<DialogScript> ();
+	}
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Player"){

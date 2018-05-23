@@ -1855,7 +1855,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ArcheologistCatDeath
+  m_Name: Pirate Cat Death
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1869,7 +1869,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c7f8089ab5f5a4617b4b4b46674a1442, type: 2}
+  m_Motion: {fileID: 7400000, guid: a9d182e9ca2714cc6bb29be3a881006c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
