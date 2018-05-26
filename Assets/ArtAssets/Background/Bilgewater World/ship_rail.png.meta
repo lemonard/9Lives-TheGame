@@ -60,6 +60,7 @@ TextureImporter:
     21300106: ship_rail_53
     21300108: ship_rail_54
     21300110: ship_rail_55
+    21300112: ship_rail_56
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -931,6 +932,20 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_rail_56
+      rect:
+        serializedVersion: 2
+        x: 576
         y: 0
         width: 64
         height: 64
