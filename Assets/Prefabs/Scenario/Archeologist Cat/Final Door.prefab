@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1400833841532604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 104.45703, y: 9.33, z: 0}
+  m_LocalPosition: {x: 104.395, y: 9.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4784129805529952}
@@ -231,7 +231,7 @@ MonoBehaviour:
   timeline: {fileID: 0}
   finishLevelText: {fileID: 0}
   destinationSceneIndex: 1
-  hubSceneIndex: 7
+  hubSceneIndex: 1
   type: 3
   lastLevel: 1
 --- !u!114 &114093088083724570

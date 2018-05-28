@@ -427,7 +427,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1724379951965386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -502,7 +502,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1465607643129860}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -664,7 +664,7 @@ MonoBehaviour:
   isNearCannon: 0
   knockedDown: 0
   receivingDamage: 0
-  amountOfHitsToBeKnockedDown: 10
+  amountOfHitsToBeKnockedDown: 3
   knockedDownTime: 2
   bulletFeedbackPrefab: {fileID: 1732528175952836, guid: 04c7467b6f1352244a070518fe6a54ac,
     type: 2}

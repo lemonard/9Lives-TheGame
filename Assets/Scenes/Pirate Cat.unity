@@ -15493,16 +15493,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114072830721276702, guid: f2d5be57cb85e6c43a1bc110f6135476,
-        type: 2}
-      propertyPath: freakoutManager
-      value: 
-      objectReference: {fileID: 539470756}
-    - target: {fileID: 114072830721276702, guid: f2d5be57cb85e6c43a1bc110f6135476,
-        type: 2}
-      propertyPath: startingPoint
-      value: 
-      objectReference: {fileID: 1392364739}
     - target: {fileID: 114312230159150954, guid: f2d5be57cb85e6c43a1bc110f6135476,
         type: 2}
       propertyPath: healthBar
@@ -15515,9 +15505,14 @@ Prefab:
       objectReference: {fileID: 1490020191}
     - target: {fileID: 114072830721276702, guid: f2d5be57cb85e6c43a1bc110f6135476,
         type: 2}
-      propertyPath: amountOfHitsToBeKnockedDown
-      value: 3
-      objectReference: {fileID: 0}
+      propertyPath: freakoutManager
+      value: 
+      objectReference: {fileID: 539470756}
+    - target: {fileID: 114072830721276702, guid: f2d5be57cb85e6c43a1bc110f6135476,
+        type: 2}
+      propertyPath: startingPoint
+      value: 
+      objectReference: {fileID: 1392364739}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f2d5be57cb85e6c43a1bc110f6135476, type: 2}
   m_IsPrefabParent: 0

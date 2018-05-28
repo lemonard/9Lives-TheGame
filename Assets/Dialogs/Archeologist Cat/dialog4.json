@@ -6,7 +6,7 @@
 	"appearRight": false
   },
   {
-    "dialogText": "You might be on to something, Theodore! Maybe shooting 'em up (press <sprite=1>) will do something in the area!!",
+    "dialogText": "You might be on to something, Theodore! Maybe shooting 'em up (press <sprite=3>) will do something in the area!!",
     "characterName": "Jonas",
 	"imageIndex": 0,
 	"appearRight": false

@@ -6,13 +6,13 @@
 	"appearRight": false
   },
   {
-    "dialogText": "Purr-haps you could use them to turn things around? Try charging your attack and see what happens! (hold <sprite=3> to fully charge an attack)",
+    "dialogText": "Purr-haps you could use them to turn things around? Try charging your attack and see what happens! (hold <sprite=1> to fully charge an attack)",
     "characterName": "Theodore",
 	"imageIndex": 1,
 	"appearRight": false
   },
   {
-    "dialogText": "I can try that!! Let's flip 'em up!! (release <sprite=3> to unleash a charge attack)",
+    "dialogText": "I can try that!! Let's flip 'em up!! (release <sprite=1> to unleash a charge attack)",
     "characterName": "Jonas",
 	"imageIndex": 0,
 	"appearRight": false
