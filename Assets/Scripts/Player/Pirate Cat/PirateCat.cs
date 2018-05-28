@@ -134,6 +134,10 @@ public class PirateCat : Cat {
 
 					}
 
+					if((animator.GetCurrentAnimatorStateInfo(0).IsName("Pirate Attack 1") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pirate Attack 2") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pirate Attack 3") ) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
+						FinishAttack();
+					}
+
 				}
 
 				if(isShooting){
@@ -183,7 +187,7 @@ public class PirateCat : Cat {
 			}
 
 			if(knockedDown){
-	            if(knockedDownTimeStamp < Time.time){
+				if(knockedDownTimeStamp < Time.time && knockedDownTimeStamp != 0){
 	            	StandUp();
 	            }
 	        }
@@ -245,23 +249,25 @@ public class PirateCat : Cat {
 		animator.SetBool("knockedDown", true);
 		if(sourceOfDamagePosition.x > transform.position.x){ //Enemy is on the right
 
-			GetComponent<Rigidbody2D>().velocity = new Vector2( -2f , GetComponent<Rigidbody2D>().velocity.y + 2);
+			GetComponent<Rigidbody2D>().velocity = new Vector2( -2f , GetComponent<Rigidbody2D>().velocity.y + 4);
 	
 		}else{
 
-			GetComponent<Rigidbody2D>().velocity = new Vector2( 2f , GetComponent<Rigidbody2D>().velocity.y + 2);	
+			GetComponent<Rigidbody2D>().velocity = new Vector2( 2f , GetComponent<Rigidbody2D>().velocity.y + 4);	
 	
 		}
 	}
 
 	protected void FinishedKnockDownAnimation(){
 
+		animator.SetBool("damage",false);
 		animator.SetBool("knockedDown", false);
-		animator.SetBool("knockedOnFloor", true);
 		knockedDownTimeStamp = Time.time + knockedDownTime;
 	}
 
 	public void StandUp(){
+		knockedDownTimeStamp = 0;
+		animator.SetBool("damage",false);
 		animator.SetBool("knockedOnFloor", false);
 		animator.SetBool("standUp", true);
 	}
@@ -308,7 +314,9 @@ public class PirateCat : Cat {
 			invulnerable = false;
 
 		}else if(knockedDown){
-			FinishedKnockDownAnimation();
+
+			animator.SetBool("knockedOnFloor", true);
+			animator.SetBool("knockedDown", false);
 		}else{
 			myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
 		}
@@ -483,7 +491,7 @@ public class PirateCat : Cat {
 			cannonBall.GetComponent<GiantCannonShot>().goRight = false;
 		}
 
-
+		invulnerable = true;
 	}
 
 	void StopShooting(){
@@ -496,6 +504,7 @@ public class PirateCat : Cat {
 
 		animator.SetBool("shooting",false);
 		isShooting = false;
+		invulnerable = false;
 	}
 
 	void CanCombo(){

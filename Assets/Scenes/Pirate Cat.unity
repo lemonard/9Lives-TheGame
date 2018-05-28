@@ -15513,6 +15513,11 @@ Prefab:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1490020191}
+    - target: {fileID: 114072830721276702, guid: f2d5be57cb85e6c43a1bc110f6135476,
+        type: 2}
+      propertyPath: amountOfHitsToBeKnockedDown
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f2d5be57cb85e6c43a1bc110f6135476, type: 2}
   m_IsPrefabParent: 0

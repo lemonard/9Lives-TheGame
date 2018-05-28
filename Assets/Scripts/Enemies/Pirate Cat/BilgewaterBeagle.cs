@@ -18,6 +18,10 @@ public class BilgewaterBeagle : CombableEnemy {
 
    	public float chanceToUseThreeAttacks = 0.4f;
 
+   	private bool playerIsPirate;
+   	private PirateCat pirateCat;
+   	private bool pirateIsKnockedDown;
+
     // Use this for initialization
     void Start()
     {
@@ -29,18 +33,29 @@ public class BilgewaterBeagle : CombableEnemy {
         canReceiveDamage = true;
         freakoutManager = FindObjectOfType<FreakoutManager>();
 		lastPositionX = transform.position.x;
+
+		if(player.GetComponent<PirateCat>()){
+			playerIsPirate = true;
+			pirateCat = player.GetComponent<PirateCat>();
+		}
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    	if(playerIsPirate){
+    		pirateIsKnockedDown = pirateCat.knockedDown;
+    	}
+
 		if(!player.isDying){
+			
 			transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
 
 	        if (!dying)
 	        {
 
-	            if (!stunned && !prepareForParry && !attacking && !knockedDown && !waiting && !receivingDamage)
+	            if (!stunned && !prepareForParry && !attacking && !knockedDown && !waiting && !receivingDamage && !pirateIsKnockedDown)
 	            {
 
 	                DefineDirectionToLook();
@@ -63,7 +78,7 @@ public class BilgewaterBeagle : CombableEnemy {
 	            }
 
 	            if(knockedDown){
-	            	if(knockedDownTimeStamp < Time.time){
+					if(knockedDownTimeStamp < Time.time && knockedDownTimeStamp != 0){
 	            		StandUp();
 	            	}
 	            }

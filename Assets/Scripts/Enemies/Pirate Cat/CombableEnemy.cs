@@ -79,6 +79,7 @@ public class CombableEnemy : Enemy {
 	}
 
 	public void StandUp(){
+		knockedDownTimeStamp = 0;
 		//myAnimator.SetBool("knockedDown", false);
 		//myAnimator.SetBool("standUp", true);
 	}
