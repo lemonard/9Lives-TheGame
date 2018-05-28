@@ -11983,13 +11983,13 @@ MonoBehaviour:
   knockedDownTime: 2
   receivingDamage: 0
   sourceOfDamagePosition: {x: 0, y: 0, z: 0}
-  waitTime: 2
+  waitTime: 1
   walkingRange: 0
   attackingRange: 0
   leftAttackCollider: {fileID: 1839766980}
   rightAttackCollider: {fileID: 517642307}
   stunTime: 2
-  chanceToUseThreeAttacks: 1
+  chanceToUseThreeAttacks: 0.4
 --- !u!95 &623039812
 Animator:
   serializedVersion: 3

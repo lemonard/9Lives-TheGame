@@ -32,6 +32,8 @@ public class DialogScript : MonoBehaviour
 
     public Sprite[] characterImages;
 
+    public string passDialogGamepadButton = "A";
+
     static public bool pause = true;
 
   	private Cat currentCat;
@@ -214,7 +216,7 @@ public class DialogScript : MonoBehaviour
     // Use this to test the dialog changing
     void Update()
     {
-		if(Input.GetKeyUp(KeyCode.Space) && !movingDialog && dialogActive)
+		if((Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp(passDialogGamepadButton)) && !movingDialog && dialogActive)
         {
             NextDialogLine();
         }

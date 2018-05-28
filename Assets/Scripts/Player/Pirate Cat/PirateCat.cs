@@ -237,11 +237,12 @@ public class PirateCat : Cat {
 	}
 
 	public void KnockDown(){
+		animator.SetBool("damage",true);
 		amountOfHitsTaken = 0;
 		knockedDown = true;
 		invulnerable = true;
 		receivingDamage = false;
-		//myAnimator.SetBool("knockedDown", true);
+		animator.SetBool("knockedDown", true);
 		if(sourceOfDamagePosition.x > transform.position.x){ //Enemy is on the right
 
 			GetComponent<Rigidbody2D>().velocity = new Vector2( -2f , GetComponent<Rigidbody2D>().velocity.y + 2);
@@ -255,15 +256,18 @@ public class PirateCat : Cat {
 
 	protected void FinishedKnockDownAnimation(){
 
+		animator.SetBool("knockedDown", false);
+		animator.SetBool("knockedOnFloor", true);
 		knockedDownTimeStamp = Time.time + knockedDownTime;
 	}
 
 	public void StandUp(){
-		//myAnimator.SetBool("knockedDown", false);
-		//myAnimator.SetBool("standUp", true);
+		animator.SetBool("knockedOnFloor", false);
+		animator.SetBool("standUp", true);
 	}
 
 	protected void FinishStandUpAnimation(){
+		animator.SetBool("standUp", false);
 		invulnerable = false;
 		knockedDown = false;
 	}
@@ -303,6 +307,8 @@ public class PirateCat : Cat {
 			beingLaunched = false;
 			invulnerable = false;
 
+		}else if(knockedDown){
+			FinishedKnockDownAnimation();
 		}else{
 			myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
 		}
