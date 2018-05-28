@@ -1,23 +1,21 @@
 fileFormatVersion: 2
-guid: 38d14d0102561402cb68996c18aa81f6
-timeCreated: 1527460848
+guid: 71b1f2259f91142f7bd85af51bed07ad
+timeCreated: 1527464489
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Dog-Pirate-Grunt_Attack_spritesheet_0
-    21300002: Dog-Pirate-Grunt_Attack_spritesheet_1
-    21300004: Dog-Pirate-Grunt_Attack_spritesheet_2
-    21300006: Dog-Pirate-Grunt_Attack_spritesheet_3
-    21300008: Dog-Pirate-Grunt_Attack_spritesheet_4
-    21300010: Dog-Pirate-Grunt_Attack_spritesheet_5
-    21300012: Dog-Pirate-Grunt_Attack_spritesheet_6
-    21300014: Dog-Pirate-Grunt_Attack_spritesheet_7
-    21300016: Dog-Pirate-Grunt_Attack_spritesheet_8
-    21300018: Dog-Pirate-Grunt_Attack_spritesheet_9
-    21300020: Dog-Pirate-Grunt_Attack_spritesheet_10
-    21300022: Dog-Pirate-Grunt_Attack_spritesheet_11
-    21300024: Dog-Pirate-Grunt_Attack_spritesheet_12
-    21300026: Dog-Pirate-Grunt_Attack_spritesheet_13
+    21300000: piratecat_knockeddown_spritesheet_0
+    21300002: piratecat_knockeddown_spritesheet_1
+    21300004: piratecat_knockeddown_spritesheet_2
+    21300006: piratecat_knockeddown_spritesheet_3
+    21300008: piratecat_knockeddown_spritesheet_4
+    21300010: piratecat_knockeddown_spritesheet_5
+    21300012: piratecat_knockeddown_spritesheet_6
+    21300014: piratecat_knockeddown_spritesheet_7
+    21300016: piratecat_knockeddown_spritesheet_8
+    21300018: piratecat_knockeddown_spritesheet_9
+    21300020: piratecat_knockeddown_spritesheet_10
+    21300022: piratecat_knockeddown_spritesheet_11
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -115,197 +113,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_0
+      name: piratecat_knockeddown_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 700
+        width: 320
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_1
+      name: piratecat_knockeddown_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 130
-        y: 320
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 320
+        y: 700
+        width: 320
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 320
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_3
+      name: piratecat_knockeddown_spritesheet_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 240
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 560
+        width: 320
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_4
+      name: piratecat_knockeddown_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 130
-        y: 240
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 320
+        y: 560
+        width: 320
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 240
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_6
+      name: piratecat_knockeddown_spritesheet_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 160
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 420
+        width: 320
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_7
+      name: piratecat_knockeddown_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 130
-        y: 160
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 320
+        y: 420
+        width: 320
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_8
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 160
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_9
+      name: piratecat_knockeddown_spritesheet_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 280
+        width: 320
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_10
+      name: piratecat_knockeddown_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 130
-        y: 80
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 320
+        y: 280
+        width: 320
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_11
+      name: piratecat_knockeddown_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 260
-        y: 80
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 140
+        width: 320
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_12
+      name: piratecat_knockeddown_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 140
+        width: 320
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: piratecat_knockeddown_spritesheet_10
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dog-Pirate-Grunt_Attack_spritesheet_13
+      name: piratecat_knockeddown_spritesheet_11
       rect:
         serializedVersion: 2
-        x: 130
+        x: 320
         y: 0
-        width: 130
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
