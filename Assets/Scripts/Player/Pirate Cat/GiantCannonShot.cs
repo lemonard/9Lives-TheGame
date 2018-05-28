@@ -5,6 +5,7 @@ using UnityEngine;
 public class GiantCannonShot : MonoBehaviour {
 
 	public float speed; 
+	public int damage;
 
 	public bool goRight;
 	// Use this for initialization
@@ -28,13 +29,20 @@ public class GiantCannonShot : MonoBehaviour {
 
 		if(other.tag == "Enemy"){
 
-			print("Bati no inimigo");
-			Destroy(gameObject);
+			Enemy enemy = other.GetComponent<Enemy>();
 
-		}else if(other.tag == "Ground"){
+			if (enemy.canReceiveDamage)
+            {
+				if (!enemy.invulnerable)
+                {
+					enemy.life -= damage;
+					enemy.receivedDamage = true;
+					if(enemy.GetComponent<CombableEnemy>()){
+	                    enemy.GetComponent<CombableEnemy>().sourceOfDamagePosition = transform.position;
+	                }
+                }
 
-			print("Bati no chão");
-			Destroy(gameObject);
+            }
 
 		}
 	}

@@ -26,6 +26,9 @@ public class ExplosionDamageCollider : MonoBehaviour {
                 {
 					enemy.life -= damage;
 					enemy.receivedDamage = true;
+					if(enemy.GetComponent<CombableEnemy>()){
+	                    enemy.GetComponent<CombableEnemy>().sourceOfDamagePosition = transform.position;
+	                }
                 }
 
             }

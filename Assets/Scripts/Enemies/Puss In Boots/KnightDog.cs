@@ -98,7 +98,7 @@ public class KnightDog : Enemy {
 			PlayDeathSound();
 			dying = true;
  			Destroy (GetComponent<Rigidbody2D> ());
- 			Destroy (GetComponent<CircleCollider2D> ());
+			Destroy(GetComponent<Collider2D>());
 
 		}
 

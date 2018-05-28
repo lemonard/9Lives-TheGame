@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class SkillCooldownIndicator : MonoBehaviour {
@@ -18,6 +19,13 @@ public class SkillCooldownIndicator : MonoBehaviour {
 
 	private float fillAmount; //The percentage of the image that is filled up
 
+	public bool isRepeatableSkill;
+
+	public int skillRepeatableUses = 3;
+	private int skillRemainingUses; 
+
+	public TextMeshProUGUI skillAmountText;
+
 	//I have set the cooldownTime as the same that is used on the character code to let it use the skill again,
    //but I think it can control whether the character can use the skill or not by checking the onCooldown bool
 
@@ -29,6 +37,11 @@ public class SkillCooldownIndicator : MonoBehaviour {
 	void Start () {
 		skillImage.fillAmount = 1;
 		fillAmount = 1;
+		skillRemainingUses = skillRepeatableUses;
+
+		if(isRepeatableSkill){
+			skillAmountText.text = skillRemainingUses.ToString();
+		}
 	}
 
 	void Update(){
@@ -39,6 +52,9 @@ public class SkillCooldownIndicator : MonoBehaviour {
 
 			if(skillImage.fillAmount >= 1f){
 				onCooldown = false;
+				if(isRepeatableSkill){
+					RefreshUses();
+				}
 			}
 		}
 
@@ -50,6 +66,23 @@ public class SkillCooldownIndicator : MonoBehaviour {
 		skillImage.fillAmount = 0;
 		onCooldown = true;
 
+	}
+
+	public void SpendSkillUse(){
+		skillRemainingUses--;
+
+		if(skillRemainingUses <= 0){
+			StartCooldown();
+			skillRemainingUses = 0;
+		}
+
+		skillAmountText.text = skillRemainingUses.ToString();
+
+	}
+
+	public void RefreshUses(){
+		skillRemainingUses = skillRepeatableUses;
+		skillAmountText.text = skillRepeatableUses.ToString();
 	}
 
 

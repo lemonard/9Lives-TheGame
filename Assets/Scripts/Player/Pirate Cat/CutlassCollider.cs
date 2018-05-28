@@ -21,7 +21,9 @@ public class CutlassCollider : MonoBehaviour {
 
                     enemyVariables.life -= damage;
                     enemyVariables.receivedDamage = true;
-
+					if(enemyVariables.GetComponent<CombableEnemy>()){
+	                   enemyVariables.GetComponent<CombableEnemy>().sourceOfDamagePosition = transform.position;
+	                }
                 }
             }
 

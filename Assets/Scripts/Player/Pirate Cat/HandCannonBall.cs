@@ -28,7 +28,6 @@ public class HandCannonBall : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Ground"){
-			print("Bati no chão");
 
 			Instantiate(explosionEffectPrefab,transform.position,Quaternion.identity);
 

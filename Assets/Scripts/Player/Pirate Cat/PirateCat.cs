@@ -7,7 +7,6 @@ public class PirateCat : Cat {
 	public int gunDamage = 2;
 	public float gunDistance = 2;
 
-
 	public KeyCode attackKey;
 	public KeyCode gunKey;
 	public string gunGamepadButton;
@@ -33,10 +32,17 @@ public class PirateCat : Cat {
 	public bool isShooting;
 	public bool beingLaunched;
 	public bool isNearCannon;
-	public bool wasThrown;
+	public bool knockedDown;
+	public bool receivingDamage;
+
+	public int amountOfHitsToBeKnockedDown = 3;
+	public float knockedDownTime = 2f;
+
+	protected float knockedDownTimeStamp = 0f;
+
 	public GameObject bulletFeedbackPrefab;
 
-	public int amountOfHitsTaken;
+	public int amountOfHitsTaken = 0;
 
 	public bool canCombo = false;
 
@@ -55,7 +61,7 @@ public class PirateCat : Cat {
 	// Update is called once per frame
 	void Update () {
 		if(!controlersDisabled){
-			if(!isDying  && !freakoutMode && !beingLaunched){
+			if(!isDying  && !freakoutMode && !beingLaunched && !receivingDamage && !knockedDown){
 
 				if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isJumping && !isAttacking && !isShooting && ready){
 					freakoutMode = true;
@@ -63,7 +69,7 @@ public class PirateCat : Cat {
 					animator.SetBool("freakout",true);
 				}
 
-				if(!isAttacking && !isShooting && !beingLaunched){
+				if(!isAttacking && !isShooting){
 
 	
 					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
@@ -90,7 +96,7 @@ public class PirateCat : Cat {
 					}
 
 
-					if((Input.GetKeyDown(gunKey ) || Input.GetButtonDown(gunGamepadButton)) && !isJumping && !isFalling)
+					if((Input.GetKeyDown(gunKey ) || Input.GetButtonDown(gunGamepadButton)) && !isJumping && !isFalling && !SkillCooldownIndicator.instance.onCooldown)
 	                {
 						StartShootingGun();
 					}
@@ -170,12 +176,20 @@ public class PirateCat : Cat {
 
 			}
 
-			CheckInvulnerableTimeStamp ();
-		}
+			if(receivingDamage){
+				if(animator.GetCurrentAnimatorStateInfo(0).IsName("ReceiveDamage") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
+					FinishDamageAnimation();
+				}
+			}
 
+			if(knockedDown){
+	            if(knockedDownTimeStamp < Time.time){
+	            	StandUp();
+	            }
+	        }
 
-		if (invulnerable) {
-			Flash ();
+		}else{
+			Idle();
 		}
 
 		CheckIfDamageReceived ();
@@ -187,6 +201,71 @@ public class PirateCat : Cat {
 	void FixedUpdate(){
 
 
+	}
+
+	protected override void CheckIfDamageReceived()
+	{
+
+		if (receivedDamage && life > 0) {
+
+			Reset();
+			receivedDamage = false;
+			amountOfHitsTaken++;
+			receivingDamage = true;
+
+
+			if(amountOfHitsTaken < amountOfHitsToBeKnockedDown){
+				if(animator.GetBool("damage")){
+					animator.Play("ReceiveDamage",0,0f);
+				}else{
+					animator.SetBool("damage",true);
+				}
+
+			}else{
+				if(!isDying){
+					KnockDown();
+				}
+			}
+		}
+	}
+
+
+	protected void FinishDamageAnimation(){
+		
+		animator.SetBool("damage",false);
+		receivingDamage = false;
+	}
+
+	public void KnockDown(){
+		amountOfHitsTaken = 0;
+		knockedDown = true;
+		invulnerable = true;
+		receivingDamage = false;
+		//myAnimator.SetBool("knockedDown", true);
+		if(sourceOfDamagePosition.x > transform.position.x){ //Enemy is on the right
+
+			GetComponent<Rigidbody2D>().velocity = new Vector2( -2f , GetComponent<Rigidbody2D>().velocity.y + 2);
+	
+		}else{
+
+			GetComponent<Rigidbody2D>().velocity = new Vector2( 2f , GetComponent<Rigidbody2D>().velocity.y + 2);	
+	
+		}
+	}
+
+	protected void FinishedKnockDownAnimation(){
+
+		knockedDownTimeStamp = Time.time + knockedDownTime;
+	}
+
+	public void StandUp(){
+		//myAnimator.SetBool("knockedDown", false);
+		//myAnimator.SetBool("standUp", true);
+	}
+
+	protected void FinishStandUpAnimation(){
+		invulnerable = false;
+		knockedDown = false;
 	}
 
 	protected override void Idle ()
@@ -202,21 +281,13 @@ public class PirateCat : Cat {
 
 	}
 
-	protected override void CheckIfDamageReceived ()
-	{
-		if (receivedDamage && life > 0) {
-			//animator.SetBool("damage",true);
-			ToggleInvinsibility ();
-
-		}
-	}
-
 	protected override void CheckDeath ()
 	{
 		if(life <= 0 ){
 			isDying = true;
 			animator.SetBool("dying",true);
 			animator.SetInteger("comboCounter", 1);
+			animator.SetInteger("gunComboCounter", 1);
 		}
 	}
 
@@ -230,6 +301,7 @@ public class PirateCat : Cat {
 			myRigidBody2D.gravityScale = 1;
 			myRigidBody2D.velocity = new Vector2(0,0);
 			beingLaunched = false;
+			invulnerable = false;
 
 		}else{
 			myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
@@ -277,6 +349,26 @@ public class PirateCat : Cat {
 
 	}
 
+	void Reset(){
+		animator.SetBool("idle", false);
+		animator.SetBool("attack", false);
+		animator.SetBool("walking", false);
+		animator.SetBool("shooting", false);
+		animator.SetBool("shooting", false);
+		animator.SetInteger("comboCounter", 1);
+		animator.SetInteger("gunComboCounter", 1);
+
+		DisableColliders();
+
+		isAttacking = false;
+		isWalking = false;
+		isShooting = false;
+		comboActivated = false;
+		gunComboActivated = false;
+		comboCounter = 0;
+		gunComboCounter = 0;
+    }
+
 	public void DisableColliders(){
 
 		rightAttackingPoint1.GetComponent<BoxCollider2D>().enabled = false;
@@ -303,7 +395,7 @@ public class PirateCat : Cat {
 
 	void StartShootingGun(){
 
-		
+		SkillCooldownIndicator.instance.SpendSkillUse();
 		gunComboCounter++;
 		isShooting = true;
 		animator.SetBool("shooting",true);
@@ -346,6 +438,9 @@ public class PirateCat : Cat {
 
 	                    enemyVariables.life -= gunDamage;
 	                    enemyVariables.receivedDamage = true;
+	                    if(enemyVariables.GetComponent<CombableEnemy>()){
+	                    	enemyVariables.GetComponent<CombableEnemy>().sourceOfDamagePosition = transform.position;
+	                    }
 
 	                }
 	            }
@@ -444,6 +539,7 @@ public class PirateCat : Cat {
 
 		}else if(gunComboActivated){
 
+			SkillCooldownIndicator.instance.SpendSkillUse();
 			animator.SetBool("shooting", true);
 			animator.SetBool("attack", false);
 			animator.SetInteger("comboCounter", comboCounter);
@@ -487,6 +583,7 @@ public class PirateCat : Cat {
 
 		ChangeLookingDirection();
 
+		invulnerable = true;
 		beingLaunched = true;
 		myRigidBody2D.velocity = new Vector2(0,0);
 //		myRigidBody2D.isKinematic = true;

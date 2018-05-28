@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  damage: 4
   goRight: 0
 --- !u!212 &212216422920516120
 SpriteRenderer:

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyDamageCollider : MonoBehaviour {
 
-
+	public bool comboEnemy;
 
     void OnCollisionEnter2D(Collision2D other){
 		if(other.gameObject.tag == "Player"){
@@ -12,8 +12,10 @@ public class EnemyDamageCollider : MonoBehaviour {
 
 			if(!cat.invulnerable){
 				cat.life -= GetComponentInParent<Enemy>().damage;
-				cat.bounceBackAfterReceivingDamage = true;
-				cat.sourceOfDamagePosition = gameObject.transform.position;
+				if(!comboEnemy){
+					cat.bounceBackAfterReceivingDamage = true;
+					cat.sourceOfDamagePosition = gameObject.transform.position;
+				}
 				cat.receivedDamage = true;
 			} 
 		 

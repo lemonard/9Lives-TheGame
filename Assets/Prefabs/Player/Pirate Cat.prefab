@@ -483,7 +483,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004638672, y: 0.37906456}
+  m_Offset: {x: 0.03133011, y: 0.39451742}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -494,7 +494,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25154877, y: 0.7474518}
+  m_Size: {x: 0.30493164, y: 0.71654606}
   m_EdgeRadius: 0
 --- !u!61 &61504541159321804
 BoxCollider2D:
@@ -660,7 +660,12 @@ MonoBehaviour:
   giantCannonFiringPointLeft: {fileID: 1851738079494054}
   shotOrigin: {fileID: 4967793672943062}
   isShooting: 0
-  wasThrown: 0
+  beingLaunched: 0
+  isNearCannon: 0
+  knockedDown: 0
+  receivingDamage: 0
+  amountOfHitsToBeKnockedDown: 10
+  knockedDownTime: 2
   bulletFeedbackPrefab: {fileID: 1732528175952836, guid: 04c7467b6f1352244a070518fe6a54ac,
     type: 2}
   amountOfHitsTaken: 0
