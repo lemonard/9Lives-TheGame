@@ -14613,6 +14613,10 @@ Prefab:
       propertyPath: invulnerable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1382787989308194, guid: d0788b979c5eb824baa5f51c101f4b3b, type: 2}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0788b979c5eb824baa5f51c101f4b3b, type: 2}
   m_IsPrefabParent: 0

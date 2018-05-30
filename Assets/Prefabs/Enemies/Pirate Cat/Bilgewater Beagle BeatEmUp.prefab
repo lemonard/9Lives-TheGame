@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 95973307318362812}
   - component: {fileID: 114271680407822782}
   - component: {fileID: 61777986533742322}
-  m_Layer: 10
+  m_Layer: 23
   m_Name: Bilgewater Beagle
   m_TagString: Enemy
   m_Icon: {fileID: 0}

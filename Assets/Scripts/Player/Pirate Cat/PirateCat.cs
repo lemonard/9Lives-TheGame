@@ -36,6 +36,7 @@ public class PirateCat : Cat {
 	public bool isNearCannon;
 	public bool knockedDown;
 	public bool receivingDamage;
+	public bool landing;
 
 	public int amountOfHitsToBeKnockedDown = 3;
 	public float knockedDownTime = 2f;
@@ -58,6 +59,8 @@ public class PirateCat : Cat {
 
 	private BeatEmUpCatReference myReference;
 
+
+
 	// Use this for initialization
 	protected override void Start ()
 	{
@@ -75,7 +78,7 @@ public class PirateCat : Cat {
 	// Update is called once per frame
 	void Update () {
 		if(!controlersDisabled){
-			if(!isDying  && !freakoutMode && !beingLaunched && !receivingDamage && !knockedDown && !inCannon){
+			if(!isDying  && !freakoutMode && !beingLaunched && !receivingDamage && !knockedDown && !inCannon && !landing){
 
 				if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isJumping && !isAttacking && !isShooting && ready){
 					freakoutMode = true;
@@ -522,7 +525,7 @@ public class PirateCat : Cat {
 			direction = Vector2.right;
 		}
 
-		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Enemies","Ground","EnemyProtection","LaserInteractableScenario","Scenario"));
+		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Enemies","Ground","EnemyProtection","LaserInteractableScenario","Scenario","Beat Em Up Character"));
 		Debug.DrawRay(position, direction, Color.green);
 
 		if(hit.collider != null){
@@ -710,6 +713,12 @@ public class PirateCat : Cat {
 
 		mySpriteRenderer.enabled = true;
 		animator.SetBool("launched", true);
+	}
+
+	void FinishLandingAnimation(){
+		animator.SetBool("landing", false);
+		landing = false;
+
 	}
 }
 
