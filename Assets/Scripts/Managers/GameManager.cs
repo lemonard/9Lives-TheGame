@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour {
 
 	private bool foundCat;
 
+	public List<GameObject> enemiesNearCat = new List<GameObject>();
+	public int maxAmountOfEnemiesNearCat = 2;
+
 	void Awake(){
 		if(GameManager.instance == null){
 			instance = this;
@@ -34,6 +37,21 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+	}
+
+	public void AddToEnemyNearCatList(GameObject enemy){
+
+		if(enemiesNearCat.Count < maxAmountOfEnemiesNearCat){
+			enemiesNearCat.Add(enemy);
+		}
+
+	}
+
+	public void RemoveFromEnemyNearCatList(GameObject enemy){
+
+		enemiesNearCat.Remove(enemy);
+
 
 	}
 

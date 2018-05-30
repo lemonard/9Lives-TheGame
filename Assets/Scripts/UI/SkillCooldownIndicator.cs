@@ -22,7 +22,7 @@ public class SkillCooldownIndicator : MonoBehaviour {
 	public bool isRepeatableSkill;
 
 	public int skillRepeatableUses = 3;
-	private int skillRemainingUses; 
+	public int skillRemainingUses; 
 
 	public TextMeshProUGUI skillAmountText;
 

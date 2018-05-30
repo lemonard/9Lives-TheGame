@@ -18,26 +18,15 @@ public class BilgewaterBeagle : CombableEnemy {
 
    	public float chanceToUseThreeAttacks = 0.4f;
 
-   	private bool playerIsPirate;
-   	private PirateCat pirateCat;
-   	private bool pirateIsKnockedDown;
+   	private float yMovementSpeed;
 
     // Use this for initialization
     void Start()
     {
-        player = FindObjectOfType<Cat>();
-        stunnedTimestamp = 0;
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
-        myAnimator = GetComponent<Animator>();
-        lookingRight = true;
-        canReceiveDamage = true;
-        freakoutManager = FindObjectOfType<FreakoutManager>();
-		lastPositionX = transform.position.x;
+		CombableEnemyInitialize();
 
-		if(player.GetComponent<PirateCat>()){
-			playerIsPirate = true;
-			pirateCat = player.GetComponent<PirateCat>();
-		}
+		yMovementSpeed = speed / 3;
+
     }
 
     // Update is called once per frame
@@ -49,8 +38,6 @@ public class BilgewaterBeagle : CombableEnemy {
     	}
 
 		if(!player.isDying){
-			
-			transform.position = new Vector3(lastPositionX,transform.position.y,transform.position.z);
 
 	        if (!dying)
 	        {
@@ -60,27 +47,72 @@ public class BilgewaterBeagle : CombableEnemy {
 
 	                DefineDirectionToLook();
 
-					if (playerInWalkingRange && !playerInAttackingRange)
-	                {
-						
-	                    myAnimator.SetBool("attacking", false);
-	                    Walk();
-	                }
-					else if (playerInWalkingRange && playerInAttackingRange)
-	                {
-	                    StartAttacking();
-	                }
-	                else
-	                {
-	                    Idle();
-	                }
+	                if(!arenaEnemy){
 
+						if (playerInWalkingRange && !playerInAttackingRange)
+		                {
+							
+		                    myAnimator.SetBool("attacking", false);
+		                    Walk();
+		                }
+						else if (playerInWalkingRange && playerInAttackingRange)
+		                {
+		                    StartAttacking();
+		                }
+		                else
+		                {
+		                    Idle();
+		                }
+	                }else{
+
+	                	if(!arenaEntrance){
+
+							if (!playerInAttackingRange && (GameManager.instance.enemiesNearCat.Count < GameManager.instance.maxAmountOfEnemiesNearCat))
+			                {
+			                    myAnimator.SetBool("attacking", false);
+			                    Walk();
+							}else if(!playerInAttackingRange && GameManager.instance.enemiesNearCat.IndexOf(this.gameObject) != -1){
+								myAnimator.SetBool("attacking", false);
+			                    Walk();
+			                } else if(playerInAttackingRange)
+			                {
+			                    StartAttacking();
+			                }else{
+			                	//CheckEnemiesNearCatAmount();
+			                	Idle();
+			                }
+		                }else{
+		                	if(arenaEntranceSpotToTheRight){
+
+		                		if(transform.position.x < arenaEntrancePoint.position.x){
+									myAnimator.SetBool("attacking", false);
+			                		Walk();
+		                		}else{
+		                			arenaEntrance = false;
+		                		}
+								
+		                	}else{
+
+								if(transform.position.x > arenaEntrancePoint.position.x){
+									myAnimator.SetBool("attacking", false);
+			                		Walk();
+		                		}else{
+		                			arenaEntrance = false;
+		                		}
+		                	}
+							
+		                }
+	                }
 	            }
 
 	            if(knockedDown){
 					if(knockedDownTimeStamp < Time.time && knockedDownTimeStamp != 0){
 	            		StandUp();
 	            	}
+
+					if(myAnimator.GetCurrentAnimatorStateInfo(0).IsName("Bilgewater Beagle Hitting Ground") && myAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && knockedDownTimeStamp == 0){
+						StandUp();
+					}
 	            }
 
 				if(waiting){
@@ -100,7 +132,10 @@ public class BilgewaterBeagle : CombableEnemy {
         //Death
         if (life <= 0 && !dying)
         {
-
+        	if(arenaEnemy){
+				ArenaManager.instance.currentActiveArena.IncreaseAmountOfEnemiesDead();
+				GameManager.instance.RemoveFromEnemyNearCatList(this.gameObject);
+        	}
             myAnimator.SetBool("dead", true);
             myAnimator.SetBool("idle", false);
             myAnimator.SetBool("attacking", false);
@@ -124,7 +159,6 @@ public class BilgewaterBeagle : CombableEnemy {
             PrepareForParry();
         }
 
-		lastPositionX = transform.position.x;
     }
 
     void Walk()
@@ -132,11 +166,21 @@ public class BilgewaterBeagle : CombableEnemy {
         
         if (lookingRight)
         {
-            GetComponent<Rigidbody2D>().transform.position += Vector3.right * speed * Time.deltaTime;
+            GetComponentInParent<Rigidbody2D>().transform.position += Vector3.right * speed * Time.deltaTime;
         }
         else
         { // Move left if is looking left
-            GetComponent<Rigidbody2D>().transform.position += Vector3.left * speed * Time.deltaTime;
+			GetComponentInParent<Rigidbody2D>().transform.position += Vector3.left * speed * Time.deltaTime;
+        }
+
+        if(pirateCat != null){
+        	if(!pirateCat.isJumping){
+		        if(pirateCat.transform.position.y > transform.position.y){ //Move Up
+					transform.position += Vector3.up * yMovementSpeed * Time.deltaTime;
+		        }else{ //Move Down
+					transform.position += Vector3.down * yMovementSpeed * Time.deltaTime;
+		        }
+	        }
         }
         myAnimator.SetBool("idle", false);
         myAnimator.SetBool("attacking", false);
@@ -153,6 +197,12 @@ public class BilgewaterBeagle : CombableEnemy {
         myAnimator.SetBool("walking", false);
         attacking = false;
 
+    }
+
+    void CheckEnemiesNearCatAmount(){
+		if(GameManager.instance.enemiesNearCat.Count < GameManager.instance.maxAmountOfEnemiesNearCat && (GameManager.instance.enemiesNearCat.IndexOf(gameObject) == -1)){
+			GameManager.instance.AddToEnemyNearCatList(gameObject);
+    	}
     }
 
     void StartAttacking()

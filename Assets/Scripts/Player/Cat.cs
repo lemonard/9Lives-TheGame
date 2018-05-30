@@ -7,8 +7,8 @@ public class Cat : MonoBehaviour {
 
 
 	public float speed;
-	[SerializeField]
-	float jumpForce;
+
+	public float jumpForce;
 	[SerializeField]
 	protected float fallGravityMultiplier = 2.5f;
 	[SerializeField]
@@ -24,7 +24,7 @@ public class Cat : MonoBehaviour {
 	protected float invulnerableTimeStamp;
 
 	//Components
-	protected Animator animator;
+	public Animator animator;
 	protected Rigidbody2D myRigidBody2D;
 	protected SpriteRenderer mySpriteRenderer;
 	protected AudioSource myAudioSource;
@@ -100,7 +100,7 @@ public class Cat : MonoBehaviour {
         CheckSlope();
     }
 
-    protected void MoveRight(){
+	protected virtual void MoveRight(){
 
 		animator.SetBool("walking",true);
 		animator.SetBool("idle",false);
@@ -113,7 +113,7 @@ public class Cat : MonoBehaviour {
 	
 	}
 
-	protected void MoveLeft(){
+	protected virtual void MoveLeft(){
 
 		animator.SetBool("walking",true);
 		animator.SetBool("idle",false);
@@ -126,11 +126,11 @@ public class Cat : MonoBehaviour {
 
 	
 	}
-    protected void MoveUp()
+	protected virtual void MoveUp()
     {
         myRigidBody2D.transform.position += Vector3.up * speed * Time.deltaTime;
     }
-    protected void MoveDown()
+	protected virtual void MoveDown()
     {
         myRigidBody2D.transform.position += Vector3.down * speed * Time.deltaTime;
     }
@@ -142,7 +142,7 @@ public class Cat : MonoBehaviour {
 		isWalking = false;
 	}
 
-	protected void Jump(){
+	protected virtual void Jump(){
 
 		animator.SetBool("jumping",true);
 

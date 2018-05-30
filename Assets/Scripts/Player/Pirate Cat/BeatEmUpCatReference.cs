@@ -1,0 +1,139 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BeatEmUpCatReference : MonoBehaviour {
+
+	private Rigidbody2D myRigidBody2D;
+
+	private PirateCat myCat;
+
+	public float maxY;
+
+	void Awake(){
+		myRigidBody2D = GetComponent<Rigidbody2D>();
+		myCat = GetComponentInChildren<PirateCat>();
+
+	}
+	// Use this for initialization
+	void Start () {
+
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if(!myCat.controlersDisabled){
+			if(!myCat.isDying  && !myCat.freakoutMode && !myCat.beingLaunched && !myCat.receivingDamage && !myCat.knockedDown){
+
+
+				if(!myCat.isAttacking && !myCat.isShooting){
+
+	
+					if (Input.GetKey (myCat.moveRightKey) || (Input.GetAxis (myCat.moveHorizontalGamepadAxis) >= 0.5f) ) {
+						MoveRight();
+					} else if (Input.GetKey (myCat.moveLeftKey) || (Input.GetAxis (myCat.moveHorizontalGamepadAxis) <= -0.5f)) {
+						MoveLeft();
+					}
+				
+					if((Input.GetKeyDown (myCat.jumpKey) || Input.GetButtonDown(myCat.jumpGamepadButton))){
+						if(!myCat.isFalling){
+
+							if(!myCat.isJumping){
+								Jump();
+							} 
+						}
+					}
+				}
+			}
+		}
+	}
+
+	protected void MoveRight(){
+
+
+		myRigidBody2D.transform.position += Vector3.right * myCat.speed * Time.deltaTime;
+
+	
+	}
+
+	protected void MoveLeft(){
+
+		myRigidBody2D.transform.position += Vector3.left * myCat.speed * Time.deltaTime;
+
+	
+	}
+
+	protected void Jump(){
+
+
+		myRigidBody2D.velocity = new Vector3(myRigidBody2D.velocity.x,0,0);
+
+		myRigidBody2D.AddForce(new Vector3(0, myCat.jumpForce,0), ForceMode2D.Impulse);
+
+		
+	}
+
+
+	protected virtual void OnCollisionEnter2D(Collision2D other){
+
+
+		if(other.gameObject.tag == "Ground" || other.gameObject.tag == "Enemy"){
+			CheckIfGrounded();
+		}
+
+
+    }
+
+	protected void CheckIfGrounded(){
+
+		Vector3 position = transform.position;
+		Vector2 direction = Vector2.down;
+		Vector2 direction2 = new Vector2(-0.4f,-1);
+		Vector2 direction3 = new Vector2(0.4f,-1);
+		float distance = 0.5f;
+		if (!myCat.FourLeggedCat) {
+			distance = 1f;
+		}
+
+		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Enemies","Ground"));
+
+
+		RaycastHit2D hit2 = Physics2D.Raycast(position,direction2,distance,LayerMask.GetMask("Enemies","Ground"));
+		Debug.DrawRay(position, direction2, Color.green);
+
+		RaycastHit2D hit3 = Physics2D.Raycast(position,direction3,distance,LayerMask.GetMask("Enemies","Ground"));
+
+
+		if(hit.collider != null || hit2.collider != null || hit3.collider != null){
+			IsGrounded();
+		}
+
+
+	}
+
+	public void IsGrounded ()
+	{
+
+		myCat.isJumping = false;
+		myCat.isFalling = false;
+		if(myCat.beingLaunched){
+
+			myRigidBody2D.gravityScale = 1;
+			myRigidBody2D.velocity = new Vector2(0,0);
+			myCat.beingLaunched = false;
+			myCat.invulnerable = false;
+			myCat.animator.SetBool("launched", false);
+
+		}else if(myCat.knockedDown){
+
+			myCat.animator.SetBool("knockedOnFloor", true);
+			myCat.animator.SetBool("knockedDown", false);
+		}else{
+			myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
+		}
+
+		myCat.animator.SetBool("jumping", false);
+	}
+
+}

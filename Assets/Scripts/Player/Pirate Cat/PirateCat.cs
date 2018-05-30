@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PirateCat : Cat {
 
+	public float yMovementSpeed;
 	public int gunDamage = 2;
 	public float gunDistance = 2;
 
@@ -31,6 +32,7 @@ public class PirateCat : Cat {
 
 	public bool isShooting;
 	public bool beingLaunched;
+	public bool inCannon;
 	public bool isNearCannon;
 	public bool knockedDown;
 	public bool receivingDamage;
@@ -52,16 +54,28 @@ public class PirateCat : Cat {
 	public int gunComboCounter = 0;
 	public bool gunComboActivated = false;
 
+	public KeyCode moveUpKey;
+
+	private BeatEmUpCatReference myReference;
+
 	// Use this for initialization
 	protected override void Start ()
 	{
-		base.Start ();
 
+		animator = GetComponent<Animator>();
+		mySpriteRenderer = GetComponent<SpriteRenderer>();
+		myAudioSource = GetComponent<AudioSource> ();
+		currentCheckpoint = startingPoint.position;
+		myRigidBody2D = GetComponentInParent<Rigidbody2D>();
+		myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
+		myReference = GetComponentInParent<BeatEmUpCatReference>();
+
+		yMovementSpeed = speed / 3;
 	}
 	// Update is called once per frame
 	void Update () {
 		if(!controlersDisabled){
-			if(!isDying  && !freakoutMode && !beingLaunched && !receivingDamage && !knockedDown){
+			if(!isDying  && !freakoutMode && !beingLaunched && !receivingDamage && !knockedDown && !inCannon){
 
 				if((Input.GetButtonDown(freakoutGamepadButton) || Input.GetKeyDown(freakoutKey) ) && !isDying && !isJumping && !isAttacking && !isShooting && ready){
 					freakoutMode = true;
@@ -74,8 +88,25 @@ public class PirateCat : Cat {
 	
 					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
 						MoveRight();
+
+						if (Input.GetKey (moveUpKey) || (Input.GetAxis (moveVerticalGamepadAxis) >= 0.5f) ) {
+							MoveUp();
+						} else if (Input.GetKey (downKey) || (Input.GetAxis (moveVerticalGamepadAxis) <= -0.5f)) {
+							MoveDown();
+						}
+
 					} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
 						MoveLeft();
+
+						if (Input.GetKey (moveUpKey) || (Input.GetAxis (moveVerticalGamepadAxis) >= 0.5f) ) {
+							MoveUp();
+						} else if (Input.GetKey (downKey) || (Input.GetAxis (moveVerticalGamepadAxis) <= -0.5f)) {
+							MoveDown();
+						}
+					} else if (Input.GetKey (moveUpKey) || (Input.GetAxis (moveVerticalGamepadAxis) >= 0.5f) ) {
+						MoveUp();
+					} else if (Input.GetKey (downKey) || (Input.GetAxis (moveVerticalGamepadAxis) <= -0.5f)) {
+						MoveDown();
 					} else {
 						Idle();
 					}
@@ -173,7 +204,6 @@ public class PirateCat : Cat {
 				}
 
 
-
 				if(myRigidBody2D.velocity.y < -1){
 					isFalling = true;
 				}
@@ -205,6 +235,72 @@ public class PirateCat : Cat {
 	void FixedUpdate(){
 
 
+	}
+
+	protected override void MoveRight(){
+
+		animator.SetBool("walking",true);
+		animator.SetBool("idle",false);
+		isWalking = true;
+		isLookingRight = true;
+
+		ChangeLookingDirection();
+
+	
+	}
+
+	protected override void MoveLeft(){
+
+		animator.SetBool("walking",true);
+		animator.SetBool("idle",false);
+		isWalking = true;
+		isLookingRight = false; 
+
+		ChangeLookingDirection();
+
+	
+	}
+	protected override void MoveUp()
+    {
+
+		float newY = transform.position.y + (1 * yMovementSpeed * Time.deltaTime);
+		float distanceRelativeToReference = newY - myReference.transform.position.y; 
+
+		if(distanceRelativeToReference <= myReference.maxY){
+			transform.position += Vector3.up * yMovementSpeed * Time.deltaTime;
+
+		
+		}
+
+		animator.SetBool("walking",true);
+		animator.SetBool("idle",false);
+		isWalking = true;
+       
+    }
+	protected override void MoveDown()
+    {
+		float newY = transform.position.y + (-1 * yMovementSpeed * Time.deltaTime);
+		float distanceRelativeToReference = newY - myReference.transform.position.y; 
+
+		if(distanceRelativeToReference >= 0){
+			transform.position += Vector3.down * yMovementSpeed * Time.deltaTime;
+
+
+		}
+
+		animator.SetBool("walking",true);
+		animator.SetBool("idle",false);
+		isWalking = true;
+  
+    }
+
+	protected override void Jump(){
+
+		animator.SetBool("jumping",true);
+
+		isJumping = true;
+		isSliding = false;
+			
 	}
 
 	protected override void CheckIfDamageReceived()
@@ -249,11 +345,11 @@ public class PirateCat : Cat {
 		animator.SetBool("knockedDown", true);
 		if(sourceOfDamagePosition.x > transform.position.x){ //Enemy is on the right
 
-			GetComponent<Rigidbody2D>().velocity = new Vector2( -2f , GetComponent<Rigidbody2D>().velocity.y + 4);
+			myRigidBody2D.velocity = new Vector2( -2f , myRigidBody2D.velocity.y + 4);
 	
 		}else{
 
-			GetComponent<Rigidbody2D>().velocity = new Vector2( 2f , GetComponent<Rigidbody2D>().velocity.y + 4);	
+			myRigidBody2D.velocity = new Vector2( 2f , myRigidBody2D.velocity.y + 4);	
 	
 		}
 	}
@@ -304,24 +400,25 @@ public class PirateCat : Cat {
 	public override void IsGrounded ()
 	{
 
-		isJumping = false;
-		isFalling = false;
-		if(beingLaunched){
-
-			myRigidBody2D.gravityScale = 1;
-			myRigidBody2D.velocity = new Vector2(0,0);
-			beingLaunched = false;
-			invulnerable = false;
-
-		}else if(knockedDown){
-
-			animator.SetBool("knockedOnFloor", true);
-			animator.SetBool("knockedDown", false);
-		}else{
-			myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
-		}
-
-		animator.SetBool("jumping", false);
+//		isJumping = false;
+//		isFalling = false;
+//		if(beingLaunched){
+//
+//			myRigidBody2D.gravityScale = 1;
+//			myRigidBody2D.velocity = new Vector2(0,0);
+//			beingLaunched = false;
+//			invulnerable = false;
+//			animator.SetBool("launched", false);
+//
+//		}else if(knockedDown){
+//
+//			animator.SetBool("knockedOnFloor", true);
+//			animator.SetBool("knockedDown", false);
+//		}else{
+//			myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
+//		}
+//
+//		animator.SetBool("jumping", false);
 	}
 
 
@@ -476,7 +573,7 @@ public class PirateCat : Cat {
 			cannonBall.GetComponent<HandCannonBall>().goRight = false;
 		}
 
-
+		cannonBall.GetComponent<HandCannonBall>().yCoordinateToExplode = transform.position.y;
 	}
 
 	void ShootGiantCannon(){
@@ -554,38 +651,42 @@ public class PirateCat : Cat {
 
 		}else if(gunComboActivated){
 
-			SkillCooldownIndicator.instance.SpendSkillUse();
-			animator.SetBool("shooting", true);
-			animator.SetBool("attack", false);
-			animator.SetInteger("comboCounter", comboCounter);
+			if(SkillCooldownIndicator.instance.skillRemainingUses > 0){
+				SkillCooldownIndicator.instance.SpendSkillUse();
+				animator.SetBool("shooting", true);
+				animator.SetBool("attack", false);
+				animator.SetInteger("comboCounter", comboCounter);
 
-			gunComboActivated = false;
-			comboActivated = false;
+				gunComboActivated = false;
+				comboActivated = false;
 
-			if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
-				isLookingRight = true;
-				ChangeLookingDirection();
-			} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-				isLookingRight = false;
-				ChangeLookingDirection();	
-			}
+				if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
+					isLookingRight = true;
+					ChangeLookingDirection();
+				} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+					isLookingRight = false;
+					ChangeLookingDirection();	
+				}
 
-			if(gunComboCounter == 1){
+				if(gunComboCounter == 1){
 
-				
-				animator.SetInteger("gunComboCounter", 1);
+					
+					animator.SetInteger("gunComboCounter", 1);
 
-			}else if(gunComboCounter == 2){
+				}else if(gunComboCounter == 2){
 
 
-				animator.SetInteger("gunComboCounter", 2);
+					animator.SetInteger("gunComboCounter", 2);
 
-			}else if(gunComboCounter == 3){
-	
-				animator.SetInteger("gunComboCounter", 3);
-			}
-
+				}else if(gunComboCounter == 3){
 		
+					animator.SetInteger("gunComboCounter", 3);
+				}
+
+			}else{
+				gunComboActivated = false;
+				comboActivated = false;
+			}
 		}
 	}
 
@@ -598,11 +699,17 @@ public class PirateCat : Cat {
 
 		ChangeLookingDirection();
 
+		mySpriteRenderer.enabled = false;
 		invulnerable = true;
 		beingLaunched = true;
 		myRigidBody2D.velocity = new Vector2(0,0);
-//		myRigidBody2D.isKinematic = true;
+
 	}
 
+	public void LaunchAnimation(){
+
+		mySpriteRenderer.enabled = true;
+		animator.SetBool("launched", true);
+	}
 }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CutlassCollider : MonoBehaviour {
 
 	public int damage;
+	public bool knockDownAttack;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,7 +23,10 @@ public class CutlassCollider : MonoBehaviour {
                     enemyVariables.life -= damage;
                     enemyVariables.receivedDamage = true;
 					if(enemyVariables.GetComponent<CombableEnemy>()){
-	                   enemyVariables.GetComponent<CombableEnemy>().sourceOfDamagePosition = transform.position;
+						if(knockDownAttack){
+							enemyVariables.GetComponent<CombableEnemy>().amountOfHitsTaken = enemyVariables.GetComponent<CombableEnemy>().amountOfHitsToBeKnockedDown;
+						}
+	                  	enemyVariables.GetComponent<CombableEnemy>().sourceOfDamagePosition = transform.parent.position;
 	                }
                 }
             }

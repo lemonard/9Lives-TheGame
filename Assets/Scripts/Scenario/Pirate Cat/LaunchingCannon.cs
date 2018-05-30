@@ -20,6 +20,7 @@ public class LaunchingCannon : MonoBehaviour {
 
 	public bool launchRight;
 
+	public bool catInCannon;
 	// Use this for initialization
 	void Start () {
 
@@ -35,13 +36,40 @@ public class LaunchingCannon : MonoBehaviour {
 					
 					if((Input.GetKeyDown (targetCat.attackKey) || Input.GetButtonDown(targetCat.attackGamepadButton))){
 						//LaunchCat();
-						StartCoroutine(Launch());
+						if(!catInCannon){
+							ActivateCannon();
+						}else{
+							ShootCannon();
+						}
+
 					}
 				}
 			}
 		}
 	}
 
+	void ActivateCannon(){
+		
+		targetCat.PrepareToBeLaunched(launchRight);
+		targetCat.inCannon = true;
+		GetComponent<Animator>().SetBool("activated", true);
+
+		catInCannon = true;
+	}
+
+
+	void ShootCannon(){
+		GetComponent<Animator>().SetBool("activated", false);
+		GetComponent<Animator>().SetBool("shoot", true);
+
+		StartCoroutine(Launch());
+	}
+
+	void FinishedShotAnimation(){
+		targetCat.inCannon = false;
+		catInCannon = false;
+		GetComponent<Animator>().SetBool("shoot", false);
+	}
 
 	IEnumerator Launch(){
 
@@ -49,9 +77,7 @@ public class LaunchingCannon : MonoBehaviour {
 
 		CameraController.instance.topBorder.transform.localPosition = new Vector3(CameraController.instance.topBorder.transform.localPosition.x,CameraController.instance.topBorder.transform.localPosition.y + 5000,CameraController.instance.topBorder.transform.localPosition.z);
 
-		targetCat.PrepareToBeLaunched(launchRight);
-
-		projectile = targetCat.transform;
+		projectile = targetCat.transform.parent;
 
 		projectile.position = transform.position + Vector3.zero;
 
@@ -71,7 +97,8 @@ public class LaunchingCannon : MonoBehaviour {
        
 		elapsedTime = 0;
 
-		targetCat.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+		targetCat.LaunchAnimation();
+		targetCat.GetComponentInParent<Rigidbody2D>().gravityScale = 0;
  
 		while (elapsedTime < flightDuration)
         {
@@ -79,15 +106,15 @@ public class LaunchingCannon : MonoBehaviour {
 			projectile.Translate(velocityX * Time.deltaTime, (velocityY - (gravity * elapsedTime)) * Time.deltaTime, 0);
            
 			elapsedTime += Time.deltaTime;
- 
+			targetCat.beingLaunched = true;
             yield return null;
         }
 
 		float endYVelocity = (velocityY - (gravity * elapsedTime)); 
 
-		targetCat.gameObject.GetComponent<Rigidbody2D>().gravityScale = gravityScale;
-		targetCat.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(velocityX,endYVelocity,0);
-		targetCatVelocity = targetCat.gameObject.GetComponent<Rigidbody2D>().velocity;
+		targetCat.GetComponentInParent<Rigidbody2D>().gravityScale = gravityScale;
+		targetCat.GetComponentInParent<Rigidbody2D>().velocity = new Vector3(velocityX,endYVelocity,0);
+		targetCatVelocity = targetCat.GetComponentInParent<Rigidbody2D>().velocity;
 
 		CameraController.instance.topBorder.transform.localPosition = cameraTopBorderPosition;
 

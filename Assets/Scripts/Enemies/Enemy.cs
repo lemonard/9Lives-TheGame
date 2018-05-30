@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour {
 
 	private int flashDelay = 2;
 	protected SpriteRenderer mySpriteRenderer;
-	protected Animator myAnimator;
+	public Animator myAnimator;
 	private int flashingCounter;
 	private bool toggleFlashing = false;
 	protected float lifeWhileInvulnerable;
@@ -51,8 +51,14 @@ public class Enemy : MonoBehaviour {
 	public bool playerInAttackingRange;
 
 	// Use this for initialization
-	void Start () {
-		
+	protected void EnemyInitialize () {
+		player = FindObjectOfType<Cat>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myAnimator = GetComponent<Animator>();
+        lookingRight = true;
+        canReceiveDamage = true;
+        freakoutManager = FindObjectOfType<FreakoutManager>();
+		lastPositionX = transform.position.x;
 	}
 
 	public void Flash(){

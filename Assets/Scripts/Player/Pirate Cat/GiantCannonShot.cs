@@ -39,6 +39,7 @@ public class GiantCannonShot : MonoBehaviour {
 					enemy.receivedDamage = true;
 					if(enemy.GetComponent<CombableEnemy>()){
 	                    enemy.GetComponent<CombableEnemy>().sourceOfDamagePosition = transform.position;
+						enemy.GetComponent<CombableEnemy>().amountOfHitsTaken = enemy.GetComponent<CombableEnemy>().amountOfHitsToBeKnockedDown;
 	                }
                 }
 
