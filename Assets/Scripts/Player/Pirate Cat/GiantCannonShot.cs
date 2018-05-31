@@ -47,4 +47,9 @@ public class GiantCannonShot : MonoBehaviour {
 
 		}
 	}
+
+	void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
+    }
 }

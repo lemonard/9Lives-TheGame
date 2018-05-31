@@ -21,6 +21,8 @@ public class CameraController : MonoBehaviour {
 	public float yTolerance = 1.3f; //Tolerance in y direction
 	public float xTolerance = 0.3f; //Tolerance in x direction
 
+	private float initialSpeedX;
+
 	private bool movingRight = true; //Whether the player is on the way right
 
     public GameObject topBorder;
@@ -41,6 +43,7 @@ public class CameraController : MonoBehaviour {
 	private float yOffset; //Offset of the camera
 	private float xOffset; //Offset of the camera
 	private bool animationMode;
+	private bool noDampMode;
 
 	public bool startLookingLeft;
 	void Awake(){
@@ -52,6 +55,7 @@ public class CameraController : MonoBehaviour {
 		//Find the player
 		player = FindObjectOfType<Cat>();
         sebby = FindObjectOfType<PussInBoots>();
+        initialSpeedX = speedX;
         //Set the offsets
 		playerXOffset = leftBorder.transform.localPosition.x;
 		playerYOffset = - bottomBorder.transform.localPosition.y;
@@ -75,13 +79,15 @@ public class CameraController : MonoBehaviour {
 	void LateUpdate () {
 
 		if (follow) {
-			if(!animationMode){
+			if(!animationMode && !noDampMode){
 				//Update x and y position
 				UpdateXDirection();
 				UpdateYDirection();
-			}else{
+			}else if(animationMode && !noDampMode){
 				UpdateXDirectionAnimation();
 				UpdateYDirectionAnimation();
+			}else if(!animationMode && noDampMode){
+				transform.position = new Vector3 (target.transform.position.x, target.transform.position.y, transform.position.z);
 			}
 		}
 	}
@@ -214,7 +220,16 @@ public class CameraController : MonoBehaviour {
 		xOffset = 0;
 	}
 
+	public void ChangeToTargetAndCenterNoDamp(GameObject target){
+		noDampMode = true;
+		this.target = target;
+		yOffset = 0;
+		xOffset = 0;
+	}
+
 	public void ReturnCameraToPlayerFollowing(){
+		DeactivateAnimationMode();
+		noDampMode = false;
 		this.target = player.gameObject;
 		yOffset = playerYOffset;
 		xOffset = playerXOffset;
@@ -223,5 +238,13 @@ public class CameraController : MonoBehaviour {
 	public void UpdateActiveCat(){
 		player = FindObjectOfType<Cat>();
 		target = player.gameObject;
+	}
+
+	public void SetSpeedX(float speed){
+		speedX = speed;
+	}
+
+	public void RestoreSpeedX(){
+		speedX = initialSpeedX;
 	}
 }

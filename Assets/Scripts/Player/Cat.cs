@@ -61,6 +61,8 @@ public class Cat : MonoBehaviour {
 	public bool isAttacking;
 	public bool isSliding;
 
+	public bool justJumped;
+
 //	public LayerMask groundLayer;
     public bool isOnGround;
 
@@ -144,7 +146,9 @@ public class Cat : MonoBehaviour {
 
 	protected virtual void Jump(){
 
+		justJumped = true;
 		animator.SetBool("jumping",true);
+		StartCoroutine(SetJustJumpedOff());
 
 		myRigidBody2D.velocity = new Vector3(myRigidBody2D.velocity.x,0,0);
 
@@ -215,9 +219,11 @@ public class Cat : MonoBehaviour {
 
 
 		if(other.gameObject.tag == "Ground" || other.gameObject.tag == "InvisiblePlatform" || other.gameObject.tag == "Enemy"){
-			CheckIfGrounded();
-		}
+			if(justJumped){
+				CheckIfGrounded();
+			}
 
+		}
 
     }
 
@@ -401,6 +407,11 @@ public class Cat : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 		myRigidBody2D.drag = 0;
 		EnableControls();
+	}
+
+	protected IEnumerator SetJustJumpedOff(){
+		yield return new WaitForSeconds(0.2f);
+		justJumped = false;
 	}
 
 }

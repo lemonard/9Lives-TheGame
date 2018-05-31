@@ -62,6 +62,8 @@ public class LaunchingCannon : MonoBehaviour {
 		GetComponent<Animator>().SetBool("activated", false);
 		GetComponent<Animator>().SetBool("shoot", true);
 
+		CameraController.instance.ChangeToTargetAndCenterNoDamp(targetCat.transform.gameObject);
+		CameraController.instance.SetSpeedX(1);
 		StartCoroutine(Launch());
 	}
 
@@ -117,6 +119,7 @@ public class LaunchingCannon : MonoBehaviour {
 		targetCatVelocity = targetCat.GetComponentInParent<Rigidbody2D>().velocity;
 
 		CameraController.instance.topBorder.transform.localPosition = cameraTopBorderPosition;
+
 
         targetCat = null;
 

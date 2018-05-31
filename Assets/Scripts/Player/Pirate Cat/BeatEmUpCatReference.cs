@@ -10,6 +10,8 @@ public class BeatEmUpCatReference : MonoBehaviour {
 
 	public float maxY;
 
+
+
 	void Awake(){
 		myRigidBody2D = GetComponent<Rigidbody2D>();
 		myCat = GetComponentInChildren<PirateCat>();
@@ -47,25 +49,29 @@ public class BeatEmUpCatReference : MonoBehaviour {
 				}
 			}
 		}
+
+//		if(myCat.isJumping){
+//			float jumpDistance = myCat.transform.position.y - catYPositionBeforeJumping;
+//			myCat.shadow.transform.position = new Vector3(myCat.transform.position.x, myCat.transform.position.y - jumpDistance, myCat.transform.position.z);
+//		}
 	}
 
 	protected void MoveRight(){
 
 
 		myRigidBody2D.transform.position += Vector3.right * myCat.speed * Time.deltaTime;
-
+		myCat.shadowReference.GetComponent<Rigidbody2D>().transform.position += Vector3.right * myCat.speed * Time.deltaTime;
 	
 	}
 
 	protected void MoveLeft(){
 
 		myRigidBody2D.transform.position += Vector3.left * myCat.speed * Time.deltaTime;
-
+		myCat.shadowReference.GetComponent<Rigidbody2D>().transform.position += Vector3.left * myCat.speed * Time.deltaTime;
 	
 	}
 
 	protected void Jump(){
-
 
 		myRigidBody2D.velocity = new Vector3(myRigidBody2D.velocity.x,0,0);
 
@@ -79,7 +85,9 @@ public class BeatEmUpCatReference : MonoBehaviour {
 
 
 		if(other.gameObject.tag == "Ground" || other.gameObject.tag == "Enemy"){
-			CheckIfGrounded();
+			if(!myCat.justJumped){
+				CheckIfGrounded();
+			}
 		}
 
 
@@ -126,6 +134,9 @@ public class BeatEmUpCatReference : MonoBehaviour {
 			//myCat.landing = true;
 			myCat.animator.SetBool("launched", false);
 			//myCat.animator.SetBool("landing", true);
+			CameraController.instance.RestoreSpeedX();
+			CameraController.instance.ReturnCameraToPlayerFollowing();
+			myCat.shadow.GetComponent<SpriteRenderer>().enabled = true;
 		}else if(myCat.knockedDown){
 
 			myCat.animator.SetBool("knockedOnFloor", true);

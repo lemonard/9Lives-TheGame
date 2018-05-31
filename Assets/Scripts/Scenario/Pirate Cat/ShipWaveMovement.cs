@@ -16,6 +16,9 @@ public class ShipWaveMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		goingUp = startGoingUp;
+
+		upThreshold = transform.position.y + 0.18f;
+		downThreshold = transform.position.y - 0.18f;
 	}
 	
 	// Update is called once per frame

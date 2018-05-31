@@ -119,6 +119,7 @@ public class BilgewaterBeagle : CombableEnemy {
 					Idle();
 				}
 
+
 	        }
         }else{
 			Idle();
@@ -159,6 +160,12 @@ public class BilgewaterBeagle : CombableEnemy {
             PrepareForParry();
         }
 
+		if(!knockedDown){
+			shadow.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+		}else{
+			shadow.transform.position = new Vector3(transform.position.x, shadow.transform.position.y, transform.position.z);
+		}
+
     }
 
     void Walk()
@@ -167,18 +174,22 @@ public class BilgewaterBeagle : CombableEnemy {
         if (lookingRight)
         {
             GetComponentInParent<Rigidbody2D>().transform.position += Vector3.right * speed * Time.deltaTime;
+
         }
         else
         { // Move left if is looking left
 			GetComponentInParent<Rigidbody2D>().transform.position += Vector3.left * speed * Time.deltaTime;
+
         }
 
         if(pirateCat != null){
         	if(!pirateCat.isJumping){
 		        if(pirateCat.transform.position.y > transform.position.y){ //Move Up
 					transform.position += Vector3.up * yMovementSpeed * Time.deltaTime;
+					shadow.transform.position += Vector3.up * yMovementSpeed * Time.deltaTime;
 		        }else{ //Move Down
 					transform.position += Vector3.down * yMovementSpeed * Time.deltaTime;
+					shadow.transform.position += Vector3.down * yMovementSpeed * Time.deltaTime;
 		        }
 	        }
         }

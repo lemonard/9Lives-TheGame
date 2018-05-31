@@ -30,6 +30,8 @@ public class PirateCat : Cat {
 
 	public Transform shotOrigin;
 
+	public GameObject shadow;
+
 	public bool isShooting;
 	public bool beingLaunched;
 	public bool inCannon;
@@ -59,8 +61,7 @@ public class PirateCat : Cat {
 
 	private BeatEmUpCatReference myReference;
 
-
-
+	public Transform shadowReference;
 	// Use this for initialization
 	protected override void Start ()
 	{
@@ -233,6 +234,13 @@ public class PirateCat : Cat {
 			
 		CheckDeath ();
 
+
+		if(!isJumping){
+			shadow.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+		}
+
+
+
 	}
 
 	void FixedUpdate(){
@@ -259,6 +267,7 @@ public class PirateCat : Cat {
 		isWalking = true;
 		isLookingRight = false; 
 
+
 		ChangeLookingDirection();
 
 	
@@ -271,14 +280,13 @@ public class PirateCat : Cat {
 
 		if(distanceRelativeToReference <= myReference.maxY){
 			transform.position += Vector3.up * yMovementSpeed * Time.deltaTime;
-
-		
+			shadow.transform.position += Vector3.up * yMovementSpeed * Time.deltaTime;
 		}
 
 		animator.SetBool("walking",true);
 		animator.SetBool("idle",false);
 		isWalking = true;
-       
+      
     }
 	protected override void MoveDown()
     {
@@ -287,8 +295,7 @@ public class PirateCat : Cat {
 
 		if(distanceRelativeToReference >= 0){
 			transform.position += Vector3.down * yMovementSpeed * Time.deltaTime;
-
-
+			shadow.transform.position += Vector3.down * yMovementSpeed * Time.deltaTime;
 		}
 
 		animator.SetBool("walking",true);
@@ -300,7 +307,8 @@ public class PirateCat : Cat {
 	protected override void Jump(){
 
 		animator.SetBool("jumping",true);
-
+		StartCoroutine(SetJustJumpedOff());
+		justJumped = true;
 		isJumping = true;
 		isSliding = false;
 			
@@ -703,8 +711,9 @@ public class PirateCat : Cat {
 		ChangeLookingDirection();
 
 		mySpriteRenderer.enabled = false;
+		shadow.GetComponent<SpriteRenderer>().enabled = false;
 		invulnerable = true;
-		beingLaunched = true;
+		inCannon = true;
 		myRigidBody2D.velocity = new Vector2(0,0);
 
 	}
@@ -718,6 +727,7 @@ public class PirateCat : Cat {
 	void FinishLandingAnimation(){
 		animator.SetBool("landing", false);
 		landing = false;
+		shadow.GetComponent<SpriteRenderer>().enabled = true;
 
 	}
 }

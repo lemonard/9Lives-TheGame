@@ -25,7 +25,6 @@ public class BeatEmUpEnemyReference : MonoBehaviour {
 		if(other.gameObject.tag == "Ground"){
 			if(myEnemy.knockedDown){
 				myEnemy.myAnimator.SetBool("knockedOnFloor", true);
-				myEnemy.myAnimator.SetBool("knockedDown", false);
 			}
 		}
 

@@ -9,6 +9,8 @@ public class CombableEnemy : Enemy {
 	public bool knockedDown;
 	public float knockedDownTime = 2f;
 	public bool receivingDamage;
+	public GameObject shadow;
+	public Transform shadowReference;
 
 	protected float knockedDownTimeStamp = 0f;
 
@@ -98,7 +100,6 @@ public class CombableEnemy : Enemy {
 	protected void FinishedKnockDownAnimation(){
 
 		myAnimator.SetBool("damage",false);
-		myAnimator.SetBool("knockedDown", false);
 		knockedDownTimeStamp = Time.time + knockedDownTime;
 	}
 
