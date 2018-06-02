@@ -9,7 +9,7 @@ public class BeatEmUpCatReference : MonoBehaviour {
 	private PirateCat myCat;
 
 	public float maxY;
-
+	public float minY = 0;
 
 
 	void Awake(){
@@ -89,7 +89,6 @@ public class BeatEmUpCatReference : MonoBehaviour {
 				CheckIfGrounded();
 			}
 		}
-
 
     }
 

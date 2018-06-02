@@ -293,7 +293,7 @@ public class PirateCat : Cat {
 		float newY = transform.position.y + (-1 * yMovementSpeed * Time.deltaTime);
 		float distanceRelativeToReference = newY - myReference.transform.position.y; 
 
-		if(distanceRelativeToReference >= 0){
+		if(distanceRelativeToReference >= myReference.minY){
 			transform.position += Vector3.down * yMovementSpeed * Time.deltaTime;
 			shadow.transform.position += Vector3.down * yMovementSpeed * Time.deltaTime;
 		}
