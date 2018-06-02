@@ -219,7 +219,7 @@ public class Cat : MonoBehaviour {
 
 
 		if(other.gameObject.tag == "Ground" || other.gameObject.tag == "InvisiblePlatform" || other.gameObject.tag == "Enemy"){
-			if(justJumped){
+			if(!justJumped){
 				CheckIfGrounded();
 			}
 
@@ -266,6 +266,8 @@ public class Cat : MonoBehaviour {
 		if (!FourLeggedCat) {
 			distance = 1f;
 		}
+
+		print ("gorda");
 
 		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Enemies","Ground"));
 

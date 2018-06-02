@@ -9711,6 +9711,8 @@ MonoBehaviour:
   player: {fileID: 0}
   playerCurrency: 0
   changingScene: 0
+  enemiesNearCat: []
+  maxAmountOfEnemiesNearCat: 2
 --- !u!4 &792801721
 Transform:
   m_ObjectHideFlags: 0
@@ -25483,7 +25485,7 @@ MonoBehaviour:
   speedY: 1.5
   yTolerance: 0
   xTolerance: 0
-  topBorder: {fileID: 0}
+  topBorder: {fileID: 1388678489}
   bottomBorder: {fileID: 206565649}
   leftBorder: {fileID: 972932328}
   leftTolerance: {fileID: 1555735463}
