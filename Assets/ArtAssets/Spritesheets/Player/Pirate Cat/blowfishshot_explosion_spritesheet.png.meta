@@ -1,22 +1,17 @@
 fileFormatVersion: 2
-guid: b9356fd266a6e47a192d01064d7d4ced
-timeCreated: 1526844705
+guid: 97bd61a18ad05423f8af2393f8ac0674
+timeCreated: 1528063163
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ship_stairs_0
-    21300002: ship_stairs_1
-    21300004: ship_stairs_2
-    21300006: ship_stairs_3
-    21300008: ship_stairs_4
-    21300010: ship_stairs_5
-    21300012: ship_stairs_6
-    21300014: ship_stairs_7
-    21300016: ship_stairs_8
-    21300018: ship_stairs_9
-    21300020: ship_stairs_10
-    21300022: ship_stairs_11
-    21300024: ship_stairs_12
+    21300000: blowfishshot_explosion_spritesheet_0
+    21300002: blowfishshot_explosion_spritesheet_1
+    21300004: blowfishshot_explosion_spritesheet_2
+    21300006: blowfishshot_explosion_spritesheet_3
+    21300008: blowfishshot_explosion_spritesheet_4
+    21300010: blowfishshot_explosion_spritesheet_5
+    21300012: blowfishshot_explosion_spritesheet_6
+    21300014: blowfishshot_explosion_spritesheet_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -114,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ship_stairs_0
+      name: blowfishshot_explosion_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 128
-        y: 320
-        width: 64
-        height: 64
+        x: 0
+        y: 240
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,13 +123,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs_1
+      name: blowfishshot_explosion_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 192
-        y: 320
-        width: 64
-        height: 64
+        x: 120
+        y: 240
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,13 +137,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs_2
+      name: blowfishshot_explosion_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 320
-        width: 64
-        height: 64
+        x: 240
+        y: 240
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,13 +151,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs_3
+      name: blowfishshot_explosion_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 256
-        width: 64
-        height: 64
+        x: 0
+        y: 120
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,13 +165,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs_4
+      name: blowfishshot_explosion_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
-        width: 64
-        height: 64
+        x: 120
+        y: 120
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,13 +179,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs_5
+      name: blowfishshot_explosion_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 192
-        y: 256
-        width: 64
-        height: 64
+        x: 240
+        y: 120
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,13 +193,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs_6
+      name: blowfishshot_explosion_spritesheet_6
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 64
-        height: 64
+        x: 0
+        y: 0
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,55 +207,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs_7
+      name: blowfishshot_explosion_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs_8
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs_9
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs_10
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
+        x: 120
+        y: 0
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
