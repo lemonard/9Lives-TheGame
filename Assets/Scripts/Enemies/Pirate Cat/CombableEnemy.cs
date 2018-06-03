@@ -130,7 +130,7 @@ public class CombableEnemy : Enemy {
 			mySpawner.SetDeadEnemy (this.gameObject.GetInstanceID ());
 		}
 
-		Destroy (gameObject.transform.parent.gameObject);
+		Destroy (gameObject.transform.parent.parent.transform.gameObject);
 	}
 
 }

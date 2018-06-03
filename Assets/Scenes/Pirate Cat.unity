@@ -1357,7 +1357,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 26314183}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.64, z: 0}
+  m_LocalPosition: {x: 0, y: -0.64, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 917516922}
@@ -6886,18 +6886,13 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114235936120819648, guid: d0788b979c5eb824baa5f51c101f4b3b,
-        type: 2}
-      propertyPath: laneReferences.Array.size
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4313232657711226, guid: d0788b979c5eb824baa5f51c101f4b3b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 18.1
+      value: -17.44
       objectReference: {fileID: 0}
     - target: {fileID: 4313232657711226, guid: d0788b979c5eb824baa5f51c101f4b3b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 9.309
+      value: 8.672
       objectReference: {fileID: 0}
     - target: {fileID: 4313232657711226, guid: d0788b979c5eb824baa5f51c101f4b3b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6973,6 +6968,14 @@ Prefab:
       propertyPath: laneReferences.Array.data[5]
       value: 
       objectReference: {fileID: 441177308}
+    - target: {fileID: 4118829029198094, guid: d0788b979c5eb824baa5f51c101f4b3b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314116102533500, guid: d0788b979c5eb824baa5f51c101f4b3b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.0010004
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0788b979c5eb824baa5f51c101f4b3b, type: 2}
   m_IsPrefabParent: 0
@@ -7505,29 +7508,35 @@ Prefab:
         type: 2}
       propertyPath: laneReferences.Array.data[0]
       value: 
-      objectReference: {fileID: 1600446301}
+      objectReference: {fileID: 628442051}
     - target: {fileID: 114530860899848308, guid: 667673d125cdf4a48ae54bb314301c8d,
         type: 2}
       propertyPath: laneReferences.Array.data[1]
       value: 
-      objectReference: {fileID: 985076531}
+      objectReference: {fileID: 838609347}
     - target: {fileID: 114530860899848308, guid: 667673d125cdf4a48ae54bb314301c8d,
         type: 2}
       propertyPath: laneReferences.Array.data[2]
       value: 
-      objectReference: {fileID: 616947531}
+      objectReference: {fileID: 1600446301}
     - target: {fileID: 114530860899848308, guid: 667673d125cdf4a48ae54bb314301c8d,
         type: 2}
       propertyPath: laneReferences.Array.data[3]
+      value: 
+      objectReference: {fileID: 985076531}
+    - target: {fileID: 114530860899848308, guid: 667673d125cdf4a48ae54bb314301c8d,
+        type: 2}
+      propertyPath: laneReferences.Array.data[4]
+      value: 
+      objectReference: {fileID: 616947531}
+    - target: {fileID: 114530860899848308, guid: 667673d125cdf4a48ae54bb314301c8d,
+        type: 2}
+      propertyPath: laneReferences.Array.data[5]
       value: 
       objectReference: {fileID: 441177308}
     - target: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d, type: 2}
       propertyPath: m_Name
       value: ' Bilgewater Beagle Beat Em Up'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 667673d125cdf4a48ae54bb314301c8d, type: 2}
@@ -16247,7 +16256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &707936598
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16285,24 +16294,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyList:
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
+  - enemyPrefab: {fileID: 1708880187}
     randomSpawnPoint: 0
     spawnRight: 1
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
+  - enemyPrefab: {fileID: 1708880187}
     randomSpawnPoint: 0
     spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
+  - enemyPrefab: {fileID: 1708880187}
     randomSpawnPoint: 0
     spawnRight: 1
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
+  - enemyPrefab: {fileID: 1708880187}
     randomSpawnPoint: 1
     spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
+  - enemyPrefab: {fileID: 1708880187}
     randomSpawnPoint: 1
     spawnRight: 0
   numberOfInitialEnemies: 3
@@ -16315,6 +16319,8 @@ MonoBehaviour:
   leftEntranceSpot: {fileID: 225377409}
   active: 0
   laneReferences:
+  - {fileID: 628442051}
+  - {fileID: 838609347}
   - {fileID: 1600446301}
   - {fileID: 985076531}
   - {fileID: 616947531}
@@ -16797,7 +16803,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 914324590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -1.83, z: 0}
+  m_LocalPosition: {x: 1, y: -2.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 535845443}
@@ -18751,7 +18757,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1622769697}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 2.26, z: 0}
+  m_LocalPosition: {x: 1, y: -1.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 535845443}
@@ -18806,7 +18812,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1657202455}
-  - component: {fileID: 1657202457}
   m_Layer: 0
   m_Name: ReferenceEnd
   m_TagString: Untagged
@@ -18827,17 +18832,6 @@ Transform:
   m_Father: {fileID: 242232569}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1657202457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1657202454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a647a9d775332a4ebd752737d23c6db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1675236539
 GameObject:
   m_ObjectHideFlags: 0
@@ -18910,6 +18904,11 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1675236539}
+--- !u!1 &1708880187 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
+    type: 2}
+  m_PrefabInternal: {fileID: 587962577}
 --- !u!1 &1717899899
 GameObject:
   m_ObjectHideFlags: 0

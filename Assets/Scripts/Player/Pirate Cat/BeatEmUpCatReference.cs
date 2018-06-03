@@ -26,7 +26,7 @@ public class BeatEmUpCatReference : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(!myCat.controlersDisabled){
-			if(!myCat.isDying  && !myCat.freakoutMode && !myCat.beingLaunched && !myCat.receivingDamage && !myCat.knockedDown){
+			if(!myCat.isDying  && !myCat.freakoutMode && !myCat.beingLaunched && !myCat.receivingDamage && !myCat.knockedDown && !myCat.landing){
 
 
 				if(!myCat.isAttacking && !myCat.isShooting){
@@ -130,9 +130,9 @@ public class BeatEmUpCatReference : MonoBehaviour {
 			myRigidBody2D.velocity = new Vector2(0,0);
 			myCat.beingLaunched = false;
 			myCat.invulnerable = false;
-			//myCat.landing = true;
+			myCat.landing = true;
 			myCat.animator.SetBool("launched", false);
-			//myCat.animator.SetBool("landing", true);
+			myCat.animator.SetBool("landing", true);
 			CameraController.instance.RestoreSpeedX();
 			CameraController.instance.ReturnCameraToPlayerFollowing();
 			myCat.shadow.GetComponent<SpriteRenderer>().enabled = true;

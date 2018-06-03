@@ -87,7 +87,7 @@ public class Arena : MonoBehaviour {
 				enemy.GetComponentInChildren<CombableEnemy>().arenaEntrance = true;
 				enemy.GetComponentInChildren<CombableEnemy>().arenaEntrancePoint = rightEntranceSpot;
 				enemy.GetComponentInChildren<CombableEnemy>().arenaEntranceSpotToTheRight = false;
-				enemy.GetComponent<BeatEmUpZPositionCalculator>().laneReferences = laneReferences;
+				enemy.GetComponentInChildren<BeatEmUpZPositionCalculator>().laneReferences = laneReferences;
 			}else{
 				enemy = (GameObject)Instantiate(enemyList[index].enemyPrefab,leftSpawnPoint.position,Quaternion.identity);
 				enemy.transform.position = new Vector3(enemy.transform.position.x, enemy.transform.position.y, 0);
@@ -95,7 +95,7 @@ public class Arena : MonoBehaviour {
 				enemy.GetComponentInChildren<CombableEnemy>().arenaEntrance = true;
 				enemy.GetComponentInChildren<CombableEnemy>().arenaEntrancePoint = leftEntranceSpot;
 				enemy.GetComponentInChildren<CombableEnemy>().arenaEntranceSpotToTheRight = true;
-				enemy.GetComponent<BeatEmUpZPositionCalculator>().laneReferences = laneReferences;
+				enemy.GetComponentInChildren<BeatEmUpZPositionCalculator>().laneReferences = laneReferences;
 			}
 
 		}else{
@@ -107,7 +107,7 @@ public class Arena : MonoBehaviour {
 				enemy.GetComponentInChildren<CombableEnemy>().arenaEntrance = true;
 				enemy.GetComponentInChildren<CombableEnemy>().arenaEntrancePoint = rightEntranceSpot;
 				enemy.GetComponentInChildren<CombableEnemy>().arenaEntranceSpotToTheRight = false;
-				enemy.GetComponent<BeatEmUpZPositionCalculator>().laneReferences = laneReferences;
+				enemy.GetComponentInChildren<BeatEmUpZPositionCalculator>().laneReferences = laneReferences;
 			}else{
 				enemy = (GameObject)Instantiate(enemyList[index].enemyPrefab,leftSpawnPoint.position,Quaternion.identity);
 				enemy.transform.position = new Vector3(enemy.transform.position.x, enemy.transform.position.y, 0);
@@ -115,7 +115,7 @@ public class Arena : MonoBehaviour {
 				enemy.GetComponentInChildren<CombableEnemy>().arenaEntrance = true;
 				enemy.GetComponentInChildren<CombableEnemy>().arenaEntrancePoint = leftEntranceSpot;
 				enemy.GetComponentInChildren<CombableEnemy>().arenaEntranceSpotToTheRight = true;
-				enemy.GetComponent<BeatEmUpZPositionCalculator>().laneReferences = laneReferences;
+				enemy.GetComponentInChildren<BeatEmUpZPositionCalculator>().laneReferences = laneReferences;
 			}
 		}
 

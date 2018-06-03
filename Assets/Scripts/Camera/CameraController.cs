@@ -109,15 +109,22 @@ public class CameraController : MonoBehaviour {
 			if (target.transform.position.y > topBorder.transform.position.y)
 	        {
 				moveTo = new Vector3(moveTo.x, target.transform.position.y - yOffset, moveTo.z);
-	            transform.position = new Vector3(transform.position.x, moveTo.y, transform.position.z);
+	            //transform.position = new Vector3(transform.position.x, moveTo.y, transform.position.z);
 	        }
         }
 
-        //If the player is standing on ground, set the target vector
-        if (!player.isJumping) {
+        if(player.GetComponent<PirateCat>()){
 			if (target.transform.position.y - (moveTo.y - yOffset) > yTolerance) 
-				moveTo = new Vector3 (moveTo.x, target.transform.position.y + yOffset, moveTo.z);
+					moveTo = new Vector3 (moveTo.x, target.transform.position.y + yOffset, moveTo.z);
+        }else{
+        //If the player is standing on ground, set the target vector
+	        if (!player.isJumping) {
+				if (target.transform.position.y - (moveTo.y - yOffset) > yTolerance) 
+					moveTo = new Vector3 (moveTo.x, target.transform.position.y + yOffset, moveTo.z);
+			}
 		}
+
+
 
         //If the player as Sebastian is climbing, set the target vector
         if(player.GetComponent<PussInBoots>()){
