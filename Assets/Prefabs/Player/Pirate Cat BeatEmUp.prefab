@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 50996653419639632}
   - component: {fileID: 61205456680647986}
   - component: {fileID: 114067813402740968}
-  - component: {fileID: 114235936120819648}
   m_Layer: 22
   m_Name: Pirate Cat
   m_TagString: Untagged
@@ -140,6 +139,7 @@ GameObject:
   - component: {fileID: 61808704263498394}
   - component: {fileID: 114089081590099304}
   - component: {fileID: 95180116903970750}
+  - component: {fileID: 114036885374127382}
   m_Layer: 16
   m_Name: Pirate Cat
   m_TagString: Player
@@ -282,7 +282,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1382787989308194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.468, z: 0}
+  m_LocalPosition: {x: 0, y: 1.001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4515798692202484}
@@ -333,7 +333,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902988020621192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.97, y: 9.309, z: 0}
+  m_LocalPosition: {x: -17.44, y: 8.672, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4772919138096224}
@@ -348,7 +348,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1151385713885246}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4680004, z: 0}
+  m_LocalPosition: {x: 0, y: 1.0010004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4163907634716068}
@@ -780,6 +780,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114036885374127382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1382787989308194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b612415f2775c844bf48e6005190e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114036990480935636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -901,24 +912,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   healthText: {fileID: 0}
   numOfLives: 5
---- !u!114 &114235936120819648
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1044183208432170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b612415f2775c844bf48e6005190e3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laneReferences:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114311363037655588
 MonoBehaviour:
   m_ObjectHideFlags: 1

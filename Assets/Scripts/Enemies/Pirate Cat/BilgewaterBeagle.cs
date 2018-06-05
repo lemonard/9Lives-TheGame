@@ -131,22 +131,7 @@ public class BilgewaterBeagle : CombableEnemy {
         }
 
         //Death
-        if (life <= 0 && !dying)
-        {
-        	if(arenaEnemy){
-				ArenaManager.instance.currentActiveArena.IncreaseAmountOfEnemiesDead();
-				GameManager.instance.RemoveFromEnemyNearCatList(this.gameObject);
-        	}
-            myAnimator.SetBool("dead", true);
-            myAnimator.SetBool("idle", false);
-            myAnimator.SetBool("attacking", false);
-            myAnimator.SetBool("walking", false);
-			PlayDeathSound();
-            dying = true;
-            Destroy(GetComponent<Rigidbody2D>());
-            Destroy(GetComponent<Collider2D>());
-
-        }
+		CheckDeath();
 
         //Take Damage
         if (receivedDamage && life > 0)

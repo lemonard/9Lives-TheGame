@@ -10,7 +10,10 @@ public class HandCannonBall : MonoBehaviour {
 	public float launchForce; 
 
 	public bool goRight;
-	public float yCoordinateToExplode;
+	public Transform explosionPoint;
+	public Transform positionToExplode;
+	public Transform shadow;
+
 	// Use this for initialization
 	void Start () {
 		GetComponent<Rigidbody2D>().AddForce(new Vector2(0, launchForce),ForceMode2D.Impulse);
@@ -20,15 +23,17 @@ public class HandCannonBall : MonoBehaviour {
 	void Update () {
 		if(goRight){
 			GetComponent<Rigidbody2D>().transform.position += Vector3.right * speed * Time.deltaTime;
+			shadow.position += Vector3.right * speed * Time.deltaTime;
             GetComponent<SpriteRenderer>().flipX = false;
         } else {
 			GetComponent<Rigidbody2D>().transform.position += Vector3.left * speed * Time.deltaTime;
+			shadow.position += Vector3.left * speed * Time.deltaTime;
             GetComponent<SpriteRenderer>().flipX = true;
         }
 
-        if(transform.position.y <= yCoordinateToExplode){
+		if(explosionPoint.transform.position.y <= positionToExplode.position.y){
 			Instantiate(explosionEffectPrefab,transform.position,Quaternion.identity);
-			Destroy(gameObject);
+			Destroy(transform.parent.gameObject);
         }
 	}
 

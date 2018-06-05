@@ -459,7 +459,7 @@ public class PirateCat : Cat {
 				leftAttackingPoint2.GetComponent<BoxCollider2D>().enabled = true;
 			}
 
-		}else if(comboCounter == 3){
+		}else if(comboCounter >= 3){
 
 			if(isLookingRight){
 				rightAttackingPoint3.GetComponent<BoxCollider2D>().enabled = true;
@@ -578,13 +578,13 @@ public class PirateCat : Cat {
 
 		if(isLookingRight){
 			cannonBall = Instantiate(handCannonBallPrefab,handCannonFiringPointRight.transform.position, Quaternion.identity);
-			cannonBall.GetComponent<HandCannonBall>().goRight = true;
+			cannonBall.GetComponentInChildren<HandCannonBall>().goRight = true;
 		}else{
 			cannonBall = Instantiate(handCannonBallPrefab,handCannonFiringPointLeft.transform.position, Quaternion.identity);
-			cannonBall.GetComponent<HandCannonBall>().goRight = false;
+			cannonBall.GetComponentInChildren<HandCannonBall>().goRight = false;
 		}
 
-		cannonBall.GetComponent<HandCannonBall>().yCoordinateToExplode = transform.position.y;
+		cannonBall.GetComponentInChildren<HandCannonBall>().positionToExplode = shadow.transform;
 	}
 
 	void ShootGiantCannon(){
@@ -652,7 +652,7 @@ public class PirateCat : Cat {
 
 				animator.SetInteger("comboCounter", 2);
 
-			}else if(comboCounter == 3){
+			}else if(comboCounter >= 3){
 
 				animator.SetInteger("comboCounter", 3);
 			}

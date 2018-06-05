@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 95973307318362812}
   - component: {fileID: 114271680407822782}
   - component: {fileID: 61777986533742322}
+  - component: {fileID: 114588546420709546}
   m_Layer: 23
   m_Name: Bilgewater Beagle
   m_TagString: Enemy
@@ -173,7 +174,6 @@ GameObject:
   - component: {fileID: 4618092464790892}
   - component: {fileID: 50235546304538976}
   - component: {fileID: 61684607183677802}
-  - component: {fileID: 114530860899848308}
   - component: {fileID: 114217923692504820}
   m_Layer: 22
   m_Name: Bilgewater Beagle BeatEmUp
@@ -633,6 +633,8 @@ MonoBehaviour:
   arenaEntrancePoint: {fileID: 0}
   arenaEntranceSpotToTheRight: 0
   arenaEnemy: 0
+  shipBackRailReference: {fileID: 0}
+  shipBackRailFloorReference: {fileID: 0}
   walkingRange: 0
   attackingRange: 0
   leftAttackCollider: {fileID: 61310422388222564}
@@ -662,24 +664,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboEnemy: 1
---- !u!114 &114530860899848308
+--- !u!114 &114588546420709546
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1914006769459636}
+  m_GameObject: {fileID: 1527082724763882}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b612415f2775c844bf48e6005190e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laneReferences:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114654238198269616
 MonoBehaviour:
   m_ObjectHideFlags: 1
