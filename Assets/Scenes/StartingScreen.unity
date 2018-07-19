@@ -462,8 +462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMusicClips:
-  - BGMOriginal: {fileID: 8300000, guid: 2d95a539ef4a94317bfa721fa8b91734, type: 3}
-    BGMLoop: {fileID: 0}
+  - BGMOriginal: {fileID: 8300000, guid: 3f9d05e2acd5d491f88e6fa9fc7c6ccb, type: 3}
+    BGMLoop: {fileID: 8300000, guid: 92794b52138494b68979e31ae852a055, type: 3}
 --- !u!82 &820373337
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1162,6 +1162,8 @@ MonoBehaviour:
   player: {fileID: 0}
   playerCurrency: 0
   changingScene: 0
+  enemiesNearCat: []
+  maxAmountOfEnemiesNearCat: 2
 --- !u!4 &1663806766
 Transform:
   m_ObjectHideFlags: 0

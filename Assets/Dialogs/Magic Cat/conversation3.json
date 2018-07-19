@@ -1,0 +1,20 @@
+[
+  {
+    "dialogText": "Now that is what I call a bit gap!! Do you think you can make it?",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Definitely not with a regular jump. But I have my special broom as always! That will help me on these kinds of situations. (press the jump button twice to active the broom and glide)",
+    "characterName": "Fiona",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Ooohh, neat! That is meowsome!!",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  }
+]

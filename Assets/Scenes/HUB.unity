@@ -17870,8 +17870,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMusicClips:
-  - BGMOriginal: {fileID: 8300000, guid: f64830c44882842e0be606a1b7cf406c, type: 3}
-    BGMLoop: {fileID: 0}
+  - BGMOriginal: {fileID: 8300000, guid: d6645216b243542aa91c60258da2c426, type: 3}
+    BGMLoop: {fileID: 8300000, guid: 37c40f821c80741d693bcc30fa32c489, type: 3}
 --- !u!4 &1462224762 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4464784049163376, guid: c691beff19f7644b393dae9b8d1fcdc2,
