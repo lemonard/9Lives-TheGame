@@ -15586,6 +15586,7 @@ MonoBehaviour:
   characterImages:
   - {fileID: 21300000, guid: c1e60c982733c4116a56707a92c056ab, type: 3}
   - {fileID: 21300000, guid: e44c19617ccbd4d26a88e3e032dbb1cd, type: 3}
+  passDialogGamepadButton: A
   dialogLines: []
   currentDialogFileIndex: 0
 --- !u!4 &517844041 stripped
@@ -48692,7 +48693,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -58803,6 +58804,8 @@ MonoBehaviour:
   player: {fileID: 0}
   playerCurrency: 0
   changingScene: 0
+  enemiesNearCat: []
+  maxAmountOfEnemiesNearCat: 2
 --- !u!4 &2072318145
 Transform:
   m_ObjectHideFlags: 0
@@ -61488,8 +61491,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMusicClips:
-  - BGMOriginal: {fileID: 8300000, guid: 64984f1d713ca4a529b7abcf434a8f7a, type: 3}
-    BGMLoop: {fileID: 0}
+  - BGMOriginal: {fileID: 8300000, guid: e5d3514202c6249a4b20fddc0c481e35, type: 3}
+    BGMLoop: {fileID: 8300000, guid: 7fef80342eb3f4f85abee114e284864a, type: 3}
 --- !u!1001 &2146324868
 Prefab:
   m_ObjectHideFlags: 0
