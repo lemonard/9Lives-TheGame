@@ -1,13 +1,11 @@
 fileFormatVersion: 2
-guid: b3e592638aec045c4b590566e8c063da
-timeCreated: 1533182564
+guid: d448bd0b94e5b4f0fa3e938e9bfea2eb
+timeCreated: 1533275674
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Dog-Canon---Damage2_spritesheet_0
-    21300002: Dog-Canon---Damage2_spritesheet_1
-    21300004: Dog-Canon---Damage2_spritesheet_2
-    21300006: Dog-Canon---Damage2_spritesheet_3
+    21300000: Small-Pirate-Dog_Airborne_spritesheet_0
+    21300002: Small-Pirate-Dog_Airborne_spritesheet_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -105,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dog-Canon---Damage2_spritesheet_0
+      name: Small-Pirate-Dog_Airborne_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 78
-        width: 120
-        height: 78
+        y: 95
+        width: 95
+        height: 95
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,41 +117,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dog-Canon---Damage2_spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 78
-        width: 120
-        height: 78
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dog-Canon---Damage2_spritesheet_2
+      name: Small-Pirate-Dog_Airborne_spritesheet_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 120
-        height: 78
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dog-Canon---Damage2_spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 0
-        width: 120
-        height: 78
+        width: 95
+        height: 95
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
