@@ -1,23 +1,20 @@
 fileFormatVersion: 2
-guid: a2ed422651d304bdf98e8454d8540a6f
-timeCreated: 1527130671
+guid: cdc1e400e941f498c8a41d3321ef3810
+timeCreated: 1533596403
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ship_stairs2_0
-    21300002: ship_stairs2_1
-    21300004: ship_stairs2_2
-    21300006: ship_stairs2_3
-    21300008: ship_stairs2_4
-    21300010: ship_stairs2_5
-    21300012: ship_stairs2_6
-    21300014: ship_stairs2_7
-    21300016: ship_stairs2_8
-    21300018: ship_stairs2_9
-    21300020: ship_stairs2_10
-    21300022: ship_stairs2_11
-    21300024: ship_stairs2_12
-    21300026: ship_stairs2_13
+    21300000: Pirate Ship Assets_0
+    21300002: Pirate Ship Assets_1
+    21300004: Pirate Ship Assets_2
+    21300006: Pirate Ship Assets_3
+    21300008: Pirate Ship Assets_4
+    21300010: Pirate Ship Assets_5
+    21300012: Pirate Ship Assets_6
+    21300014: Pirate Ship Assets_7
+    21300016: Pirate Ship Assets_8
+    21300018: Pirate Ship Assets_9
+    21300020: Pirate Ship Assets_10
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -115,197 +112,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ship_stairs2_0
+      name: Pirate Ship Assets_0
       rect:
         serializedVersion: 2
-        x: 384
-        y: 512
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 57
+        y: 125
+        width: 43
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_1
+      name: Pirate Ship Assets_1
       rect:
         serializedVersion: 2
-        x: 448
-        y: 512
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 147
+        y: 135
+        width: 78
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_2
+      name: Pirate Ship Assets_2
       rect:
         serializedVersion: 2
-        x: 512
-        y: 512
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 271
+        y: 139
+        width: 28
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_3
+      name: Pirate Ship Assets_3
       rect:
         serializedVersion: 2
-        x: 256
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 342
+        y: 139
+        width: 24
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_4
+      name: Pirate Ship Assets_4
       rect:
         serializedVersion: 2
-        x: 320
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 420
+        y: 113
+        width: 56
+        height: 101
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_5
+      name: Pirate Ship Assets_5
       rect:
         serializedVersion: 2
-        x: 384
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 37
+        y: 46
+        width: 31
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_6
+      name: Pirate Ship Assets_6
       rect:
         serializedVersion: 2
-        x: 448
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 112
+        y: 52
+        width: 19
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_7
+      name: Pirate Ship Assets_7
       rect:
         serializedVersion: 2
-        x: 192
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 166
+        y: 46
+        width: 52
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_8
+      name: Pirate Ship Assets_8
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 257
+        y: 15
+        width: 56
+        height: 101
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_9
+      name: Pirate Ship Assets_9
       rect:
         serializedVersion: 2
-        x: 320
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 342
+        y: 28
+        width: 56
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_10
+      name: Pirate Ship Assets_10
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs2_11
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 320
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs2_12
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 320
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs2_13
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 320
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 433
+        y: 25
+        width: 56
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -1,23 +1,16 @@
 fileFormatVersion: 2
-guid: a2ed422651d304bdf98e8454d8540a6f
-timeCreated: 1527130671
+guid: 507a39f5e4c3a4694a4d0ab2500573e4
+timeCreated: 1533678322
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ship_stairs2_0
-    21300002: ship_stairs2_1
-    21300004: ship_stairs2_2
-    21300006: ship_stairs2_3
-    21300008: ship_stairs2_4
-    21300010: ship_stairs2_5
-    21300012: ship_stairs2_6
-    21300014: ship_stairs2_7
-    21300016: ship_stairs2_8
-    21300018: ship_stairs2_9
-    21300020: ship_stairs2_10
-    21300022: ship_stairs2_11
-    21300024: ship_stairs2_12
-    21300026: ship_stairs2_13
+    21300000: Splash_spritesheet_0
+    21300002: Splash_spritesheet_1
+    21300004: Splash_spritesheet_2
+    21300006: Splash_spritesheet_3
+    21300008: Splash_spritesheet_4
+    21300010: Splash_spritesheet_5
+    21300012: Splash_spritesheet_6
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -115,197 +108,99 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ship_stairs2_0
+      name: Splash_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 384
-        y: 512
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 726
+        width: 255
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_1
+      name: Splash_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 448
-        y: 512
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 255
+        y: 726
+        width: 255
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_2
+      name: Splash_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 512
-        y: 512
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 510
+        y: 726
+        width: 255
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_3
+      name: Splash_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 256
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 484
+        width: 255
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_4
+      name: Splash_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 320
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 255
+        y: 484
+        width: 255
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_5
+      name: Splash_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 384
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 510
+        y: 484
+        width: 255
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ship_stairs2_6
+      name: Splash_spritesheet_6
       rect:
         serializedVersion: 2
-        x: 448
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs2_7
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs2_8
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs2_9
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs2_10
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs2_11
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 320
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs2_12
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 320
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ship_stairs2_13
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 320
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 242
+        width: 255
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
