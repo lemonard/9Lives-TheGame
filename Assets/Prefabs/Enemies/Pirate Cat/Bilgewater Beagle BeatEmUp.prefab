@@ -612,6 +612,7 @@ MonoBehaviour:
   damage: 5
   myAnimator: {fileID: 0}
   invulnerableSeconds: 2
+  dying: 0
   prepareForParry: 0
   stunned: 0
   wasTurned: 0
@@ -627,6 +628,8 @@ MonoBehaviour:
   receivingDamage: 0
   shadow: {fileID: 1043152488360724}
   shadowReference: {fileID: 4323575457481422}
+  splashEffect: {fileID: 1893127536134282, guid: 5b9edef41d583094782e46702663f9ce,
+    type: 2}
   sourceOfDamagePosition: {x: 0, y: 0, z: 0}
   waitTime: 1
   arenaEntrance: 0
@@ -635,6 +638,8 @@ MonoBehaviour:
   arenaEnemy: 0
   shipBackRailReference: {fileID: 0}
   shipBackRailFloorReference: {fileID: 0}
+  shipHeight: 0
+  deathType: 0
   walkingRange: 0
   attackingRange: 0
   leftAttackCollider: {fileID: 61310422388222564}

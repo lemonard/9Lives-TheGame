@@ -11,6 +11,8 @@ public class CombableEnemy : Enemy {
 	public bool receivingDamage;
 	public GameObject shadow;
 	public Transform shadowReference;
+	public GameObject splashEffect;
+	private GameObject currentSplashEffect;
 
 	protected float knockedDownTimeStamp = 0f;
 
@@ -38,14 +40,14 @@ public class CombableEnemy : Enemy {
 
 	public int shipHeight;
 
-	protected enum DeathType{
+	public enum DeathType{
 		Flying,
 		Normal,
 		BackOfShip,
 		FrontOfShip
 	}
 
-	protected DeathType deathType; 
+	public DeathType deathType; 
 
 	// Use this for initialization
 	protected void CombableEnemyInitialize () {
@@ -241,6 +243,10 @@ public class CombableEnemy : Enemy {
 
 				if(shadow.transform.position.y > shipBackRailFloorReference.position.y){
 					shadow.GetComponent<SpriteRenderer>().enabled = false;
+				}
+
+				if(mySpriteRenderer.sortingOrder == -18 && transform.position.y < shipBackRailFloorReference.position.y && currentSplashEffect == null){
+					currentSplashEffect = Instantiate(splashEffect, transform.position, Quaternion.identity);
 				}
         	}
 

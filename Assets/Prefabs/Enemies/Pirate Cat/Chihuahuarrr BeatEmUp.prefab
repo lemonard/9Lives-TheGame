@@ -216,7 +216,7 @@ Transform:
   m_GameObject: {fileID: 1025924247396090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.89400023, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4917538046814136}
   - {fileID: 4086247698230312}
@@ -233,7 +233,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627638225099014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.26, y: 10.84, z: 0}
+  m_LocalPosition: {x: -21.68625, y: 10.303354, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4926824398452580}
@@ -528,7 +528,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0077331066, y: -0.06861305}
+  m_Offset: {x: -0.032499313, y: -0.06861305}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -539,7 +539,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8307271, y: 0.26594925}
+  m_Size: {x: 2.0175972, y: 0.26594925}
   m_EdgeRadius: 0
 --- !u!95 &95628618852488426
 Animator:
@@ -613,6 +613,7 @@ MonoBehaviour:
   damage: 5
   myAnimator: {fileID: 0}
   invulnerableSeconds: 2
+  dying: 0
   prepareForParry: 0
   stunned: 0
   wasTurned: 0
@@ -628,8 +629,10 @@ MonoBehaviour:
   receivingDamage: 0
   shadow: {fileID: 1691983528337166}
   shadowReference: {fileID: 4774283958881182}
+  splashEffect: {fileID: 1893127536134282, guid: 5b9edef41d583094782e46702663f9ce,
+    type: 2}
   sourceOfDamagePosition: {x: 0, y: 0, z: 0}
-  waitTime: 1
+  waitTime: 2
   arenaEntrance: 0
   arenaEntrancePoint: {fileID: 0}
   arenaEntranceSpotToTheRight: 0
@@ -637,6 +640,7 @@ MonoBehaviour:
   shipBackRailReference: {fileID: 0}
   shipBackRailFloorReference: {fileID: 0}
   shipHeight: 0
+  deathType: 0
   walkingRange: 0
   attackingRange: 0
   leftAttackCollider: {fileID: 61668646020390424}

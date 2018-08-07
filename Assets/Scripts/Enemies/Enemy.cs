@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour {
 	public float invulnerableSeconds = 1;
 
 	protected bool attacking;
-	protected bool dying;
+	public bool dying;
 
 	protected float invulnerableTimeStamp;
 

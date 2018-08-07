@@ -26,6 +26,11 @@ public class BeatEmUpEnemyReference : MonoBehaviour {
 			if(myEnemy.knockedDown){
 				myEnemy.myAnimator.SetBool("knockedOnFloor", true);
 			}
+
+			if(myEnemy.GetComponent<Chihuahuarr>() && myEnemy.GetComponent<Chihuahuarr>().jumpAttacking){
+				myEnemy.GetComponent<Chihuahuarr>().jumpAttacking = false;
+				myEnemy.GetComponentInParent<Rigidbody2D>().velocity = Vector3.zero;
+			}
 		}
 
     }

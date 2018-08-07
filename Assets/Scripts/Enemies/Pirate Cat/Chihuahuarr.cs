@@ -17,6 +17,7 @@ public class Chihuahuarr : CombableEnemy {
     private bool isWalking;
 
    	private float yMovementSpeed;
+   	public bool jumpAttacking;
 
     // Use this for initialization
     void Start()
@@ -210,6 +211,20 @@ public class Chihuahuarr : CombableEnemy {
         myAnimator.SetBool("idle", false);
     }
 
+    void JumpAttack(){
+
+		if (lookingRight)
+        {
+			GetComponentInParent<Rigidbody2D>().AddForce(new Vector2(5f, 2f),ForceMode2D.Impulse);
+        }
+        else
+        {
+			GetComponentInParent<Rigidbody2D>().AddForce(new Vector2(-5f, 2f),ForceMode2D.Impulse);
+        }
+
+        StartCoroutine(ToogleJumpAttackingOn()); 	
+    }
+
     public void ActivateAttackCollider()
     {
 
@@ -320,5 +335,12 @@ public class Chihuahuarr : CombableEnemy {
     void OnBecameInvisible()
     {
         freakoutManager.RemoveEnemie(this.gameObject);
+    }
+
+    IEnumerator ToogleJumpAttackingOn(){
+
+    	yield return new WaitForSeconds(0.2f);
+    	jumpAttacking = true;
+
     }
 }

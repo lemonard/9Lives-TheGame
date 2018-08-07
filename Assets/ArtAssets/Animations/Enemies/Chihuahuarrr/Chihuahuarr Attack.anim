@@ -295,13 +295,20 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 0.25
-    functionName: ActivateAttackCollider
+    functionName: JumpAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.33333334
+    functionName: ActivateAttackCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
     functionName: DeactivateAttackCollider
     data: 
     objectReferenceParameter: {fileID: 0}
