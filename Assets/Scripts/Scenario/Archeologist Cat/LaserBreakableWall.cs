@@ -10,9 +10,13 @@ public class LaserBreakableWall : MonoBehaviour {
 	public void Break(){
 		Animator animator = GetComponent<Animator>();
 
+		print("Explode right: " + explodeRight);
+
 		if(explodeRight){
+
 			animator.SetBool("right", true);
 		}else{
+
 			animator.SetBool("right", false);
 		}
 
