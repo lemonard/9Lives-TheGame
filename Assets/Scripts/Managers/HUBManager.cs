@@ -38,7 +38,16 @@ public class HUBManager : MonoBehaviour {
 						catStatues[i].Activate();
 					}
 					break;
-
+				case(CatType.PirateCat):
+					if(GameManager.instance.pirateCatCleared){
+						catStatues[i].Activate();
+					}
+					break;
+				case(CatType.NinjaCat):
+					if(GameManager.instance.ninjaStageCleared){
+						catStatues[i].Activate();
+					}
+					break;
 
 			}
 

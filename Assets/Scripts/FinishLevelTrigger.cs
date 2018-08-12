@@ -72,6 +72,14 @@ public class FinishLevelTrigger : CutsceneTrigger {
 				GameManager.instance.archeologistStageCleared = true;
 			break;
 
+			case(CatType.PirateCat):
+				GameManager.instance.pirateCatCleared = true;
+			break;
+
+			case(CatType.NinjaCat):
+				GameManager.instance.ninjaStageCleared = true;
+			break;
+
 		}
 
     	SceneManager.LoadScene(hubSceneIndex);

@@ -145,7 +145,7 @@ public class CombableEnemy : Enemy {
 	override public void Disappear(){
 		DropItem ();
 		if (mySpawner != null) {
-			mySpawner.SetDeadEnemy (this.gameObject.GetInstanceID ());
+			mySpawner.SetDeadEnemy (this.transform.parent.gameObject.GetInstanceID ());
 		}
 
 		Destroy (gameObject.transform.parent.parent.transform.gameObject);
@@ -156,6 +156,7 @@ public class CombableEnemy : Enemy {
 
 		if (life <= 0 && !dying)
         {
+
         	if(arenaEnemy){
 				ArenaManager.instance.currentActiveArena.IncreaseAmountOfEnemiesDead();
 				GameManager.instance.RemoveFromEnemyNearCatList(this.gameObject);
@@ -179,7 +180,7 @@ public class CombableEnemy : Enemy {
 
 				DropItem ();
 				if (mySpawner != null) {
-					mySpawner.SetDeadEnemy (this.gameObject.GetInstanceID ());
+					mySpawner.SetDeadEnemy (this.transform.parent.gameObject.GetInstanceID ());
 				}
 
 				if(sourceOfDamagePosition.x > transform.position.x){ //Enemy is on the right
@@ -202,7 +203,7 @@ public class CombableEnemy : Enemy {
 
 				DropItem ();
 				if (mySpawner != null) {
-					mySpawner.SetDeadEnemy (this.gameObject.GetInstanceID ());
+					mySpawner.SetDeadEnemy (this.transform.parent.gameObject.GetInstanceID ());
 				}
 
 				GetComponentInParent<Rigidbody2D>().velocity = Vector2.zero;

@@ -267,8 +267,6 @@ public class Cat : MonoBehaviour {
 			distance = 1f;
 		}
 
-		print ("gorda");
-
 		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Enemies","Ground"));
 
 

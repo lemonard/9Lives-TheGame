@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
 	public bool magicCatStageCleared;
 	public bool pussInBootsStageCleared;
 	public bool archeologistStageCleared;
+	public bool pirateCatCleared;
+	public bool ninjaStageCleared;
 
 	public Cat player;
 	public int playerCurrency = 0;
