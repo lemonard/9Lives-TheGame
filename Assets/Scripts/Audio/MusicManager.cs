@@ -50,7 +50,7 @@ public class MusicManager : MonoBehaviour {
 		} else {
 			audioPlayer.clip = myMusicClips [musicListPlacement].BGMOriginal;
 			audioPlayer.Play ();
-			yield return new WaitForSeconds (audioPlayer.clip.length + 0.2f);
+			yield return new WaitForSeconds (audioPlayer.clip.length);
 			audioPlayer.clip = myMusicClips [musicListPlacement].BGMLoop;
 			audioPlayer.Play ();
 		}
