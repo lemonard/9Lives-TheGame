@@ -19,7 +19,7 @@
   },
   {
     "dialogText": "Who cares? Enough wit' tha'! Where is tha' bastard??",
-    "characterName": "C. Savannah",
+    "characterName": "Savannah",
 	"imageIndex": 0,
 	"appearRight": false
   },
@@ -31,7 +31,7 @@
   },
   {
     "dialogText": "Ya' useless idiot!!! Wha' the hell can I do wit' tha' crap o' information ya gave me?? Ya all haven' learnt a ting wit me other lives?",
-    "characterName": "C. Savannah",
+    "characterName": "Savannah",
 	"imageIndex": 0,
 	"appearRight": false
   },
@@ -43,13 +43,13 @@
   },
   {
     "dialogText": "As purrfect as our kin is, we still have our weaknesses, you know...",
-    "characterName": "Sebastian",
+    "characterName": "Theodore",
 	"imageIndex": 1,
 	"appearRight": false
   },
   {
     "dialogText": "I am surrounded by idiots... All gonna fall on me shoulders as always...",
-    "characterName": "C. Savannah",
+    "characterName": "Savannah",
 	"imageIndex": 0,
 	"appearRight": false
   },
@@ -61,7 +61,7 @@
   },
   {
     "dialogText": "Shu' up, landlubber!! Don't dare to call me again wit tha' sort of crap stuff!!",
-    "characterName": "C. Savannah",
+    "characterName": "Savannah",
 	"imageIndex": 0,
 	"appearRight": false
   },

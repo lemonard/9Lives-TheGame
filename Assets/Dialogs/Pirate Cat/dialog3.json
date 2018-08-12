@@ -1,0 +1,32 @@
+[
+  {
+    "dialogText": "The passage is blocked...",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "I ain't blin', ya know?",
+    "characterName": "Savannah",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Do you have any ideas to go over that?",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Ya woul' be amazed with me furrtastic wits, landlubber! See tha' cannon over there?? I can use tha' to me advantage!",
+    "characterName": "Savannah",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Prepare to be ameowzed!!",
+    "characterName": "Savannah",
+	"imageIndex": 0,
+	"appearRight": false
+  }
+]
