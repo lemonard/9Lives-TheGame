@@ -57242,7 +57242,7 @@ MonoBehaviour:
   timeline: {fileID: 0}
   finishLevelText: {fileID: 0}
   destinationSceneIndex: 1
-  hubSceneIndex: 7
+  hubSceneIndex: 5
   type: 2
   lastLevel: 1
 --- !u!61 &1296716538

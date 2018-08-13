@@ -661,6 +661,7 @@ MonoBehaviour:
   pressStartAnimator: {fileID: 2029088967}
   startKey: 13
   startGamePadButton: Start
+  sceneToLoad: 5
 --- !u!4 &930201905
 Transform:
   m_ObjectHideFlags: 0
@@ -1159,6 +1160,8 @@ MonoBehaviour:
   magicCatStageCleared: 0
   pussInBootsStageCleared: 0
   archeologistStageCleared: 0
+  pirateCatCleared: 0
+  ninjaStageCleared: 0
   player: {fileID: 0}
   playerCurrency: 0
   changingScene: 0
