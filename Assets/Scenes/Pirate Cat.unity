@@ -9422,7 +9422,7 @@ MonoBehaviour:
     randomSpawnPoint: 1
     spawnRight: 0
   numberOfInitialEnemies: 3
-  timeBetweenEnemies: 5
+  timeBetweenEnemies: 3
   maxEnemiesActive: 3
   currentEnemiesActive: 0
   rightSpawnPoint: {fileID: 199205855}
@@ -45802,7 +45802,7 @@ MonoBehaviour:
     randomSpawnPoint: 1
     spawnRight: 0
   numberOfInitialEnemies: 3
-  timeBetweenEnemies: 5
+  timeBetweenEnemies: 3
   maxEnemiesActive: 3
   currentEnemiesActive: 0
   rightSpawnPoint: {fileID: 199205855}
@@ -54222,7 +54222,7 @@ MonoBehaviour:
     randomSpawnPoint: 1
     spawnRight: 0
   numberOfInitialEnemies: 3
-  timeBetweenEnemies: 5
+  timeBetweenEnemies: 3
   maxEnemiesActive: 3
   currentEnemiesActive: 0
   rightSpawnPoint: {fileID: 199205855}
@@ -57753,7 +57753,7 @@ MonoBehaviour:
     randomSpawnPoint: 1
     spawnRight: 0
   numberOfInitialEnemies: 3
-  timeBetweenEnemies: 5
+  timeBetweenEnemies: 3
   maxEnemiesActive: 3
   currentEnemiesActive: 0
   rightSpawnPoint: {fileID: 199205855}
@@ -67165,7 +67165,7 @@ MonoBehaviour:
     randomSpawnPoint: 1
     spawnRight: 0
   numberOfInitialEnemies: 3
-  timeBetweenEnemies: 5
+  timeBetweenEnemies: 3
   maxEnemiesActive: 3
   currentEnemiesActive: 0
   rightSpawnPoint: {fileID: 199205855}
@@ -68384,7 +68384,7 @@ MonoBehaviour:
     randomSpawnPoint: 1
     spawnRight: 0
   numberOfInitialEnemies: 3
-  timeBetweenEnemies: 5
+  timeBetweenEnemies: 3
   maxEnemiesActive: 3
   currentEnemiesActive: 0
   rightSpawnPoint: {fileID: 199205855}
@@ -89007,7 +89007,7 @@ MonoBehaviour:
     randomSpawnPoint: 1
     spawnRight: 0
   numberOfInitialEnemies: 3
-  timeBetweenEnemies: 5
+  timeBetweenEnemies: 3
   maxEnemiesActive: 3
   currentEnemiesActive: 0
   rightSpawnPoint: {fileID: 199205855}
