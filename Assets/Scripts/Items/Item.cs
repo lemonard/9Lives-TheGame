@@ -11,6 +11,8 @@ public class Item : MonoBehaviour {
 	public GameObject collectionParticleEffectPrefab;
 	public AudioClip collectSound;
 
+	public bool isBeatEmUpScenario;
+
 	// Update is called once per frame
 	void Update () {
 //		if (isDropped) {
@@ -35,16 +37,40 @@ public class Item : MonoBehaviour {
 		GetComponent<Rigidbody2D> ().AddForce (new Vector2 (randomDistanceX, yForce), ForceMode2D.Impulse);
 		flying = true;
 		isDropped = true;
+
+		if(isBeatEmUpScenario){
+			StartCoroutine(StopFlyingCoroutine());
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
+		print("Colidi com: " + other.gameObject.tag);
+
 		if (other.gameObject.tag == "Ground") {
 			flying = false;
 			transform.rotation = Quaternion.identity;
 		} else if(other.gameObject.tag == "Player"){
 
 			Cat cat = other.gameObject.GetComponent<Cat>();
+
+			CollectedEffect(cat);
+		}
+
+	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+
+		print("Colidi com: " + other.gameObject.tag);
+
+		if (other.gameObject.tag == "Ground") {
+			flying = false;
+			transform.rotation = Quaternion.identity;
+		} else if(other.gameObject.tag == "Player"){
+
+			Cat cat = other.gameObject.GetComponent<Cat>();
+			print("Colidi com gatoso");
 			CollectedEffect(cat);
 		}
 
@@ -62,5 +88,13 @@ public class Item : MonoBehaviour {
 
 	protected void MakeSound(){
 		
+	}
+
+	IEnumerator StopFlyingCoroutine(){
+		yield return new WaitForSeconds(0.7f);
+		flying = false;
+		GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+		transform.rotation = Quaternion.identity;
+		GetComponent<Rigidbody2D> ().gravityScale = 0;
 	}
 }

@@ -233,7 +233,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627638225099014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.132057, y: 13.189018, z: 0}
+  m_LocalPosition: {x: -16.166971, y: -4.8557014, z: -1.3828125}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4926824398452580}
@@ -619,19 +619,19 @@ MonoBehaviour:
   wasTurned: 0
   canReceiveDamage: 0
   droppedItemms:
-  - itemPrefab: {fileID: 1614849787692516, guid: c2732246c0e50ce45a7a9a23797e49aa,
+  - itemPrefab: {fileID: 1614849787692516, guid: 2d4e3151cad5f2f449989f1cdfc235e8,
       type: 2}
     dropRate: 0.5
-  - itemPrefab: {fileID: 1351659043273132, guid: 01347e0361368bc42bfdba9500d30b02,
+  - itemPrefab: {fileID: 1351659043273132, guid: 37220184f5ebdf5449c18b687d7e6c34,
       type: 2}
     dropRate: 0.8
-  - itemPrefab: {fileID: 1640920341208202, guid: a518e0ad3bcf54b0cbdfe4858491d5c5,
+  - itemPrefab: {fileID: 1640920341208202, guid: 4abae98e8109efa43bd97cc35b2ba05f,
       type: 2}
     dropRate: 0.3
-  - itemPrefab: {fileID: 1640920341208202, guid: a518e0ad3bcf54b0cbdfe4858491d5c5,
+  - itemPrefab: {fileID: 1640920341208202, guid: 4abae98e8109efa43bd97cc35b2ba05f,
       type: 2}
     dropRate: 0.3
-  - itemPrefab: {fileID: 1640920341208202, guid: a518e0ad3bcf54b0cbdfe4858491d5c5,
+  - itemPrefab: {fileID: 1640920341208202, guid: 4abae98e8109efa43bd97cc35b2ba05f,
       type: 2}
     dropRate: 0.3
   player: {fileID: 0}

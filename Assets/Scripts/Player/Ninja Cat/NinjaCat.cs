@@ -35,7 +35,7 @@ public class NinjaCat : Cat {
 					animator.SetBool ("freakout", true);
 				}
 
-				if (!isAttacking && !isShooting) {
+				if (!isAttacking) {
 
 
 					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
@@ -56,13 +56,13 @@ public class NinjaCat : Cat {
 						}
 					}
 
-					if ( (Input.GetKeyDown (attackKey) || Input.GetButtonDown (attackGamepadButton)) && !isJumping && !isFalling) {
-						
+					if ( (Input.GetKeyDown (attackKey) || Input.GetButtonDown (attackGamepadButton)) && !isJumping && !isFalling && !isShooting) {
+						StartAttack();
 					}
 
 
-					if ( (Input.GetKeyDown (attackKey) || Input.GetButtonDown (attackGamepadButton)) && (isJumping || isFalling) ) {
-
+					if ( (Input.GetKeyDown (attackKey) || Input.GetButtonDown (attackGamepadButton)) && (isJumping || isFalling) && !isShooting) {
+						StartJumpAttack();
 					}
 
 
@@ -113,5 +113,60 @@ public class NinjaCat : Cat {
 		animator.SetBool("attacking", false);
 		rightAttackingPoint.enabled = false;
 		leftAttackingPoint.enabled = false;
+	}
+
+	void StartJumpAttack(){
+
+		isShooting = true;
+		animator.SetBool("shooting", true);
+
+	}
+
+	public void SpawnProjectile(){
+
+		if(isLookingRight){
+			
+		} else {
+			
+		}
+	}
+
+	public void FinishJumpAttack(){
+		
+		isShooting = false;
+		animator.SetBool("shooting", false);
+
+	}
+
+	protected override void OnCollisionEnter2D(Collision2D other){
+		base.OnCollisionEnter2D (other);
+
+		if (other.gameObject.tag == "SlidingWall" && (isJumping || isFalling) && !isShooting) {
+			print("Sliding Wall");
+
+			if (other.gameObject.transform.position.x >= transform.position.x) {
+
+			} else if (other.gameObject.transform.position.x < transform.position.x) {
+				
+			}
+
+	
+		}
+	}
+
+	protected void OnCollisionExit2D(Collision2D other){
+
+		if (other.gameObject.tag == "SlidingWall") {
+
+			print("Sliding Wall saiu");
+
+			if (other.gameObject.transform.position.x >= transform.position.x) {
+
+			} else if (other.gameObject.transform.position.x < transform.position.x) {
+				
+			}
+
+	
+		}
 	}
 }

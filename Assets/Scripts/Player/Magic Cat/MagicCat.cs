@@ -248,7 +248,9 @@ public class MagicCat : Cat {
 		myRigidBody2D.gravityScale = 0;
 		myRigidBody2D.velocity = Vector2.zero;
 		levitateCoroutine = StartCoroutine(LevitateOff());
-
+		myAudioSource.loop = true;
+		myAudioSource.clip = magicBroomSound;
+		myAudioSource.Play();
 
 	}
     
@@ -271,7 +273,8 @@ public class MagicCat : Cat {
 		myRigidBody2D.gravityScale = 1;
 		CheckIfGrounded();
 		SkillCooldownIndicator.instance.StartCooldown();
-
+		myAudioSource.loop = false;
+		myAudioSource.Stop();
 
 	}
 
@@ -311,7 +314,9 @@ public class MagicCat : Cat {
 		myRigidBody2D.gravityScale = 1;
 		CheckIfGrounded();
 		SkillCooldownIndicator.instance.StartCooldown();
-       
+
+		myAudioSource.loop = false;
+		myAudioSource.Stop();
     }
 
 
