@@ -202,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1100486443108348}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.38, y: 9.743, z: 0}
+  m_LocalPosition: {x: -35.16485, y: 13.346097, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4618092464790892}
@@ -617,7 +617,22 @@ MonoBehaviour:
   stunned: 0
   wasTurned: 0
   canReceiveDamage: 0
-  droppedItemms: []
+  droppedItemms:
+  - itemPrefab: {fileID: 1614849787692516, guid: c2732246c0e50ce45a7a9a23797e49aa,
+      type: 2}
+    dropRate: 0.7
+  - itemPrefab: {fileID: 1351659043273132, guid: 01347e0361368bc42bfdba9500d30b02,
+      type: 2}
+    dropRate: 0.7
+  - itemPrefab: {fileID: 1351659043273132, guid: 01347e0361368bc42bfdba9500d30b02,
+      type: 2}
+    dropRate: 0.4
+  - itemPrefab: {fileID: 1640920341208202, guid: a518e0ad3bcf54b0cbdfe4858491d5c5,
+      type: 2}
+    dropRate: 0.5
+  - itemPrefab: {fileID: 1640920341208202, guid: a518e0ad3bcf54b0cbdfe4858491d5c5,
+      type: 2}
+    dropRate: 0.4
   player: {fileID: 0}
   playerInWalkingRange: 0
   playerInAttackingRange: 0
