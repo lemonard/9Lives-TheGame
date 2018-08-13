@@ -8,6 +8,7 @@ public class StartingScreen : MonoBehaviour {
 	public Animator pressStartAnimator; 
 	public KeyCode startKey;
 	public string startGamePadButton;
+    public int sceneToLoad;
 
 	private bool pressedStart;
 	// Update is called once per frame
@@ -24,6 +25,6 @@ public class StartingScreen : MonoBehaviour {
 		pressStartAnimator.SetBool("startPressed",true);
 		GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
 		yield return new WaitForSeconds(0.4f);
-		SceneManager.LoadScene (7);
+		SceneManager.LoadScene (sceneToLoad);
 	}
 }

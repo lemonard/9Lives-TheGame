@@ -7310,6 +7310,7 @@ MonoBehaviour:
   - {fileID: 9456095}
   - {fileID: 1792655349}
   enemiesInfo: []
+  beatEmUpEnemy: 0
 --- !u!4 &152698723
 Transform:
   m_ObjectHideFlags: 0
@@ -9381,49 +9382,10 @@ MonoBehaviour:
       type: 2}
     randomSpawnPoint: 1
     spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  numberOfInitialEnemies: 3
+  enemiesSpawned: []
+  numberOfInitialEnemies: 4
   timeBetweenEnemies: 3
-  maxEnemiesActive: 3
+  maxEnemiesActive: 6
   currentEnemiesActive: 0
   rightSpawnPoint: {fileID: 199205855}
   leftSpawnPoint: {fileID: 1994165523}
@@ -20279,6 +20241,11 @@ Prefab:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1490020191}
+    - target: {fileID: 212170944480572470, guid: d0788b979c5eb824baa5f51c101f4b3b,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0788b979c5eb824baa5f51c101f4b3b, type: 2}
   m_IsPrefabParent: 0
@@ -45785,25 +45752,10 @@ MonoBehaviour:
       type: 2}
     randomSpawnPoint: 1
     spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  numberOfInitialEnemies: 3
+  enemiesSpawned: []
+  numberOfInitialEnemies: 2
   timeBetweenEnemies: 3
-  maxEnemiesActive: 3
+  maxEnemiesActive: 2
   currentEnemiesActive: 0
   rightSpawnPoint: {fileID: 199205855}
   leftSpawnPoint: {fileID: 1994165523}
@@ -54197,33 +54149,10 @@ MonoBehaviour:
       type: 2}
     randomSpawnPoint: 1
     spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  numberOfInitialEnemies: 3
+  enemiesSpawned: []
+  numberOfInitialEnemies: 4
   timeBetweenEnemies: 3
-  maxEnemiesActive: 3
+  maxEnemiesActive: 5
   currentEnemiesActive: 0
   rightSpawnPoint: {fileID: 199205855}
   leftSpawnPoint: {fileID: 1994165523}
@@ -57313,7 +57242,7 @@ MonoBehaviour:
   timeline: {fileID: 0}
   finishLevelText: {fileID: 0}
   destinationSceneIndex: 1
-  hubSceneIndex: 7
+  hubSceneIndex: 5
   type: 2
   lastLevel: 1
 --- !u!61 &1296716538
@@ -57728,33 +57657,10 @@ MonoBehaviour:
       type: 2}
     randomSpawnPoint: 1
     spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  numberOfInitialEnemies: 3
+  enemiesSpawned: []
+  numberOfInitialEnemies: 4
   timeBetweenEnemies: 3
-  maxEnemiesActive: 3
+  maxEnemiesActive: 4
   currentEnemiesActive: 0
   rightSpawnPoint: {fileID: 199205855}
   leftSpawnPoint: {fileID: 1994165523}
@@ -66106,6 +66012,7 @@ MonoBehaviour:
   - {fileID: 1240914828}
   - {fileID: 2034873130}
   enemiesInfo: []
+  beatEmUpEnemy: 0
 --- !u!4 &1622033173
 Transform:
   m_ObjectHideFlags: 0
@@ -67140,30 +67047,7 @@ MonoBehaviour:
       type: 2}
     randomSpawnPoint: 1
     spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
+  enemiesSpawned: []
   numberOfInitialEnemies: 3
   timeBetweenEnemies: 3
   maxEnemiesActive: 3
@@ -68351,38 +68235,7 @@ MonoBehaviour:
       type: 2}
     randomSpawnPoint: 1
     spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
+  enemiesSpawned: []
   numberOfInitialEnemies: 3
   timeBetweenEnemies: 3
   maxEnemiesActive: 3
@@ -88986,26 +88839,7 @@ MonoBehaviour:
       type: 2}
     randomSpawnPoint: 1
     spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1100486443108348, guid: 667673d125cdf4a48ae54bb314301c8d,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
-  - enemyPrefab: {fileID: 1627638225099014, guid: a45762ae41b111040bead872fdc1e904,
-      type: 2}
-    randomSpawnPoint: 1
-    spawnRight: 0
+  enemiesSpawned: []
   numberOfInitialEnemies: 3
   timeBetweenEnemies: 3
   maxEnemiesActive: 3

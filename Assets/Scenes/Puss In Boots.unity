@@ -1388,6 +1388,7 @@ MonoBehaviour:
   collectionParticleEffectPrefab: {fileID: 1451642222860468, guid: 284901d7629d88445b59950c3af8bad4,
     type: 2}
   collectSound: {fileID: 0}
+  isBeatEmUpScenario: 0
 --- !u!1 &50078221
 GameObject:
   m_ObjectHideFlags: 0
@@ -6473,6 +6474,7 @@ MonoBehaviour:
   - {fileID: 939843591}
   - {fileID: 790568948}
   enemiesInfo: []
+  beatEmUpEnemy: 0
 --- !u!1001 &194967364
 Prefab:
   m_ObjectHideFlags: 0
@@ -11816,7 +11818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &407184552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14526,6 +14528,7 @@ MonoBehaviour:
   - {fileID: 923324117}
   - {fileID: 206008257}
   enemiesInfo: []
+  beatEmUpEnemy: 0
 --- !u!4 &482432857
 Transform:
   m_ObjectHideFlags: 0
@@ -30814,6 +30817,7 @@ MonoBehaviour:
   - {fileID: 1793428647}
   - {fileID: 1980537569}
   enemiesInfo: []
+  beatEmUpEnemy: 0
 --- !u!1001 &1068276891
 Prefab:
   m_ObjectHideFlags: 0
@@ -46549,7 +46553,7 @@ MonoBehaviour:
   timeline: {fileID: 0}
   finishLevelText: {fileID: 2134236079}
   destinationSceneIndex: 1
-  hubSceneIndex: 7
+  hubSceneIndex: 5
   type: 1
   lastLevel: 1
 --- !u!320 &1646885712
@@ -58801,6 +58805,8 @@ MonoBehaviour:
   magicCatStageCleared: 0
   pussInBootsStageCleared: 0
   archeologistStageCleared: 0
+  pirateCatCleared: 0
+  ninjaStageCleared: 0
   player: {fileID: 0}
   playerCurrency: 0
   changingScene: 0

@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenFade: {fileID: 308887885}
-  destinationSceneIndex: 6
+  destinationSceneIndex: 4
 --- !u!1 &75612524
 GameObject:
   m_ObjectHideFlags: 0
@@ -4582,6 +4582,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 889b4f0b8b0f34a00bdb96863c0aa11d,
         type: 3}
+    - target: {fileID: 114480424053838200, guid: c3fec80a36d24429da96dbe5f43408bc,
+        type: 2}
+      propertyPath: destinationSceneIndex
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95761278629258396, guid: c3fec80a36d24429da96dbe5f43408bc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c3fec80a36d24429da96dbe5f43408bc, type: 2}
@@ -6318,9 +6323,9 @@ GameObject:
   m_Component:
   - component: {fileID: 570086211}
   - component: {fileID: 570086212}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9432,9 +9437,9 @@ GameObject:
   m_Component:
   - component: {fileID: 925975002}
   - component: {fileID: 925975003}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10963,9 +10968,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1168594378}
   - component: {fileID: 1168594379}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17656,7 +17661,7 @@ Prefab:
     - target: {fileID: 114004492420316306, guid: 3ce165169926c49b399f543f011a552d,
         type: 2}
       propertyPath: destinationSceneIndex
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ce165169926c49b399f543f011a552d, type: 2}
@@ -22546,7 +22551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenFade: {fileID: 0}
-  destinationSceneIndex: 5
+  destinationSceneIndex: 3
 --- !u!4 &1847080328 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4412044706665688, guid: 5487707eba5f148fcb940a2c55052250,
