@@ -443,9 +443,11 @@ MonoBehaviour:
   lowJumpGravityMultiplier: 2
   life: 70
   invulnerableSeconds: 1
+  animator: {fileID: 0}
   isLookingRight: 0
   isDying: 0
   receivedDamage: 0
+  bounceBackAfterReceivingDamage: 0
   invulnerable: 0
   freakoutMode: 0
   FourLeggedCat: 0
@@ -465,6 +467,7 @@ MonoBehaviour:
   isFalling: 0
   isAttacking: 0
   isSliding: 0
+  justJumped: 0
   isOnGround: 0
   finishedLevel: 0
   isNearStatue: 0
@@ -480,10 +483,11 @@ MonoBehaviour:
   rightParryPoint: {fileID: 61000011034689126}
   leftParryPoint: {fileID: 61000012856621444}
   swordAttackSounds:
-  - {fileID: 8300000, guid: de781679c286fda46b09e911d785c6a5, type: 3}
-  - {fileID: 8300000, guid: 038410f9b70704d42af091a8fcf2bf54, type: 3}
-  - {fileID: 8300000, guid: 7fa461b596609324397eb7737e4c7fcf, type: 3}
-  - {fileID: 8300000, guid: 6fcfafb223ca5a74186d9a7cfb0afafa, type: 3}
+  - {fileID: 8300000, guid: d28e465d3516f4fb7b4592e1e26843a1, type: 3}
+  - {fileID: 8300000, guid: 3533f3ddf15d24e3e924f5517b325769, type: 3}
+  - {fileID: 8300000, guid: 9668ab8542e4941d6adffdb51c28f523, type: 3}
+  - {fileID: 8300000, guid: 1b6d076af2a4e4df387ce0ff96589079, type: 3}
+  - {fileID: 8300000, guid: 83ca238e8dfae44808d1f30026573954, type: 3}
   parryingTime: 0.2
   climbSpeed: 2
   parryGamepadButton: B

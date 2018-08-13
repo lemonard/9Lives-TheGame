@@ -8,6 +8,12 @@ public class PirateCat : Cat {
 	public int gunDamage = 2;
 	public float gunDistance = 2;
 
+	public AudioClip[] swordAttackSounds;
+	public AudioClip[] gunShootingSounds;
+	public AudioClip swordSharkSound;
+	public AudioClip[] handCannonSound;
+	public AudioClip bigCannonSound;
+
 	public KeyCode attackKey;
 	public KeyCode gunKey;
 	public string gunGamepadButton;
@@ -439,6 +445,7 @@ public class PirateCat : Cat {
 		isAttacking = true;
 		animator.SetBool("attack", true);
 
+
 	}
 
 	public void ActivateAttackCollider(){
@@ -451,6 +458,9 @@ public class PirateCat : Cat {
 				leftAttackingPoint1.GetComponent<BoxCollider2D>().enabled = true;
 			}
 
+			int randomIndex = Random.Range(0,swordAttackSounds.Length);
+			myAudioSource.PlayOneShot(swordAttackSounds[randomIndex]);
+		
 		}else if(comboCounter == 2){
 
 			if(isLookingRight){
@@ -459,6 +469,9 @@ public class PirateCat : Cat {
 				leftAttackingPoint2.GetComponent<BoxCollider2D>().enabled = true;
 			}
 
+			int randomIndex = Random.Range(0,swordAttackSounds.Length);
+			myAudioSource.PlayOneShot(swordAttackSounds[randomIndex]);
+		
 		}else if(comboCounter >= 3){
 
 			if(isLookingRight){
@@ -466,9 +479,10 @@ public class PirateCat : Cat {
 			} else {
 				leftAttackingPoint3.GetComponent<BoxCollider2D>().enabled = true;
 			}
+
+			myAudioSource.PlayOneShot(swordSharkSound);
 		}
-
-
+			
 	}
 
 	void Reset(){
@@ -570,6 +584,9 @@ public class PirateCat : Cat {
 				
 			}	
 		}
+
+		int randomIndex = Random.Range(0,gunShootingSounds.Length);
+		myAudioSource.PlayOneShot(gunShootingSounds[randomIndex]);
 	}
 
 	void ShootHandCannon(){
@@ -585,6 +602,9 @@ public class PirateCat : Cat {
 		}
 
 		cannonBall.GetComponentInChildren<HandCannonBall>().positionToExplode = shadow.transform;
+
+		int randomIndex = Random.Range(0,handCannonSound.Length);
+		myAudioSource.PlayOneShot(handCannonSound[randomIndex]);
 	}
 
 	void ShootGiantCannon(){
@@ -600,6 +620,8 @@ public class PirateCat : Cat {
 		}
 
 		invulnerable = true;
+
+		myAudioSource.PlayOneShot(bigCannonSound);
 	}
 
 	void StopShooting(){

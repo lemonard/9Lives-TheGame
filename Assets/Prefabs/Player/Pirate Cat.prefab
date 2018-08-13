@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 61456595964260478}
   - component: {fileID: 114312230159150954}
   - component: {fileID: 95811717096430658}
+  - component: {fileID: 82413803926323744}
   m_Layer: 16
   m_Name: Pirate Cat
   m_TagString: Player
@@ -571,6 +572,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5291195, y: 0.34679222}
   m_EdgeRadius: 0
+--- !u!82 &82413803926323744
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399713537291096}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95811717096430658
 Animator:
   serializedVersion: 3
@@ -605,6 +686,7 @@ MonoBehaviour:
   lowJumpGravityMultiplier: 2
   life: 100
   invulnerableSeconds: 1
+  animator: {fileID: 0}
   isLookingRight: 1
   isDying: 0
   receivedDamage: 0
@@ -628,6 +710,7 @@ MonoBehaviour:
   isFalling: 0
   isAttacking: 0
   isSliding: 0
+  justJumped: 0
   isOnGround: 0
   finishedLevel: 0
   isNearStatue: 0
@@ -638,8 +721,14 @@ MonoBehaviour:
   currencyAmount: 0
   currentCheckpoint: {x: 0, y: 0, z: 0}
   sourceOfDamagePosition: {x: 0, y: 0, z: 0}
+  yMovementSpeed: 0
   gunDamage: 1
   gunDistance: 2
+  swordAttackSounds: []
+  gunShootingSounds: []
+  swordSharkSound: {fileID: 0}
+  handCannonSound: []
+  bigCannonSound: {fileID: 0}
   attackKey: 32
   gunKey: 102
   gunGamepadButton: B
@@ -659,11 +748,14 @@ MonoBehaviour:
   giantCannonFiringPointRight: {fileID: 1643252186416372}
   giantCannonFiringPointLeft: {fileID: 1851738079494054}
   shotOrigin: {fileID: 4967793672943062}
+  shadow: {fileID: 0}
   isShooting: 0
   beingLaunched: 0
+  inCannon: 0
   isNearCannon: 0
   knockedDown: 0
   receivingDamage: 0
+  landing: 0
   amountOfHitsToBeKnockedDown: 3
   knockedDownTime: 2
   bulletFeedbackPrefab: {fileID: 1732528175952836, guid: 04c7467b6f1352244a070518fe6a54ac,
@@ -674,6 +766,8 @@ MonoBehaviour:
   comboActivated: 0
   gunComboCounter: 0
   gunComboActivated: 0
+  moveUpKey: 0
+  shadowReference: {fileID: 0}
 --- !u!114 &114081225039637938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -686,6 +780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
+  knockDownAttack: 0
 --- !u!114 &114312230159150954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -712,6 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  knockDownAttack: 0
 --- !u!114 &114568828907656242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -724,6 +820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  knockDownAttack: 0
 --- !u!114 &114578862906152176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -736,6 +833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  knockDownAttack: 0
 --- !u!114 &114704829397371918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -748,6 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
+  knockDownAttack: 0
 --- !u!114 &114899414986798908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -760,6 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  knockDownAttack: 0
 --- !u!212 &212822171581876258
 SpriteRenderer:
   m_ObjectHideFlags: 1

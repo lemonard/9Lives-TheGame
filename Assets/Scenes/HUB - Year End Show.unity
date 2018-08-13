@@ -417,6 +417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108725308}
   - component: {fileID: 108725309}
+  - component: {fileID: 108725310}
   m_Layer: 0
   m_Name: Pirate Statue
   m_TagString: Untagged
@@ -481,6 +482,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &108725310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 108725307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f131454aae54d4ba74159ad3ee2547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catIndexToTransform: 4
+  activeStatueSprite: {fileID: 21300000, guid: cd4fca4caed7a401cb6f44f1e40ab8ae, type: 3}
+  type: 2
+  active: 0
 --- !u!1001 &111811669
 Prefab:
   m_ObjectHideFlags: 0
@@ -5209,6 +5225,7 @@ MonoBehaviour:
   - {fileID: 38047622}
   - {fileID: 131877458}
   - {fileID: 1444982461}
+  - {fileID: 1444982461}
 --- !u!4 &295376162 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4083485161344990, guid: c98f7101975df49a9862a44345e02089,
@@ -8240,6 +8257,8 @@ MonoBehaviour:
   magicCatStageCleared: 0
   pussInBootsStageCleared: 0
   archeologistStageCleared: 0
+  pirateCatCleared: 0
+  ninjaStageCleared: 0
   player: {fileID: 0}
   playerCurrency: 0
   changingScene: 0
@@ -16515,7 +16534,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4850429635983242, guid: 71d8d66712dea4a9e94341aaebc9ab8e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4.09
       objectReference: {fileID: 0}
     - target: {fileID: 4850429635983242, guid: 71d8d66712dea4a9e94341aaebc9ab8e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -16943,7 +16962,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -23860,7 +23879,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4711690841518086, guid: 87d6af3a874c741ef8c0eedf78d6b79f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4.09
       objectReference: {fileID: 0}
     - target: {fileID: 4711690841518086, guid: 87d6af3a874c741ef8c0eedf78d6b79f, type: 2}
       propertyPath: m_LocalPosition.z

@@ -354,6 +354,7 @@ MonoBehaviour:
   lowJumpGravityMultiplier: 2
   life: 30
   invulnerableSeconds: 1
+  animator: {fileID: 0}
   isLookingRight: 1
   isDying: 0
   receivedDamage: 0
@@ -377,6 +378,7 @@ MonoBehaviour:
   isFalling: 0
   isAttacking: 0
   isSliding: 0
+  justJumped: 0
   isOnGround: 0
   finishedLevel: 0
   isNearStatue: 0
@@ -395,6 +397,9 @@ MonoBehaviour:
   pulseOrigin: {fileID: 4667216947292232}
   broomParticleRight: {fileID: 198633253511863988}
   broomParticleLeft: {fileID: 198889302073518640}
+  magicShotSound: {fileID: 8300000, guid: 172042bab6b4740aa94f02a055426237, type: 3}
+  magicPulseSound: {fileID: 8300000, guid: c1077a9a21d034fb29f0e30ddb85f00e, type: 3}
+  magicBroomSound: {fileID: 8300000, guid: 60a78876c18534ad3925464072a72830, type: 3}
   shootMagicGamepadButton: X
   magicPulseGamepadButton: B
   returnToHubGamepadButton: Select

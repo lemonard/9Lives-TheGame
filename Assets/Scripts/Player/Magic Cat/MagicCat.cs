@@ -13,6 +13,10 @@ public class MagicCat : Cat {
 	public ParticleSystem broomParticleRight;
 	public ParticleSystem broomParticleLeft;
 
+	public AudioClip magicShotSound;
+	public AudioClip magicPulseSound;
+	public AudioClip magicBroomSound;
+
 	public string shootMagicGamepadButton;
 	public string magicPulseGamepadButton;
 	public string returnToHubGamepadButton;
@@ -244,6 +248,8 @@ public class MagicCat : Cat {
 		myRigidBody2D.gravityScale = 0;
 		myRigidBody2D.velocity = Vector2.zero;
 		levitateCoroutine = StartCoroutine(LevitateOff());
+
+
 	}
     
 	void CancelLevitate(){
@@ -265,6 +271,8 @@ public class MagicCat : Cat {
 		myRigidBody2D.gravityScale = 1;
 		CheckIfGrounded();
 		SkillCooldownIndicator.instance.StartCooldown();
+
+
 	}
 
     IEnumerator LevitateOff()
@@ -344,6 +352,8 @@ public class MagicCat : Cat {
 		isAttacking = true;
 		animator.SetBool("projectile", true);
 
+		myAudioSource.PlayOneShot(magicShotSound);
+
 	}
 
 	public void FireProjectile(){
@@ -369,6 +379,8 @@ public class MagicCat : Cat {
 		animator.SetBool("magicPulse",true);
 		animator.SetBool("idle",false);
 		animator.SetBool("walking",false);
+
+		myAudioSource.PlayOneShot(magicPulseSound);
 	}
 
 	public void CreateMagicPulse(){

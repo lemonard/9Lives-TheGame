@@ -39,8 +39,6 @@ public class Cat : MonoBehaviour {
 	public bool FourLeggedCat;
 	public bool controlersDisabled;
 
-
-
 	public KeyCode moveRightKey;
 	public KeyCode moveLeftKey;
 	public KeyCode jumpKey;
@@ -111,8 +109,6 @@ public class Cat : MonoBehaviour {
 
 		myRigidBody2D.transform.position += Vector3.right * speed * Time.deltaTime;
 		ChangeLookingDirection();
-
-	
 	}
 
 	protected virtual void MoveLeft(){
@@ -125,8 +121,6 @@ public class Cat : MonoBehaviour {
 
 		myRigidBody2D.transform.position += Vector3.left * speed * Time.deltaTime;
 		ChangeLookingDirection();
-
-	
 	}
 	protected virtual void MoveUp()
     {

@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 114089081590099304}
   - component: {fileID: 95180116903970750}
   - component: {fileID: 114036885374127382}
+  - component: {fileID: 82414352763206244}
   m_Layer: 16
   m_Name: Pirate Cat
   m_TagString: Player
@@ -333,7 +334,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902988020621192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.44, y: 8.672, z: 0}
+  m_LocalPosition: {x: -52.715405, y: 1.246108, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4772919138096224}
@@ -763,6 +764,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5384388, y: 0.34679222}
   m_EdgeRadius: 0
+--- !u!82 &82414352763206244
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1382787989308194}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95180116903970750
 Animator:
   serializedVersion: 3
@@ -846,6 +927,21 @@ MonoBehaviour:
   yMovementSpeed: 0
   gunDamage: 1
   gunDistance: 10
+  swordAttackSounds:
+  - {fileID: 8300000, guid: d28e465d3516f4fb7b4592e1e26843a1, type: 3}
+  - {fileID: 8300000, guid: 3533f3ddf15d24e3e924f5517b325769, type: 3}
+  - {fileID: 8300000, guid: 9668ab8542e4941d6adffdb51c28f523, type: 3}
+  - {fileID: 8300000, guid: 1b6d076af2a4e4df387ce0ff96589079, type: 3}
+  - {fileID: 8300000, guid: 83ca238e8dfae44808d1f30026573954, type: 3}
+  gunShootingSounds:
+  - {fileID: 8300000, guid: c00b4858109844bc6b46a6575d0ea3c9, type: 3}
+  - {fileID: 8300000, guid: 6c5ceaa301cf94df69ca65dc54d95fdd, type: 3}
+  swordSharkSound: {fileID: 8300000, guid: 8bcef037309e947b6b7bf3a7f9e49a19, type: 3}
+  handCannonSound:
+  - {fileID: 8300000, guid: 4eb5f2d341778428485c0b314668971b, type: 3}
+  - {fileID: 8300000, guid: b06473678736846399be0e6e74afdc0e, type: 3}
+  - {fileID: 8300000, guid: 4c4693545a5a04f1da039534e0680bdd, type: 3}
+  bigCannonSound: {fileID: 8300000, guid: a12d973e9ba9b42188ce741fab0f8627, type: 3}
   attackKey: 32
   gunKey: 102
   gunGamepadButton: B
