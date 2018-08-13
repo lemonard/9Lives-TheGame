@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour {
 	public GameObject[] enemiesOnStage;
 	public Enemie[] enemiesInfo;
 
+	public bool beatEmUpEnemy;
+
 	// Use this for initialization
 	void Start () {
 

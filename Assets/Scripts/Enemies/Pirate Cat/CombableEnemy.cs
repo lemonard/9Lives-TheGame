@@ -145,7 +145,7 @@ public class CombableEnemy : Enemy {
 	override public void Disappear(){
 		DropItem ();
 		if (mySpawner != null) {
-			mySpawner.SetDeadEnemy (this.transform.parent.gameObject.GetInstanceID ());
+			mySpawner.SetDeadEnemy (this.transform.parent.parent.gameObject.GetInstanceID ());
 		}
 
 		Destroy (gameObject.transform.parent.parent.transform.gameObject);
@@ -181,7 +181,7 @@ public class CombableEnemy : Enemy {
 
 				DropItem ();
 				if (mySpawner != null) {
-					mySpawner.SetDeadEnemy (this.transform.parent.gameObject.GetInstanceID ());
+					mySpawner.SetDeadEnemy (this.transform.parent.parent.gameObject.GetInstanceID ());
 				}
 
 				if(sourceOfDamagePosition.x > transform.position.x){ //Enemy is on the right
@@ -204,7 +204,7 @@ public class CombableEnemy : Enemy {
 
 				DropItem ();
 				if (mySpawner != null) {
-					mySpawner.SetDeadEnemy (this.transform.parent.gameObject.GetInstanceID ());
+					mySpawner.SetDeadEnemy (this.transform.parent.parent.gameObject.GetInstanceID ());
 				}
 
 				GetComponentInParent<Rigidbody2D>().velocity = Vector2.zero;

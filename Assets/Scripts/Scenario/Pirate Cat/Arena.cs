@@ -12,6 +12,7 @@ public struct ArenaEnemyData{
 public class Arena : MonoBehaviour {
 
 	public ArenaEnemyData[] enemyList;
+	public List<GameObject> enemiesSpawned;
 	public int numberOfInitialEnemies;
 	public float timeBetweenEnemies = 5f;
 
@@ -75,6 +76,7 @@ public class Arena : MonoBehaviour {
 		GameObject enemy;
 		currentEnemiesActive++;
 
+
 		if(enemyList[index].randomSpawnPoint){
 
 			float random = Random.value;
@@ -119,6 +121,7 @@ public class Arena : MonoBehaviour {
 			}
 		}
 
+		enemiesSpawned.Add(enemy);
 	}
 
 	public void IncreaseAmountOfEnemiesDead(){
@@ -144,9 +147,19 @@ public class Arena : MonoBehaviour {
 		currentEnemiesDead = 0;
 		currentEnemiesActive = 0;
 		canSpawn = false;
+		GetComponent<Collider2D>().enabled = true;
 		if(spawnCoroutine != null){
 			StopCoroutine(spawnCoroutine);
 		}
+		if(enemiesSpawned.Count > 0){
+			foreach(GameObject enemy in enemiesSpawned){
+				if(enemy != null){
+					Destroy(enemy);
+				}
+			}
+		}
+
+		enemiesSpawned.Clear();
 
 	}
 

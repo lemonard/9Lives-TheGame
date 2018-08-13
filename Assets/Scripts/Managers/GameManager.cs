@@ -60,6 +60,10 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public void ClearEnemyNearCatList(){
+		enemiesNearCat.Clear();
+	}
+
 //	public void StartStage(){
 //		changingScene = false;
 //		SetPlayerCurrency();

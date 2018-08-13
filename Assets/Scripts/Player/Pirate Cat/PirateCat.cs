@@ -443,6 +443,7 @@ public class PirateCat : Cat {
 		yield return new WaitForSeconds(1);
 		myRigidBody2D.velocity = Vector2.zero;
 		isDying = false;
+		GameManager.instance.ClearEnemyNearCatList();
 	}
 
 	public override void IsGrounded ()
