@@ -45,7 +45,6 @@ public class Item : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		print("Colidi com: " + other.gameObject.tag);
 
 		if (other.gameObject.tag == "Ground") {
 			flying = false;
@@ -62,7 +61,7 @@ public class Item : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 
-		print("Colidi com: " + other.gameObject.tag);
+
 
 		if (other.gameObject.tag == "Ground") {
 			flying = false;
@@ -70,7 +69,7 @@ public class Item : MonoBehaviour {
 		} else if(other.gameObject.tag == "Player"){
 
 			Cat cat = other.gameObject.GetComponent<Cat>();
-			print("Colidi com gatoso");
+	
 			CollectedEffect(cat);
 		}
 

@@ -4,6 +4,7 @@ using System.Collections;
 public class InvisiblePlatform : MonoBehaviour {
 
 	public float timeToStayRevealed;
+	public AudioClip[] revealSounds;
 
 	public bool isRevealed;
 	public bool isSolidForever;
@@ -11,9 +12,11 @@ public class InvisiblePlatform : MonoBehaviour {
 	private SpriteRenderer mySpriteRenderer;
 	private Animator myAnimator;
 	private float revealedTimestamp;
+	private AudioSource myAudioSource;
 
 	void Awake(){
 		mySpriteRenderer = GetComponent<SpriteRenderer>();
+		myAudioSource = GetComponent<AudioSource>();
 		mySpriteRenderer.enabled = false;
 		isRevealed = false;
 		revealedTimestamp = 0;
@@ -36,6 +39,10 @@ public class InvisiblePlatform : MonoBehaviour {
 			}
 			if (!isSolidForever) {
 				GetComponent<BoxCollider2D> ().isTrigger = false;
+			}
+			if(revealSounds.Length > 0){
+				int randomIndex = Random.Range(0,revealSounds.Length);
+				myAudioSource.PlayOneShot(revealSounds[randomIndex]);
 			}
 		}
 
