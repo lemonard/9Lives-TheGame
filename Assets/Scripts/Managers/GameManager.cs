@@ -53,8 +53,11 @@ public class GameManager : MonoBehaviour {
 	public void RemoveFromEnemyNearCatList(GameObject enemy){
 
 		enemiesNearCat.Remove(enemy);
-
-
+		foreach(GameObject e in enemiesNearCat){
+			if(e == null){
+				enemiesNearCat.Remove(e);
+			}
+		}
 	}
 
 //	public void StartStage(){

@@ -159,8 +159,9 @@ public class CombableEnemy : Enemy {
 
         	if(arenaEnemy){
 				ArenaManager.instance.currentActiveArena.IncreaseAmountOfEnemiesDead();
-				GameManager.instance.RemoveFromEnemyNearCatList(this.gameObject);
         	}
+
+			GameManager.instance.RemoveFromEnemyNearCatList(this.gameObject);
 
 			invulnerable = true;
         	float random = Random.value;
