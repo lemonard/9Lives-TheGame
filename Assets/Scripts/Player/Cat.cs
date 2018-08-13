@@ -338,7 +338,7 @@ public class Cat : MonoBehaviour {
 		}
 	}
 
-	protected void DeathAnimationFinished()
+	protected virtual void DeathAnimationFinished()
 	{
 		//SceneManager.LoadScene (1);
 		StartCoroutine(RestartLevel());

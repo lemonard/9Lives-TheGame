@@ -138,11 +138,25 @@ public class Arena : MonoBehaviour {
 		Destroy(gameObject);
 	}
 
+	public void ResetArena(){
+		active = false;
+		enemyIndex = 0;
+		currentEnemiesDead = 0;
+		currentEnemiesActive = 0;
+		canSpawn = false;
+		if(spawnCoroutine != null){
+			StopCoroutine(spawnCoroutine);
+		}
+
+	}
+
 	IEnumerator SpawnCooldown(){
 		
 		yield return new WaitForSeconds(timeBetweenEnemies);
-		SpawnEnemy(enemyIndex);
-		enemyIndex++;
+		if(active){
+			SpawnEnemy(enemyIndex);
+			enemyIndex++;
+		}
 
 		spawnCoroutine = null;
 	}

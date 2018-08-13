@@ -414,6 +414,37 @@ public class PirateCat : Cat {
 		}
 	}
 
+	protected override void DeathAnimationFinished ()
+	{
+		StartCoroutine(RestartLevel());
+	}
+
+
+	IEnumerator RestartLevel(){
+		ScreenFade fade = (ScreenFade)FindObjectOfType<ScreenFade>();
+		fade.FadeOut();
+		yield return new WaitForSeconds(1);
+		if(GetComponent<Health>()){
+			GetComponent<Health>().FillHealth();
+		}
+		if(freakoutManager){
+			freakoutManager.ResetBar();
+		}
+		transform.position = currentCheckpoint;
+		animator.SetBool("dying",false);
+		Idle();
+		ArenaManager.instance.ResetArena();
+		if(EnemyManager.instance){
+			EnemyManager.instance.RespawnEnemies();
+		}
+		ArenaManager.instance.ResetArena();
+		yield return new WaitForSeconds(2);
+		fade.FadeIn();
+		yield return new WaitForSeconds(1);
+		myRigidBody2D.velocity = Vector2.zero;
+		isDying = false;
+	}
+
 	public override void IsGrounded ()
 	{
 
