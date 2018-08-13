@@ -263,7 +263,7 @@ public class PirateCat : Cat {
 
 		ChangeLookingDirection();
 
-	
+		movementSoundManager.StartStepsSound();
 	}
 
 	protected override void MoveLeft(){
@@ -276,7 +276,7 @@ public class PirateCat : Cat {
 
 		ChangeLookingDirection();
 
-	
+		movementSoundManager.StartStepsSound();
 	}
 	protected override void MoveUp()
     {
@@ -292,7 +292,7 @@ public class PirateCat : Cat {
 		animator.SetBool("walking",true);
 		animator.SetBool("idle",false);
 		isWalking = true;
-      
+		movementSoundManager.StartStepsSound();
     }
 	protected override void MoveDown()
     {
@@ -307,7 +307,7 @@ public class PirateCat : Cat {
 		animator.SetBool("walking",true);
 		animator.SetBool("idle",false);
 		isWalking = true;
-  
+		movementSoundManager.StartStepsSound();
     }
 
 	protected override void Jump(){
@@ -317,7 +317,7 @@ public class PirateCat : Cat {
 		justJumped = true;
 		isJumping = true;
 		isSliding = false;
-			
+		movementSoundManager.PlayJumpingSound();	
 	}
 
 	protected override void CheckIfDamageReceived()

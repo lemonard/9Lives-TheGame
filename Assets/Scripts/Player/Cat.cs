@@ -28,6 +28,7 @@ public class Cat : MonoBehaviour {
 	protected Rigidbody2D myRigidBody2D;
 	protected SpriteRenderer mySpriteRenderer;
 	protected AudioSource myAudioSource;
+	protected MovementSoundManager movementSoundManager;
 
 	//States
 	public bool isLookingRight;
@@ -93,6 +94,7 @@ public class Cat : MonoBehaviour {
 		myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
 		myAudioSource = GetComponent<AudioSource> ();
 		currentCheckpoint = startingPoint.position;
+		movementSoundManager = GetComponentInChildren<MovementSoundManager>();
 	}
 
     private void FixedUpdate()
@@ -109,6 +111,8 @@ public class Cat : MonoBehaviour {
 
 		myRigidBody2D.transform.position += Vector3.right * speed * Time.deltaTime;
 		ChangeLookingDirection();
+
+		movementSoundManager.StartStepsSound();
 	}
 
 	protected virtual void MoveLeft(){
@@ -121,14 +125,19 @@ public class Cat : MonoBehaviour {
 
 		myRigidBody2D.transform.position += Vector3.left * speed * Time.deltaTime;
 		ChangeLookingDirection();
+
+		movementSoundManager.StartStepsSound();
 	}
 	protected virtual void MoveUp()
     {
         myRigidBody2D.transform.position += Vector3.up * speed * Time.deltaTime;
+
+		
     }
 	protected virtual void MoveDown()
     {
         myRigidBody2D.transform.position += Vector3.down * speed * Time.deltaTime;
+
     }
 
     protected virtual void Idle(){
@@ -136,6 +145,7 @@ public class Cat : MonoBehaviour {
 		animator.SetBool("walking",false);
 		animator.SetBool("idle",true);
 		isWalking = false;
+		movementSoundManager.StopStepsSound();
 	}
 
 	protected virtual void Jump(){
@@ -154,7 +164,8 @@ public class Cat : MonoBehaviour {
 		if(animator.GetBool("sliding")){
 			animator.SetBool("sliding",false);
 		}
-		
+
+		movementSoundManager.PlayJumpingSound();
 	}
 
 
@@ -198,6 +209,7 @@ public class Cat : MonoBehaviour {
 		isFalling = false;
 		myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
 		animator.SetBool("jumping", false);
+		movementSoundManager.PlayLandingSound();
 	}
 
 	public void ChangeLookingDirection(){
