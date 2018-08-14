@@ -106,13 +106,7 @@ public class BeatEmUpCatReference : MonoBehaviour {
 		RaycastHit2D hit = Physics2D.Raycast(position,direction,distance,LayerMask.GetMask("Enemies","Ground"));
 
 
-		RaycastHit2D hit2 = Physics2D.Raycast(position,direction2,distance,LayerMask.GetMask("Enemies","Ground"));
-		Debug.DrawRay(position, direction2, Color.green);
-
-		RaycastHit2D hit3 = Physics2D.Raycast(position,direction3,distance,LayerMask.GetMask("Enemies","Ground"));
-
-
-		if(hit.collider != null || hit2.collider != null || hit3.collider != null){
+		if(hit.collider != null){
 			IsGrounded();
 		}
 

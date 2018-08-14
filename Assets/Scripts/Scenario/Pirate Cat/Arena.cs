@@ -60,6 +60,7 @@ public class Arena : MonoBehaviour {
 		active = true;
 		CameraController.instance.follow = false;
 		ArenaManager.instance.currentActiveArena = this;
+		ArenaManager.instance.ActivateCameraColliders();
 
 		for(int i = 0; i < numberOfInitialEnemies; i++){
 			SpawnEnemy(i);
@@ -137,6 +138,7 @@ public class Arena : MonoBehaviour {
 
 		CameraController.instance.follow = true;
 		ArenaManager.instance.currentActiveArena = null;
+		ArenaManager.instance.DeactivateCameraColliders();
 
 		Destroy(gameObject);
 	}
@@ -160,7 +162,7 @@ public class Arena : MonoBehaviour {
 		}
 
 		enemiesSpawned.Clear();
-
+		ArenaManager.instance.DeactivateCameraColliders();
 	}
 
 	IEnumerator SpawnCooldown(){

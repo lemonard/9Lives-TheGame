@@ -112,7 +112,7 @@ public class Cat : MonoBehaviour {
 		myRigidBody2D.transform.position += Vector3.right * speed * Time.deltaTime;
 		ChangeLookingDirection();
 
-		movementSoundManager.StartStepsSound();
+		//movementSoundManager.StartStepsSound();
 	}
 
 	protected virtual void MoveLeft(){
@@ -126,7 +126,7 @@ public class Cat : MonoBehaviour {
 		myRigidBody2D.transform.position += Vector3.left * speed * Time.deltaTime;
 		ChangeLookingDirection();
 
-		movementSoundManager.StartStepsSound();
+		//movementSoundManager.StartStepsSound();
 	}
 	protected virtual void MoveUp()
     {
@@ -145,7 +145,7 @@ public class Cat : MonoBehaviour {
 		animator.SetBool("walking",false);
 		animator.SetBool("idle",true);
 		isWalking = false;
-		movementSoundManager.StopStepsSound();
+		//movementSoundManager.StopStepsSound();
 	}
 
 	protected virtual void Jump(){

@@ -6,7 +6,8 @@ public class ArenaManager : MonoBehaviour {
 
 	public static ArenaManager instance;
 	public Arena currentActiveArena;
-
+	public Collider2D cameraEdgeColliderRight;
+	public Collider2D cameraEdgeColliderLeft;
 
 	void Awake(){
 		instance = this;
@@ -20,8 +21,15 @@ public class ArenaManager : MonoBehaviour {
 			currentActiveArena.ResetArena();
 			currentActiveArena = null;
 		}
+	}
 
+	public void ActivateCameraColliders(){
+		cameraEdgeColliderLeft.enabled = true;
+		cameraEdgeColliderRight.enabled = true;
+	}
 
-
+	public void DeactivateCameraColliders(){
+		cameraEdgeColliderLeft.enabled = false;
+		cameraEdgeColliderRight.enabled = false;
 	}
 }

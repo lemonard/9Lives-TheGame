@@ -76,9 +76,10 @@ public class PirateCat : Cat {
 		mySpriteRenderer = GetComponent<SpriteRenderer>();
 		myAudioSource = GetComponent<AudioSource> ();
 		currentCheckpoint = startingPoint.position;
-		myRigidBody2D = GetComponentInParent<Rigidbody2D>();
-		myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
+	
 		myReference = GetComponentInParent<BeatEmUpCatReference>();
+		myRigidBody2D = myReference.gameObject.GetComponent<Rigidbody2D>();
+		myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
 		movementSoundManager = GetComponentInChildren<MovementSoundManager>();
 		yMovementSpeed = speed / 3;
 	}
@@ -175,9 +176,7 @@ public class PirateCat : Cat {
 
 					}
 
-					if((animator.GetCurrentAnimatorStateInfo(0).IsName("Pirate Attack 1") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pirate Attack 2") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pirate Attack 3") ) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
-						FinishAttack();
-					}
+
 
 				}
 
@@ -236,15 +235,29 @@ public class PirateCat : Cat {
 			Idle();
 		}
 
-		CheckIfDamageReceived ();
-			
 		CheckDeath ();
 
+		CheckIfDamageReceived ();
+			
+		if((animator.GetCurrentAnimatorStateInfo(0).IsName("Pirate Attack 1") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pirate Attack 2") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pirate Attack 3") ) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
+			FinishAttack();
+		}
 
-		if(!isJumping){
+
+		if(!isJumping && !knockedDown){
 			shadow.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 		}
 
+		if(knockedDown){
+			shadow.transform.position = new Vector3(transform.position.x, shadow.transform.position.y, transform.position.z);
+		}
+
+		if(receivingDamage){
+			comboCounter = 0;
+			gunComboCounter = 0;
+			isAttacking = false;
+			isShooting = false;
+		}
 
 
 	}
@@ -263,7 +276,7 @@ public class PirateCat : Cat {
 
 		ChangeLookingDirection();
 
-		movementSoundManager.StartStepsSound();
+		//movementSoundManager.StartStepsSound();
 	}
 
 	protected override void MoveLeft(){
@@ -276,7 +289,7 @@ public class PirateCat : Cat {
 
 		ChangeLookingDirection();
 
-		movementSoundManager.StartStepsSound();
+		//movementSoundManager.StartStepsSound();
 	}
 	protected override void MoveUp()
     {
@@ -292,7 +305,7 @@ public class PirateCat : Cat {
 		animator.SetBool("walking",true);
 		animator.SetBool("idle",false);
 		isWalking = true;
-		movementSoundManager.StartStepsSound();
+		//movementSoundManager.StartStepsSound();
     }
 	protected override void MoveDown()
     {
@@ -307,7 +320,7 @@ public class PirateCat : Cat {
 		animator.SetBool("walking",true);
 		animator.SetBool("idle",false);
 		isWalking = true;
-		movementSoundManager.StartStepsSound();
+		//movementSoundManager.StartStepsSound();
     }
 
 	protected override void Jump(){
@@ -323,7 +336,7 @@ public class PirateCat : Cat {
 	protected override void CheckIfDamageReceived()
 	{
 
-		if (receivedDamage && life > 0) {
+		if (receivedDamage && !isDying) {
 
 			Reset();
 			receivedDamage = false;
@@ -339,9 +352,7 @@ public class PirateCat : Cat {
 				}
 
 			}else{
-				if(!isDying){
-					KnockDown();
-				}
+				KnockDown();
 			}
 		}
 	}
@@ -396,6 +407,7 @@ public class PirateCat : Cat {
 		base.Idle ();
 		FinishAttack();
 		StopShooting();
+		receivingDamage = false;
 
 	}
 
@@ -411,6 +423,11 @@ public class PirateCat : Cat {
 			animator.SetBool("dying",true);
 			animator.SetInteger("comboCounter", 1);
 			animator.SetInteger("gunComboCounter", 1);
+			animator.SetBool("knockedOnFloor", false);
+			animator.SetBool("knockedDown", false);
+	
+			amountOfHitsTaken = 0;
+			receivedDamage = false;
 		}
 	}
 
@@ -421,8 +438,8 @@ public class PirateCat : Cat {
 
 
 	IEnumerator RestartLevel(){
-		ScreenFade fade = (ScreenFade)FindObjectOfType<ScreenFade>();
-		fade.FadeOut();
+		//ScreenFade fade = (ScreenFade)FindObjectOfType<ScreenFade>();
+		//fade.FadeOut();
 		yield return new WaitForSeconds(1);
 		if(GetComponent<Health>()){
 			GetComponent<Health>().FillHealth();
@@ -430,9 +447,11 @@ public class PirateCat : Cat {
 		if(freakoutManager){
 			freakoutManager.ResetBar();
 		}
-	
+		Reset();
 		transform.parent.transform.position = currentCheckpoint;
 		transform.localPosition = new Vector3(0,1,0);
+		knockedDown = false;
+		receivingDamage = false;
 		animator.SetBool("dying",false);
 		Idle();
 		ArenaManager.instance.ResetArena();
@@ -441,11 +460,12 @@ public class PirateCat : Cat {
 		}
 		ArenaManager.instance.ResetArena();
 		yield return new WaitForSeconds(2);
-		fade.FadeIn();
+		//fade.FadeIn();
 		yield return new WaitForSeconds(1);
 		myRigidBody2D.velocity = Vector2.zero;
 		isDying = false;
 		GameManager.instance.ClearEnemyNearCatList();
+
 	}
 
 	public override void IsGrounded ()
@@ -475,6 +495,7 @@ public class PirateCat : Cat {
 
 	void StartAttack(){
 
+		comboCounter = 0;
 		comboCounter++;
 		isAttacking = true;
 		animator.SetBool("attack", true);
@@ -678,54 +699,18 @@ public class PirateCat : Cat {
 	void TryToChainAttack(){
 
 		canCombo = false;
+		if(!isDying && !receivingDamage){
+			if(comboActivated){
 
-		if(comboActivated){
-
-			animator.SetBool("attack", true);
-			animator.SetBool("shooting", false);
-			animator.SetInteger("gunComboCounter", gunComboCounter);
-
-			gunComboActivated = false;
-			comboActivated = false;
-			
-			DisableColliders();
-
-
-			if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
-				isLookingRight = true;
-				ChangeLookingDirection();
-			} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-				isLookingRight = false;
-				ChangeLookingDirection();	
-			}
-
-			if(comboCounter == 1){
-
-				animator.SetInteger("comboCounter", 1);
-
-
-			}else if(comboCounter == 2){
-
-				animator.SetInteger("comboCounter", 2);
-
-			}else if(comboCounter >= 3){
-
-				animator.SetInteger("comboCounter", 3);
-			}
-
-
-
-
-		}else if(gunComboActivated){
-
-			if(SkillCooldownIndicator.instance.skillRemainingUses > 0){
-				SkillCooldownIndicator.instance.SpendSkillUse();
-				animator.SetBool("shooting", true);
-				animator.SetBool("attack", false);
-				animator.SetInteger("comboCounter", comboCounter);
+				animator.SetBool("attack", true);
+				animator.SetBool("shooting", false);
+				animator.SetInteger("gunComboCounter", gunComboCounter);
 
 				gunComboActivated = false;
 				comboActivated = false;
+				
+				DisableColliders();
+
 
 				if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
 					isLookingRight = true;
@@ -735,24 +720,61 @@ public class PirateCat : Cat {
 					ChangeLookingDirection();	
 				}
 
-				if(gunComboCounter == 1){
+				if(comboCounter == 1){
 
-					
-					animator.SetInteger("gunComboCounter", 1);
-
-				}else if(gunComboCounter == 2){
+					animator.SetInteger("comboCounter", 1);
 
 
-					animator.SetInteger("gunComboCounter", 2);
+				}else if(comboCounter == 2){
 
-				}else if(gunComboCounter == 3){
-		
-					animator.SetInteger("gunComboCounter", 3);
+					animator.SetInteger("comboCounter", 2);
+
+				}else if(comboCounter >= 3){
+
+					animator.SetInteger("comboCounter", 3);
 				}
 
-			}else{
-				gunComboActivated = false;
-				comboActivated = false;
+
+
+
+			}else if(gunComboActivated){
+
+				if(SkillCooldownIndicator.instance.skillRemainingUses > 0){
+					SkillCooldownIndicator.instance.SpendSkillUse();
+					animator.SetBool("shooting", true);
+					animator.SetBool("attack", false);
+					animator.SetInteger("comboCounter", comboCounter);
+
+					gunComboActivated = false;
+					comboActivated = false;
+
+					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
+						isLookingRight = true;
+						ChangeLookingDirection();
+					} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+						isLookingRight = false;
+						ChangeLookingDirection();	
+					}
+
+					if(gunComboCounter == 1){
+
+						
+						animator.SetInteger("gunComboCounter", 1);
+
+					}else if(gunComboCounter == 2){
+
+
+						animator.SetInteger("gunComboCounter", 2);
+
+					}else if(gunComboCounter == 3){
+			
+						animator.SetInteger("gunComboCounter", 3);
+					}
+
+				}else{
+					gunComboActivated = false;
+					comboActivated = false;
+				}
 			}
 		}
 	}
