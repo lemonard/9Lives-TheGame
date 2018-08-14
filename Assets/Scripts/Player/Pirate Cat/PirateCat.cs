@@ -79,7 +79,7 @@ public class PirateCat : Cat {
 		myRigidBody2D = GetComponentInParent<Rigidbody2D>();
 		myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
 		myReference = GetComponentInParent<BeatEmUpCatReference>();
-
+		movementSoundManager = GetComponentInChildren<MovementSoundManager>();
 		yMovementSpeed = speed / 3;
 	}
 	// Update is called once per frame
@@ -430,7 +430,9 @@ public class PirateCat : Cat {
 		if(freakoutManager){
 			freakoutManager.ResetBar();
 		}
-		transform.position = currentCheckpoint;
+	
+		transform.parent.transform.position = currentCheckpoint;
+		transform.localPosition = new Vector3(0,1,0);
 		animator.SetBool("dying",false);
 		Idle();
 		ArenaManager.instance.ResetArena();
