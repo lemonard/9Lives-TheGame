@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3b536e2a4782e45afbad818bc2af28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboEnemy: 0
 --- !u!114 &114564873644080078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -349,9 +350,11 @@ MonoBehaviour:
   invulnerable: 0
   lookingRight: 0
   mySpawner: {fileID: 0}
-  deathSound: {fileID: 8300000, guid: 50cdcc0cdb7453c4d80ed9fea23a5b6b, type: 3}
+  deathSound: {fileID: 8300000, guid: b8443e27f425246cc851701be1f52c12, type: 3}
   damage: 20
+  myAnimator: {fileID: 0}
   invulnerableSeconds: 1
+  dying: 0
   prepareForParry: 0
   stunned: 0
   wasTurned: 0
@@ -391,6 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3b536e2a4782e45afbad818bc2af28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboEnemy: 0
 --- !u!114 &114994058435586410
 MonoBehaviour:
   m_ObjectHideFlags: 1

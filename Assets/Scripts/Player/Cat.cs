@@ -165,7 +165,7 @@ public class Cat : MonoBehaviour {
 			animator.SetBool("sliding",false);
 		}
 
-		movementSoundManager.PlayJumpingSound();
+//		movementSoundManager.PlayJumpingSound();
 	}
 
 
@@ -209,7 +209,7 @@ public class Cat : MonoBehaviour {
 		isFalling = false;
 		myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
 		animator.SetBool("jumping", false);
-		movementSoundManager.PlayLandingSound();
+		//movementSoundManager.PlayLandingSound();
 	}
 
 	public void ChangeLookingDirection(){

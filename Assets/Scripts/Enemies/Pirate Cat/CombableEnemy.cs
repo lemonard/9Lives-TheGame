@@ -175,6 +175,7 @@ public class CombableEnemy : Enemy {
 				myAnimator.SetBool("damage",true);
 				myAnimator.SetBool("knockedDown", true);
 				GetComponentInParent<Rigidbody2D>().velocity = Vector2.zero;
+				PlayDeathSound();
 
 				shipBackRailReference = LevelReferenceManager.instance.GetShipBackRailReference(shipHeight);
 				shipBackRailFloorReference = LevelReferenceManager.instance.GetShipBackRailFloorReference(shipHeight);
@@ -201,6 +202,7 @@ public class CombableEnemy : Enemy {
 				knockedDown = true;
 				myAnimator.SetBool("damage",true);
 				myAnimator.SetBool("knockedDown", true);
+				PlayDeathSound();
 
 				DropItem ();
 				if (mySpawner != null) {

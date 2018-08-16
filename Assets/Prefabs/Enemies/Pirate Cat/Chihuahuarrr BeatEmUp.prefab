@@ -233,7 +233,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627638225099014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.716896, y: 13.936257, z: -1.3828125}
+  m_LocalPosition: {x: -34.15355, y: 14.471109, z: -1.3828125}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4926824398452580}
@@ -609,7 +609,7 @@ MonoBehaviour:
   invulnerable: 0
   lookingRight: 0
   mySpawner: {fileID: 0}
-  deathSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 59d290641c95341b79d4fa87510a7fd6, type: 3}
   damage: 5
   myAnimator: {fileID: 0}
   invulnerableSeconds: 2

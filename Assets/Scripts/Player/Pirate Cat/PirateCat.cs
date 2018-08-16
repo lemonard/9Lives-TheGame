@@ -330,7 +330,7 @@ public class PirateCat : Cat {
 		justJumped = true;
 		isJumping = true;
 		isSliding = false;
-		movementSoundManager.PlayJumpingSound();	
+//		movementSoundManager.PlayJumpingSound();	
 	}
 
 	protected override void CheckIfDamageReceived()
