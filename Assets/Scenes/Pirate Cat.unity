@@ -20464,7 +20464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &389366290
 Transform:
   m_ObjectHideFlags: 0
@@ -22678,6 +22678,11 @@ Prefab:
     - target: {fileID: 114725854994590510, guid: 0fdeffe4b65ec4ce890b148344a077d6,
         type: 2}
       propertyPath: startMovingDialog
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61559956386889778, guid: 0fdeffe4b65ec4ce890b148344a077d6,
+        type: 2}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -59253,6 +59258,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 61308809368389512, guid: bdea15b0b3be74600881980b46fef99f,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdea15b0b3be74600881980b46fef99f, type: 2}
   m_IsPrefabParent: 0
@@ -90481,6 +90491,11 @@ Prefab:
     - target: {fileID: 1241071311251664, guid: bdea15b0b3be74600881980b46fef99f, type: 2}
       propertyPath: m_Name
       value: DialogTrigger - Stationary
+      objectReference: {fileID: 0}
+    - target: {fileID: 61308809368389512, guid: bdea15b0b3be74600881980b46fef99f,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdea15b0b3be74600881980b46fef99f, type: 2}
