@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 61663224949483152}
   - component: {fileID: 50281720437607812}
   - component: {fileID: 114178069661081778}
+  - component: {fileID: 114739098417454264}
   m_Layer: 0
   m_Name: CrystalStand
   m_TagString: ButtomPressingObjects
@@ -85,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1221544505521748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 76.2, y: 15.908, z: -3.4437237}
+  m_LocalPosition: {x: -3.9123993, y: 1.1582108, z: 0.15291023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4848578319852700}
@@ -183,7 +184,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.031345367, y: -0.05405426}
+  m_Offset: {x: -0.025016785, y: -0.029792786}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -194,7 +195,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6891098, y: 0.5196724}
+  m_Size: {x: 0.65956116, y: 0.47114944}
   m_EdgeRadius: 0
 --- !u!61 &61777763363170922
 BoxCollider2D:
@@ -208,7 +209,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0141944885, y: 0.056311518}
+  m_Offset: {x: -0.024745941, y: 0.056311518}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -219,7 +220,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6416702, y: 0.018287718}
+  m_Size: {x: 0.66277313, y: 0.018287718}
   m_EdgeRadius: 0
 --- !u!114 &114178069661081778
 MonoBehaviour:
@@ -259,6 +260,18 @@ MonoBehaviour:
   - {fileID: 0}
   desiredColor: 5
   puzzleCircuit: {fileID: 0}
+--- !u!114 &114739098417454264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1221544505521748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e6ef8820ac2a644afa0416866df743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBeingPushed: 0
 --- !u!212 &212742100301431610
 SpriteRenderer:
   m_ObjectHideFlags: 1
