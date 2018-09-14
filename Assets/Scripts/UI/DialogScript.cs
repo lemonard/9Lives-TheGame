@@ -75,7 +75,7 @@ public class DialogScript : MonoBehaviour
 		if (dialogActive) {
 			amountOfUpcomingDialogs++;
 		} else {
-			currentJsonFile = File.ReadAllText (Application.dataPath + dialogJsonFiles [currentDialogFileIndex].dialogFolderPath + dialogJsonFiles [currentDialogFileIndex].dialogFileName + ".json");
+			currentJsonFile = File.ReadAllText (Application.streamingAssetsPath + dialogJsonFiles [currentDialogFileIndex].dialogFolderPath + dialogJsonFiles [currentDialogFileIndex].dialogFileName + ".json");
 			dialogLines = JsonMapper.ToObject<List<DialogData>> (currentJsonFile);
 
 			this.movingDialog = movingDialog;

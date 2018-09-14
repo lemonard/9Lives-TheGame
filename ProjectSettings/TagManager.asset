@@ -21,6 +21,7 @@ TagManager:
   - EnemyProtection
   - ButtomPressingObjects
   - VulnerablePoint
+  - SlidingWall
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,20 @@
+[
+  {
+    "dialogText": "Witch Fiona. It has been a long time since you were in this life, so a few things might be clouded from your meowmery.",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Do not forget your Meowgic Powers. You are the only one who can see surrounding meowgics with your witch powers (press <sprite=1>).",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "I appreciate the reminder, Theodore.",
+    "characterName": "Fiona",
+	"imageIndex": 0,
+	"appearRight": false
+  }
+]

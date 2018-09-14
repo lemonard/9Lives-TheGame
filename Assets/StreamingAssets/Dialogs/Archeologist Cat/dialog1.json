@@ -1,0 +1,86 @@
+[
+  {
+    "dialogText": "Wow!! Ain't this place ameowzing!!",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "It is not a good idea to get carried away by a place like this, Theodore. It might be treacherous, you know... I say that from experience...",
+    "characterName": "??????",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "I wonder how you can be so well centred in this situation, Jonas. Isn't your catventurous blood boiling by this point?",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Curiosity killed the cat, remember? Being well centred in these situations is exactly how I kept my head attached to my body for so long. An Archeologist should never get so distracted.",
+    "characterName": "Jonas",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "I guess that's what makes you the best of the best in that profession. You did make a name for yourself in that era.",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "I sure did, pal!! Now, let's go find some ancient artifacts!!!",
+    "characterName": "Jonas",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Please, Jonas... Do not forget your mission here...",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "If we have some time, we will deal with that...",
+    "characterName": "Jonas",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Do you I need to remind you of the cat-astrophies that leaving the dog be would create???",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Fiiiiiinneeeee... I will go find that dog for you, Theodore...",
+    "characterName": "Jonas",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Thank you, Jonas.",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Buzzkill...",
+    "characterName": "Jonas",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "I heard that...",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Whoops!",
+    "characterName": "Jonas",
+	"imageIndex": 0,
+	"appearRight": false
+  }
+]

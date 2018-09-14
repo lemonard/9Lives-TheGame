@@ -1,0 +1,62 @@
+[
+  {
+    "dialogText": "Lord Louis IV! Can you hear me?",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "......",
+    "characterName": "??????",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Lord Lo.... Oh, yes... Meowsketeer Sebastian, can you hear me?",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Now that is better! Yes, I can. Loud and clear. Thank you for remembering my name.",
+    "characterName": "Sebastian",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Good... The communication between dimensions and the timelines seems to be working properly.",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Furrtastic!!! Now, where is he???",
+    "characterName": "Sebastian",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "The dog's signal is faint from your position. He does not seem to be far, but we cannot tell precisely.",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "Can you be a little less vague than that??",
+    "characterName": "Sebastian",
+	"imageIndex": 0,
+	"appearRight": false
+  },
+  {
+    "dialogText": "All we know for now is that he is deep inside the castle. As you move forward the signal might get stronger.",
+    "characterName": "Theodore",
+	"imageIndex": 1,
+	"appearRight": false
+  },
+  {
+    "dialogText": "I guess I will have to do with that information for now...",
+    "characterName": "Sebastian",
+	"imageIndex": 0,
+	"appearRight": false
+  }
+]

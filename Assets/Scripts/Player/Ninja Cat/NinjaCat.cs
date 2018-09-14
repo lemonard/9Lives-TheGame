@@ -9,6 +9,7 @@ public class NinjaCat : Cat {
 	public GameObject projectile;
 	public Collider2D rightAttackingPoint;
 	public Collider2D leftAttackingPoint;
+	public GameObject wallJumpParticlePrefab;
 
 	public KeyCode attackKey;
 	public KeyCode gunKey;
@@ -16,6 +17,13 @@ public class NinjaCat : Cat {
 	public string attackGamepadButton;
 
 	public bool isShooting;
+	public bool wallSliding;
+	public bool wallJumping;
+
+	private bool movedLeft;
+	private bool movedRight;
+
+	private bool slidingWallLeft; //Defines if the wall that the cat is sliding is on the left side or the right side
 
 	// Use this for initialization
 	protected override void Start ()
@@ -37,31 +45,57 @@ public class NinjaCat : Cat {
 
 				if (!isAttacking) {
 
+					if(!wallSliding && !wallJumping){
+						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
+							movedLeft = false;
+							movedRight = true;
 
-					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
-						MoveRight ();
-					} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-						MoveLeft ();
-					} else {
-						Idle ();
-					}
-					
+						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+							movedLeft = true;
+							movedRight = false;
 
-					if ((Input.GetKeyDown (jumpKey) || Input.GetButtonDown (jumpGamepadButton))) {
-						if (!isFalling) {
+						} else {
+							movedLeft = false;
+							movedRight = false;
 
-							if (!isJumping) {
-								Jump ();
-							} 
 						}
 					}
 
-					if ( (Input.GetKeyDown (attackKey) || Input.GetButtonDown (attackGamepadButton)) && !isJumping && !isFalling && !isShooting) {
+					if(wallSliding){
+						if(slidingWallLeft){
+
+							if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
+								movedLeft = false;
+								movedRight = true;
+							}
+						}else{
+
+							if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+								movedLeft = true;
+								movedRight = false;
+							}
+						}
+					}
+
+					if ((Input.GetKeyDown (jumpKey) || Input.GetButtonDown (jumpGamepadButton))) {
+						if(!wallSliding){
+							if (!isFalling) {
+
+								if (!isJumping) {
+									Jump ();
+								} 
+							}
+						}else{
+							WallJump ();
+						}
+					}
+
+					if ( (Input.GetKeyDown (attackKey) || Input.GetButtonDown (attackGamepadButton)) && !isJumping && !isFalling && !isShooting && !wallSliding) {
 						StartAttack();
 					}
 
 
-					if ( (Input.GetKeyDown (attackKey) || Input.GetButtonDown (attackGamepadButton)) && (isJumping || isFalling) && !isShooting) {
+					if ( (Input.GetKeyDown (attackKey) || Input.GetButtonDown (attackGamepadButton)) && (isJumping || isFalling) && !isShooting && !wallSliding) {
 						StartJumpAttack();
 					}
 
@@ -87,6 +121,54 @@ public class NinjaCat : Cat {
 		CheckIfDamageReceived ();
 			
 		CheckDeath ();
+
+	}
+
+	void FixedUpdate(){
+		if (movedRight) {
+			MoveRight ();
+		} else if (movedLeft) {
+			MoveLeft ();
+		} else {
+			Idle ();
+		}
+	}
+
+	public override void IsGrounded ()
+	{
+
+		isJumping = false;
+		isFalling = false;
+		myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x,0);
+		wallSliding = false;
+		myRigidBody2D.gravityScale = 1f;
+		animator.SetBool("jumping", false);
+		animator.SetBool("sliding", false);
+		animator.SetBool("wallJump",false);
+		wallJumping = false;
+	}
+
+	void WallJump(){
+
+		
+		myRigidBody2D.gravityScale = 1f;
+		animator.SetBool("jumping", true);
+		animator.SetBool("wallJump",true);
+		animator.SetBool("sliding", false);
+
+		GameObject wallJumpParticle = Instantiate(wallJumpParticlePrefab, transform.position, Quaternion.identity);
+
+		myRigidBody2D.velocity = new Vector3(myRigidBody2D.velocity.x,0,0);
+
+		if(slidingWallLeft){
+			myRigidBody2D.AddForce(new Vector3(jumpForce - 1, jumpForce,0), ForceMode2D.Impulse);
+		}else{
+			myRigidBody2D.AddForce(new Vector3(-jumpForce + 1, jumpForce,0), ForceMode2D.Impulse);
+			wallJumpParticle.GetComponent<SpriteRenderer>().flipX = true;
+		}
+
+		wallJumping = true;
+		isJumping = true;
 
 	}
 
@@ -138,19 +220,38 @@ public class NinjaCat : Cat {
 
 	}
 
+	void StartSliding(Collision2D wall){
+		if(isJumping || wallJumping){
+				isJumping = false;
+				wallSliding = true;
+				wallJumping = false;
+				animator.SetBool("sliding", true);
+				animator.SetBool("jumping", false);
+				movedLeft = false;
+				movedRight = false;
+				myRigidBody2D.gravityScale = 0.5f;
+				myRigidBody2D.velocity = new Vector3(myRigidBody2D.velocity.x,0,0);
+
+			if (wall.gameObject.transform.position.x >= transform.position.x) {
+				slidingWallLeft = false;
+				isLookingRight = false;
+				ChangeLookingDirection();
+
+			} else if (wall.gameObject.transform.position.x < transform.position.x) {
+				slidingWallLeft = true;
+				isLookingRight = true;
+				ChangeLookingDirection();
+			}
+		}
+	}
+
 	protected override void OnCollisionEnter2D(Collision2D other){
 		base.OnCollisionEnter2D (other);
 
 		if (other.gameObject.tag == "SlidingWall" && (isJumping || isFalling) && !isShooting) {
 			print("Sliding Wall");
 
-			if (other.gameObject.transform.position.x >= transform.position.x) {
-
-			} else if (other.gameObject.transform.position.x < transform.position.x) {
-				
-			}
-
-	
+			StartSliding(other);
 		}
 	}
 
@@ -159,12 +260,10 @@ public class NinjaCat : Cat {
 		if (other.gameObject.tag == "SlidingWall") {
 
 			print("Sliding Wall saiu");
+			wallSliding = false;
+			animator.SetBool("sliding", false);
+			myRigidBody2D.gravityScale = 1f;
 
-			if (other.gameObject.transform.position.x >= transform.position.x) {
-
-			} else if (other.gameObject.transform.position.x < transform.position.x) {
-				
-			}
 
 	
 		}
