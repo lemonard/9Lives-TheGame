@@ -20,11 +20,16 @@ public class MovingPlatform : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+	}
+
+	void FixedUpdate(){
 		if(movementIsHorizontal){
 			MoveX();
 		}else{
 			MoveY();
 		}
+
 	}
 
 	void MoveX(){

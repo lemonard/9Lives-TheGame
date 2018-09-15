@@ -94,12 +94,17 @@ public class PussInBoots : Cat {
 
 				if (!isAttacking && !parryStanceActivated && !startedParryStance && !isParrying) {
 
+
 					if ((Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) && !isSliding) {
-						MoveRight ();
+						movedLeft = false;
+						movedRight = true;
+
 					} else if ((Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) && !isSliding) {
-						MoveLeft ();
+						movedLeft = true;
+						movedRight = false;
+
 					} else {
-						Idle ();
+						ResetMovementVariables();
 					}
 
 					//Nick
@@ -143,17 +148,18 @@ public class PussInBoots : Cat {
 					if ((Input.GetKeyDown (parryKey) || Input.GetButtonDown (parryGamepadButton)) && !isJumping && !isFalling && !isClimbing && !isSliding) {
 						StartParryStance ();
 					}
+				}else{
+					ResetMovementVariables();
 				}
-
 
 				if (myRigidBody2D.velocity.y < -1 && !isSliding) {
 					isFalling = true;
 				}
 
-
 			}
+
 		} else {
-			Idle ();
+			ResetMovementVariables();
 		}
 
 		CheckInvulnerableTimeStamp ();
@@ -172,6 +178,20 @@ public class PussInBoots : Cat {
 			
 		CheckDeath ();
 
+	}
+
+	void FixedUpdate(){
+		if (!isDying && !freakoutMode && !isAttacking && !parryStanceActivated && !startedParryStance && !isParrying && !isSliding) {
+	
+			if (movedRight) {
+				MoveRight ();
+			} else if (movedLeft) {
+				MoveLeft ();
+			} else {
+				Idle ();
+			}
+			
+		}
 	}
 
 	protected override void OnCollisionEnter2D (Collision2D other)

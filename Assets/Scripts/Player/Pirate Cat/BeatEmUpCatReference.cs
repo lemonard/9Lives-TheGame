@@ -12,6 +12,9 @@ public class BeatEmUpCatReference : MonoBehaviour {
 	public float minY = 0;
 
 
+	private bool movedRight;
+	private bool movedLeft;
+
 	void Awake(){
 		myRigidBody2D = GetComponent<Rigidbody2D>();
 		myCat = GetComponentInChildren<PirateCat>();
@@ -26,28 +29,34 @@ public class BeatEmUpCatReference : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(!myCat.controlersDisabled){
-			if(!myCat.isDying  && !myCat.freakoutMode && !myCat.beingLaunched && !myCat.receivingDamage && !myCat.knockedDown && !myCat.landing){
-
-
-				if(!myCat.isAttacking && !myCat.isShooting){
-
-	
-					if (Input.GetKey (myCat.moveRightKey) || (Input.GetAxis (myCat.moveHorizontalGamepadAxis) >= 0.5f) ) {
-						MoveRight();
-					} else if (Input.GetKey (myCat.moveLeftKey) || (Input.GetAxis (myCat.moveHorizontalGamepadAxis) <= -0.5f)) {
-						MoveLeft();
-					}
+			if(!myCat.isDying  && !myCat.freakoutMode && !myCat.beingLaunched && !myCat.receivingDamage && !myCat.knockedDown && !myCat.landing && !myCat.isAttacking && !myCat.isShooting){
+		
+				if (Input.GetKey (myCat.moveRightKey) || (Input.GetAxis (myCat.moveHorizontalGamepadAxis) >= 0.5f) ) {
+					movedRight = true;
+					movedLeft = false;
+				} else if (Input.GetKey (myCat.moveLeftKey) || (Input.GetAxis (myCat.moveHorizontalGamepadAxis) <= -0.5f)) {
+					movedLeft = true;
+					movedRight = false;
+				}else{
+					movedRight = false;
+					movedLeft = false;
+				}
 				
-					if((Input.GetKeyDown (myCat.jumpKey) || Input.GetButtonDown(myCat.jumpGamepadButton))){
-						if(!myCat.isFalling){
-
-							if(!myCat.isJumping){
-								Jump();
-							} 
-						}
+				if((Input.GetKeyDown (myCat.jumpKey) || Input.GetButtonDown(myCat.jumpGamepadButton))){
+					if(!myCat.isFalling){
+					
+						if(!myCat.isJumping){
+							Jump();
+						} 
 					}
 				}
+			}else{
+				movedLeft = false;
+				movedRight = false;
 			}
+		}else{
+			movedLeft = false;
+			movedRight = false;
 		}
 
 //		if(myCat.isJumping){
@@ -78,6 +87,16 @@ public class BeatEmUpCatReference : MonoBehaviour {
 		myRigidBody2D.AddForce(new Vector3(0, myCat.jumpForce,0), ForceMode2D.Impulse);
 
 		
+	}
+
+	void FixedUpdate(){
+		if(!myCat.isAttacking && !myCat.isShooting && !myCat.isDying  && !myCat.freakoutMode && !myCat.beingLaunched && !myCat.receivingDamage && !myCat.knockedDown && !myCat.landing && !myCat.controlersDisabled){
+			if (movedRight) {
+				MoveRight();
+			} else if (movedLeft) {
+				MoveLeft();
+			}
+		}
 	}
 
 

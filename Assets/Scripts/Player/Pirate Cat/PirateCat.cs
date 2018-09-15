@@ -68,6 +68,9 @@ public class PirateCat : Cat {
 	private BeatEmUpCatReference myReference;
 
 	public Transform shadowReference;
+
+	private bool movedUp;
+	private bool movedDown;
 	// Use this for initialization
 	protected override void Start ()
 	{
@@ -98,28 +101,34 @@ public class PirateCat : Cat {
 
 	
 					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) ) {
-						MoveRight();
+						movedRight = true;
+						movedLeft = false;
+						movedUp = false;
+						movedDown = false;
 
 						if (Input.GetKey (moveUpKey) || (Input.GetAxis (moveVerticalGamepadAxis) >= 0.5f) ) {
-							MoveUp();
+							movedUp = true;
 						} else if (Input.GetKey (downKey) || (Input.GetAxis (moveVerticalGamepadAxis) <= -0.5f)) {
-							MoveDown();
+							movedDown = true;
 						}
 
 					} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-						MoveLeft();
+						movedRight = false;
+						movedLeft = true;
+						movedUp = false;
+						movedDown = false;
 
 						if (Input.GetKey (moveUpKey) || (Input.GetAxis (moveVerticalGamepadAxis) >= 0.5f) ) {
-							MoveUp();
+							movedUp = true;
 						} else if (Input.GetKey (downKey) || (Input.GetAxis (moveVerticalGamepadAxis) <= -0.5f)) {
-							MoveDown();
+							movedDown = true;
 						}
 					} else if (Input.GetKey (moveUpKey) || (Input.GetAxis (moveVerticalGamepadAxis) >= 0.5f) ) {
-						MoveUp();
+						movedUp = true;
 					} else if (Input.GetKey (downKey) || (Input.GetAxis (moveVerticalGamepadAxis) <= -0.5f)) {
-						MoveDown();
+						movedDown = true;
 					} else {
-						Idle();
+						ResetMovementVariables();
 					}
 				
 					if((Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton))){
@@ -144,6 +153,8 @@ public class PirateCat : Cat {
 					}
 
 
+				}else{
+					ResetMovementVariables();
 				}
 
 				if(isAttacking){
@@ -232,7 +243,7 @@ public class PirateCat : Cat {
 	        }
 
 		}else{
-			Idle();
+			ResetMovementVariables();
 		}
 
 		CheckDeath ();
@@ -263,8 +274,45 @@ public class PirateCat : Cat {
 	}
 
 	void FixedUpdate(){
+		if(!isAttacking && !isShooting && !isDying  && !freakoutMode && !beingLaunched && !receivingDamage && !knockedDown && !inCannon && !landing){
+			if (movedRight) {
 
+				MoveRight();
 
+				if (movedUp) {
+					MoveUp();
+				} else if (movedDown) {
+					MoveDown();
+				}
+
+			} else if (movedLeft) {
+
+				MoveLeft();
+
+				if (movedUp) {
+					MoveUp();
+				} else if (movedDown) {
+					MoveDown();
+				}
+
+			} else if (movedUp) {
+				MoveUp();
+			} else if (movedDown) {
+
+				MoveDown();
+			} else {
+
+				Idle();
+			}
+		}
+
+	}
+
+	protected override void ResetMovementVariables ()
+	{
+		base.ResetMovementVariables ();
+		movedUp = false;
+		movedDown = false;
 	}
 
 	protected override void MoveRight(){

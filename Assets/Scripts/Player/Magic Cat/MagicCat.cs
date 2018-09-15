@@ -93,32 +93,22 @@ public class MagicCat : Cat {
 
 				if(!isAttacking && !isPulsing){
 
-	                if (Input.GetKey(moveRightKey) || (Input.GetAxis(moveHorizontalGamepadAxis) >= 0.5f))
-	                {
-	                    MoveRight();
-	                }
-	                else if (Input.GetKey(moveLeftKey) || (Input.GetAxis(moveHorizontalGamepadAxis) <= -0.5f))
-	                {
-	                    MoveLeft();
-	                }
-	                else
-	                {
-	                    Idle();
-	                }
+					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
+						movedLeft = false;
+						movedRight = true;
+
+					} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+						movedLeft = true;
+						movedRight = false;
+
+					} else {
+						ResetMovementVariables();
+					}
 
 					if ((Input.GetKeyDown (downKey) && levitate) || Input.GetAxis (moveVerticalGamepadAxis) <= -0.5f && levitate) {
 						CancelLevitate ();
 					}
 
-	//                if (Input.GetKey(jumpKey) && levitate || Input.GetAxis(moveVerticalGamepadAxis) >= 0.5f && levitate)
-	//                {
-	//                    MoveUp();
-	//                }
-	//
-	//                if (Input.GetKey(downKey) && levitate || Input.GetAxis(moveVerticalGamepadAxis) <= -0.5f && levitate)
-	//                {
-	//                    MoveDown();
-	//                }
 
 					if(Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)){
 
@@ -150,6 +140,8 @@ public class MagicCat : Cat {
 					if((Input.GetKeyDown (magicPulseKey) || Input.GetButtonDown(magicPulseGamepadButton)) && !isJumping && !isFalling){ 
 						StartMagicPulse();
 					}
+				}else{
+					ResetMovementVariables();
 				}
 
 				if(myRigidBody2D.velocity.y < -0.2f){
@@ -169,12 +161,15 @@ public class MagicCat : Cat {
 				}
 
 				lastLookingDirection = isLookingRight;
+
+			}else{
+				ResetMovementVariables();
 			}
 		}else{
 			if(levitate){
 				CancelLevitate();
 			}
-			Idle();
+			ResetMovementVariables();
 		}
 
 		if(returningAfterFalling){
@@ -222,18 +217,17 @@ public class MagicCat : Cat {
 		}
 	}
 
-    private void FixedUpdate()
-    {
-
-//		if(!levitate){
-//		    if(isFalling){
-//				myRigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallGravityMultiplier - 1) * Time.deltaTime; 
-//			}else if(myRigidBody2D.velocity.y > 0 && !(Input.GetKey (jumpKey) || Input.GetButton(jumpGamepadButton))){
-//				myRigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpGravityMultiplier - 1) * Time.deltaTime; 
-//		    }
-//	    }
-
-   	}
+	void FixedUpdate(){
+		if(!isAttacking && !isPulsing && !isDying && !freakoutMode){
+			if (movedRight) {
+				MoveRight ();
+			} else if (movedLeft) {
+				MoveLeft ();
+			} else {
+				Idle ();
+			}
+		}
+	}
 
 	void Levitate(){
 

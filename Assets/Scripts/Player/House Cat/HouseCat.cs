@@ -23,11 +23,15 @@ public class HouseCat : Cat {
 				if(!isAttacking){
 
 					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
-						MoveRight ();
+						movedLeft = false;
+						movedRight = true;
+
 					} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-						MoveLeft ();
+						movedLeft = true;
+						movedRight = false;
+
 					} else {
-						Idle();
+						ResetMovementVariables();
 					}
 
 					if((Input.GetKeyDown (jumpKey) || Input.GetButtonDown(jumpGamepadButton)) && !isNearPortal){
@@ -48,6 +52,8 @@ public class HouseCat : Cat {
 						EnterPortal();
 					}
 
+				}else{
+					ResetMovementVariables();
 				}
 
 				if(myRigidBody2D.velocity.y < -1){
@@ -55,6 +61,8 @@ public class HouseCat : Cat {
 				}
 
 			}
+		}else{
+			ResetMovementVariables();
 		}
 
 		if (invulnerableTimeStamp < Time.time) {
@@ -76,6 +84,19 @@ public class HouseCat : Cat {
 			//animator.SetBool("dying",true);
 		}
 	}
+
+	void FixedUpdate(){
+		if(!isAttacking && !isDying){
+			if (movedRight) {
+				MoveRight ();
+			} else if (movedLeft) {
+				MoveLeft ();
+			} else {
+				Idle ();
+			}
+		}
+	}
+
 
 	void EnterPortal(){
 		if(nearestPortal != null){

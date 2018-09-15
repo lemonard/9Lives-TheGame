@@ -38,8 +38,6 @@ public class ArcheologistCat : Cat {
 	public bool isCharging;
 	public bool charged;
 
-	private bool movedRight;
-	private bool movedLeft;
 	private float initialSpeed;
 	// Use this for initialization
 	protected override void Start ()
@@ -60,15 +58,22 @@ public class ArcheologistCat : Cat {
 
 				if (!isAttacking && !isShooting) {
 
-					if (!isCharging && !isPulling && !isPushing) {
-						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
-							MoveRight ();
-						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-							MoveLeft ();
-						} else {
-							Idle ();
-						}
-					} else if (isCharging && !isPulling && !isPushing) {
+
+					if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
+						movedLeft = false;
+						movedRight = true;
+
+					} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
+						movedLeft = true;
+						movedRight = false;
+
+					} else {
+						ResetMovementVariables();
+
+					}
+
+					if (isCharging && !isPulling && !isPushing) {
+
 						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
 							isLookingRight = true;
 							ChangeLookingDirection ();
@@ -76,23 +81,8 @@ public class ArcheologistCat : Cat {
 							isLookingRight = false;
 							ChangeLookingDirection ();
 						}
-					} else if (!isCharging && isPulling && !isPushing) {
-						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
-							MoveRightWhilePulling ();
-						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-							MoveLeftWhilePulling ();
-						} else if (!Input.GetKey (moveRightKey) && !Input.GetKey (moveLeftKey) && !(Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) && !(Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-							isWalking = false;
-						}
-					} else if (!isCharging && !isPulling && isPushing) {
-						if (Input.GetKey (moveRightKey) || (Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f)) {
-							MoveRightWhilePushing ();
-						} else if (Input.GetKey (moveLeftKey) || (Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-							MoveLeftWhilePushing ();
-						} else if (!Input.GetKey (moveRightKey) && !Input.GetKey (moveLeftKey) && !(Input.GetAxis (moveHorizontalGamepadAxis) >= 0.5f) && !(Input.GetAxis (moveHorizontalGamepadAxis) <= -0.5f)) {
-							isWalking = false;
-						}
-					}
+
+					} 
 
 					if ((Input.GetKeyDown (jumpKey) || Input.GetButtonDown (jumpGamepadButton)) && !isCharging && !isPulling) {
 						if (!isFalling) {
@@ -107,14 +97,10 @@ public class ArcheologistCat : Cat {
 					}
 
 					if ((Input.GetKeyDown (attackKey) || Input.GetButtonDown (attackGamepadButton)) && !isJumping && !isPulling && !isPushing) {
-						movedLeft = false;
-						movedRight = false;
 						StartCharging ();
 					}
 
 					if ((Input.GetKey (attackKey) || Input.GetButton (attackGamepadButton)) && isCharging) {
-						movedLeft = false;
-						movedRight = false;
 						if (chargingElapsedTime < timeToChargeWhipAttack) {
 							chargingElapsedTime += Time.deltaTime;
 						} else {
@@ -125,8 +111,6 @@ public class ArcheologistCat : Cat {
 					}
 
 					if ((Input.GetKeyUp (attackKey) || Input.GetButtonUp (attackGamepadButton)) && !isJumping && !isPulling) {
-						movedLeft = false;
-						movedRight = false;
 						if (charged) {
 							StartChargedAttack ();
 						} else {
@@ -135,8 +119,6 @@ public class ArcheologistCat : Cat {
 					}
 
 					if ((Input.GetKeyDown (gunKey) || Input.GetButtonDown (gunGamepadButton)) && !isJumping && !isFalling && !isPulling) {
-						movedLeft = false;
-						movedRight = false;
 						StartShootingGun ();
 					}
 
@@ -168,17 +150,21 @@ public class ArcheologistCat : Cat {
 						}
 					}
 
+				}else{
+					ResetMovementVariables();
 				}
 
 				if (myRigidBody2D.velocity.y < -1) {
 					isFalling = true;
 				}
 
+			}else{
+				ResetMovementVariables();
 			}
 
 			CheckInvulnerableTimeStamp ();
 		} else {
-			Idle ();
+			ResetMovementVariables();
 		}
 
 
@@ -193,11 +179,37 @@ public class ArcheologistCat : Cat {
 	}
 
 	void FixedUpdate(){
+		if (!isAttacking && !isShooting) {
+			if (!isCharging && !isPulling && !isPushing){
+				if(movedRight){
+					MoveRight();	
+				}else if(movedLeft){
+					MoveLeft();
+				}else{
+					Idle();
+				}
+			}else if (!isCharging && isPulling && !isPushing) {
 
-		if(movedRight){
-			MoveRight();	
-		}else if(movedLeft){
-			MoveLeft();
+				if (movedRight) {
+					MoveRightWhilePulling ();
+				} else if (movedLeft) {
+					MoveLeftWhilePulling ();
+				} else {
+					isWalking = false;
+				}
+
+			}else if (!isCharging && !isPulling && isPushing) {
+
+				if (movedRight) {
+					MoveRightWhilePushing ();
+				} else if (movedLeft) {
+					MoveLeftWhilePushing ();
+				} else {
+					isWalking = false;
+				}
+			}
+		}else{
+			Idle();
 		}
 
 	}

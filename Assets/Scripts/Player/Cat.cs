@@ -83,6 +83,8 @@ public class Cat : MonoBehaviour {
 
 	public Vector3 sourceOfDamagePosition;
 
+	protected bool movedLeft;
+	protected bool movedRight;
 
     // Use this for initialization
     protected virtual void Start () {
@@ -420,6 +422,10 @@ public class Cat : MonoBehaviour {
 		justJumped = false;
 	}
 
+	protected virtual void ResetMovementVariables(){
+		movedLeft = false;
+		movedRight = false;
+	}
 }
 
 /*

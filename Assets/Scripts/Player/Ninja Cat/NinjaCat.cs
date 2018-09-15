@@ -20,8 +20,7 @@ public class NinjaCat : Cat {
 	public bool wallSliding;
 	public bool wallJumping;
 
-	private bool movedLeft;
-	private bool movedRight;
+
 
 	private bool slidingWallLeft; //Defines if the wall that the cat is sliding is on the left side or the right side
 
@@ -55,9 +54,7 @@ public class NinjaCat : Cat {
 							movedRight = false;
 
 						} else {
-							movedLeft = false;
-							movedRight = false;
-
+							ResetMovementVariables();
 						}
 					}
 
@@ -100,6 +97,8 @@ public class NinjaCat : Cat {
 					}
 
 
+				}else{
+					ResetMovementVariables();
 				}
 
 				if (myRigidBody2D.velocity.y < -1) {
@@ -110,7 +109,7 @@ public class NinjaCat : Cat {
 
 			CheckInvulnerableTimeStamp ();
 		} else {
-			Idle ();
+			ResetMovementVariables();
 		}
 
 
@@ -125,12 +124,14 @@ public class NinjaCat : Cat {
 	}
 
 	void FixedUpdate(){
-		if (movedRight) {
-			MoveRight ();
-		} else if (movedLeft) {
-			MoveLeft ();
-		} else {
-			Idle ();
+		if(!isDying && !freakoutMode && !isAttacking && !wallJumping){
+			if (movedRight) {
+				MoveRight ();
+			} else if (movedLeft) {
+				MoveLeft ();
+			} else {
+				Idle ();
+			}
 		}
 	}
 
