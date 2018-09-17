@@ -128,7 +128,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 712
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -140,9 +140,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 155
+        x: 160
         y: 712
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -154,9 +154,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 310
+        x: 320
         y: 712
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -168,9 +168,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 465
+        x: 480
         y: 712
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -182,9 +182,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 620
+        x: 640
         y: 712
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -198,7 +198,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 534
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -210,9 +210,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_6
       rect:
         serializedVersion: 2
-        x: 155
+        x: 160
         y: 534
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -224,9 +224,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 310
+        x: 320
         y: 534
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -238,9 +238,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 465
+        x: 480
         y: 534
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -252,9 +252,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_9
       rect:
         serializedVersion: 2
-        x: 620
+        x: 640
         y: 534
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -268,7 +268,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 356
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -280,9 +280,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_11
       rect:
         serializedVersion: 2
-        x: 155
+        x: 160
         y: 356
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -294,9 +294,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_12
       rect:
         serializedVersion: 2
-        x: 310
+        x: 320
         y: 356
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -308,9 +308,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_13
       rect:
         serializedVersion: 2
-        x: 465
+        x: 480
         y: 356
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -322,9 +322,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_14
       rect:
         serializedVersion: 2
-        x: 620
+        x: 640
         y: 356
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -338,7 +338,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 178
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -350,9 +350,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_16
       rect:
         serializedVersion: 2
-        x: 155
+        x: 160
         y: 178
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -364,9 +364,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_17
       rect:
         serializedVersion: 2
-        x: 310
+        x: 320
         y: 178
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -378,9 +378,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_18
       rect:
         serializedVersion: 2
-        x: 465
+        x: 480
         y: 178
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -392,9 +392,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_19
       rect:
         serializedVersion: 2
-        x: 620
+        x: 640
         y: 178
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -408,7 +408,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -420,9 +420,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_21
       rect:
         serializedVersion: 2
-        x: 155
+        x: 160
         y: 0
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -434,9 +434,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_22
       rect:
         serializedVersion: 2
-        x: 310
+        x: 320
         y: 0
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -448,9 +448,9 @@ TextureImporter:
       name: Dog-Samurai_Idle_spritesheet_23
       rect:
         serializedVersion: 2
-        x: 465
+        x: 480
         y: 0
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}

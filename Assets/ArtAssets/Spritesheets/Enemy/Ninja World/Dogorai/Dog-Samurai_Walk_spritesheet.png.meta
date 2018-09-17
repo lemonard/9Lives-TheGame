@@ -119,9 +119,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 510
-        width: 150
-        height: 170
+        y: 534
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,10 +132,10 @@ TextureImporter:
       name: Dog-Samurai_Walk_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 150
-        y: 510
-        width: 150
-        height: 170
+        x: 160
+        y: 534
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: Dog-Samurai_Walk_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 300
-        y: 510
-        width: 150
-        height: 170
+        x: 320
+        y: 534
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,10 +160,10 @@ TextureImporter:
       name: Dog-Samurai_Walk_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 450
-        y: 510
-        width: 150
-        height: 170
+        x: 480
+        y: 534
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,9 +175,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 340
-        width: 150
-        height: 170
+        y: 356
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: Dog-Samurai_Walk_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 150
-        y: 340
-        width: 150
-        height: 170
+        x: 160
+        y: 356
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +202,10 @@ TextureImporter:
       name: Dog-Samurai_Walk_spritesheet_6
       rect:
         serializedVersion: 2
-        x: 300
-        y: 340
-        width: 150
-        height: 170
+        x: 320
+        y: 356
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: Dog-Samurai_Walk_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 450
-        y: 340
-        width: 150
-        height: 170
+        x: 480
+        y: 356
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,9 +231,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 170
-        width: 150
-        height: 170
+        y: 178
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +244,10 @@ TextureImporter:
       name: Dog-Samurai_Walk_spritesheet_9
       rect:
         serializedVersion: 2
-        x: 150
-        y: 170
-        width: 150
-        height: 170
+        x: 160
+        y: 178
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,10 +258,10 @@ TextureImporter:
       name: Dog-Samurai_Walk_spritesheet_10
       rect:
         serializedVersion: 2
-        x: 300
-        y: 170
-        width: 150
-        height: 170
+        x: 320
+        y: 178
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,10 +272,10 @@ TextureImporter:
       name: Dog-Samurai_Walk_spritesheet_11
       rect:
         serializedVersion: 2
-        x: 450
-        y: 170
-        width: 150
-        height: 170
+        x: 480
+        y: 178
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,8 +288,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 150
-        height: 170
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,10 +300,10 @@ TextureImporter:
       name: Dog-Samurai_Walk_spritesheet_13
       rect:
         serializedVersion: 2
-        x: 150
+        x: 160
         y: 0
-        width: 150
-        height: 170
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,10 +314,10 @@ TextureImporter:
       name: Dog-Samurai_Walk_spritesheet_14
       rect:
         serializedVersion: 2
-        x: 300
+        x: 320
         y: 0
-        width: 150
-        height: 170
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,10 +328,10 @@ TextureImporter:
       name: Dog-Samurai_Walk_spritesheet_15
       rect:
         serializedVersion: 2
-        x: 450
+        x: 480
         y: 0
-        width: 150
-        height: 170
+        width: 160
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

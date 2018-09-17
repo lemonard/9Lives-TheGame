@@ -117,7 +117,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 712
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -129,9 +129,9 @@ TextureImporter:
       name: Dog-Samurai_Attack_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 252
+        x: 300
         y: 712
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -143,9 +143,9 @@ TextureImporter:
       name: Dog-Samurai_Attack_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 504
+        x: 600
         y: 712
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -159,7 +159,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 534
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -171,9 +171,9 @@ TextureImporter:
       name: Dog-Samurai_Attack_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 252
+        x: 300
         y: 534
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -185,9 +185,9 @@ TextureImporter:
       name: Dog-Samurai_Attack_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 504
+        x: 600
         y: 534
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -201,7 +201,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 356
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -213,9 +213,9 @@ TextureImporter:
       name: Dog-Samurai_Attack_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 252
+        x: 300
         y: 356
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -227,9 +227,9 @@ TextureImporter:
       name: Dog-Samurai_Attack_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 504
+        x: 600
         y: 356
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -243,7 +243,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 178
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -255,9 +255,9 @@ TextureImporter:
       name: Dog-Samurai_Attack_spritesheet_10
       rect:
         serializedVersion: 2
-        x: 252
+        x: 300
         y: 178
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -269,9 +269,9 @@ TextureImporter:
       name: Dog-Samurai_Attack_spritesheet_11
       rect:
         serializedVersion: 2
-        x: 504
+        x: 600
         y: 178
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -285,7 +285,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 252
+        width: 300
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}

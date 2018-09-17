@@ -114,7 +114,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 534
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -126,9 +126,9 @@ TextureImporter:
       name: Dog-Samurai_Run_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 155
+        x: 160
         y: 534
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -140,9 +140,9 @@ TextureImporter:
       name: Dog-Samurai_Run_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 310
+        x: 320
         y: 534
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -156,7 +156,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 356
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -168,9 +168,9 @@ TextureImporter:
       name: Dog-Samurai_Run_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 155
+        x: 160
         y: 356
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -182,9 +182,9 @@ TextureImporter:
       name: Dog-Samurai_Run_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 310
+        x: 320
         y: 356
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -198,7 +198,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 178
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -210,9 +210,9 @@ TextureImporter:
       name: Dog-Samurai_Run_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 155
+        x: 160
         y: 178
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -224,9 +224,9 @@ TextureImporter:
       name: Dog-Samurai_Run_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 310
+        x: 320
         y: 178
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -240,7 +240,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 155
+        width: 160
         height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
