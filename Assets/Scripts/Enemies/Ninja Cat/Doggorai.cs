@@ -12,13 +12,14 @@ public class Doggorai : LightSearchingEnemy {
 
 	float currentSpeed;
 
-	public Collider2D rightAttackCollider;
-	public Collider2D leftAttackCollider;
+	public Collider2D attackCollider;
 
 	public Transform rightThreshold; 
 	public Transform leftThreshold;
 
 	private bool attackDelay;
+
+	private Coroutine checkTargetCoroutine;
 	// Use this for initialization
 	void Start () {
 		EnemyInitialize();
@@ -109,18 +110,9 @@ public class Doggorai : LightSearchingEnemy {
 	void Run(){
 
 
-		if (target.transform.position.x > transform.position.x)
-        {
-            lookingRight = true;
-            mySpriteRenderer.flipX = true;
-			searchingLight.transform.localScale = new Vector3(-1,1,1);
-        }
-        else
-        {
-            lookingRight = false;
-            mySpriteRenderer.flipX = false;
-			searchingLight.transform.localScale = new Vector3(1,1,1);
-        }
+		if(checkTargetCoroutine == null){
+			checkTargetCoroutine = StartCoroutine(CheckTargetPosition());
+		}
 
 		if(lookingRight){
 			GetComponent<Rigidbody2D>().transform.position += Vector3.right * runningSpeed * Time.deltaTime;
@@ -129,16 +121,39 @@ public class Doggorai : LightSearchingEnemy {
 		}
 	}
 
+	IEnumerator CheckTargetPosition(){
+
+		while(running){
+
+			if (target.transform.position.x > transform.position.x)
+	        {
+	            lookingRight = true;
+				transform.localScale = new Vector3(-1,1,1);
+
+	        }
+	        else
+	        {
+	            lookingRight = false;
+				transform.localScale = new Vector3(1,1,1);
+
+	        }
+
+			yield return new WaitForSeconds(1f);
+
+		}
+
+	}
+
 	void ChangeRoamingDirection(){
 
 		if(lookingRight){
 			lookingRight = false;
-			mySpriteRenderer.flipX = false;
-			searchingLight.transform.localScale = new Vector3(1,1,1);
+			transform.localScale = new Vector3(1,1,1);
+
 		}else{
 			lookingRight = true;
-			mySpriteRenderer.flipX = true;
-			searchingLight.transform.localScale = new Vector3(-1,1,1);
+			transform.localScale = new Vector3(-1,1,1);
+	
 		}
 
 	}
@@ -168,14 +183,12 @@ public class Doggorai : LightSearchingEnemy {
 	void ActivateAttackCollider()
     {
 
-        if (lookingRight)
-        {
-            rightAttackCollider.enabled = true;
-        }
-        else
-        {
-            leftAttackCollider.enabled = true;
-        }
+        attackCollider.enabled = true;
+ 
+    }
+
+    void DeactivateAttackCollider(){
+		attackCollider.enabled = false;
     }
 
 	void FinishAttack(){
@@ -186,10 +199,10 @@ public class Doggorai : LightSearchingEnemy {
 
 	void Die(){
 
-
 		PlayDeathSound();
+		myAnimator.Play("Death");
         dying = true;
-        Destroy(GetComponent<Collider2D>());
+ 
 	}
 
 	void OnBecameVisible()

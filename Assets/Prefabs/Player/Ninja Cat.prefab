@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4498698556862488}
   - component: {fileID: 61203301044908084}
+  - component: {fileID: 114706395413750040}
   m_Layer: 0
   m_Name: RightAttackCollider
   m_TagString: Untagged
@@ -78,6 +79,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1473492360917406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4869074260750110}
+  - component: {fileID: 58698456629626410}
+  m_Layer: 16
+  m_Name: ShurikenCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1640525950824396
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4555664703609046}
   - component: {fileID: 61046321552636506}
+  - component: {fileID: 114407780793430872}
   m_Layer: 0
   m_Name: LeftAttackCollider
   m_TagString: Untagged
@@ -153,6 +171,7 @@ Transform:
   - {fileID: 4159200634709318}
   - {fileID: 4284042970790230}
   - {fileID: 4504679554778404}
+  - {fileID: 4869074260750110}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -221,6 +240,19 @@ Transform:
   m_Father: {fileID: 4213653118506398}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4869074260750110
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473492360917406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4213653118506398}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50638281055435060
 Rigidbody2D:
   serializedVersion: 4
@@ -241,6 +273,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58698456629626410
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473492360917406}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.4}
+  serializedVersion: 2
+  m_Radius: 0.31
 --- !u!61 &61046321552636506
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -402,6 +449,18 @@ MonoBehaviour:
   isShuriken: 0
   wallSliding: 0
   wallJumping: 0
+--- !u!114 &114407780793430872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1855875435143360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117de16ec5fd07f4688b9cd0a492918f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!114 &114576167756993034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -416,6 +475,18 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   healthText: {fileID: 0}
   numOfLives: 5
+--- !u!114 &114706395413750040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1012453779418828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117de16ec5fd07f4688b9cd0a492918f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!212 &212116932525467900
 SpriteRenderer:
   m_ObjectHideFlags: 1
